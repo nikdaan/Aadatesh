@@ -89,6 +89,49 @@
         .glass-border {
             border: 1px solid var(--border-glass) !important;
         }
+        /* استایل اختصاصی و واضح برای دکمه‌های انتخاب علت وسوسه و عادت (رفع تداخل !important) */
+        .chip-selected-emerald {
+            background-color: rgba(16, 185, 129, 0.22) !important;
+            border: 1.5px solid #10B981 !important;
+            color: #10B981 !important;
+            font-weight: 800 !important;
+            box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.35);
+            transform: scale(1.03);
+        }
+        html.light .chip-selected-emerald {
+            background-color: rgba(16, 185, 129, 0.18) !important;
+            border: 1.5px solid #059669 !important;
+            color: #047857 !important;
+        }
+        .chip-selected-red {
+            background-color: rgba(244, 63, 94, 0.22) !important;
+            border: 1.5px solid #F43F5E !important;
+            color: #F43F5E !important;
+            font-weight: 800 !important;
+            box-shadow: 0 0 15px -3px rgba(244, 63, 94, 0.35);
+            transform: scale(1.03);
+        }
+        html.light .chip-selected-red {
+            background-color: rgba(244, 63, 94, 0.16) !important;
+            border: 1.5px solid #E11D48 !important;
+            color: #BE123C !important;
+        }
+        /* رعایت حاشیه امن (Safe Area) برای آیفون (Notch / Dynamic Island) و اندروید */
+        .safe-main-container {
+            padding-top: max(1rem, calc(env(safe-area-inset-top, 0px) + 0.75rem));
+            padding-bottom: calc(7.5rem + env(safe-area-inset-bottom, 0px));
+            padding-left: max(1rem, env(safe-area-inset-left, 0px));
+            padding-right: max(1rem, env(safe-area-inset-right, 0px));
+        }
+        .safe-modal-overlay {
+            padding-top: max(1.25rem, calc(env(safe-area-inset-top, 0px) + 0.75rem));
+            padding-bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
+            padding-left: max(1rem, env(safe-area-inset-left, 0px));
+            padding-right: max(1rem, env(safe-area-inset-right, 0px));
+        }
+        .safe-bottom-bar {
+            bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.5rem));
+        }
         html.light .bg-appBg,
         html.light .bg-appBg\/70,
         html.light .bg-appBg\/60,
@@ -224,11 +267,11 @@
         </div>
     </div>
 
-    <!-- MAIN MOBILE-FIRST CONTAINER -->
-    <div id="app-container" class="w-full max-w-md min-h-screen pb-28 px-4 pt-4 flex flex-col gap-5 relative">
+    <!-- MAIN RESPONSIVE CONTAINER (MOBILE-FIRST + DESKTOP 2-COLUMN DASHBOARD) -->
+    <div id="app-container" class="w-full max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-6xl min-h-screen safe-main-container lg:px-8 flex flex-col gap-5 relative mx-auto">
 
         <!-- TOP HEADER -->
-        <header class="flex items-center justify-between py-2">
+        <header class="flex items-center justify-between py-2 lg:py-3 lg:px-5 lg:glass-card lg:rounded-3xl">
             <div class="flex items-center gap-2.5">
                 <div class="w-11 h-11 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 flex items-center justify-center shadow-inner p-1.5">
                     <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -239,8 +282,8 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <h1 class="text-xl font-black tracking-tight text-snowWhite">عادَتِش</h1>
-                        <span id="header-habit-badge" class="text-xs font-medium px-2.5 py-0.5 rounded-full glass-card text-emeraldAccent border border-emeraldAccent/30 truncate max-w-[140px]">
+                        <h1 class="text-xl lg:text-2xl font-black tracking-tight text-snowWhite">عادَتِش</h1>
+                        <span id="header-habit-badge" class="text-xs font-medium px-2.5 py-0.5 rounded-full glass-card text-emeraldAccent border border-emeraldAccent/30 truncate max-w-[140px] sm:max-w-[240px]">
                             در حال بارگذاری...
                         </span>
                     </div>
@@ -268,245 +311,259 @@
             </div>
         </header>
 
-        <!-- HERO SECTION: LIVE STREAK & CLEAN RATE -->
-        <section class="glass-card hero-radial-glow rounded-3xl p-6 emerald-glow relative overflow-hidden">
-            <div class="flex items-center justify-between gap-2 mb-3">
-                <span id="phase-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 whitespace-nowrap truncate">
-                    فاز ۱: سم‌زدایی و تعادل
-                </span>
-                <div class="flex items-center gap-1 text-[11px] text-mutedGray whitespace-nowrap shrink-0">
-                    <span>پیروزی بر وسوسه:</span>
-                    <span id="sos-victory-count" class="font-bold text-emeraldAccent">۰</span>
-                </div>
-            </div>
+        <!-- DESKTOP 2-COLUMN GRID / MOBILE STACK -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
 
-            <div class="text-center my-4">
-                <h2 id="hero-day-title" class="text-3xl font-black text-snowWhite tracking-tight mb-1">
-                    روز ۰ آزادی
-                </h2>
-                <p class="text-xs text-mutedGray">لحظه‌به‌لحظه در حال ساختن مسیرهای عصبی جدید</p>
-            </div>
+            <!-- RIGHT COLUMN ON DESKTOP (PRIMARY METRICS, CHAIN & MILESTONES) -->
+            <div class="lg:col-span-7 flex flex-col gap-5">
 
-            <!-- Live Counter Grid -->
-            <div class="grid grid-cols-4 gap-2.5 my-5 text-center" dir="ltr">
-                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
-                    <div id="timer-days" class="text-2xl font-black text-emeraldAccent">۰</div>
-                    <div class="text-[11px] text-mutedGray mt-0.5">روز</div>
-                </div>
-                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
-                    <div id="timer-hours" class="text-2xl font-black text-snowWhite">۰۰</div>
-                    <div class="text-[11px] text-mutedGray mt-0.5">ساعت</div>
-                </div>
-                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
-                    <div id="timer-minutes" class="text-2xl font-black text-snowWhite">۰۰</div>
-                    <div class="text-[11px] text-mutedGray mt-0.5">دقیقه</div>
-                </div>
-                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
-                    <div id="timer-seconds" class="text-2xl font-black text-oliveAccent">۰۰</div>
-                    <div class="text-[11px] text-mutedGray mt-0.5">ثانیه</div>
-                </div>
-            </div>
-
-            <!-- Clean Rate Bar -->
-            <div class="mt-4">
-                <div class="flex justify-between items-center text-xs mb-1.5">
-                    <span id="clean-rate-label" class="font-semibold text-snowWhite">نرخ پاکی: ۱۰۰٪ (بدون ناامیدی با لغزش)</span>
-                    <span id="relapse-count-badge" class="text-[11px] text-mutedGray">۰ لغزش ثبت‌شده</span>
-                </div>
-                <div class="w-full h-2.5 bg-appBg rounded-full overflow-hidden p-0.5 glass-border">
-                    <div id="clean-rate-bar" class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: 100%"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SAVED METRICS (2 COLUMNS) -->
-        <section class="grid grid-cols-2 gap-3.5">
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs text-mutedGray font-medium">دارایی نجات‌یافته</span>
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/10 flex items-center justify-center text-emeraldAccent">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                <!-- HERO SECTION: LIVE STREAK & CLEAN RATE -->
+                <section class="glass-card hero-radial-glow rounded-3xl p-6 lg:p-7 emerald-glow relative overflow-hidden">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span id="phase-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 whitespace-nowrap truncate">
+                            فاز ۱: سم‌زدایی و تعادل
+                        </span>
+                        <div class="flex items-center gap-1 text-[11px] text-mutedGray whitespace-nowrap shrink-0">
+                            <span>پیروزی بر وسوسه:</span>
+                            <span id="sos-victory-count" class="font-bold text-emeraldAccent">۰</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div id="metric-saved-money" class="text-lg font-extrabold text-snowWhite truncate">۰</div>
-                    <div class="text-[11px] text-emeraldAccent mt-0.5">تومان پس‌انداز</div>
-                </div>
-            </div>
 
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs text-mutedGray font-medium">زمان نجات‌یافته</span>
-                    <div class="w-8 h-8 rounded-xl bg-oliveAccent/10 flex items-center justify-center text-oliveAccent">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="text-center my-4 lg:my-6">
+                        <h2 id="hero-day-title" class="text-3xl lg:text-4xl font-black text-snowWhite tracking-tight mb-1">
+                            روز ۰ آزادی
+                        </h2>
+                        <p class="text-xs text-mutedGray">لحظه‌به‌لحظه در حال ساختن مسیرهای عصبی جدید</p>
                     </div>
-                </div>
-                <div>
-                    <div id="metric-saved-time" class="text-lg font-extrabold text-snowWhite truncate">۰ ساعت</div>
-                    <div class="text-[11px] text-oliveAccent mt-0.5">عمر مفید بازگشته</div>
-                </div>
-            </div>
-        </section>
 
-        <!-- NEW FEATURE: PERSONAL WISHLIST / GOAL BOX -->
-        <section class="glass-card rounded-2xl p-4">
-            <div class="flex items-center justify-between mb-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-emeraldAccent/15 text-emeraldAccent flex items-center justify-center">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
-                        </svg>
+                    <!-- Live Counter Grid -->
+                    <div class="grid grid-cols-4 gap-2.5 lg:gap-4 my-5 text-center" dir="ltr">
+                        <div class="bg-appBg/70 glass-border rounded-2xl py-3 lg:py-4 px-1">
+                            <div id="timer-days" class="text-2xl lg:text-3xl font-black text-emeraldAccent">۰</div>
+                            <div class="text-[11px] text-mutedGray mt-0.5">روز</div>
+                        </div>
+                        <div class="bg-appBg/70 glass-border rounded-2xl py-3 lg:py-4 px-1">
+                            <div id="timer-hours" class="text-2xl lg:text-3xl font-black text-snowWhite">۰۰</div>
+                            <div class="text-[11px] text-mutedGray mt-0.5">ساعت</div>
+                        </div>
+                        <div class="bg-appBg/70 glass-border rounded-2xl py-3 lg:py-4 px-1">
+                            <div id="timer-minutes" class="text-2xl lg:text-3xl font-black text-snowWhite">۰۰</div>
+                            <div class="text-[11px] text-mutedGray mt-0.5">دقیقه</div>
+                        </div>
+                        <div class="bg-appBg/70 glass-border rounded-2xl py-3 lg:py-4 px-1">
+                            <div id="timer-seconds" class="text-2xl lg:text-3xl font-black text-oliveAccent">۰۰</div>
+                            <div class="text-[11px] text-mutedGray mt-0.5">ثانیه</div>
+                        </div>
                     </div>
-                    <h3 class="text-xs font-extrabold text-snowWhite">صندوق پاداش شخصی</h3>
-                </div>
-                <button id="btn-open-goal-modal" type="button" class="text-[11px] font-bold text-emeraldAccent hover:underline">
-                    تنظیم هدف خرید
-                </button>
-            </div>
-            <div id="goal-box-content">
-                <!-- Populated dynamically via JS -->
-            </div>
-        </section>
 
-        <!-- NEW FEATURE: 30-DAY VISUAL HABIT CHAIN GRID -->
-        <section class="glass-card rounded-2xl p-5">
-            <div class="flex items-center justify-between mb-3">
-                <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
-                    <span>زنجیره ۳۰ روز اخیر (زنجیره رو نشکن!)</span>
-                </h3>
-                <div class="flex items-center gap-2.5 text-[10px] text-mutedGray">
-                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-emeraldAccent inline-block"></i>پاک</span>
-                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-amber-400 inline-block"></i>مهار وسوسه</span>
-                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-sosRed inline-block"></i>لغزش</span>
-                </div>
-            </div>
-            <div id="habit-chain-grid" class="grid grid-cols-10 gap-1.5" dir="ltr">
-                <!-- 30 cells rendered via JS -->
-            </div>
-        </section>
+                    <!-- Clean Rate Bar -->
+                    <div class="mt-4">
+                        <div class="flex justify-between items-center text-xs mb-1.5">
+                            <span id="clean-rate-label" class="font-semibold text-snowWhite">نرخ پاکی: ۱۰۰٪ (بدون ناامیدی با لغزش)</span>
+                            <span id="relapse-count-badge" class="text-[11px] text-mutedGray">۰ لغزش ثبت‌شده</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-appBg rounded-full overflow-hidden p-0.5 glass-border">
+                            <div id="clean-rate-bar" class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- NEW FEATURE: MILESTONES & BRAIN RECOVERY BARS -->
-        <section class="glass-card rounded-2xl p-5 space-y-5">
-            <!-- Badges Row -->
-            <div>
-                <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-1.5">
-                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/>
+                <!-- SAVED METRICS (2 COLUMNS) -->
+                <section class="grid grid-cols-2 gap-3.5">
+                    <div class="glass-card rounded-2xl p-4 lg:p-5 flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs text-mutedGray font-medium">دارایی نجات‌یافته</span>
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/10 flex items-center justify-center text-emeraldAccent">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="metric-saved-money" class="text-lg lg:text-xl font-extrabold text-snowWhite truncate">۰</div>
+                            <div class="text-[11px] text-emeraldAccent mt-0.5">تومان پس‌انداز</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 lg:p-5 flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs text-mutedGray font-medium">زمان نجات‌یافته</span>
+                            <div class="w-8 h-8 rounded-xl bg-oliveAccent/10 flex items-center justify-center text-oliveAccent">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="metric-saved-time" class="text-lg lg:text-xl font-extrabold text-snowWhite truncate">۰ ساعت</div>
+                            <div class="text-[11px] text-oliveAccent mt-0.5">عمر مفید بازگشته</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PERSONAL WISHLIST / GOAL BOX -->
+                <section class="glass-card rounded-2xl p-4 lg:p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-lg bg-emeraldAccent/15 text-emeraldAccent flex items-center justify-center">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xs font-extrabold text-snowWhite">صندوق پاداش شخصی</h3>
+                        </div>
+                        <button id="btn-open-goal-modal" type="button" class="text-[11px] font-bold text-emeraldAccent hover:underline">
+                            تنظیم هدف خرید
+                        </button>
+                    </div>
+                    <div id="goal-box-content">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </section>
+
+                <!-- 30-DAY VISUAL HABIT CHAIN GRID -->
+                <section class="glass-card rounded-2xl p-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                            <span>زنجیره ۳۰ روز اخیر (زنجیره رو نشکن!)</span>
+                        </h3>
+                        <div class="flex items-center gap-2.5 text-[10px] text-mutedGray">
+                            <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-emeraldAccent inline-block"></i>پاک</span>
+                            <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-amber-400 inline-block"></i>مهار وسوسه</span>
+                            <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-sosRed inline-block"></i>لغزش</span>
+                        </div>
+                    </div>
+                    <div id="habit-chain-grid" class="grid grid-cols-10 gap-1.5 lg:gap-2" dir="ltr">
+                        <!-- 30 cells rendered via JS -->
+                    </div>
+                </section>
+
+                <!-- MILESTONES & BRAIN RECOVERY BARS -->
+                <section class="glass-card rounded-2xl p-5 space-y-5">
+                    <!-- Badges Row -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/>
+                                </svg>
+                                <span>نشان‌های افتخار و تکامل</span>
+                            </h3>
+                            <span id="badges-unlocked-summary" class="text-[11px] text-emeraldAccent font-bold">۰ از ۷ باز شده</span>
+                        </div>
+                        <div id="milestones-grid" class="grid grid-cols-7 gap-1.5 lg:gap-2 text-center">
+                            <!-- Populated via JS -->
+                        </div>
+                        <div id="milestone-detail-box" class="mt-2.5 p-2.5 rounded-xl bg-appBg/60 glass-border text-[11px] text-mutedGray leading-5">
+                            روی هر نشان کلیک کن تا تغییرات مغز در آن روز را ببینی.
+                        </div>
+                    </div>
+
+                    <!-- Health & Brain Recovery Progress Bars -->
+                    <div class="border-t border-white/10 pt-4">
+                        <h4 class="text-xs font-extrabold text-snowWhite mb-3">تایم‌لاین ترمیم زیستی مغز و اعصاب</h4>
+                        <div id="recovery-bars-container" class="space-y-3">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- LEFT COLUMN ON DESKTOP (ANALYTICS, QUOTES, CAPSULES & RELAPSE) -->
+            <div class="lg:col-span-5 flex flex-col gap-5">
+
+                <!-- ACHILLES HEEL / TRIGGER TRACKER -->
+                <section class="glass-card rounded-2xl p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
+                            <svg class="w-4 h-4 text-sosRed" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                            </svg>
+                            <span>رادار پاشنه آشیل (کالبدشکافی محرک‌ها)</span>
+                        </h3>
+                        <span id="trigger-total-count" class="text-[10px] text-mutedGray">۰ ثبت</span>
+                    </div>
+                    <p id="trigger-insight-text" class="text-xs text-mutedGray leading-6 mb-3">
+                        با ثبت دلیل وسوسه در زمان SOS یا لغزش، الگوی پنهان مغزت اینجا تحلیل می‌شود.
+                    </p>
+                    <div id="trigger-bars-list" class="space-y-2">
+                        <!-- Populated via JS -->
+                    </div>
+                </section>
+
+                <!-- QUOTE OF THE DAY CARD -->
+                <section class="glass-card rounded-2xl p-5 relative">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                            <h3 class="text-xs font-bold text-mutedGray">پیام نوروساینس روز</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button id="btn-show-bookmarks" type="button" title="جملات نشان‌شده" class="text-xs text-mutedGray hover:text-snowWhite px-2 py-1 rounded-lg bg-appBg/60 glass-border flex items-center gap-1 transition">
+                                <span>نشان‌شده‌ها</span>
+                                <span id="bookmark-count-badge" class="text-emeraldAccent font-bold">(۰)</span>
+                            </button>
+                            <button id="btn-next-quote" type="button" title="جمله بعدی در این فاز" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-snowWhite active:scale-90 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+                                </svg>
+                            </button>
+                            <button id="btn-toggle-bookmark" type="button" title="نشان کردن جمله" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-emeraldAccent active:scale-90 transition">
+                                <svg id="icon-bookmark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <blockquote id="quote-text" class="text-sm leading-7 text-snowWhite font-medium">
+                        در حال بارگذاری پیام...
+                    </blockquote>
+                    <div id="quote-source" class="text-[11px] text-emeraldAccent mt-2 font-medium"></div>
+                </section>
+
+                <!-- PERSONAL CORE REASON REMINDER -->
+                <section class="glass-card rounded-2xl p-4 border-r-4 border-r-emeraldAccent">
+                    <div class="text-[11px] text-mutedGray mb-1">پیمان و انگیزه اصلی تو:</div>
+                    <p id="dashboard-core-reason" class="text-xs text-snowWhite font-semibold leading-6"></p>
+                </section>
+
+                <!-- MICRO-LEARNING CAPSULES (ACCORDION) -->
+                <section class="mt-1">
+                    <div class="flex items-center justify-between mb-3 px-1">
+                        <h3 class="text-sm font-extrabold text-snowWhite flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                            </svg>
+                            <span>کپسول‌های آگاهی</span>
+                        </h3>
+                        <span class="text-[11px] text-mutedGray">مطالعه: کمتر از ۱ دقیقه</span>
+                    </div>
+                    <div id="learning-accordion-container" class="flex flex-col gap-2.5">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </section>
+
+                <!-- EMPATHIC RELAPSE BUTTON AT BOTTOM -->
+                <section class="mt-2 mb-6 text-center">
+                    <button id="btn-open-relapse" type="button" class="w-full py-3.5 px-4 rounded-2xl glass-card text-xs text-mutedGray hover:text-snowWhite transition flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-sosRed/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
                         </svg>
-                        <span>نشان‌های افتخار و تکامل</span>
-                    </h3>
-                    <span id="badges-unlocked-summary" class="text-[11px] text-emeraldAccent font-bold">۰ از ۷ باز شده</span>
-                </div>
-                <div id="milestones-grid" class="grid grid-cols-7 gap-1.5 text-center">
-                    <!-- Populated via JS -->
-                </div>
-                <div id="milestone-detail-box" class="mt-2.5 p-2.5 rounded-xl bg-appBg/60 glass-border text-[11px] text-mutedGray leading-5">
-                    روی هر نشان کلیک کن تا تغییرات مغز در آن روز را ببینی.
-                </div>
-            </div>
-
-            <!-- Health & Brain Recovery Progress Bars -->
-            <div class="border-t border-white/10 pt-4">
-                <h4 class="text-xs font-extrabold text-snowWhite mb-3">تایم‌لاین ترمیم زیستی مغز و اعصاب</h4>
-                <div id="recovery-bars-container" class="space-y-3">
-                    <!-- Populated via JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- NEW FEATURE: ACHILLES HEEL / TRIGGER TRACKER -->
-        <section class="glass-card rounded-2xl p-5">
-            <div class="flex items-center justify-between mb-2">
-                <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
-                    <svg class="w-4 h-4 text-sosRed" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
-                    </svg>
-                    <span>رادار پاشنه آشیل (کالبدشکافی محرک‌ها)</span>
-                </h3>
-                <span id="trigger-total-count" class="text-[10px] text-mutedGray">۰ ثبت</span>
-            </div>
-            <p id="trigger-insight-text" class="text-xs text-mutedGray leading-6 mb-3">
-                با ثبت دلیل وسوسه در زمان SOS یا لغزش، الگوی پنهان مغزت اینجا تحلیل می‌شود.
-            </p>
-            <div id="trigger-bars-list" class="space-y-2">
-                <!-- Populated via JS -->
-            </div>
-        </section>
-
-        <!-- QUOTE OF THE DAY CARD -->
-        <section class="glass-card rounded-2xl p-5 relative">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
-                    <h3 class="text-xs font-bold text-mutedGray">پیام نوروساینس روز</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                    <button id="btn-show-bookmarks" type="button" title="جملات نشان‌شده" class="text-xs text-mutedGray hover:text-snowWhite px-2 py-1 rounded-lg bg-appBg/60 glass-border flex items-center gap-1 transition">
-                        <span>نشان‌شده‌ها</span>
-                        <span id="bookmark-count-badge" class="text-emeraldAccent font-bold">(۰)</span>
+                        <span>ثبت لغزش / لغزیدم (بدون صفر شدن روزشمار)</span>
                     </button>
-                    <button id="btn-next-quote" type="button" title="جمله بعدی در این فاز" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-snowWhite active:scale-90 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
-                        </svg>
-                    </button>
-                    <button id="btn-toggle-bookmark" type="button" title="نشان کردن جمله" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-emeraldAccent active:scale-90 transition">
-                        <svg id="icon-bookmark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
-                        </svg>
-                    </button>
-                </div>
+                </section>
+
             </div>
-
-            <blockquote id="quote-text" class="text-sm leading-7 text-snowWhite font-medium">
-                در حال بارگذاری پیام...
-            </blockquote>
-            <div id="quote-source" class="text-[11px] text-emeraldAccent mt-2 font-medium"></div>
-        </section>
-
-        <!-- PERSONAL CORE REASON REMINDER -->
-        <section class="glass-card rounded-2xl p-4 border-r-4 border-r-emeraldAccent">
-            <div class="text-[11px] text-mutedGray mb-1">پیمان و انگیزه اصلی تو:</div>
-            <p id="dashboard-core-reason" class="text-xs text-snowWhite font-semibold leading-6"></p>
-        </section>
-
-        <!-- MICRO-LEARNING CAPSULES (ACCORDION) -->
-        <section class="mt-1">
-            <div class="flex items-center justify-between mb-3 px-1">
-                <h3 class="text-sm font-extrabold text-snowWhite flex items-center gap-2">
-                    <svg class="w-4 h-4 text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-                    </svg>
-                    <span>کپسول‌های آگاهی</span>
-                </h3>
-                <span class="text-[11px] text-mutedGray">مطالعه: کمتر از ۱ دقیقه</span>
-            </div>
-            <div id="learning-accordion-container" class="flex flex-col gap-2.5">
-                <!-- Populated dynamically via JS -->
-            </div>
-        </section>
-
-        <!-- EMPATHIC RELAPSE BUTTON AT BOTTOM -->
-        <section class="mt-2 mb-6 text-center">
-            <button id="btn-open-relapse" type="button" class="w-full py-3 px-4 rounded-2xl glass-card text-xs text-mutedGray hover:text-snowWhite transition flex items-center justify-center gap-2">
-                <svg class="w-4 h-4 text-sosRed/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
-                </svg>
-                <span>ثبت لغزش / لغزیدم (بدون صفر شدن روزشمار)</span>
-            </button>
-        </section>
+        </main>
 
     </div>
 
-    <!-- FLOATING SOS BUTTON -->
-    <div class="fixed bottom-5 inset-x-0 z-30 flex justify-center px-4 pointer-events-none">
-        <button id="btn-trigger-sos" type="button" class="pointer-events-auto w-full max-w-md py-4 px-6 rounded-2xl bg-sosRed text-white font-black text-base tracking-wide sos-pulse flex items-center justify-center gap-3 active:scale-95 transition">
+    <!-- FLOATING SOS BUTTON (SAFE AREA AWARE) -->
+    <div class="fixed safe-bottom-bar inset-x-0 z-30 flex justify-center px-4 pointer-events-none">
+        <button id="btn-trigger-sos" type="button" class="pointer-events-auto w-full max-w-md lg:max-w-lg py-4 px-6 rounded-2xl bg-sosRed text-white font-black text-base tracking-wide sos-pulse flex items-center justify-center gap-3 active:scale-95 transition shadow-2xl">
             <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
             </svg>
@@ -517,7 +574,7 @@
     <!-- ==========================================
          PAGE 1: ONBOARDING MODAL
          ========================================== -->
-    <div id="modal-onboarding" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl overflow-y-auto hidden flex-col justify-center p-4">
+    <div id="modal-onboarding" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl overflow-y-auto hidden flex-col justify-center safe-modal-overlay">
         <div class="w-full max-w-md mx-auto glass-card rounded-3xl p-6 my-auto border border-emeraldAccent/20 shadow-2xl">
             <div class="w-14 h-14 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 flex items-center justify-center mb-4 p-2">
                 <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -587,8 +644,8 @@
     <!-- ==========================================
          PAGE 3: UPGRADED SOS FULLSCREEN OVERLAY
          ========================================== -->
-    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between p-4 overflow-y-auto">
-        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full py-2 gap-3.5">
+    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-md lg:max-w-lg mx-auto flex flex-col justify-between min-h-full py-2 gap-3.5">
             <!-- Top Bar + Ambient Sound Toggle -->
             <div class="w-full flex items-center justify-between">
                 <span class="text-xs font-bold px-3 py-1.5 rounded-full bg-sosRed/20 text-sosRed border border-sosRed/30">
@@ -672,13 +729,16 @@
 
             <!-- Trigger Tag Selector inside SOS -->
             <div class="w-full glass-card rounded-2xl p-3.5">
-                <div class="text-xs font-bold text-snowWhite mb-2">چه چیزی الان باعث این وسوسه شد؟ (اختیاری)</div>
-                <div id="sos-trigger-chips" class="flex flex-wrap gap-1.5">
-                    <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">استرس و فشار</button>
-                    <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">تنهایی</button>
-                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">بی‌حوصلگی</button>
-                    <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">خستگی آخر شب</button>
-                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">اینستاگرام/محرک</button>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-snowWhite">چه چیزی الان باعث این وسوسه شد؟</span>
+                    <span id="sos-trigger-status" class="text-[10px] font-bold text-emeraldAccent">برای ثبت در رادار انتخاب کن</span>
+                </div>
+                <div id="sos-trigger-chips" class="flex flex-wrap gap-2">
+                    <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">استرس و فشار</button>
+                    <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">تنهایی</button>
+                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="sos-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">بی‌حوصلگی</button>
+                    <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">خستگی آخر شب</button>
+                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="sos-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">اینستاگرام/محرک</button>
                 </div>
             </div>
 
@@ -701,7 +761,7 @@
     <!-- ==========================================
          PAGE 5: EMPATHIC RELAPSE DIALOG (WITH TRIGGER TAGS)
          ========================================== -->
-    <div id="modal-relapse" class="fixed inset-0 z-50 bg-appBg/90 backdrop-blur-lg hidden items-center justify-center p-4">
+    <div id="modal-relapse" class="fixed inset-0 z-50 bg-appBg/90 backdrop-blur-lg hidden items-center justify-center safe-modal-overlay">
         <div class="w-full max-w-md glass-card rounded-3xl p-6 border border-white/10">
             <div class="w-12 h-12 rounded-2xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -715,12 +775,12 @@
 
             <div class="mb-5">
                 <label class="block text-xs font-bold text-snowWhite mb-2">عامل اصلی این لغزش چه بود؟ (برای تحلیل پاشنه آشیل)</label>
-                <div id="relapse-trigger-chips" class="flex flex-wrap gap-1.5">
-                    <button type="button" data-trigger="استرس و فشار" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">استرس و فشار</button>
-                    <button type="button" data-trigger="تنهایی" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">تنهایی</button>
-                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">بی‌حوصلگی</button>
-                    <button type="button" data-trigger="خستگی آخر شب" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">خستگی آخر شب</button>
-                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">اینستاگرام/محرک</button>
+                <div id="relapse-trigger-chips" class="flex flex-wrap gap-2">
+                    <button type="button" data-trigger="استرس و فشار" class="relapse-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">استرس و فشار</button>
+                    <button type="button" data-trigger="تنهایی" class="relapse-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">تنهایی</button>
+                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="relapse-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">بی‌حوصلگی</button>
+                    <button type="button" data-trigger="خستگی آخر شب" class="relapse-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">خستگی آخر شب</button>
+                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="relapse-trigger-chip text-xs px-3 py-2 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition cursor-pointer">اینستاگرام/محرک</button>
                 </div>
             </div>
 
@@ -779,7 +839,7 @@
     <!-- ==========================================
          PAGE 6: SETTINGS & BACKUP DRAWER
          ========================================== -->
-    <div id="modal-settings" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl hidden overflow-y-auto p-4">
+    <div id="modal-settings" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl hidden overflow-y-auto safe-modal-overlay">
         <div class="w-full max-w-md mx-auto glass-card rounded-3xl p-6 my-auto space-y-5">
             <div class="flex items-center justify-between border-b border-white/10 pb-3">
                 <h3 class="text-base font-black text-snowWhite">تنظیمات و مدیریت داده‌ها</h3>
@@ -1845,8 +1905,13 @@
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
                 selectedSosTrigger = "";
+                const statusEl = document.getElementById('sos-trigger-status');
+                if (statusEl) statusEl.textContent = 'برای ثبت در رادار انتخاب کن';
                 document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
-                    c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
+                    c.classList.remove('chip-selected-emerald');
+                    const baseLabel = c.getAttribute('data-label') || c.textContent.replace('✓ ', '');
+                    c.setAttribute('data-label', baseLabel);
+                    c.textContent = baseLabel;
                 });
                 document.querySelectorAll('.sos-check').forEach(function (chk) { chk.checked = false; });
 
@@ -1932,9 +1997,9 @@
                 document.querySelectorAll('.habit-chip').forEach(function (chip) {
                     chip.addEventListener('click', function () {
                         document.querySelectorAll('.habit-chip').forEach(function (c) {
-                            c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
+                            c.classList.remove('chip-selected-emerald');
                         });
-                        chip.classList.add('border-emeraldAccent', 'text-emeraldAccent');
+                        chip.classList.add('chip-selected-emerald');
                         document.getElementById('input-habit-name').value = chip.getAttribute('data-habit');
                     });
                 });
@@ -2047,7 +2112,16 @@
 
                 // SOS Overlay Triggers & Mode Tabs
                 document.getElementById('btn-trigger-sos').addEventListener('click', openSosModal);
-                document.getElementById('btn-close-sos').addEventListener('click', closeSosModal);
+                document.getElementById('btn-close-sos').addEventListener('click', function () {
+                    // اگر کاربر دلیل وسوسه را انتخاب کرده بود و دکمه بستن را زد، باز هم در رادار ثبت شود
+                    if (selectedSosTrigger) {
+                        appState.triggersLog = appState.triggersLog || [];
+                        appState.triggersLog.push({ type: 'sos', reason: selectedSosTrigger, date: new Date().toISOString() });
+                        saveState();
+                        renderTriggerAnalytics();
+                    }
+                    closeSosModal();
+                });
                 document.getElementById('btn-toggle-ambient-audio').addEventListener('click', toggleAmbientSound);
 
                 document.getElementById('tab-sos-breath').addEventListener('click', function () {
@@ -2065,25 +2139,56 @@
                     initNumberGame();
                 });
 
-                // SOS Trigger Chips
+                // SOS Trigger Chips (Fixed !important conflict + instant visual feedback)
                 document.querySelectorAll('.sos-trigger-chip').forEach(function (chip) {
                     chip.addEventListener('click', function () {
-                        document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
-                            c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
-                        });
-                        chip.classList.add('border-emeraldAccent', 'text-emeraldAccent');
-                        selectedSosTrigger = chip.getAttribute('data-trigger');
+                        const triggerName = chip.getAttribute('data-trigger');
+                        const statusEl = document.getElementById('sos-trigger-status');
+
+                        if (selectedSosTrigger === triggerName) {
+                            selectedSosTrigger = "";
+                            chip.classList.remove('chip-selected-emerald');
+                            chip.textContent = chip.getAttribute('data-label') || triggerName;
+                            if (statusEl) statusEl.textContent = 'برای ثبت در رادار انتخاب کن';
+                        } else {
+                            document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
+                                c.classList.remove('chip-selected-emerald');
+                                const base = c.getAttribute('data-label') || c.textContent.replace('✓ ', '');
+                                c.setAttribute('data-label', base);
+                                c.textContent = base;
+                            });
+                            selectedSosTrigger = triggerName;
+                            const baseLabel = chip.getAttribute('data-label') || chip.textContent;
+                            chip.setAttribute('data-label', baseLabel);
+                            chip.textContent = '✓ ' + baseLabel;
+                            chip.classList.add('chip-selected-emerald');
+                            if (statusEl) statusEl.textContent = '«' + triggerName + '» انتخاب شد ✓';
+                            showToast('عامل وسوسه (' + triggerName + ') انتخاب شد.');
+                        }
                     });
                 });
 
-                // Relapse Trigger Chips
+                // Relapse Trigger Chips (Fixed !important conflict + instant visual feedback)
                 document.querySelectorAll('.relapse-trigger-chip').forEach(function (chip) {
                     chip.addEventListener('click', function () {
-                        document.querySelectorAll('.relapse-trigger-chip').forEach(function (c) {
-                            c.classList.remove('border-sosRed', 'text-sosRed');
-                        });
-                        chip.classList.add('border-sosRed', 'text-sosRed');
-                        selectedRelapseTrigger = chip.getAttribute('data-trigger');
+                        const triggerName = chip.getAttribute('data-trigger');
+                        if (selectedRelapseTrigger === triggerName) {
+                            selectedRelapseTrigger = "";
+                            chip.classList.remove('chip-selected-red');
+                            chip.textContent = chip.getAttribute('data-label') || triggerName;
+                        } else {
+                            document.querySelectorAll('.relapse-trigger-chip').forEach(function (c) {
+                                c.classList.remove('chip-selected-red');
+                                const base = c.getAttribute('data-label') || c.textContent.replace('✓ ', '');
+                                c.setAttribute('data-label', base);
+                                c.textContent = base;
+                            });
+                            selectedRelapseTrigger = triggerName;
+                            const baseLabel = chip.getAttribute('data-label') || chip.textContent;
+                            chip.setAttribute('data-label', baseLabel);
+                            chip.textContent = '✓ ' + baseLabel;
+                            chip.classList.add('chip-selected-red');
+                        }
                     });
                 });
 
@@ -2125,7 +2230,10 @@
                 document.getElementById('btn-open-relapse').addEventListener('click', function () {
                     selectedRelapseTrigger = "";
                     document.querySelectorAll('.relapse-trigger-chip').forEach(function (c) {
-                        c.classList.remove('border-sosRed', 'text-sosRed');
+                        c.classList.remove('chip-selected-red');
+                        const base = c.getAttribute('data-label') || c.textContent.replace('✓ ', '');
+                        c.setAttribute('data-label', base);
+                        c.textContent = base;
                     });
                     const modal = document.getElementById('modal-relapse');
                     modal.classList.remove('hidden');
