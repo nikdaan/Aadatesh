@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#090D16">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="عادتش">
+    <title>عادَتِش | رهایی و ساخت عادت نو</title>
+
+    <!-- Vazirmatn Persian Font (Google Fonts & jsDelivr Fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Icons for Add to Home Screen (iOS & Android) & Favicon -->
+    <link id="favicon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><rect width='1000' height='1000' rx='220' fill='%23090D16'/><circle cx='521' cy='238' r='93' fill='%2310B981'/><path d='M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z' fill='%2310B981'/><path d='M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z' fill='%2384CC16'/></svg>">
+    <link id="apple-touch-icon-link" rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><rect width='1000' height='1000' fill='%23090D16'/><circle cx='521' cy='238' r='93' fill='%2310B981'/><path d='M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z' fill='%2310B981'/><path d='M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z' fill='%2384CC16'/></svg>">
+
+    <!-- PWA Manifest via Data URI (Dynamically upgraded to high-res PNG icons on boot) -->
+    <link id="pwa-manifest-link" rel="manifest" href='data:application/manifest+json;utf8,{"name":"عادَتِش | رهایی از عادات مخرب","short_name":"عادتش","start_url":".","display":"standalone","background_color":"#090D16","theme_color":"#090D16","orientation":"portrait","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 1000%22><rect width=%221000%22 height=%221000%22 rx=%22220%22 fill=%22%23090D16%22/><circle cx=%22521%22 cy=%22238%22 r=%2293%22 fill=%22%2310B981%22/><path d=%22M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z%22 fill=%22%2310B981%22/><path d=%22M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z%22 fill=%22%2384CC16%22/></svg>","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}'>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        appBg: '#090D16',
+                        cardBg: '#111827',
+                        emeraldAccent: '#10B981',
+                        oliveAccent: '#84CC16',
+                        sosRed: '#F43F5E',
+                        snowWhite: '#F9FAFB',
+                        mutedGray: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #090D16;
+            --bg-card: rgba(17, 24, 39, 0.78);
+            --bg-card-solid: #111827;
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --scrollbar-thumb: #1F2937;
+        }
+        html.light {
+            --bg-main: #F1F5F9;
+            --bg-card: rgba(255, 255, 255, 0.88);
+            --bg-card-solid: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border-glass: rgba(15, 23, 42, 0.1);
+            --scrollbar-thumb: #CBD5E1;
+        }
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif !important;
+        }
+        body {
+            background-color: var(--bg-main) !important;
+            color: var(--text-main) !important;
+            font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif !important;
+            overflow-x: hidden;
+            user-select: none;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        .glass-card {
+            background-color: var(--bg-card) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass) !important;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+        .glass-border {
+            border: 1px solid var(--border-glass) !important;
+        }
+        html.light .bg-appBg,
+        html.light .bg-appBg\/70,
+        html.light .bg-appBg\/60,
+        html.light .bg-appBg\/50 {
+            background-color: #E2E8F0 !important;
+        }
+        html.light .bg-appBg\/95,
+        html.light .bg-appBg\/90 {
+            background-color: rgba(241, 245, 249, 0.96) !important;
+        }
+        html.light .bg-cardBg\/95 {
+            background-color: rgba(255, 255, 255, 0.96) !important;
+        }
+        html.light .text-snowWhite {
+            color: #0F172A !important;
+        }
+        html.light .text-mutedGray {
+            color: #475569 !important;
+        }
+        html.light .text-mutedGray\/50,
+        html.light .text-mutedGray\/40 {
+            color: #475569 !important;
+        }
+        html.light .placeholder-mutedGray\/50::placeholder {
+            color: #64748B !important;
+        }
+        html.light .text-emeraldAccent {
+            color: #059669 !important;
+        }
+        html.light .text-oliveAccent {
+            color: #4D7C0F !important;
+        }
+        html.light .text-amber-400 {
+            color: #D97706 !important;
+        }
+        html.light .border-white\/10,
+        html.light .border-white\/5 {
+            border-color: rgba(15, 23, 42, 0.12) !important;
+        }
+        html.light select option {
+            background-color: #FFFFFF;
+            color: #0F172A;
+        }
+        /* خانه‌های غیرفعال و قفل‌شده در تم لایت و دارک */
+        .cell-inactive {
+            background-color: rgba(17, 24, 39, 0.55);
+            color: #6B7280;
+        }
+        html.light .cell-inactive {
+            background-color: #CBD5E1 !important;
+            color: #1E293B !important;
+            border-color: rgba(15, 23, 42, 0.15) !important;
+        }
+        .sos-pulse {
+            box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6);
+            animation: pulse-crimson 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        @keyframes pulse-crimson {
+            to {
+                box-shadow: 0 0 0 18px rgba(244, 63, 94, 0);
+            }
+        }
+        .emerald-glow {
+            box-shadow: 0 0 35px -12px rgba(16, 185, 129, 0.12);
+        }
+        .hero-radial-glow {
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.06) 0%, transparent 60%),
+                radial-gradient(circle at 15% 85%, rgba(132, 204, 22, 0.04) 0%, transparent 60%);
+        }
+        html.light .hero-radial-glow {
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
+                radial-gradient(circle at 15% 85%, rgba(132, 204, 22, 0.03) 0%, transparent 60%);
+        }
+        .breath-circle {
+            transition-property: transform, background-color, box-shadow;
+            transition-timing-function: ease-in-out;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 9999px;
+        }
+        input, textarea {
+            user-select: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-appBg text-snowWhite flex justify-center selection:bg-emeraldAccent selection:text-appBg">
+
+    <!-- ==========================================
+         PIN LOCK SCREEN OVERLAY
+         ========================================== -->
+    <div id="modal-pin-lock" class="fixed inset-0 z-[80] bg-appBg hidden flex-col items-center justify-center p-6">
+        <div class="w-full max-w-xs glass-card rounded-3xl p-6 text-center border border-emeraldAccent/25 shadow-2xl">
+            <div class="w-14 h-14 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 flex items-center justify-center mx-auto mb-3 p-2.5">
+                <svg class="w-full h-full text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                </svg>
+            </div>
+            <h2 class="text-base font-black text-snowWhite mb-1">حریم خصوصی عادَتِش</h2>
+            <p id="pin-status-text" class="text-xs text-mutedGray mb-5">کد ۴ رقمی خود را وارد کنید</p>
+
+            <!-- PIN Dots -->
+            <div class="flex justify-center gap-3.5 mb-6" dir="ltr">
+                <div class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-emeraldAccent transition-all"></div>
+                <div class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-emeraldAccent transition-all"></div>
+                <div class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-emeraldAccent transition-all"></div>
+                <div class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-emeraldAccent transition-all"></div>
+            </div>
+
+            <!-- Keypad -->
+            <div class="grid grid-cols-3 gap-2.5" dir="ltr">
+                <button type="button" data-pin-key="1" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۱</button>
+                <button type="button" data-pin-key="2" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۲</button>
+                <button type="button" data-pin-key="3" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۳</button>
+                <button type="button" data-pin-key="4" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۴</button>
+                <button type="button" data-pin-key="5" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۵</button>
+                <button type="button" data-pin-key="6" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۶</button>
+                <button type="button" data-pin-key="7" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۷</button>
+                <button type="button" data-pin-key="8" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۸</button>
+                <button type="button" data-pin-key="9" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۹</button>
+                <div></div>
+                <button type="button" data-pin-key="0" class="pin-key py-3 rounded-2xl bg-appBg glass-border text-base font-black text-snowWhite active:scale-90 transition">۰</button>
+                <button type="button" id="btn-pin-back" class="py-3 rounded-2xl bg-appBg glass-border text-xs font-bold text-sosRed active:scale-90 transition flex items-center justify-center">حذف</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN MOBILE-FIRST CONTAINER -->
+    <div id="app-container" class="w-full max-w-md min-h-screen pb-28 px-4 pt-4 flex flex-col gap-5 relative">
+
+        <!-- TOP HEADER -->
+        <header class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2.5">
+                <div class="w-11 h-11 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 flex items-center justify-center shadow-inner p-1.5">
+                    <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="521" cy="238" r="93" fill="#10B981"/>
+                        <path d="M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z" fill="#10B981"/>
+                        <path d="M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z" fill="#84CC16"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-xl font-black tracking-tight text-snowWhite">عادَتِش</h1>
+                        <span id="header-habit-badge" class="text-xs font-medium px-2.5 py-0.5 rounded-full glass-card text-emeraldAccent border border-emeraldAccent/30 truncate max-w-[140px]">
+                            در حال بارگذاری...
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-mutedGray">مسیر علمی بازسازی مغز و رهایی</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Theme Toggle Button -->
+                <button id="btn-toggle-theme" type="button" title="تغییر تم (روشن / تاریک)" class="w-10 h-10 rounded-2xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                    <svg id="icon-theme-sun" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+                    </svg>
+                    <svg id="icon-theme-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                    </svg>
+                </button>
+                <!-- Settings Button -->
+                <button id="btn-open-settings" type="button" title="تنظیمات و پشتیبان‌گیری" class="w-10 h-10 rounded-2xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- HERO SECTION: LIVE STREAK & CLEAN RATE -->
+        <section class="glass-card hero-radial-glow rounded-3xl p-6 emerald-glow relative overflow-hidden">
+            <div class="flex items-center justify-between gap-2 mb-3">
+                <span id="phase-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 whitespace-nowrap truncate">
+                    فاز ۱: سم‌زدایی و تعادل
+                </span>
+                <div class="flex items-center gap-1 text-[11px] text-mutedGray whitespace-nowrap shrink-0">
+                    <span>پیروزی بر وسوسه:</span>
+                    <span id="sos-victory-count" class="font-bold text-emeraldAccent">۰</span>
+                </div>
+            </div>
+
+            <div class="text-center my-4">
+                <h2 id="hero-day-title" class="text-3xl font-black text-snowWhite tracking-tight mb-1">
+                    روز ۰ آزادی
+                </h2>
+                <p class="text-xs text-mutedGray">لحظه‌به‌لحظه در حال ساختن مسیرهای عصبی جدید</p>
+            </div>
+
+            <!-- Live Counter Grid -->
+            <div class="grid grid-cols-4 gap-2.5 my-5 text-center" dir="ltr">
+                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
+                    <div id="timer-days" class="text-2xl font-black text-emeraldAccent">۰</div>
+                    <div class="text-[11px] text-mutedGray mt-0.5">روز</div>
+                </div>
+                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
+                    <div id="timer-hours" class="text-2xl font-black text-snowWhite">۰۰</div>
+                    <div class="text-[11px] text-mutedGray mt-0.5">ساعت</div>
+                </div>
+                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
+                    <div id="timer-minutes" class="text-2xl font-black text-snowWhite">۰۰</div>
+                    <div class="text-[11px] text-mutedGray mt-0.5">دقیقه</div>
+                </div>
+                <div class="bg-appBg/70 glass-border rounded-2xl py-3 px-1">
+                    <div id="timer-seconds" class="text-2xl font-black text-oliveAccent">۰۰</div>
+                    <div class="text-[11px] text-mutedGray mt-0.5">ثانیه</div>
+                </div>
+            </div>
+
+            <!-- Clean Rate Bar -->
+            <div class="mt-4">
+                <div class="flex justify-between items-center text-xs mb-1.5">
+                    <span id="clean-rate-label" class="font-semibold text-snowWhite">نرخ پاکی: ۱۰۰٪ (بدون ناامیدی با لغزش)</span>
+                    <span id="relapse-count-badge" class="text-[11px] text-mutedGray">۰ لغزش ثبت‌شده</span>
+                </div>
+                <div class="w-full h-2.5 bg-appBg rounded-full overflow-hidden p-0.5 glass-border">
+                    <div id="clean-rate-bar" class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: 100%"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAVED METRICS (2 COLUMNS) -->
+        <section class="grid grid-cols-2 gap-3.5">
+            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs text-mutedGray font-medium">دارایی نجات‌یافته</span>
+                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/10 flex items-center justify-center text-emeraldAccent">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <div id="metric-saved-money" class="text-lg font-extrabold text-snowWhite truncate">۰</div>
+                    <div class="text-[11px] text-emeraldAccent mt-0.5">تومان پس‌انداز</div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs text-mutedGray font-medium">زمان نجات‌یافته</span>
+                    <div class="w-8 h-8 rounded-xl bg-oliveAccent/10 flex items-center justify-center text-oliveAccent">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <div id="metric-saved-time" class="text-lg font-extrabold text-snowWhite truncate">۰ ساعت</div>
+                    <div class="text-[11px] text-oliveAccent mt-0.5">عمر مفید بازگشته</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW FEATURE: PERSONAL WISHLIST / GOAL BOX -->
+        <section class="glass-card rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-emeraldAccent/15 text-emeraldAccent flex items-center justify-center">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xs font-extrabold text-snowWhite">صندوق پاداش شخصی</h3>
+                </div>
+                <button id="btn-open-goal-modal" type="button" class="text-[11px] font-bold text-emeraldAccent hover:underline">
+                    تنظیم هدف خرید
+                </button>
+            </div>
+            <div id="goal-box-content">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- NEW FEATURE: 30-DAY VISUAL HABIT CHAIN GRID -->
+        <section class="glass-card rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                    <span>زنجیره ۳۰ روز اخیر (زنجیره رو نشکن!)</span>
+                </h3>
+                <div class="flex items-center gap-2.5 text-[10px] text-mutedGray">
+                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-emeraldAccent inline-block"></i>پاک</span>
+                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-amber-400 inline-block"></i>مهار وسوسه</span>
+                    <span class="flex items-center gap-1"><i class="w-2 h-2 rounded-sm bg-sosRed inline-block"></i>لغزش</span>
+                </div>
+            </div>
+            <div id="habit-chain-grid" class="grid grid-cols-10 gap-1.5" dir="ltr">
+                <!-- 30 cells rendered via JS -->
+            </div>
+        </section>
+
+        <!-- NEW FEATURE: MILESTONES & BRAIN RECOVERY BARS -->
+        <section class="glass-card rounded-2xl p-5 space-y-5">
+            <!-- Badges Row -->
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/>
+                        </svg>
+                        <span>نشان‌های افتخار و تکامل</span>
+                    </h3>
+                    <span id="badges-unlocked-summary" class="text-[11px] text-emeraldAccent font-bold">۰ از ۷ باز شده</span>
+                </div>
+                <div id="milestones-grid" class="grid grid-cols-7 gap-1.5 text-center">
+                    <!-- Populated via JS -->
+                </div>
+                <div id="milestone-detail-box" class="mt-2.5 p-2.5 rounded-xl bg-appBg/60 glass-border text-[11px] text-mutedGray leading-5">
+                    روی هر نشان کلیک کن تا تغییرات مغز در آن روز را ببینی.
+                </div>
+            </div>
+
+            <!-- Health & Brain Recovery Progress Bars -->
+            <div class="border-t border-white/10 pt-4">
+                <h4 class="text-xs font-extrabold text-snowWhite mb-3">تایم‌لاین ترمیم زیستی مغز و اعصاب</h4>
+                <div id="recovery-bars-container" class="space-y-3">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW FEATURE: ACHILLES HEEL / TRIGGER TRACKER -->
+        <section class="glass-card rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xs font-extrabold text-snowWhite flex items-center gap-2">
+                    <svg class="w-4 h-4 text-sosRed" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                    </svg>
+                    <span>رادار پاشنه آشیل (کالبدشکافی محرک‌ها)</span>
+                </h3>
+                <span id="trigger-total-count" class="text-[10px] text-mutedGray">۰ ثبت</span>
+            </div>
+            <p id="trigger-insight-text" class="text-xs text-mutedGray leading-6 mb-3">
+                با ثبت دلیل وسوسه در زمان SOS یا لغزش، الگوی پنهان مغزت اینجا تحلیل می‌شود.
+            </p>
+            <div id="trigger-bars-list" class="space-y-2">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+        <!-- QUOTE OF THE DAY CARD -->
+        <section class="glass-card rounded-2xl p-5 relative">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                    <h3 class="text-xs font-bold text-mutedGray">پیام نوروساینس روز</h3>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <button id="btn-show-bookmarks" type="button" title="جملات نشان‌شده" class="text-xs text-mutedGray hover:text-snowWhite px-2 py-1 rounded-lg bg-appBg/60 glass-border flex items-center gap-1 transition">
+                        <span>نشان‌شده‌ها</span>
+                        <span id="bookmark-count-badge" class="text-emeraldAccent font-bold">(۰)</span>
+                    </button>
+                    <button id="btn-next-quote" type="button" title="جمله بعدی در این فاز" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-snowWhite active:scale-90 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+                        </svg>
+                    </button>
+                    <button id="btn-toggle-bookmark" type="button" title="نشان کردن جمله" class="p-1.5 rounded-lg bg-appBg/60 glass-border text-mutedGray hover:text-emeraldAccent active:scale-90 transition">
+                        <svg id="icon-bookmark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <blockquote id="quote-text" class="text-sm leading-7 text-snowWhite font-medium">
+                در حال بارگذاری پیام...
+            </blockquote>
+            <div id="quote-source" class="text-[11px] text-emeraldAccent mt-2 font-medium"></div>
+        </section>
+
+        <!-- PERSONAL CORE REASON REMINDER -->
+        <section class="glass-card rounded-2xl p-4 border-r-4 border-r-emeraldAccent">
+            <div class="text-[11px] text-mutedGray mb-1">پیمان و انگیزه اصلی تو:</div>
+            <p id="dashboard-core-reason" class="text-xs text-snowWhite font-semibold leading-6"></p>
+        </section>
+
+        <!-- MICRO-LEARNING CAPSULES (ACCORDION) -->
+        <section class="mt-1">
+            <div class="flex items-center justify-between mb-3 px-1">
+                <h3 class="text-sm font-extrabold text-snowWhite flex items-center gap-2">
+                    <svg class="w-4 h-4 text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                    </svg>
+                    <span>کپسول‌های آگاهی</span>
+                </h3>
+                <span class="text-[11px] text-mutedGray">مطالعه: کمتر از ۱ دقیقه</span>
+            </div>
+            <div id="learning-accordion-container" class="flex flex-col gap-2.5">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- EMPATHIC RELAPSE BUTTON AT BOTTOM -->
+        <section class="mt-2 mb-6 text-center">
+            <button id="btn-open-relapse" type="button" class="w-full py-3 px-4 rounded-2xl glass-card text-xs text-mutedGray hover:text-snowWhite transition flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-sosRed/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+                </svg>
+                <span>ثبت لغزش / لغزیدم (بدون صفر شدن روزشمار)</span>
+            </button>
+        </section>
+
+    </div>
+
+    <!-- FLOATING SOS BUTTON -->
+    <div class="fixed bottom-5 inset-x-0 z-30 flex justify-center px-4 pointer-events-none">
+        <button id="btn-trigger-sos" type="button" class="pointer-events-auto w-full max-w-md py-4 px-6 rounded-2xl bg-sosRed text-white font-black text-base tracking-wide sos-pulse flex items-center justify-center gap-3 active:scale-95 transition">
+            <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+            </svg>
+            <span>وسوسه شدم / حالم بده (SOS)</span>
+        </button>
+    </div>
+
+    <!-- ==========================================
+         PAGE 1: ONBOARDING MODAL
+         ========================================== -->
+    <div id="modal-onboarding" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl overflow-y-auto hidden flex-col justify-center p-4">
+        <div class="w-full max-w-md mx-auto glass-card rounded-3xl p-6 my-auto border border-emeraldAccent/20 shadow-2xl">
+            <div class="w-14 h-14 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 flex items-center justify-center mb-4 p-2">
+                <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="521" cy="238" r="93" fill="#10B981"/>
+                    <path d="M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z" fill="#10B981"/>
+                    <path d="M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z" fill="#84CC16"/>
+                </svg>
+            </div>
+            <h2 class="text-xl font-black text-snowWhite leading-8 mb-1">به عادَتِش خوش اومدی؛ وقت پس گرفتن کنترله</h2>
+            <p class="text-xs text-mutedGray mb-5">اطلاعاتت فقط و فقط روی حافظه گوشی خودت ذخیره میشه.</p>
+
+            <form id="form-onboarding" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-2">کدوم عادت رو می‌خوای کنار بذاری؟</label>
+                    <div id="onboarding-chips" class="flex flex-wrap gap-1.5 mb-2.5">
+                        <button type="button" data-habit="سیگار و نیکوتین" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">سیگار</button>
+                        <button type="button" data-habit="پورنوگرافی / خودارضایی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">پورنوگرافی/خودارضایی</button>
+                        <button type="button" data-habit="اسکرول بی‌هدف در گوشی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">اسکرول بی‌هدف در گوشی</button>
+                        <button type="button" data-habit="قند و پرخوری عصبی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">قند و پرخوری عصبی</button>
+                        <button type="button" data-habit="به‌تعویق‌اندازی کاری" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">به‌تعویق‌اندازی کاری</button>
+                    </div>
+                    <input id="input-habit-name" type="text" required placeholder="یا نام عادت رو اینجا بنویس..." class="w-full px-4 py-3 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1.5">تاریخ و ساعت شروع پاکی (شمسی)</label>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <select id="ob-j-day" class="w-full px-2.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                        <select id="ob-j-month" class="w-full px-2 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                        <select id="ob-j-year" class="w-full px-2.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-appBg glass-border">
+                            <span class="text-[11px] text-mutedGray">ساعت:</span>
+                            <select id="ob-j-hour" class="bg-transparent text-xs font-bold text-snowWhite focus:outline-none text-center" dir="ltr"></select>
+                        </div>
+                        <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-appBg glass-border">
+                            <span class="text-[11px] text-mutedGray">دقیقه:</span>
+                            <select id="ob-j-minute" class="bg-transparent text-xs font-bold text-snowWhite focus:outline-none text-center" dir="ltr"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-snowWhite mb-1.5">هزینه روزانه (تومان)</label>
+                        <input id="input-daily-cost" type="text" inputmode="numeric" placeholder="مثلاً: 50,000" value="0" class="w-full px-3.5 py-3 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent" dir="ltr">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-snowWhite mb-1.5">اتلاف وقت روزانه (ساعت)</label>
+                        <input id="input-daily-hours" type="text" inputmode="decimal" pattern="[0-9۰-۹.]*" placeholder="مثلاً: 2" value="1" class="w-full px-3.5 py-3 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent" dir="ltr">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1.5">چرا می‌خوای ترکش کنی؟ (بزرگ‌ترین انگیزه‌ت چیه؟)</label>
+                    <textarea id="input-core-reason" rows="2" required placeholder="مثلاً: می‌خوام تمرکزم، عزت‌نفسم و سلامتیم رو پس بگیرم..." class="w-full px-4 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-2xl bg-emeraldAccent hover:bg-emeraldAccent/90 text-slate-950 font-black text-base shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
+                    شروع سفر آزادی
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 3: UPGRADED SOS FULLSCREEN OVERLAY
+         ========================================== -->
+    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between p-4 overflow-y-auto">
+        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full py-2 gap-3.5">
+            <!-- Top Bar + Ambient Sound Toggle -->
+            <div class="w-full flex items-center justify-between">
+                <span class="text-xs font-bold px-3 py-1.5 rounded-full bg-sosRed/20 text-sosRed border border-sosRed/30">
+                    سپر ضد وسوسه هوشمند
+                </span>
+                <div class="flex items-center gap-2">
+                    <button id="btn-toggle-ambient-audio" type="button" class="text-xs px-3 py-1.5 rounded-xl glass-card text-mutedGray hover:text-emeraldAccent flex items-center gap-1.5 transition">
+                        <span id="ambient-audio-dot" class="w-2 h-2 rounded-full bg-mutedGray"></span>
+                        <span id="ambient-audio-label">صدای آرام‌بخش</span>
+                    </button>
+                    <button id="btn-close-sos" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-3 py-1.5 rounded-xl glass-card">
+                        بستن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mode Tabs: Breathing vs 60s Cognitive Game -->
+            <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-appBg glass-border">
+                <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-slate-950 transition">
+                    تنفس ۴-۷-۸
+                </button>
+                <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition">
+                    بازی تمرکز (قطع وسوسه)
+                </button>
+            </div>
+
+            <!-- PANEL A: BREATHING ENGINE -->
+            <div id="sos-panel-breath" class="my-3 flex flex-col items-center justify-center relative">
+                <div class="w-48 h-48 rounded-full border border-emeraldAccent/30 flex items-center justify-center relative">
+                    <div id="breathing-circle" class="breath-circle w-24 h-24 rounded-full bg-emeraldAccent/25 border-2 border-emeraldAccent flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.4)]">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center px-4">
+                        <span id="breathing-instruction" class="text-sm font-black text-snowWhite drop-shadow">آماده تنفس...</span>
+                        <span id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1 font-bold">چرخه آرام‌سازی سیستم عصبی</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL B: COGNITIVE DISTRACTION NUMBER MATRIX GAME -->
+            <div id="sos-panel-game" class="hidden my-1 glass-card rounded-2xl p-4 text-center">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-snowWhite">اعداد ۱ تا ۱۶ را به ترتیب لمس کن:</span>
+                    <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
+                </div>
+                <p class="text-[11px] text-mutedGray mb-3">درگیر کردن حافظه کاری، مدار تصویرسازی وسوسه را در مغز قطع می‌کند.</p>
+                <div id="sos-number-grid" class="grid grid-cols-4 gap-2" dir="ltr">
+                    <!-- 16 Numbers populated via JS -->
+                </div>
+            </div>
+
+            <!-- Urge Surfing 5-Min Countdown -->
+            <div class="w-full glass-card rounded-2xl p-3.5 text-center">
+                <p class="text-[11px] text-mutedGray mb-1.5">اوج هوس مغز فقط چند دقیقه است؛ موج‌سواری کن تا رد بشه</p>
+                <div class="flex items-center justify-center gap-3">
+                    <div id="sos-countdown-display" class="text-2xl font-black text-snowWhite tracking-wider font-mono" dir="ltr">۰۵:۰۰</div>
+                    <button id="btn-toggle-sos-timer" type="button" class="px-3 py-1 rounded-xl bg-appBg glass-border text-xs font-bold text-emeraldAccent hover:opacity-80 transition">
+                        توقف
+                    </button>
+                    <button id="btn-reset-sos-timer" type="button" class="px-3 py-1 rounded-xl bg-appBg glass-border text-xs text-mutedGray hover:text-snowWhite transition">
+                        شروع مجدد
+                    </button>
+                </div>
+            </div>
+
+            <!-- Emergency 3-Action Checklist -->
+            <div class="w-full glass-card rounded-2xl p-3.5 space-y-2">
+                <div class="text-xs font-bold text-snowWhite mb-1">قرارداد اضطراری (انجام بده و تیک بزن):</div>
+                <label class="flex items-center gap-2.5 text-xs text-mutedGray cursor-pointer">
+                    <input type="checkbox" class="sos-check accent-emerald-500 w-4 h-4 rounded">
+                    <span>تغییر مکان فیزیکی همین الان (بلند شدن از تخت یا اتاق)</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-mutedGray cursor-pointer">
+                    <input type="checkbox" class="sos-check accent-emerald-500 w-4 h-4 rounded">
+                    <span>نوشیدن یک لیوان آب خنک یا شستن صورت</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-mutedGray cursor-pointer">
+                    <input type="checkbox" class="sos-check accent-emerald-500 w-4 h-4 rounded">
+                    <span>۱۰ نفس عمیق بدون گوشی در دست</span>
+                </label>
+            </div>
+
+            <!-- Trigger Tag Selector inside SOS -->
+            <div class="w-full glass-card rounded-2xl p-3.5">
+                <div class="text-xs font-bold text-snowWhite mb-2">چه چیزی الان باعث این وسوسه شد؟ (اختیاری)</div>
+                <div id="sos-trigger-chips" class="flex flex-wrap gap-1.5">
+                    <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">استرس و فشار</button>
+                    <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">تنهایی</button>
+                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">بی‌حوصلگی</button>
+                    <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">خستگی آخر شب</button>
+                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="sos-trigger-chip text-[11px] px-2.5 py-1 rounded-lg bg-appBg glass-border text-mutedGray">اینستاگرام/محرک</button>
+                </div>
+            </div>
+
+            <!-- Wake-Up Call (Personal Core Reason) -->
+            <div class="w-full glass-card rounded-2xl p-3.5 border-r-4 border-r-sosRed">
+                <div class="text-[11px] font-bold text-sosRed mb-0.5">تلنگر اراده — یادت نره چرا شروع کردی:</div>
+                <p id="sos-core-reason" class="text-xs text-snowWhite font-semibold leading-5"></p>
+            </div>
+
+            <!-- Victory Button -->
+            <button id="btn-sos-victory" type="button" class="w-full py-4 rounded-2xl bg-emeraldAccent text-slate-950 font-black text-base shadow-lg shadow-emeraldAccent/25 active:scale-95 transition flex items-center justify-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>موج رد شد؛ تونستم! (+۱ پیروزی)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 5: EMPATHIC RELAPSE DIALOG (WITH TRIGGER TAGS)
+         ========================================== -->
+    <div id="modal-relapse" class="fixed inset-0 z-50 bg-appBg/90 backdrop-blur-lg hidden items-center justify-center p-4">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6 border border-white/10">
+            <div class="w-12 h-12 rounded-2xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                </svg>
+            </div>
+            <h3 class="text-lg font-black text-snowWhite mb-2">با خودت مهربان باش؛ مسیر ادامه داره</h3>
+            <p class="text-xs text-mutedGray leading-6 mb-4">
+                «لغزش بخشی از منحنی یادگیری سیم‌کشی مجدد مغز است. همه چیز صفر نشد؛ تو تمام آن روزهای گذشته را واقعاً پاک ماندی.»
+            </p>
+
+            <div class="mb-5">
+                <label class="block text-xs font-bold text-snowWhite mb-2">عامل اصلی این لغزش چه بود؟ (برای تحلیل پاشنه آشیل)</label>
+                <div id="relapse-trigger-chips" class="flex flex-wrap gap-1.5">
+                    <button type="button" data-trigger="استرس و فشار" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">استرس و فشار</button>
+                    <button type="button" data-trigger="تنهایی" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">تنهایی</button>
+                    <button type="button" data-trigger="بی‌حوصلگی و بیکاری" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">بی‌حوصلگی</button>
+                    <button type="button" data-trigger="خستگی آخر شب" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">خستگی آخر شب</button>
+                    <button type="button" data-trigger="شبکه‌های اجتماعی" class="relapse-trigger-chip text-xs px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray">اینستاگرام/محرک</button>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button id="btn-confirm-relapse" type="button" class="flex-1 py-3 rounded-xl bg-sosRed text-white font-bold text-xs active:scale-95 transition">
+                    ثبت لغزش و ادامه مسیر
+                </button>
+                <button id="btn-cancel-relapse" type="button" class="flex-1 py-3 rounded-xl bg-appBg glass-border text-snowWhite font-bold text-xs">
+                    انصراف
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PERSONAL REWARD GOAL MODAL
+         ========================================== -->
+    <div id="modal-goal" class="fixed inset-0 z-50 bg-appBg/90 backdrop-blur-lg hidden items-center justify-center p-4">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-black text-snowWhite">تنظیم هدف صندوق پاداش</h3>
+                <button id="btn-close-goal" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن</button>
+            </div>
+            <p class="text-xs text-mutedGray mb-4">با پولی که از ترک این عادت پس‌انداز می‌کنی، دوست داری چه هدیه‌ای برای خودت بخری؟</p>
+            <form id="form-goal" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs text-snowWhite font-bold mb-1">نام هدف یا جایزه</label>
+                    <input id="input-goal-title" type="text" required placeholder="مثلاً: هدفون بی‌سیم، کفش ورزشی، سفر..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+                <div>
+                    <label class="block text-xs text-snowWhite font-bold mb-1">قیمت هدف (تومان)</label>
+                    <input id="input-goal-price" type="text" inputmode="numeric" required placeholder="مثلاً: 2,500,000" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent" dir="ltr">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-emeraldAccent text-slate-950 font-black text-xs active:scale-95 transition">
+                    ذخیره هدف پاداش
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BOOKMARKED QUOTES MODAL
+         ========================================== -->
+    <div id="modal-bookmarks" class="fixed inset-0 z-50 bg-appBg/90 backdrop-blur-lg hidden items-center justify-center p-4">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6 max-h-[80vh] flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-black text-snowWhite">جملات نشان‌شده تو</h3>
+                <button id="btn-close-bookmarks" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن</button>
+            </div>
+            <div id="bookmarks-list-container" class="overflow-y-auto space-y-2.5 flex-1 pl-1">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 6: SETTINGS & BACKUP DRAWER
+         ========================================== -->
+    <div id="modal-settings" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl hidden overflow-y-auto p-4">
+        <div class="w-full max-w-md mx-auto glass-card rounded-3xl p-6 my-auto space-y-5">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <h3 class="text-base font-black text-snowWhite">تنظیمات و مدیریت داده‌ها</h3>
+                <button id="btn-close-settings" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-3 py-1.5 rounded-xl bg-appBg glass-border">
+                    بازگشت
+                </button>
+            </div>
+
+            <!-- Edit Habit Info Form -->
+            <form id="form-settings" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1">نام عادت</label>
+                    <input id="settings-habit-name" type="text" required class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1.5">تاریخ و ساعت شروع (شمسی)</label>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <select id="st-j-day" class="w-full px-2 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                        <select id="st-j-month" class="w-full px-1.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                        <select id="st-j-year" class="w-full px-2 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center"></select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-appBg glass-border">
+                            <span class="text-[11px] text-mutedGray">ساعت:</span>
+                            <select id="st-j-hour" class="bg-transparent text-xs font-bold text-snowWhite focus:outline-none text-center" dir="ltr"></select>
+                        </div>
+                        <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-appBg glass-border">
+                            <span class="text-[11px] text-mutedGray">دقیقه:</span>
+                            <select id="st-j-minute" class="bg-transparent text-xs font-bold text-snowWhite focus:outline-none text-center" dir="ltr"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-mutedGray mb-1">هزینه روزانه (تومان)</label>
+                        <input id="settings-daily-cost" type="text" inputmode="numeric" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent" dir="ltr">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-mutedGray mb-1">ساعت روزانه</label>
+                        <input id="settings-daily-hours" type="text" inputmode="decimal" pattern="[0-9۰-۹.]*" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent" dir="ltr">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1">انگیزه اصلی</label>
+                    <textarea id="settings-core-reason" rows="2" required class="w-full px-3.5 py-2 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1">قفل رمز ۴ رقمی برنامه (خالی = بدون قفل)</label>
+                    <input id="settings-pin-code" type="password" inputmode="numeric" maxlength="4" placeholder="مثلاً: 1234" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent text-center tracking-widest" dir="ltr">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-emeraldAccent text-slate-950 font-extrabold text-xs active:scale-95 transition">
+                    ذخیره تغییرات
+                </button>
+            </form>
+
+            <!-- Backup & Restore -->
+            <div class="border-t border-white/10 pt-4 space-y-2.5">
+                <div class="text-xs font-bold text-snowWhite mb-1">پشتیبان‌گیری و حریم خصوصی</div>
+                <div class="grid grid-cols-2 gap-2.5">
+                    <button id="btn-export-json" type="button" class="py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent/50 flex items-center justify-center gap-1.5">
+                        <svg class="w-4 h-4 text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                        </svg>
+                        <span>خروجی پشتیبان</span>
+                    </button>
+                    <label class="py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent/50 flex items-center justify-center gap-1.5 cursor-pointer">
+                        <svg class="w-4 h-4 text-oliveAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                        </svg>
+                        <span>بازیابی فایل</span>
+                        <input id="input-import-json" type="file" accept=".json,application/json" class="hidden">
+                    </label>
+                </div>
+
+                <button id="btn-settings-theme" type="button" class="w-full py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs text-mutedGray hover:text-snowWhite flex items-center justify-center gap-2 transition">
+                    <span id="settings-theme-label">تغییر تم برنامه (حالت روشن / تاریک)</span>
+                </button>
+            </div>
+
+            <!-- Two-Step Reset All Data -->
+            <div class="border-t border-white/10 pt-4">
+                <button id="btn-reset-all" type="button" class="w-full py-3 rounded-xl bg-sosRed/15 border border-sosRed/30 text-sosRed font-bold text-xs hover:bg-sosRed hover:text-white transition">
+                    پاکسازی کامل اطلاعات (ریست کارخانه)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM TOAST NOTIFICATION -->
+    <div id="toast-container" class="fixed top-5 inset-x-0 z-[90] flex justify-center px-4 pointer-events-none hidden">
+        <div id="toast-box" class="glass-card border border-emeraldAccent/40 bg-cardBg/95 text-snowWhite text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emeraldAccent shrink-0"></span>
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT ENGINE (VANILLA, COMPLETE)
+         ========================================== -->
+    <script>
+        (function () {
+            'use strict';
+
+            const STORAGE_KEY = 'aadatesh_state';
+
+            // 3.A: Hardcoded Neuroscience Quotes Database (20 items across 4 phases)
+            const QUOTES_DB = [
+                { id: 1, phase: 1, text: "ولع مصرف، یک دستور غیرقابل سرپیچی نیست؛ فقط یک واکنش شیمیایی موقت در مغز است که حداکثر چند دقیقه دوام می‌آورد.", source: "کتاب ملت دوپامین" },
+                { id: 2, phase: 1, text: "درد خماری و کلافگی امروز، هزینه بازسازی گیرنده‌های فرسوده مغز توست. اجازه بده بدنت خودش رو ترمیم کنه.", source: "انجمن علوم اعصاب" },
+                { id: 3, phase: 1, text: "مغزت در حال حاضر دارد تقلا می‌کند چون به دوپامین مفت و ارزان عادت کرده بود. قوی باش، سیستم جدید داره شکل می‌گیره.", source: "پروتکل بازسازی دوپامین" },
+                { id: 4, phase: 1, text: "این حس بی‌قراری نیاز واقعی تو نیست؛ فقط صدای آژیر عادتی است که دارد نفس‌های آخرش را می‌کشد.", source: "روان‌شناسی شناختی" },
+                { id: 5, phase: 1, text: "فقط برای امروز، فقط برای همین یک ساعت مقاومت کن. فردا رو فردا تصمیم می‌گیریم.", source: "اصول رهایی گام‌به‌گام" },
+                { id: 6, phase: 2, text: "مغز به تو دروغ خواهد گفت: 'فقط همین یک‌بار، بعدش کنترلش می‌کنی'. فریب این صدا را نخور؛ این تله دوپامینه.", source: "نوروساینس اعتیاد" },
+                { id: 7, phase: 2, text: "پاکی مثل بالا رفتن از تپه با دوچرخه‌ست؛ رکاب زدن در ابتدا سخته، اما به قله که برسی سواری برات راحت و لذت‌بخش میشه.", source: "یادداشت‌های درمانگر" },
+                { id: 8, phase: 2, text: "هر باری که هوس می‌کنی و کاری انجام نمی‌دی، یک اتصال اشتباه در مغزت کم‌رنگ‌تر و ضعیف‌تر میشه.", source: "قانون نوروپلاستیسیته" },
+                { id: 9, phase: 2, text: "تو اراده ضعیفی نداری؛ محیط و محرک‌های اطرافت دارن تو رو گول می‌زنن. محیطت رو پاکسازی کن.", source: "کتاب عادت‌های اتمی" },
+                { id: 10, phase: 2, text: "رهایی یعنی بتونی بین هجوم وسوسه و عمل کردنت، یک فاصله چند ثانیه‌ای بندازی و خودت تصمیم بگیری.", source: "ذهن‌آگاهی بالینی" },
+                { id: 11, phase: 3, text: "تو کسی نیستی که دارد مصرف نکردن را تحمل می‌کند؛ تو انسانی هستی که اساساً به این سم نیازی ندارد.", source: "تغییر هویت رفتاری" },
+                { id: 12, phase: 3, text: "انرژی آزادشده از این عادت رو به یک فعالیت مثبت بده: ورزش، یادگیری یا خواب عمیق‌تر.", source: "جایگزینی مسیر پاداش" },
+                { id: 13, phase: 3, text: "نگاه کن تا همین جا چند ساعت و چند تومان برای آینده‌ت نجات دادی. تو داری زندگیت رو پس می‌گیری.", source: "عادَتِش" },
+                { id: 14, phase: 3, text: "پیروزی‌های کوچک روزانه، عزت‌نفس تخریب‌شده گذشته‌ت رو دانه به دانه ترمیم می‌کنه.", source: "روان‌شناسی عزت‌نفس" },
+                { id: 15, phase: 3, text: "امروز گیرنده‌های لذت طبیعی در مغزت دارن بیدار میشن؛ بوی قهوه، هوای بارانی و یک غذای گرم دوباره لذت‌بخش میشن.", source: "بازگشت تعادل لیمبیک" },
+                { id: 16, phase: 4, text: "بزرگ‌ترین آزادی انسان، توانایی کنترل غریزه‌های آنی به نفع ارزش‌های بلندمدته.", source: "ویکتور فرانکل" },
+                { id: 17, phase: 4, text: "مراقب اعتماد‌به‌نفس کاذب باش؛ همیشه نسبت به تله‌های پنهان هوشیار و متواضع بمون.", source: "پیشگیری از بازگشت" },
+                { id: 18, phase: 4, text: "تو ثابت کردی چرخه تکرار گذشته اجتناب‌ناپذیر نبود. تو فرماندار زندگی خودت هستی.", source: "عادَتِش" },
+                { id: 19, phase: 4, text: "آرامشی که بدون وابستگی تجربه می‌کنی با هیچ لذت مصنوعی و کوتاه‌مدتی قابل مقایسه نیست.", source: "فلسفه رهایی" },
+                { id: 20, phase: 4, text: "این دستاورد مال خودته؛ هیچ‌کس جز تو اون لحظات سخت تنهایی و مقاومت رو دوام نیاورد.", source: "عادَتِش" }
+            ];
+
+            // 3.B: Micro-Learning Capsules Database
+            const LEARNING_DB = [
+                {
+                    id: 1,
+                    title: "۱. تله تعادل دوپامین",
+                    readTime: "۴۰ ثانیه",
+                    content: "مغز انسان برای لذت و درد مثل یک الاکلنگ عمل می‌کند. وقتی با مصرف سیگار، پورن یا گشت‌وگذار مفرط حجم عظیمی از دوپامین مصنوعی وارد مغز می‌کنی، الاکلنگ به سمت لذت خم می‌شود. اما مغز برای برقراری تعادل بلافاصله وزنه‌ای سنگین‌تر در سمت 'درد و کلافگی' می‌گذارد. به همین دلیل بعد از هر لذت ارزان، حس پوچی و عذاب وجدان می‌آید. راه حل چیست؟ تحمل همان درد کوتاه‌مدت اولیه تا الاکلنگ دوباره در حالت خنثی قرار بگیرد."
+                },
+                {
+                    id: 2,
+                    title: "۲. استراتژی HALT (چهار مقطع بحرانی لغزش)",
+                    readTime: "۴۵ ثانیه",
+                    content: "بیش از ۸۰ درصد لغزش‌ها در یکی از این ۴ حالت رخ می‌دهد: گرسنگی (Hungry)، عصبانیت (Angry)، تنهایی (Lonely) و خستگی مفرط (Tired). هر زمان احساس کردی وسوسه مهارناپذیر شده، دست نگه‌دار و از خودت بپرس: الان کدوم یکی از این ۴ تا هستم؟ اگر خسته‌ای بخواب، اگر گرسنه‌ای غذا بخور، اگر تنهایی به یک دوست پیام بده. وسوسه را با خودارضایی یا مصرف درمان نکن."
+                },
+                {
+                    id: 3,
+                    title: "۳. قانون موج‌سواری بر وسوسه (Urge Surfing)",
+                    readTime: "۳۰ ثانیه",
+                    content: "تصور کن هوس و ولع مثل یک موج دریاست. موج شروع می‌شود، بالا می‌آید، به اوج (قله) می‌رسد و سپس می‌شکند و محو می‌شود. میانگین اوج این موج فقط ۳ الی ۵ دقیقه است. نیاز نیست با موج بجنگی، کافیست چند دقیقه روی آن موج‌سواری کنی؛ بنشین، نفس عمیق بکش و به ضربان قلبت توجه کن تا کف موج فرو بنشیند."
+                },
+                {
+                    id: 4,
+                    title: "۴. چرا صفر کردن روزشمار اثر مخرب دارد؟",
+                    readTime: "۵۰ ثانیه",
+                    content: "بزرگ‌ترین دشمن ترک، اثر 'بی‌خیالی' (What-the-hell Effect) است. اگر بعد از ۳۰ روز پاکی، یک بار بلغزی و روزشمار را صفر کنی، ذهن می‌گوید: 'من که باختم، پس بگذار امشب تا آخر خط بروم'. اما علم می‌گوید مسیرهای عصبی ساخته‌شده در آن ۳۰ روز پاکی هرگز از بین نمی‌روند. یک لغزش فقط یک لغزش است، نه شروع مجدد اعتیاد. سرت را بالا بگیر و ادامه بده."
+                }
+            ];
+
+            // 3.C: Milestones & Badges Database
+            const MILESTONES_DB = [
+                { days: 1, label: "۲۴ ساعت", title: "شجاعت آغاز", desc: "عبور از اولین شوک قطع دوپامین مصنوعی و شروع پاکسازی اولیه خون و گیرنده‌های عصبی." },
+                { days: 3, label: "۳ روز", title: "عبور از اوج خماری", desc: "سخت‌ترین گردنه فیزیکی و شیمیایی مغز رد شد؛ التهاب اولیه سیستم پاداش فروکش می‌کند." },
+                { days: 7, label: "۱ هفته", title: "شکستن چرخه هفتگی", desc: "یک هفته کامل از تله‌های روزمره عبور کردی. کیفیت خواب و تمرکز پایه در حال بازگشت است." },
+                { days: 14, label: "۱۴ روز", title: "بیداری گیرنده‌ها", desc: "حساسیت گیرنده‌های دوپامین D2 بیشتر شده و لذت‌های طبیعی روزمره دوباره معنا پیدا می‌کنند." },
+                { days: 21, label: "۲۱ روز", title: "جوانه مسیر عصبی نو", desc: "بزرگراه‌های عصبی عادت قدیم تضعیف شده و سیناپس‌های عادت جدید در قشر پیش‌پیشانی شکل گرفته‌اند." },
+                { days: 30, label: "۱ ماه", title: "معمار هویت جدید", desc: "۳۰ روز پاکی! کنترل تکانه‌ها در لب پیشانی مغز به شکل محسوسی تقویت شده است." },
+                { days: 90, label: "۹۰ روز", title: "بازنشانی کامل (Reboot)", desc: "استاندارد طلایی نوروساینس؛ سیم‌کشی مغز به حالت طبیعی و متعادل پایدار بازگشته است." }
+            ];
+
+            function createDefaultState() {
+                return {
+                    isSetupDone: false,
+                    habitName: "",
+                    startDate: new Date().toISOString(),
+                    dailyCost: 0,
+                    dailyHours: 0,
+                    coreReason: "",
+                    relapses: [],
+                    bookmarkedQuotes: [],
+                    sosVictories: 0,
+                    theme: "dark",
+                    goalTitle: "",
+                    goalPrice: 0,
+                    triggersLog: [], // [{ type: 'sos'|'relapse', reason: 'تنهایی', date: ISO }]
+                    victoryDates: [], // [ISO strings of SOS victories]
+                    pinCode: ""
+                };
+            }
+
+            let appState = loadState();
+            let currentQuoteObj = QUOTES_DB[0];
+            let lastRenderedPhase = null;
+            let liveTimerInterval = null;
+            let toastTimeoutId = null;
+
+            // SOS State Variables
+            let sosTimerSeconds = 300;
+            let sosTimerInterval = null;
+            let sosTimerRunning = false;
+            let breathingTimeoutIds = [];
+            let breathingCycleInterval = null;
+            let selectedSosTrigger = "";
+            let selectedRelapseTrigger = "";
+
+            // Web Audio API Ambient Sound Engine
+            let audioCtx = null;
+            let ambientGainNode = null;
+            let ambientSourceNode = null;
+            let isAmbientPlaying = false;
+
+            // Mini-game State
+            let gameCurrentTarget = 1;
+
+            // PIN Lock State
+            let enteredPin = "";
+
+            // Reset confirmation two-step state
+            let resetConfirmationPending = false;
+
+            // ==========================================
+            // HELPER FUNCTIONS (PERSIAN & DIGITS)
+            // ==========================================
+            function toPersianDigits(val) {
+                const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                return String(val).replace(/[0-9]/g, function (w) {
+                    return persian[+w];
+                });
+            }
+
+            function toEnglishDigits(str) {
+                return String(str)
+                    .replace(/[۰-۹]/g, function (d) { return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d); })
+                    .replace(/[٠-٩]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+            }
+
+            function formatCurrencyInput(value) {
+                const normalized = toEnglishDigits(value).replace(/[^0-9]/g, '');
+                if (!normalized) return '';
+                return parseInt(normalized, 10).toLocaleString('en-US');
+            }
+
+            function parseCurrencyInput(value) {
+                const normalized = toEnglishDigits(value).replace(/[^0-9]/g, '');
+                return normalized ? parseInt(normalized, 10) : 0;
+            }
+
+            function showToast(msg) {
+                const container = document.getElementById('toast-container');
+                const messageEl = document.getElementById('toast-message');
+                if (!container || !messageEl) return;
+
+                if (toastTimeoutId) clearTimeout(toastTimeoutId);
+                messageEl.textContent = msg;
+                container.classList.remove('hidden');
+                toastTimeoutId = setTimeout(function () {
+                    container.classList.add('hidden');
+                    toastTimeoutId = null;
+                }, 3200);
+            }
+
+            // ==========================================
+            // JALALI (SHAMSI) CALENDAR CONVERSION ENGINE
+            // ==========================================
+            const JALALI_MONTHS = [
+                'فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور',
+                'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'
+            ];
+
+            function gregorianToJalali(gy, gm, gd) {
+                const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+                let jy = (gy <= 1600) ? 0 : 979;
+                gy -= (gy <= 1600) ? 621 : 1600;
+                const gy2 = (gm > 2) ? (gy + 1) : gy;
+                let days = (365 * gy) + parseInt((gy2 + 3) / 4, 10) - parseInt((gy2 + 99) / 100, 10) + parseInt((gy2 + 399) / 400, 10) - 80 + gd + g_d_m[gm - 1];
+                jy += 33 * parseInt(days / 12053, 10);
+                days %= 12053;
+                jy += 4 * parseInt(days / 1461, 10);
+                days %= 1461;
+                jy += parseInt((days - 1) / 365, 10);
+                if (days > 365) days = (days - 1) % 365;
+                const jm = (days < 186) ? 1 + parseInt(days / 31, 10) : 7 + parseInt((days - 186) / 30, 10);
+                const jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+                return { jy, jm, jd };
+            }
+
+            function jalaliToGregorian(jy, jm, jd) {
+                let gy = (jy <= 979) ? 621 : 1600;
+                jy -= (jy <= 979) ? 0 : 979;
+                let days = (365 * jy) + (parseInt(jy / 33, 10) * 8) + parseInt(((jy % 33) + 3) / 4, 10) + 78 + jd + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+                gy += 400 * parseInt(days / 146097, 10);
+                days %= 146097;
+                if (days > 36524) {
+                    gy += 100 * parseInt(--days / 36524, 10);
+                    days %= 36524;
+                    if (days >= 365) days++;
+                }
+                gy += 4 * parseInt(days / 1461, 10);
+                days %= 1461;
+                gy += parseInt((days - 1) / 365, 10);
+                if (days > 365) days = (days - 1) % 365;
+                let gd = days + 1;
+                const sal_a = [0, 31, ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                let gm;
+                for (gm = 0; gm < 13; gm++) {
+                    const v = sal_a[gm];
+                    if (gd <= v) break;
+                    gd -= v;
+                }
+                return { gy, gm, gd };
+            }
+
+            function isJalaliLeapYear(jy) {
+                const g = jalaliToGregorian(jy, 12, 30);
+                const j = gregorianToJalali(g.gy, g.gm, g.gd);
+                return j.jy === jy && j.jm === 12 && j.jd === 30;
+            }
+
+            function getJalaliMonthLength(jy, jm) {
+                if (jm >= 1 && jm <= 6) return 31;
+                if (jm >= 7 && jm <= 11) return 30;
+                return isJalaliLeapYear(jy) ? 30 : 29;
+            }
+
+            function updateJalaliDaysDropdown(prefix) {
+                const dayEl = document.getElementById(prefix + '-j-day');
+                const monthEl = document.getElementById(prefix + '-j-month');
+                const yearEl = document.getElementById(prefix + '-j-year');
+                if (!dayEl || !monthEl || !yearEl) return;
+
+                const selectedYear = parseInt(yearEl.value, 10) || 1404;
+                const selectedMonth = parseInt(monthEl.value, 10) || 1;
+                const previousDay = parseInt(dayEl.value, 10) || 1;
+                const maxDays = getJalaliMonthLength(selectedYear, selectedMonth);
+
+                dayEl.innerHTML = '';
+                for (let d = 1; d <= maxDays; d++) {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.textContent = toPersianDigits(d);
+                    dayEl.appendChild(opt);
+                }
+                dayEl.value = Math.min(previousDay, maxDays);
+            }
+
+            function populateJalaliPicker(prefix) {
+                const dayEl = document.getElementById(prefix + '-j-day');
+                const monthEl = document.getElementById(prefix + '-j-month');
+                const yearEl = document.getElementById(prefix + '-j-year');
+                const hourEl = document.getElementById(prefix + '-j-hour');
+                const minEl = document.getElementById(prefix + '-j-minute');
+
+                monthEl.innerHTML = '';
+                JALALI_MONTHS.forEach(function (name, idx) {
+                    const opt = document.createElement('option');
+                    opt.value = idx + 1;
+                    opt.textContent = name;
+                    monthEl.appendChild(opt);
+                });
+
+                const now = new Date();
+                const nowJ = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+                yearEl.innerHTML = '';
+                for (let y = nowJ.jy - 10; y <= nowJ.jy; y++) {
+                    const opt = document.createElement('option');
+                    opt.value = y;
+                    opt.textContent = toPersianDigits(y);
+                    yearEl.appendChild(opt);
+                }
+                yearEl.value = nowJ.jy;
+                monthEl.value = nowJ.jm;
+
+                updateJalaliDaysDropdown(prefix);
+                dayEl.value = nowJ.jd;
+
+                monthEl.addEventListener('change', function () { updateJalaliDaysDropdown(prefix); });
+                yearEl.addEventListener('change', function () { updateJalaliDaysDropdown(prefix); });
+
+                hourEl.innerHTML = '';
+                for (let h = 0; h < 24; h++) {
+                    const opt = document.createElement('option');
+                    opt.value = h;
+                    opt.textContent = toPersianDigits(h < 10 ? '0' + h : h);
+                    hourEl.appendChild(opt);
+                }
+
+                minEl.innerHTML = '';
+                for (let m = 0; m < 60; m++) {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.textContent = toPersianDigits(m < 10 ? '0' + m : m);
+                    minEl.appendChild(opt);
+                }
+            }
+
+            function setJalaliPickerFromISO(prefix, isoStr) {
+                const d = isoStr ? new Date(isoStr) : new Date();
+                const validDate = isNaN(d.getTime()) ? new Date() : d;
+                const j = gregorianToJalali(validDate.getFullYear(), validDate.getMonth() + 1, validDate.getDate());
+
+                const yearEl = document.getElementById(prefix + '-j-year');
+                const monthEl = document.getElementById(prefix + '-j-month');
+                const dayEl = document.getElementById(prefix + '-j-day');
+
+                if (!yearEl.querySelector('option[value="' + j.jy + '"]')) {
+                    const opt = document.createElement('option');
+                    opt.value = j.jy;
+                    opt.textContent = toPersianDigits(j.jy);
+                    yearEl.appendChild(opt);
+                }
+
+                yearEl.value = j.jy;
+                monthEl.value = j.jm;
+                updateJalaliDaysDropdown(prefix);
+                dayEl.value = j.jd;
+
+                document.getElementById(prefix + '-j-hour').value = validDate.getHours();
+                document.getElementById(prefix + '-j-minute').value = validDate.getMinutes();
+            }
+
+            function getISOFromJalaliPicker(prefix) {
+                const jy = parseInt(document.getElementById(prefix + '-j-year').value, 10);
+                const jm = parseInt(document.getElementById(prefix + '-j-month').value, 10);
+                const maxDay = getJalaliMonthLength(jy, jm);
+                const jd = Math.min(maxDay, parseInt(document.getElementById(prefix + '-j-day').value, 10) || 1);
+                const hour = parseInt(document.getElementById(prefix + '-j-hour').value, 10) || 0;
+                const minute = parseInt(document.getElementById(prefix + '-j-minute').value, 10) || 0;
+
+                const g = jalaliToGregorian(jy, jm, jd);
+                let dateObj = new Date(g.gy, g.gm - 1, g.gd, hour, minute, 0);
+
+                const now = new Date();
+                if (dateObj.getTime() > now.getTime()) {
+                    dateObj = now;
+                    showToast('تاریخ شروع نمی‌تواند در آینده باشد؛ روی زمان فعلی تنظیم شد.');
+                }
+                return dateObj.toISOString();
+            }
+
+            // ==========================================
+            // STATE MANAGEMENT & VALIDATION
+            // ==========================================
+            function validateState(raw) {
+                const fallback = createDefaultState();
+                if (!raw || typeof raw !== 'object') return fallback;
+                return {
+                    isSetupDone: Boolean(raw.isSetupDone),
+                    habitName: typeof raw.habitName === 'string' ? raw.habitName.trim() : "",
+                    startDate: typeof raw.startDate === 'string' && !isNaN(Date.parse(raw.startDate)) ? raw.startDate : fallback.startDate,
+                    dailyCost: typeof raw.dailyCost === 'number' && !isNaN(raw.dailyCost) ? Math.max(0, raw.dailyCost) : 0,
+                    dailyHours: typeof raw.dailyHours === 'number' && !isNaN(raw.dailyHours) ? Math.min(24, Math.max(0, raw.dailyHours)) : 0,
+                    coreReason: typeof raw.coreReason === 'string' ? raw.coreReason.trim() : "",
+                    relapses: Array.isArray(raw.relapses) ? raw.relapses.filter(function (d) { return typeof d === 'string' && !isNaN(Date.parse(d)); }) : [],
+                    bookmarkedQuotes: Array.isArray(raw.bookmarkedQuotes) ? raw.bookmarkedQuotes.filter(function (id) { return typeof id === 'number'; }) : [],
+                    sosVictories: typeof raw.sosVictories === 'number' && !isNaN(raw.sosVictories) ? Math.max(0, Math.floor(raw.sosVictories)) : 0,
+                    theme: raw.theme === 'light' ? 'light' : 'dark',
+                    goalTitle: typeof raw.goalTitle === 'string' ? raw.goalTitle.trim() : "",
+                    goalPrice: typeof raw.goalPrice === 'number' && !isNaN(raw.goalPrice) ? Math.max(0, raw.goalPrice) : 0,
+                    triggersLog: Array.isArray(raw.triggersLog) ? raw.triggersLog : [],
+                    victoryDates: Array.isArray(raw.victoryDates) ? raw.victoryDates : [],
+                    pinCode: typeof raw.pinCode === 'string' ? toEnglishDigits(raw.pinCode).replace(/[^0-9]/g, '').slice(0, 4) : ""
+                };
+            }
+
+            function applyTheme() {
+                const htmlEl = document.documentElement;
+                const sunIcon = document.getElementById('icon-theme-sun');
+                const moonIcon = document.getElementById('icon-theme-moon');
+                const settingsLabel = document.getElementById('settings-theme-label');
+
+                if (appState.theme === 'light') {
+                    htmlEl.classList.remove('dark');
+                    htmlEl.classList.add('light');
+                    if (sunIcon) sunIcon.classList.add('hidden');
+                    if (moonIcon) moonIcon.classList.remove('hidden');
+                    if (settingsLabel) settingsLabel.textContent = 'تغییر به تم تاریک (Dark Mode)';
+                } else {
+                    htmlEl.classList.remove('light');
+                    htmlEl.classList.add('dark');
+                    if (sunIcon) sunIcon.classList.remove('hidden');
+                    if (moonIcon) moonIcon.classList.add('hidden');
+                    if (settingsLabel) settingsLabel.textContent = 'تغییر به تم روشن (Light Mode)';
+                }
+            }
+
+            function toggleTheme() {
+                appState.theme = appState.theme === 'dark' ? 'light' : 'dark';
+                saveState();
+                applyTheme();
+                showToast(appState.theme === 'light' ? 'تم روشن فعال شد.' : 'تم تاریک فعال شد.');
+            }
+
+            function loadState() {
+                try {
+                    const stored = localStorage.getItem(STORAGE_KEY);
+                    if (!stored) return createDefaultState();
+                    return validateState(JSON.parse(stored));
+                } catch (e) {
+                    return createDefaultState();
+                }
+            }
+
+            function saveState() {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+                } catch (e) {
+                    console.error('Failed to save state:', e);
+                }
+            }
+
+            // ==========================================
+            // CORE CALCULATIONS & NEW WIDGET RENDERS
+            // ==========================================
+            function getElapsedTimeData() {
+                const startMs = new Date(appState.startDate).getTime();
+                const nowMs = Date.now();
+                const diffMs = Math.max(0, nowMs - startMs);
+
+                const totalSeconds = Math.floor(diffMs / 1000);
+                const totalDays = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor((totalSeconds % 86400) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+
+                return { totalDays, hours, minutes, seconds, totalSeconds };
+            }
+
+            function getCurrentPhase(totalDays) {
+                const dayNumber = totalDays + 1;
+                if (dayNumber <= 3) return { phase: 1, title: "فاز ۱: سم‌زدایی و تعادل" };
+                if (dayNumber <= 14) return { phase: 2, title: "فاز ۲: غلبه بر فریب ذهن" };
+                if (dayNumber <= 30) return { phase: 3, title: "فاز ۳: ساخت هویت نو" };
+                return { phase: 4, title: "فاز ۴: ثبات و بلوغ پایدار" };
+            }
+
+            // Render Goal Box (Wishlist)
+            function renderGoalBox(savedMoney) {
+                const container = document.getElementById('goal-box-content');
+                if (!container) return;
+
+                if (!appState.goalTitle || appState.goalPrice <= 0) {
+                    container.innerHTML = `
+                        <p class="text-xs text-mutedGray">هنوز هدفی تعیین نکردی. با پولی که پس‌انداز میشه می‌خوای چی برای خودت بخری؟</p>
+                    `;
+                    return;
+                }
+
+                const pct = Math.min(100, Math.round((savedMoney / appState.goalPrice) * 100));
+                container.innerHTML = `
+                    <div class="flex justify-between items-center text-xs mb-1.5">
+                        <span class="font-bold text-snowWhite">${appState.goalTitle}</span>
+                        <span class="text-emeraldAccent font-bold">${toPersianDigits(pct)}٪ (${toPersianDigits(appState.goalPrice.toLocaleString('en-US'))} تومان)</span>
+                    </div>
+                    <div class="w-full h-2 bg-appBg rounded-full overflow-hidden p-0.5 glass-border">
+                        <div class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                    </div>
+                `;
+            }
+
+            // Render 30-Day Habit Chain Grid
+            function renderHabitChainGrid() {
+                const grid = document.getElementById('habit-chain-grid');
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                const now = new Date();
+                const startDayMidnight = new Date(appState.startDate);
+                startDayMidnight.setHours(0, 0, 0, 0);
+
+                const relapseDayKeys = new Set(appState.relapses.map(function (iso) {
+                    const d = new Date(iso);
+                    return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                }));
+
+                const victoryDayKeys = new Set((appState.victoryDates || []).map(function (iso) {
+                    const d = new Date(iso);
+                    return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                }));
+
+                for (let i = 29; i >= 0; i--) {
+                    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+                    const key = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                    const j = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+
+                    const cell = document.createElement('div');
+                    let bgClass = 'cell-inactive font-semibold';
+                    let titleText = toPersianDigits(j.jd) + ' ' + JALALI_MONTHS[j.jm - 1];
+
+                    if (d.getTime() >= startDayMidnight.getTime()) {
+                        if (relapseDayKeys.has(key)) {
+                            bgClass = 'bg-sosRed text-white font-bold shadow-sm';
+                            titleText += ' (لغزش)';
+                        } else if (victoryDayKeys.has(key)) {
+                            bgClass = 'bg-amber-400 text-slate-950 font-black shadow-sm';
+                            titleText += ' (پیروزی بر وسوسه)';
+                        } else {
+                            bgClass = 'bg-emeraldAccent text-slate-950 font-bold shadow-sm';
+                            titleText += ' (پاک)';
+                        }
+                    }
+
+                    cell.className = 'h-7 rounded-lg flex items-center justify-center text-[10px] glass-border cursor-pointer transition hover:scale-105 ' + bgClass;
+                    cell.textContent = toPersianDigits(j.jd);
+                    cell.title = titleText;
+                    cell.addEventListener('click', function () {
+                        showToast(titleText);
+                    });
+                    grid.appendChild(cell);
+                }
+            }
+
+            // Render Milestones & Brain Recovery Bars
+            function renderMilestonesAndRecovery(totalDays, totalSeconds) {
+                const grid = document.getElementById('milestones-grid');
+                const summary = document.getElementById('badges-unlocked-summary');
+                const detailBox = document.getElementById('milestone-detail-box');
+                if (!grid) return;
+
+                grid.innerHTML = '';
+                let unlockedCount = 0;
+
+                MILESTONES_DB.forEach(function (m) {
+                    const isUnlocked = totalDays >= m.days;
+                    if (isUnlocked) unlockedCount++;
+
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'p-2 rounded-xl flex flex-col items-center justify-center gap-1 transition active:scale-95 glass-border ' +
+                        (isUnlocked ? 'bg-emeraldAccent/20 border-emeraldAccent text-emeraldAccent font-bold' : 'cell-inactive');
+                    btn.innerHTML = `
+                        <span class="text-xs font-black">${isUnlocked ? '★' : '🔒'}</span>
+                        <span class="text-[9px] font-bold whitespace-nowrap">${m.label}</span>
+                    `;
+                    btn.addEventListener('click', function () {
+                        detailBox.innerHTML = `<strong class="text-emeraldAccent">${m.title} (${m.label}):</strong> ${m.desc}`;
+                    });
+                    grid.appendChild(btn);
+                });
+
+                summary.textContent = toPersianDigits(unlockedCount) + ' از ' + toPersianDigits(MILESTONES_DB.length) + ' باز شده';
+
+                // Brain Recovery Progress Bars
+                const barsContainer = document.getElementById('recovery-bars-container');
+                const exactDays = totalSeconds / 86400;
+                const barsData = [
+                    { label: "پاکسازی اولیه دوپامین کاذب (۷۲ ساعت)", pct: Math.min(100, Math.round((exactDays / 3) * 100)) },
+                    { label: "بازگشت کیفیت خواب و تمرکز پایه (۱۴ روز)", pct: Math.min(100, Math.round((exactDays / 14) * 100)) },
+                    { label: "ترمیم مسیرهای عصبی و کنترل تکانه (۹۰ روز)", pct: Math.min(100, Math.round((exactDays / 90) * 100)) }
+                ];
+
+                barsContainer.innerHTML = '';
+                barsData.forEach(function (b) {
+                    const row = document.createElement('div');
+                    row.innerHTML = `
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-mutedGray">${b.label}</span>
+                            <span class="font-bold text-emeraldAccent">${toPersianDigits(b.pct)}٪</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-appBg rounded-full overflow-hidden glass-border">
+                            <div class="h-full bg-emeraldAccent rounded-full transition-all duration-500" style="width: ${b.pct}%"></div>
+                        </div>
+                    `;
+                    barsContainer.appendChild(row);
+                });
+            }
+
+            // Render Achilles Heel / Trigger Analytics
+            function renderTriggerAnalytics() {
+                const countEl = document.getElementById('trigger-total-count');
+                const insightEl = document.getElementById('trigger-insight-text');
+                const listEl = document.getElementById('trigger-bars-list');
+                if (!listEl) return;
+
+                const logs = appState.triggersLog || [];
+                countEl.textContent = toPersianDigits(logs.length) + ' مورد ثبت‌شده';
+
+                if (logs.length === 0) {
+                    listEl.innerHTML = '';
+                    insightEl.textContent = 'با ثبت دلیل وسوسه در زمان SOS یا لغزش، الگوی پنهان مغزت اینجا تحلیل می‌شود.';
+                    return;
+                }
+
+                const counts = {};
+                logs.forEach(function (item) {
+                    if (!item.reason) return;
+                    counts[item.reason] = (counts[item.reason] || 0) + 1;
+                });
+
+                const sorted = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+                const topTrigger = sorted[0];
+                insightEl.innerHTML = `پاشنه آشیل اصلی تو <strong class="text-sosRed">«${topTrigger}»</strong> است. در این حالت بیشترین هجوم وسوسه را تجربه می‌کنی؛ از قبل برایش جایگزین آماده کن.`;
+
+                listEl.innerHTML = '';
+                sorted.forEach(function (reason) {
+                    const pct = Math.round((counts[reason] / logs.length) * 100);
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-snowWhite font-medium">${reason}</span>
+                            <span class="text-mutedGray">${toPersianDigits(counts[reason])} بار (${toPersianDigits(pct)}٪)</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-appBg rounded-full overflow-hidden glass-border">
+                            <div class="h-full bg-sosRed/80 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    `;
+                    listEl.appendChild(div);
+                });
+            }
+
+            function updateLiveMetrics() {
+                if (!appState.isSetupDone) return;
+
+                const { totalDays, hours, minutes, seconds, totalSeconds } = getElapsedTimeData();
+                const pad = function (n) { return n < 10 ? '0' + n : String(n); };
+
+                document.getElementById('hero-day-title').textContent = 'روز ' + toPersianDigits(totalDays) + ' آزادی';
+                document.getElementById('timer-days').textContent = toPersianDigits(totalDays);
+                document.getElementById('timer-hours').textContent = toPersianDigits(pad(hours));
+                document.getElementById('timer-minutes').textContent = toPersianDigits(pad(minutes));
+                document.getElementById('timer-seconds').textContent = toPersianDigits(pad(seconds));
+
+                const relapsesCount = appState.relapses.length;
+                const cleanRate = Math.max(0, Math.round(((totalDays - relapsesCount) / Math.max(totalDays, 1)) * 100));
+
+                document.getElementById('clean-rate-label').textContent = 'نرخ پاکی: ' + toPersianDigits(cleanRate) + '٪ (بدون ناامیدی با لغزش)';
+                document.getElementById('relapse-count-badge').textContent = toPersianDigits(relapsesCount) + ' لغزش ثبت‌شده';
+                document.getElementById('clean-rate-bar').style.width = cleanRate + '%';
+
+                const effectiveCleanDays = Math.max(0, totalDays - relapsesCount);
+                const savedMoney = effectiveCleanDays * appState.dailyCost;
+                const savedHours = Math.round((effectiveCleanDays * appState.dailyHours) * 10) / 10;
+
+                document.getElementById('metric-saved-money').textContent = toPersianDigits(savedMoney.toLocaleString('en-US'));
+                document.getElementById('metric-saved-time').textContent = toPersianDigits(savedHours) + ' ساعت';
+
+                renderGoalBox(savedMoney);
+
+                const phaseInfo = getCurrentPhase(totalDays);
+                document.getElementById('phase-badge').textContent = phaseInfo.title;
+
+                if (lastRenderedPhase !== phaseInfo.phase) {
+                    selectQuoteForPhase(false);
+                    renderMilestonesAndRecovery(totalDays, totalSeconds);
+                }
+                lastRenderedPhase = phaseInfo.phase;
+            }
+
+            function selectQuoteForPhase(forceRandom) {
+                const { totalDays } = getElapsedTimeData();
+                const { phase } = getCurrentPhase(totalDays);
+                const phaseQuotes = QUOTES_DB.filter(function (q) { return q.phase === phase; });
+
+                if (forceRandom) {
+                    const otherQuotes = phaseQuotes.filter(function (q) { return q.id !== currentQuoteObj.id; });
+                    currentQuoteObj = otherQuotes[Math.floor(Math.random() * otherQuotes.length)] || phaseQuotes[0];
+                } else {
+                    const index = totalDays % phaseQuotes.length;
+                    currentQuoteObj = phaseQuotes[index];
+                }
+
+                renderQuoteCard();
+            }
+
+            function renderQuoteCard() {
+                document.getElementById('quote-text').textContent = '«' + currentQuoteObj.text + '»';
+                document.getElementById('quote-source').textContent = currentQuoteObj.source ? '— ' + currentQuoteObj.source : '';
+
+                const isBookmarked = appState.bookmarkedQuotes.includes(currentQuoteObj.id);
+                const iconBookmark = document.getElementById('icon-bookmark');
+                if (isBookmarked) {
+                    iconBookmark.setAttribute('fill', '#10B981');
+                    iconBookmark.classList.add('text-emeraldAccent');
+                } else {
+                    iconBookmark.setAttribute('fill', 'none');
+                    iconBookmark.classList.remove('text-emeraldAccent');
+                }
+
+                document.getElementById('bookmark-count-badge').textContent = '(' + toPersianDigits(appState.bookmarkedQuotes.length) + ')';
+            }
+
+            function renderBookmarksModalList() {
+                const list = document.getElementById('bookmarks-list-container');
+                if (!list) return;
+                list.innerHTML = '';
+
+                if (appState.bookmarkedQuotes.length === 0) {
+                    list.innerHTML = '<p class="text-xs text-mutedGray text-center py-6">هنوز جمله‌ای رو نشان نکردی.</p>';
+                    return;
+                }
+
+                appState.bookmarkedQuotes.forEach(function (qId) {
+                    const q = QUOTES_DB.find(function (item) { return item.id === qId; });
+                    if (!q) return;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'p-3.5 rounded-2xl bg-appBg glass-border text-xs leading-6 text-snowWhite flex items-start justify-between gap-2';
+                    itemDiv.innerHTML = `
+                        <div>
+                            <p>«${q.text}»</p>
+                            <div class="text-[10px] text-emeraldAccent mt-1">${q.source ? '— ' + q.source : ''}</div>
+                        </div>
+                        <button type="button" title="حذف از نشان‌شده‌ها" class="text-mutedGray hover:text-sosRed p-1 shrink-0 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    `;
+                    itemDiv.querySelector('button').addEventListener('click', function () {
+                        const idx = appState.bookmarkedQuotes.indexOf(q.id);
+                        if (idx !== -1) {
+                            appState.bookmarkedQuotes.splice(idx, 1);
+                            saveState();
+                            renderQuoteCard();
+                            renderBookmarksModalList();
+                        }
+                    });
+                    list.appendChild(itemDiv);
+                });
+            }
+
+            function renderDashboardStatic() {
+                const { totalDays, totalSeconds } = getElapsedTimeData();
+                document.getElementById('header-habit-badge').textContent = appState.habitName || 'عادت';
+                document.getElementById('sos-victory-count').textContent = toPersianDigits(appState.sosVictories);
+                document.getElementById('dashboard-core-reason').textContent = appState.coreReason || 'بازپس‌گیری اراده و ساختن نسخه بهتر خودم';
+                document.getElementById('sos-core-reason').textContent = appState.coreReason || 'بازپس‌گیری اراده و ساختن نسخه بهتر خودم';
+                lastRenderedPhase = null;
+                updateLiveMetrics();
+                renderHabitChainGrid();
+                renderMilestonesAndRecovery(totalDays, totalSeconds);
+                renderTriggerAnalytics();
+                selectQuoteForPhase(false);
+            }
+
+            function renderLearningCapsules() {
+                const container = document.getElementById('learning-accordion-container');
+                container.innerHTML = '';
+
+                LEARNING_DB.forEach(function (item) {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-2xl overflow-hidden transition-all';
+                    card.innerHTML = `
+                        <button type="button" class="w-full p-4 text-right flex items-center justify-between gap-2 focus:outline-none">
+                            <div>
+                                <h4 class="text-xs font-extrabold text-snowWhite">${item.title}</h4>
+                                <span class="text-[10px] text-emeraldAccent">زمان مطالعه: ${item.readTime}</span>
+                            </div>
+                            <svg class="accordion-arrow w-4 h-4 text-mutedGray transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-body hidden px-4 pb-4 pt-1 border-t border-white/5 text-xs text-mutedGray leading-6">
+                            ${item.content}
+                        </div>
+                    `;
+
+                    const btn = card.querySelector('button');
+                    const body = card.querySelector('.accordion-body');
+                    const arrow = card.querySelector('.accordion-arrow');
+
+                    btn.addEventListener('click', function () {
+                        const isOpen = !body.classList.contains('hidden');
+                        if (isOpen) {
+                            body.classList.add('hidden');
+                            arrow.classList.remove('rotate-180');
+                        } else {
+                            body.classList.remove('hidden');
+                            arrow.classList.add('rotate-180');
+                        }
+                    });
+
+                    container.appendChild(card);
+                });
+            }
+
+            // ==========================================
+            // SOS WEB AUDIO API (SOOTHING BROWN NOISE)
+            // ==========================================
+            function toggleAmbientSound() {
+                if (isAmbientPlaying) {
+                    stopAmbientSound();
+                } else {
+                    startAmbientSound();
+                }
+            }
+
+            function startAmbientSound() {
+                try {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioContextClass) return;
+                    if (!audioCtx) audioCtx = new AudioContextClass();
+
+                    const bufferSize = audioCtx.sampleRate * 2;
+                    const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                    const output = noiseBuffer.getChannelData(0);
+                    let lastOut = 0.0;
+                    for (let i = 0; i < bufferSize; i++) {
+                        const white = Math.random() * 2 - 1;
+                        output[i] = (lastOut + (0.02 * white)) / 1.02;
+                        lastOut = output[i];
+                        output[i] *= 0.18; // Soft soothing gain
+                    }
+
+                    ambientSourceNode = audioCtx.createBufferSource();
+                    ambientSourceNode.buffer = noiseBuffer;
+                    ambientSourceNode.loop = true;
+
+                    // Lowpass filter for warm wave sound
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 420;
+
+                    ambientGainNode = audioCtx.createGain();
+                    ambientGainNode.gain.value = 0.5;
+
+                    ambientSourceNode.connect(filter);
+                    filter.connect(ambientGainNode);
+                    ambientGainNode.connect(audioCtx.destination);
+
+                    ambientSourceNode.start(0);
+                    isAmbientPlaying = true;
+
+                    document.getElementById('ambient-audio-dot').className = 'w-2 h-2 rounded-full bg-emeraldAccent animate-ping';
+                    document.getElementById('ambient-audio-label').textContent = 'صدای آرام‌بخش: روشن';
+                } catch (e) {
+                    console.error('Audio error:', e);
+                }
+            }
+
+            function stopAmbientSound() {
+                try {
+                    if (ambientSourceNode) {
+                        ambientSourceNode.stop();
+                        ambientSourceNode.disconnect();
+                        ambientSourceNode = null;
+                    }
+                } catch (e) {}
+                isAmbientPlaying = false;
+                const dot = document.getElementById('ambient-audio-dot');
+                const label = document.getElementById('ambient-audio-label');
+                if (dot) dot.className = 'w-2 h-2 rounded-full bg-mutedGray';
+                if (label) label.textContent = 'صدای آرام‌بخش';
+            }
+
+            // ==========================================
+            // SOS COGNITIVE DISTRACTION MINI-GAME (1 TO 16)
+            // ==========================================
+            function initNumberGame() {
+                const grid = document.getElementById('sos-number-grid');
+                const targetLabel = document.getElementById('game-next-target');
+                if (!grid) return;
+
+                gameCurrentTarget = 1;
+                targetLabel.textContent = 'عدد بعدی: ۱';
+
+                const numbers = [];
+                for (let i = 1; i <= 16; i++) numbers.push(i);
+                // Shuffle
+                for (let i = numbers.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+
+                grid.innerHTML = '';
+                numbers.forEach(function (num) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'h-12 rounded-xl bg-appBg glass-border text-sm font-black text-snowWhite hover:border-emeraldAccent active:scale-90 transition';
+                    btn.textContent = toPersianDigits(num);
+                    btn.addEventListener('click', function () {
+                        if (num === gameCurrentTarget) {
+                            btn.className = 'h-12 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent text-emeraldAccent text-sm font-black opacity-40 pointer-events-none';
+                            gameCurrentTarget++;
+                            if (gameCurrentTarget > 16) {
+                                targetLabel.textContent = 'آفرین! ذهن متمرکز شد';
+                                showToast('عالی بود! یک دور دیگر بازی کن یا نفس عمیق بکش.');
+                                setTimeout(initNumberGame, 1400);
+                            } else {
+                                targetLabel.textContent = 'عدد بعدی: ' + toPersianDigits(gameCurrentTarget);
+                            }
+                        }
+                    });
+                    grid.appendChild(btn);
+                });
+            }
+
+            // ==========================================
+            // SOS BREATHING (4-7-8) & TIMER ENGINE
+            // ==========================================
+            function runSingleBreathingCycle() {
+                const circle = document.getElementById('breathing-circle');
+                const instruction = document.getElementById('breathing-instruction');
+                const sub = document.getElementById('breathing-sub');
+
+                circle.style.transitionDuration = '4000ms';
+                circle.style.transform = 'scale(1.85)';
+                circle.style.backgroundColor = 'rgba(16, 185, 129, 0.38)';
+                instruction.textContent = 'دَم عمیق...';
+                sub.textContent = '۴ ثانیه از بینی نفس بکش';
+
+                const t1 = setTimeout(function () {
+                    circle.style.transitionDuration = '300ms';
+                    instruction.textContent = 'نگه‌دار...';
+                    sub.textContent = '۷ ثانیه نفس رو حبس کن';
+                }, 4000);
+
+                const t2 = setTimeout(function () {
+                    circle.style.transitionDuration = '8000ms';
+                    circle.style.transform = 'scale(1)';
+                    circle.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+                    instruction.textContent = 'بازدم آرام...';
+                    sub.textContent = '۸ ثانیه آرام از دهان خارج کن';
+                }, 11000);
+
+                breathingTimeoutIds.push(t1, t2);
+            }
+
+            function startBreathingEngine() {
+                stopBreathingEngine();
+                runSingleBreathingCycle();
+                breathingCycleInterval = setInterval(runSingleBreathingCycle, 19000);
+            }
+
+            function stopBreathingEngine() {
+                breathingTimeoutIds.forEach(clearTimeout);
+                breathingTimeoutIds = [];
+                if (breathingCycleInterval) {
+                    clearInterval(breathingCycleInterval);
+                    breathingCycleInterval = null;
+                }
+                const circle = document.getElementById('breathing-circle');
+                if (circle) {
+                    circle.style.transitionDuration = '300ms';
+                    circle.style.transform = 'scale(1)';
+                }
+            }
+
+            function renderSosCountdown() {
+                const mins = Math.floor(sosTimerSeconds / 60);
+                const secs = sosTimerSeconds % 60;
+                const display = (mins < 10 ? '0' + mins : mins) + ':' + (secs < 10 ? '0' + secs : secs);
+                document.getElementById('sos-countdown-display').textContent = toPersianDigits(display);
+            }
+
+            function startSosCountdown() {
+                if (sosTimerInterval) clearInterval(sosTimerInterval);
+                sosTimerRunning = true;
+                document.getElementById('btn-toggle-sos-timer').textContent = 'توقف';
+                sosTimerInterval = setInterval(function () {
+                    if (sosTimerSeconds > 0) {
+                        sosTimerSeconds--;
+                        renderSosCountdown();
+                    } else {
+                        clearInterval(sosTimerInterval);
+                        sosTimerRunning = false;
+                        document.getElementById('btn-toggle-sos-timer').textContent = 'اتمام';
+                        showToast('۵ دقیقه موج‌سواری کامل شد! تو برنده شدی.');
+                    }
+                }, 1000);
+            }
+
+            function openSosModal() {
+                const modal = document.getElementById('modal-sos');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                selectedSosTrigger = "";
+                document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
+                    c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
+                });
+                document.querySelectorAll('.sos-check').forEach(function (chk) { chk.checked = false; });
+
+                sosTimerSeconds = 300;
+                renderSosCountdown();
+                startSosCountdown();
+                startBreathingEngine();
+                initNumberGame();
+            }
+
+            function closeSosModal() {
+                const modal = document.getElementById('modal-sos');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                if (sosTimerInterval) clearInterval(sosTimerInterval);
+                sosTimerRunning = false;
+                stopBreathingEngine();
+                stopAmbientSound();
+            }
+
+            // ==========================================
+            // PIN LOCK ENGINE
+            // ==========================================
+            function checkPinLockOnBoot() {
+                if (appState.pinCode && appState.pinCode.length === 4) {
+                    const modal = document.getElementById('modal-pin-lock');
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    enteredPin = "";
+                    updatePinDots();
+                }
+            }
+
+            function updatePinDots() {
+                const dots = document.querySelectorAll('.pin-dot');
+                dots.forEach(function (dot, idx) {
+                    if (idx < enteredPin.length) {
+                        dot.classList.add('bg-emeraldAccent');
+                    } else {
+                        dot.classList.remove('bg-emeraldAccent');
+                    }
+                });
+            }
+
+            function handlePinKeyPress(digit) {
+                if (enteredPin.length >= 4) return;
+                enteredPin += digit;
+                updatePinDots();
+
+                if (enteredPin.length === 4) {
+                    if (enteredPin === appState.pinCode) {
+                        const modal = document.getElementById('modal-pin-lock');
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                        enteredPin = "";
+                    } else {
+                        document.getElementById('pin-status-text').textContent = 'رمز اشتباه است؛ دوباره تلاش کنید';
+                        document.getElementById('pin-status-text').classList.add('text-sosRed');
+                        setTimeout(function () {
+                            enteredPin = "";
+                            updatePinDots();
+                        }, 400);
+                    }
+                }
+            }
+
+            // ==========================================
+            // EVENT LISTENERS INITIALIZATION
+            // ==========================================
+            function initEvents() {
+                // PIN Keypad Events
+                document.querySelectorAll('.pin-key').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        handlePinKeyPress(btn.getAttribute('data-pin-key'));
+                    });
+                });
+                document.getElementById('btn-pin-back').addEventListener('click', function () {
+                    enteredPin = enteredPin.slice(0, -1);
+                    updatePinDots();
+                });
+
+                // Onboarding habit chips
+                document.querySelectorAll('.habit-chip').forEach(function (chip) {
+                    chip.addEventListener('click', function () {
+                        document.querySelectorAll('.habit-chip').forEach(function (c) {
+                            c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
+                        });
+                        chip.classList.add('border-emeraldAccent', 'text-emeraldAccent');
+                        document.getElementById('input-habit-name').value = chip.getAttribute('data-habit');
+                    });
+                });
+
+                // Currency input formatting
+                ['input-daily-cost', 'settings-daily-cost', 'input-goal-price'].forEach(function (id) {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.addEventListener('input', function () {
+                        el.value = formatCurrencyInput(el.value);
+                    });
+                });
+
+                // Numeric/Decimal restriction for daily hours
+                ['input-daily-hours', 'settings-daily-hours'].forEach(function (id) {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.addEventListener('input', function () {
+                        let cleaned = toEnglishDigits(el.value).replace(/[^0-9.]/g, '');
+                        const parts = cleaned.split('.');
+                        if (parts.length > 2) {
+                            cleaned = parts[0] + '.' + parts.slice(1).join('');
+                        }
+                        el.value = cleaned;
+                    });
+                });
+
+                // Goal Modal Events
+                document.getElementById('btn-open-goal-modal').addEventListener('click', function () {
+                    document.getElementById('input-goal-title').value = appState.goalTitle || '';
+                    document.getElementById('input-goal-price').value = appState.goalPrice ? formatCurrencyInput(appState.goalPrice) : '';
+                    const modal = document.getElementById('modal-goal');
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+                document.getElementById('btn-close-goal').addEventListener('click', function () {
+                    const modal = document.getElementById('modal-goal');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                });
+                document.getElementById('form-goal').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    appState.goalTitle = document.getElementById('input-goal-title').value.trim();
+                    appState.goalPrice = parseCurrencyInput(document.getElementById('input-goal-price').value);
+                    saveState();
+                    updateLiveMetrics();
+                    const modal = document.getElementById('modal-goal');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    showToast('هدف پاداش شخصی ذخیره شد!');
+                });
+
+                // Onboarding Submit
+                document.getElementById('form-onboarding').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const habitName = document.getElementById('input-habit-name').value.trim();
+                    const startDateIso = getISOFromJalaliPicker('ob');
+                    const dailyCostVal = parseCurrencyInput(document.getElementById('input-daily-cost').value);
+                    const dailyHoursRaw = toEnglishDigits(document.getElementById('input-daily-hours').value);
+                    const dailyHoursVal = parseFloat(dailyHoursRaw) || 0;
+                    const coreReasonVal = document.getElementById('input-core-reason').value.trim();
+
+                    if (!habitName) return;
+
+                    appState.isSetupDone = true;
+                    appState.habitName = habitName;
+                    appState.startDate = startDateIso;
+                    appState.dailyCost = dailyCostVal;
+                    appState.dailyHours = Math.min(24, Math.max(0, dailyHoursVal));
+                    appState.coreReason = coreReasonVal;
+
+                    saveState();
+                    document.getElementById('modal-onboarding').classList.add('hidden');
+                    document.getElementById('modal-onboarding').classList.remove('flex');
+                    renderDashboardStatic();
+                    showToast('سفر آزادی تو با موفقیت آغاز شد!');
+                });
+
+                // Quote actions
+                document.getElementById('btn-next-quote').addEventListener('click', function () {
+                    selectQuoteForPhase(true);
+                });
+
+                document.getElementById('btn-toggle-bookmark').addEventListener('click', function () {
+                    const id = currentQuoteObj.id;
+                    const idx = appState.bookmarkedQuotes.indexOf(id);
+                    if (idx === -1) {
+                        appState.bookmarkedQuotes.push(id);
+                        showToast('جمله به نشان‌شده‌ها اضافه شد.');
+                    } else {
+                        appState.bookmarkedQuotes.splice(idx, 1);
+                        showToast('از لیست نشان‌شده‌ها حذف شد.');
+                    }
+                    saveState();
+                    renderQuoteCard();
+                });
+
+                document.getElementById('btn-show-bookmarks').addEventListener('click', function () {
+                    const modal = document.getElementById('modal-bookmarks');
+                    renderBookmarksModalList();
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+
+                document.getElementById('btn-close-bookmarks').addEventListener('click', function () {
+                    const modal = document.getElementById('modal-bookmarks');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                });
+
+                // SOS Overlay Triggers & Mode Tabs
+                document.getElementById('btn-trigger-sos').addEventListener('click', openSosModal);
+                document.getElementById('btn-close-sos').addEventListener('click', closeSosModal);
+                document.getElementById('btn-toggle-ambient-audio').addEventListener('click', toggleAmbientSound);
+
+                document.getElementById('tab-sos-breath').addEventListener('click', function () {
+                    document.getElementById('sos-panel-breath').classList.remove('hidden');
+                    document.getElementById('sos-panel-game').classList.add('hidden');
+                    document.getElementById('tab-sos-breath').className = 'py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-slate-950 transition';
+                    document.getElementById('tab-sos-game').className = 'py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition';
+                });
+
+                document.getElementById('tab-sos-game').addEventListener('click', function () {
+                    document.getElementById('sos-panel-breath').classList.add('hidden');
+                    document.getElementById('sos-panel-game').classList.remove('hidden');
+                    document.getElementById('tab-sos-game').className = 'py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-slate-950 transition';
+                    document.getElementById('tab-sos-breath').className = 'py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition';
+                    initNumberGame();
+                });
+
+                // SOS Trigger Chips
+                document.querySelectorAll('.sos-trigger-chip').forEach(function (chip) {
+                    chip.addEventListener('click', function () {
+                        document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
+                            c.classList.remove('border-emeraldAccent', 'text-emeraldAccent');
+                        });
+                        chip.classList.add('border-emeraldAccent', 'text-emeraldAccent');
+                        selectedSosTrigger = chip.getAttribute('data-trigger');
+                    });
+                });
+
+                // Relapse Trigger Chips
+                document.querySelectorAll('.relapse-trigger-chip').forEach(function (chip) {
+                    chip.addEventListener('click', function () {
+                        document.querySelectorAll('.relapse-trigger-chip').forEach(function (c) {
+                            c.classList.remove('border-sosRed', 'text-sosRed');
+                        });
+                        chip.classList.add('border-sosRed', 'text-sosRed');
+                        selectedRelapseTrigger = chip.getAttribute('data-trigger');
+                    });
+                });
+
+                document.getElementById('btn-toggle-sos-timer').addEventListener('click', function () {
+                    if (sosTimerRunning) {
+                        clearInterval(sosTimerInterval);
+                        sosTimerRunning = false;
+                        document.getElementById('btn-toggle-sos-timer').textContent = 'ادامه';
+                    } else {
+                        if (sosTimerSeconds <= 0) sosTimerSeconds = 300;
+                        startSosCountdown();
+                    }
+                });
+
+                document.getElementById('btn-reset-sos-timer').addEventListener('click', function () {
+                    sosTimerSeconds = 300;
+                    renderSosCountdown();
+                    startSosCountdown();
+                });
+
+                document.getElementById('btn-sos-victory').addEventListener('click', function () {
+                    const nowIso = new Date().toISOString();
+                    appState.sosVictories = (appState.sosVictories || 0) + 1;
+                    appState.victoryDates = appState.victoryDates || [];
+                    appState.victoryDates.push(nowIso);
+
+                    if (selectedSosTrigger) {
+                        appState.triggersLog = appState.triggersLog || [];
+                        appState.triggersLog.push({ type: 'sos', reason: selectedSosTrigger, date: nowIso });
+                    }
+
+                    saveState();
+                    closeSosModal();
+                    renderDashboardStatic();
+                    showToast('آفرین قهرمان! یک موج وسوسه دیگر را شکست دادی.');
+                });
+
+                // Relapse Flow
+                document.getElementById('btn-open-relapse').addEventListener('click', function () {
+                    selectedRelapseTrigger = "";
+                    document.querySelectorAll('.relapse-trigger-chip').forEach(function (c) {
+                        c.classList.remove('border-sosRed', 'text-sosRed');
+                    });
+                    const modal = document.getElementById('modal-relapse');
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+
+                document.getElementById('btn-cancel-relapse').addEventListener('click', function () {
+                    const modal = document.getElementById('modal-relapse');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                });
+
+                document.getElementById('btn-confirm-relapse').addEventListener('click', function () {
+                    const nowIso = new Date().toISOString();
+                    appState.relapses.push(nowIso);
+                    if (selectedRelapseTrigger) {
+                        appState.triggersLog = appState.triggersLog || [];
+                        appState.triggersLog.push({ type: 'relapse', reason: selectedRelapseTrigger, date: nowIso });
+                    }
+                    saveState();
+                    const modal = document.getElementById('modal-relapse');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    renderDashboardStatic();
+                    showToast('لغزش ثبت شد. روزهایت محفوظ ماند؛ قوی‌تر ادامه بده!');
+                });
+
+                // Settings Drawer
+                document.getElementById('btn-open-settings').addEventListener('click', function () {
+                    document.getElementById('settings-habit-name').value = appState.habitName;
+                    setJalaliPickerFromISO('st', appState.startDate);
+                    document.getElementById('settings-daily-cost').value = formatCurrencyInput(appState.dailyCost);
+                    document.getElementById('settings-daily-hours').value = appState.dailyHours;
+                    document.getElementById('settings-core-reason').value = appState.coreReason;
+                    document.getElementById('settings-pin-code').value = appState.pinCode || '';
+                    resetConfirmationPending = false;
+                    document.getElementById('btn-reset-all').textContent = 'پاکسازی کامل اطلاعات (ریست کارخانه)';
+
+                    const modal = document.getElementById('modal-settings');
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+
+                document.getElementById('btn-close-settings').addEventListener('click', function () {
+                    const modal = document.getElementById('modal-settings');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                });
+
+                document.getElementById('form-settings').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    appState.habitName = document.getElementById('settings-habit-name').value.trim() || appState.habitName;
+                    appState.startDate = getISOFromJalaliPicker('st');
+                    appState.dailyCost = parseCurrencyInput(document.getElementById('settings-daily-cost').value);
+                    const hoursRaw = toEnglishDigits(document.getElementById('settings-daily-hours').value);
+                    appState.dailyHours = Math.min(24, Math.max(0, parseFloat(hoursRaw) || 0));
+                    appState.coreReason = document.getElementById('settings-core-reason').value.trim();
+
+                    const rawPin = toEnglishDigits(document.getElementById('settings-pin-code').value).replace(/[^0-9]/g, '');
+                    if (rawPin.length > 0 && rawPin.length < 4) {
+                        showToast('رمز عبور باید دقیقاً ۴ رقم باشد (یا خالی برای غیرفعال‌سازی).');
+                        return;
+                    }
+                    appState.pinCode = rawPin;
+
+                    saveState();
+                    renderDashboardStatic();
+                    document.getElementById('modal-settings').classList.add('hidden');
+                    document.getElementById('modal-settings').classList.remove('flex');
+                    showToast('تنظیمات با موفقیت ذخیره شد.');
+                });
+
+                // Export JSON Backup
+                document.getElementById('btn-export-json').addEventListener('click', function () {
+                    const dataStr = JSON.stringify(appState, null, 2);
+                    const blob = new Blob([dataStr], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'aadatesh_backup_' + new Date().toISOString().slice(0, 10) + '.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    showToast('فایل پشتیبان دانلود شد.');
+                });
+
+                // Import JSON Backup
+                document.getElementById('input-import-json').addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = function (evt) {
+                        try {
+                            const parsed = JSON.parse(evt.target.result);
+                            appState = validateState(parsed);
+                            appState.isSetupDone = true;
+                            saveState();
+                            applyTheme();
+                            renderDashboardStatic();
+                            document.getElementById('modal-settings').classList.add('hidden');
+                            document.getElementById('modal-settings').classList.remove('flex');
+                            showToast('اطلاعات پشتیبان با موفقیت بازیابی شد!');
+                        } catch (err) {
+                            showToast('خطا: فایل پشتیبان معتبر نیست.');
+                        } finally {
+                            e.target.value = '';
+                        }
+                    };
+                    reader.readAsText(file);
+                });
+
+                // Two-Step Reset All Data
+                document.getElementById('btn-reset-all').addEventListener('click', function () {
+                    const btn = document.getElementById('btn-reset-all');
+                    if (!resetConfirmationPending) {
+                        resetConfirmationPending = true;
+                        btn.textContent = 'آیا مطمئنی؟ برای تایید نهایی دوباره کلیک کن';
+                        return;
+                    }
+                    const currentTheme = appState.theme;
+                    localStorage.removeItem(STORAGE_KEY);
+                    appState = createDefaultState();
+                    appState.theme = currentTheme;
+                    resetConfirmationPending = false;
+                    document.getElementById('modal-settings').classList.add('hidden');
+                    document.getElementById('modal-settings').classList.remove('flex');
+                    applyTheme();
+                    openOnboardingIfNeeded();
+                    showToast('تمام اطلاعات پاکسازی شد.');
+                });
+
+                // Theme Switcher Listeners
+                document.getElementById('btn-toggle-theme').addEventListener('click', toggleTheme);
+                document.getElementById('btn-settings-theme').addEventListener('click', toggleTheme);
+            }
+
+            function openOnboardingIfNeeded() {
+                const modal = document.getElementById('modal-onboarding');
+                if (!appState.isSetupDone) {
+                    setJalaliPickerFromISO('ob', new Date().toISOString());
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    renderDashboardStatic();
+                    checkPinLockOnBoot();
+                }
+            }
+
+            // ==========================================
+            // INLINE SERVICE WORKER FOR OFFLINE PWA
+            // ==========================================
+            function registerInlineServiceWorker() {
+                if (!('serviceWorker' in navigator)) return;
+                const swCode = `
+                    const CACHE_NAME = 'aadatesh-pwa-v3';
+                    const ASSETS = [location.href];
+                    self.addEventListener('install', event => {
+                        self.skipWaiting();
+                        event.waitUntil(
+                            caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS).catch(() => {}))
+                        );
+                    });
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(self.clients.claim());
+                    });
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request).then(cached => {
+                                return cached || fetch(event.request).then(response => {
+                                    const copy = response.clone();
+                                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)).catch(() => {});
+                                    return response;
+                                }).catch(() => cached);
+                            })
+                        );
+                    });
+                `;
+                try {
+                    const blob = new Blob([swCode], { type: 'application/javascript' });
+                    const swUrl = URL.createObjectURL(blob);
+                    navigator.serviceWorker.register(swUrl).catch(function () {});
+                } catch (e) {}
+            }
+
+            // ==========================================
+            // BOOTSTRAP APPLICATION
+            // ==========================================
+            // INLINE SERVICE WORKER & DYNAMIC PNG ICON GENERATOR FOR HOME SCREEN
+            // ==========================================
+            function setupHomeScreenIcons() {
+                try {
+                    function renderLogoPng(size, roundedRadius) {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = size;
+                        canvas.height = size;
+                        const ctx = canvas.getContext('2d');
+                        const scale = size / 1000;
+
+                        // Background
+                        ctx.fillStyle = '#090D16';
+                        if (roundedRadius > 0 && ctx.roundRect) {
+                            ctx.beginPath();
+                            ctx.roundRect(0, 0, size, size, roundedRadius * scale);
+                            ctx.fill();
+                        } else {
+                            ctx.fillRect(0, 0, size, size);
+                        }
+
+                        ctx.save();
+                        ctx.scale(scale, scale);
+
+                        // Top Emerald Circle
+                        ctx.fillStyle = '#10B981';
+                        ctx.beginPath();
+                        ctx.arc(521, 238, 93, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Left/Main Emerald Wave Path
+                        const mainPath = new Path2D('M 326 247 C 343 244, 349 258, 347 281 C 345 316, 368 365, 421 411 C 488 469, 625 568, 625 718 C 625 845, 512 945, 396 908 C 373 901, 377 894, 392 890 C 468 870, 514 812, 514 734 C 514 638, 426 607, 345 581 C 254 551, 208 492, 209 422 C 210 342, 274 256, 326 247 Z');
+                        ctx.fill(mainPath);
+
+                        // Right Olive Leaf Path
+                        ctx.fillStyle = '#84CC16';
+                        const leafPath = new Path2D('M 779 294 C 798 380, 799 472, 773 551 C 748 625, 697 683, 650 731 C 644 737, 642 732, 644 721 C 655 660, 625 595, 594 548 C 553 485, 577 411, 635 362 C 679 325, 732 304, 779 294 Z');
+                        ctx.fill(leafPath);
+
+                        ctx.restore();
+                        return canvas.toDataURL('image/png');
+                    }
+
+                    // 1. iOS Apple Touch Icon (180x180, non-transparent full bleed so iOS applies smooth squircle)
+                    const appleTouchPng = renderLogoPng(180, 0);
+                    const appleLink = document.getElementById('apple-touch-icon-link');
+                    if (appleLink) appleLink.href = appleTouchPng;
+
+                    // 2. Standard Favicon (192x192 rounded)
+                    const icon192 = renderLogoPng(192, 220);
+                    const icon512 = renderLogoPng(512, 220);
+                    const favLink = document.getElementById('favicon-link');
+                    if (favLink) {
+                        favLink.type = 'image/png';
+                        favLink.href = icon192;
+                    }
+
+                    // 3. Dynamic Web App Manifest with real PNG Data URLs for Android Chrome/Samsung Internet
+                    const manifestObj = {
+                        name: "عادَتِش | رهایی و ساخت عادت نو",
+                        short_name: "عادتش",
+                        description: "مسیر علمی بازسازی مغز و رهایی از عادات مخرب",
+                        start_url: location.href,
+                        display: "standalone",
+                        background_color: "#090D16",
+                        theme_color: "#090D16",
+                        orientation: "portrait",
+                        icons: [
+                            { src: icon192, sizes: "192x192", type: "image/png", purpose: "any maskable" },
+                            { src: icon512, sizes: "512x512", type: "image/png", purpose: "any maskable" }
+                        ]
+                    };
+                    const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
+                    const manifestUrl = URL.createObjectURL(manifestBlob);
+                    const manifestLink = document.getElementById('pwa-manifest-link');
+                    if (manifestLink) manifestLink.href = manifestUrl;
+                } catch (e) {
+                    console.error('Icon generation error:', e);
+                }
+            }
+
+            function registerInlineServiceWorker() {
+                if (!('serviceWorker' in navigator)) return;
+                const swCode = `
+                    const CACHE_NAME = 'aadatesh-pwa-v3';
+                    const ASSETS = [location.href];
+                    self.addEventListener('install', event => {
+                        self.skipWaiting();
+                        event.waitUntil(
+                            caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS).catch(() => {}))
+                        );
+                    });
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(self.clients.claim());
+                    });
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request).then(cached => {
+                                return cached || fetch(event.request).then(response => {
+                                    const copy = response.clone();
+                                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)).catch(() => {});
+                                    return response;
+                                }).catch(() => cached);
+                            })
+                        );
+                    });
+                `;
+                try {
+                    const blob = new Blob([swCode], { type: 'application/javascript' });
+                    const swUrl = URL.createObjectURL(blob);
+                    navigator.serviceWorker.register(swUrl).catch(function () {});
+                } catch (e) {}
+            }
+
+            // ==========================================
+            // BOOTSTRAP APPLICATION
+            // ==========================================
+            function bootstrapApp() {
+                try {
+                    setupHomeScreenIcons();
+                    applyTheme();
+                    populateJalaliPicker('ob');
+                    populateJalaliPicker('st');
+                    renderLearningCapsules();
+                    initEvents();
+                    openOnboardingIfNeeded();
+                    if (liveTimerInterval) clearInterval(liveTimerInterval);
+                    liveTimerInterval = setInterval(updateLiveMetrics, 1000);
+                    registerInlineServiceWorker();
+                } catch (err) {
+                    console.error('Initialization error:', err);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', bootstrapApp);
+            } else {
+                bootstrapApp();
+            }
+        })();
+    </script>
+</body>
+</html>
