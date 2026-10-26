@@ -16,12 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 
-    <!-- App Icons for Add to Home Screen (iOS & Android) & Favicon -->
-    <link id="favicon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><defs><linearGradient id='lg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%231E293B'/><stop offset='50%25' stop-color='%230F172A'/><stop offset='100%25' stop-color='%2305080F'/></linearGradient></defs><rect width='1000' height='1000' rx='220' fill='url(%23lg)'/><circle cx='505' cy='272' r='83' fill='%23007F68'/><path d='M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z' fill='%23007F68'/><path d='M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z' fill='%23007F68'/></svg>">
-    <link id="apple-touch-icon-link" rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><defs><linearGradient id='lg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%231E293B'/><stop offset='50%25' stop-color='%230F172A'/><stop offset='100%25' stop-color='%2305080F'/></linearGradient></defs><rect width='1000' height='1000' fill='url(%23lg)'/><circle cx='505' cy='272' r='83' fill='%23007F68'/><path d='M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z' fill='%23007F68'/><path d='M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z' fill='%23007F68'/></svg>">
+    <!-- App Icons for Add to Home Screen (iOS 26/27 Liquid Glass & Dynamic Dark/Light/Tinted Support) -->
+    <link id="favicon-link" rel="icon" type="image/png" href="">
+    <link id="apple-touch-icon-default" rel="apple-touch-icon" sizes="180x180" href="">
+    <link id="apple-touch-icon-light" rel="apple-touch-icon" sizes="180x180" media="(prefers-color-scheme: light)" href="">
+    <link id="apple-touch-icon-dark" rel="apple-touch-icon" sizes="180x180" media="(prefers-color-scheme: dark)" href="">
 
-    <!-- PWA Manifest via Data URI -->
-    <link id="pwa-manifest-link" rel="manifest" href='data:application/manifest+json;utf8,{"name":"عادَتِش | رهایی از عادات مخرب","short_name":"عادتش","start_url":".","display":"standalone","background_color":"#090D16","theme_color":"#007F68","orientation":"portrait","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 1000%22><defs><linearGradient id=%22lg%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%231E293B%22/><stop offset=%2250%25%22 stop-color=%22%230F172A%22/><stop offset=%22100%25%22 stop-color=%22%2305080F%22/></linearGradient></defs><rect width=%221000%22 height=%221000%22 rx=%22220%22 fill=%22url(%23lg)%22/><circle cx=%22505%22 cy=%22272%22 r=%2283%22 fill=%22%23007F68%22/><path d=%22M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z%22 fill=%22%23007F68%22/><path d=%22M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z%22 fill=%22%23007F68%22/></svg>","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}'>
+    <!-- PWA Manifest -->
+    <link id="pwa-manifest-link" rel="manifest" href="">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,9 +58,9 @@
             --text-muted: #9CA3AF;
             --border-glass: rgba(255, 255, 255, 0.08);
             --scrollbar-thumb: #1F2937;
-            --logo-bg-start: #1E293B;
-            --logo-bg-mid: #0F172A;
-            --logo-bg-end: #05080F;
+            --logo-bg-start: #111827;
+            --logo-bg-mid: #090D16;
+            --logo-bg-end: #000000;
         }
         html.light {
             --bg-main: #F1F5F9;
@@ -69,8 +71,8 @@
             --border-glass: rgba(15, 23, 42, 0.1);
             --scrollbar-thumb: #CBD5E1;
             --logo-bg-start: #FFFFFF;
-            --logo-bg-mid: #F8FAFC;
-            --logo-bg-end: #E2E8F0;
+            --logo-bg-mid: #FFFFFF;
+            --logo-bg-end: #F8FAFC;
         }
         * {
             -webkit-tap-highlight-color: transparent;
@@ -243,7 +245,7 @@
             <!-- HEADER -->
             <header class="flex items-center justify-between gap-2 py-2 mb-5">
                 <div class="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div class="w-10 h-10 rounded-2xl border border-emeraldAccent/30 flex items-center justify-center shadow-md overflow-hidden shrink-0">
+                    <div class="w-11 h-11 rounded-2xl border border-emeraldAccent/35 flex items-center justify-center shadow-lg overflow-hidden shrink-0">
                         <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none">
                             <defs>
                                 <linearGradient id="header-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -251,11 +253,21 @@
                                     <stop offset="55%" style="stop-color: var(--logo-bg-mid)" />
                                     <stop offset="100%" style="stop-color: var(--logo-bg-end)" />
                                 </linearGradient>
+                                <linearGradient id="header-glyph-grad" x1="250" y1="150" x2="750" y2="850" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#00B896" />
+                                    <stop offset="45%" stop-color="#007F68" />
+                                    <stop offset="100%" stop-color="#005243" />
+                                </linearGradient>
+                                <filter id="header-emboss" x="-15%" y="-15%" width="130%" height="130%">
+                                    <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000000" flood-opacity="0.38" />
+                                </filter>
                             </defs>
                             <rect width="1000" height="1000" fill="url(#header-logo-grad)" />
-                            <circle cx="505" cy="272" r="83" fill="#007F68" />
-                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="#007F68" />
-                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="#007F68" />
+                            <g transform="translate(500, 500) scale(1.12) translate(-505, -518)" filter="url(#header-emboss)">
+                                <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                                <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                                <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                            </g>
                         </svg>
                     </div>
                     <div class="min-w-0 flex-1">
@@ -496,30 +508,6 @@
                         <p id="dashboard-core-reason" class="text-xs text-snowWhite font-bold leading-6"></p>
                     </section>
 
-                    <!-- HEALTHY DOPAMINE SWAPS (MINIMAL & CLEAN) -->
-                    <section class="glass-card rounded-2xl p-4">
-                        <div class="flex items-center justify-between mb-3">
-                            <div>
-                                <h3 class="text-xs font-extrabold text-snowWhite">عادت‌های جایگزین من</h3>
-                                <p class="text-[10px] text-mutedGray mt-0.5">وقتی وسوسه اومد، این کار رو جایگزینش می‌کنم:</p>
-                            </div>
-                            <button id="btn-toggle-swap-form" type="button" class="text-[11px] font-bold px-2.5 py-1.5 rounded-xl bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 hover:bg-emeraldAccent hover:text-white transition">
-                                + افزودن جایگزین
-                            </button>
-                        </div>
-
-                        <form id="form-swap" class="hidden mb-3 p-3 rounded-xl bg-appBg/80 glass-border space-y-2">
-                            <input id="input-swap-when" type="text" placeholder="وقتی... (مثلاً: استرس گرفتم)" class="w-full px-3 py-2 rounded-lg bg-cardBg glass-border text-xs text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
-                            <input id="input-swap-then" type="text" placeholder="به جاش... (مثلاً: ۱۰ تا نفس عمیق می‌کشم)" class="w-full px-3 py-2 rounded-lg bg-cardBg glass-border text-xs text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
-                            <div class="flex justify-end gap-2 pt-1">
-                                <button id="btn-cancel-swap-form" type="button" class="px-3 py-1.5 rounded-lg text-[11px] text-mutedGray hover:text-snowWhite">انصراف</button>
-                                <button type="submit" class="px-4 py-1.5 rounded-lg bg-emeraldAccent text-white font-black text-[11px]">ذخیره</button>
-                            </div>
-                        </form>
-
-                        <div id="swaps-list-container" class="space-y-2"></div>
-                    </section>
-
                     <!-- DAILY MOOD & MICRO-JOURNAL -->
                     <section class="glass-card rounded-2xl p-4">
                         <div class="flex items-center justify-between mb-2.5">
@@ -593,19 +581,14 @@
     <div id="modal-onboarding" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
         <div class="w-full max-w-md glass-card rounded-3xl p-6 my-auto shadow-2xl border border-white/10">
             <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-2xl border border-emeraldAccent/30 flex items-center justify-center shrink-0 overflow-hidden shadow-md">
+                <div class="w-12 h-12 rounded-2xl border border-emeraldAccent/35 flex items-center justify-center shrink-0 overflow-hidden shadow-lg">
                     <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none">
-                        <defs>
-                            <linearGradient id="ob-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color: var(--logo-bg-start)" />
-                                <stop offset="55%" style="stop-color: var(--logo-bg-mid)" />
-                                <stop offset="100%" style="stop-color: var(--logo-bg-end)" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="1000" height="1000" fill="url(#ob-logo-grad)" />
-                        <circle cx="505" cy="272" r="83" fill="#007F68" />
-                        <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="#007F68" />
-                        <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="#007F68" />
+                        <rect width="1000" height="1000" fill="url(#header-logo-grad)" />
+                        <g transform="translate(500, 500) scale(1.12) translate(-505, -518)" filter="url(#header-emboss)">
+                            <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                        </g>
                     </svg>
                 </div>
                 <div>
@@ -1055,28 +1038,75 @@
 
             const STORAGE_KEY = 'aadatesh_state';
 
-            // 3.A: Hardcoded Neuroscience Quotes Database (20 items across 4 phases)
+            // 3.A: Hardcoded Neuroscience Quotes Database (60 items across 4 phases)
             const QUOTES_DB = [
+                // Phase 1: Detox & Initial Shock (Days 0-3) - 15 Quotes
                 { id: 1, phase: 1, text: "ولع مصرف، یک دستور غیرقابل سرپیچی نیست؛ فقط یک واکنش شیمیایی موقت در مغز است که حداکثر چند دقیقه دوام می‌آورد.", source: "کتاب ملت دوپامین" },
                 { id: 2, phase: 1, text: "درد خماری و کلافگی امروز، هزینه بازسازی گیرنده‌های فرسوده مغز توست. اجازه بده بدنت خودش رو ترمیم کنه.", source: "انجمن علوم اعصاب" },
                 { id: 3, phase: 1, text: "مغزت در حال حاضر دارد تقلا می‌کند چون به دوپامین مفت و ارزان عادت کرده بود. قوی باش، سیستم جدید داره شکل می‌گیره.", source: "پروتکل بازسازی دوپامین" },
                 { id: 4, phase: 1, text: "این حس بی‌قراری نیاز واقعی تو نیست؛ فقط صدای آژیر عادتی است که دارد نفس‌های آخرش را می‌کشد.", source: "روان‌شناسی شناختی" },
                 { id: 5, phase: 1, text: "فقط برای امروز، فقط برای همین یک ساعت مقاومت کن. فردا رو فردا تصمیم می‌گیریم.", source: "اصول رهایی گام‌به‌گام" },
+                { id: 21, phase: 1, text: "در ۷۲ ساعت اول، آمیگدال مغز با ارسال سیگنال‌های اضطراب سعی می‌کنه تو رو به عادت قبل برگردونه؛ این فقط یک بلوف عصبیه.", source: "نوروبیولوژی ترک" },
+                { id: 22, phase: 1, text: "هر ساعت که در این روزهای اول دوام میاری، سموم شیمیایی و التهاب عصبی در خون و سیناپس‌هات با سرعت باورنکردنی پاک میشن.", source: "فیزیولوژی سم‌زدایی" },
+                { id: 23, phase: 1, text: "وقتی مغزت فریاد می‌زنه «الان وقتشه»، در واقع داره از ترسِ تغییر شکل دادن مقاومت می‌کنه. تماشاگر این طوفان باش، نه قربانی اون.", source: "ذهن‌آگاهی بالینی" },
+                { id: 24, phase: 1, text: "سخت‌ترین بخش فرستادن موشک به فضا، رهایی از جاذبه زمین در دقایق اوله. تو الان دقیقاً در لحظه اوج‌گیری هستی.", source: "استعاره تغییر رفتار" },
+                { id: 25, phase: 1, text: "بی‌حوصلگی و کرختی روزهای اول کاملاً طبیعیه؛ چون خط پایه دوپامینت موقتاً پایین اومده تا دوباره به سطح سالم برگرده.", source: "پژوهشگاه استنفورد" },
+                { id: 26, phase: 1, text: "به احساسات منفی امروزت اعتماد نکن؛ مغزی که در حال سم‌زداییه، دنیا رو تیره‌تر از چیزی که واقعاً هست نشون میده.", source: "درمان شناختی-رفتاری (CBT)" },
+                { id: 27, phase: 1, text: "یک دوش آب خنک یا ۱۰ دقیقه پیاده‌روی تند، شیمی مغزت رو در لحظه تغییر میده و موج کلافگی رو می‌شکنه.", source: "تکنیک‌های تنظیم سیستم عصبی" },
+                { id: 28, phase: 1, text: "تو در حال از دست دادن یک لذت نیستی؛ تو در حال خلاص شدن از یک زندانبانی هستی که سال‌ها انرژیت رو می‌دزدید.", source: "آلن کار" },
+                { id: 29, phase: 1, text: "تغییر واقعی همیشه در ابتدا کمی ترسناک و ناآرامه. این حس ناآرامی نشونه اینه که داری از منطقه امنِ مخربت خارج میشی.", source: "روان‌شناسی رشد" },
+                { id: 30, phase: 1, text: "امشب وقتی سرت رو روی بالش می‌ذاری، بابت همین یک روز پاکی به خودت افتخار کن؛ کاری که کردی شجاعت محض بود.", source: "عادَتِش" },
+
+                // Phase 2: Resistance & Urge Surfing (Days 4-14) - 15 Quotes
                 { id: 6, phase: 2, text: "مغز به تو دروغ خواهد گفت: 'فقط همین یک‌بار، بعدش کنترلش می‌کنی'. فریب این صدا را نخور؛ این تله دوپامینه.", source: "نوروساینس اعتیاد" },
                 { id: 7, phase: 2, text: "پاکی مثل بالا رفتن از تپه با دوچرخه‌ست؛ رکاب زدن در ابتدا سخته، اما به قله که برسی سواری برات راحت و لذت‌بخش میشه.", source: "یادداشت‌های درمانگر" },
                 { id: 8, phase: 2, text: "هر باری که هوس می‌کنی و کاری انجام نمی‌دی، یک اتصال اشتباه در مغزت کم‌رنگ‌تر و ضعیف‌تر میشه.", source: "قانون نوروپلاستیسیته" },
                 { id: 9, phase: 2, text: "تو اراده ضعیفی نداری؛ محیط و محرک‌های اطرافت دارن تو رو گول می‌زنن. محیطت رو پاکسازی کن.", source: "کتاب عادت‌های اتمی" },
                 { id: 10, phase: 2, text: "رهایی یعنی بتونی بین هجوم وسوسه و عمل کردنت، یک فاصله چند ثانیه‌ای بندازی و خودت تصمیم بگیری.", source: "ذهن‌آگاهی بالینی" },
+                { id: 31, phase: 2, text: "حواست به «اثر انقراض» (Extinction Burst) باشه؛ عادت‌های قدیمی درست قبل از اینکه برای همیشه بمیرن، آخرین و شدیدترین حمله‌شون رو می‌کنن.", source: "روان‌شناسی رفتاری" },
+                { id: 32, phase: 2, text: "عادت مثل یک جاده خاکی در جنگله؛ هر چقدر کمتر ازش عبور کنی، علف‌ها و درخت‌ها زودتر روش رو می‌پوشونن و محوش می‌کنن.", source: "نوروپلاستیسیته کاربردی" },
+                { id: 33, phase: 2, text: "وقتی خسته، گرسنه یا تنها هستی، قشر پیش‌پیشانی مغزت (بخش منطق) ضعیف‌تر کار می‌کنه. در این ساعات بیشتر مراقب خودت باش.", source: "پروتکل HALT" },
+                { id: 34, phase: 2, text: "وسوسه رو مثل یک ابر سیاه در آسمان ذهنت ببین؛ ابرها میان و رد میشن، اما تو خودِ آسمانی، نه اون ابرِ گذرا.", source: "درمان مبتنی بر پذیرش (ACT)" },
+                { id: 35, phase: 2, text: "هیچ‌وقت با صدای وسوسه بحث و کلنجار نرو؛ هر چقدر بیشتر بهش فکر کنی، بیشتر بهش سوخت میدی. فقط توجهت رو به یک کار فیزیکی ببر.", source: "مهندسی تمرکز" },
+                { id: 36, phase: 2, text: "عذاب وجدانِ بعد از لغزش ۱۰ برابر دردناک‌تر از رنجِ ۵ دقیقه مقاومت کردن در برابر وسوسه‌ست. دردِ درست رو انتخاب کن.", source: "فلسفه خویشتن‌داری" },
+                { id: 37, phase: 2, text: "بدنت داره یاد می‌گیره چطور بدون مسکن‌های مصنوعی با استرس کنار بیاد. این مهارتیه که تمام عمرت رو بیمه می‌کنه.", source: "تاب‌آوری روانی" },
+                { id: 38, phase: 2, text: "اگر امروز وسوسه سراغت اومد، نترس! وسوسه نشونه ضعف تو نیست، بلکه میدون تمرینیه که عضله اراده‌ت رو قوی‌تر کنی.", source: "عصب‌شناسی اراده" },
+                { id: 39, phase: 2, text: "مغزت سعی می‌کنه فقط لحظه لذتِ مصرف رو یادت بیاره و حسِ پوچی و پشیمونیِ بعدش رو سانسور کنه. فیلم رو تا آخرش توی ذهنت پخش کن!", source: "تکنیک Play the Tape" },
+                { id: 40, phase: 2, text: "تو تا همین‌جا هم کلی روز رو پاک موندی. حیف نیست این زنجیره درخشان رو به خاطر چند ثانیه حسِ زودگذر پاره کنی؟", source: "عادَتِش" },
+
+                // Phase 3: Rewiring & Energy Return (Days 15-30) - 15 Quotes
                 { id: 11, phase: 3, text: "تو کسی نیستی که دارد مصرف نکردن را تحمل می‌کند؛ تو انسانی هستی که اساساً به این سم نیازی ندارد.", source: "تغییر هویت رفتاری" },
                 { id: 12, phase: 3, text: "انرژی آزادشده از این عادت رو به یک فعالیت مثبت بده: ورزش، یادگیری یا خواب عمیق‌تر.", source: "جایگزینی مسیر پاداش" },
                 { id: 13, phase: 3, text: "نگاه کن تا همین جا چند ساعت و چند تومان برای آینده‌ت نجات دادی. تو داری زندگیت رو پس می‌گیری.", source: "عادَتِش" },
                 { id: 14, phase: 3, text: "پیروزی‌های کوچک روزانه، عزت‌نفس تخریب‌شده گذشته‌ت رو دانه به دانه ترمیم می‌کنه.", source: "روان‌شناسی عزت‌نفس" },
                 { id: 15, phase: 3, text: "امروز گیرنده‌های لذت طبیعی در مغزت دارن بیدار میشن؛ بوی قهوه، هوای بارانی و یک غذای گرم دوباره لذت‌بخش میشن.", source: "بازگشت تعادل لیمبیک" },
+                { id: 41, phase: 3, text: "مه مغزی (Brain Fog) داره کنار میره. دقت کردی چقدر تمرکزت موقع کار، مطالعه و صحبت با دیگران شفاف‌تر شده؟", source: "بهبود عملکرد شناختی" },
+                { id: 42, phase: 3, text: "گیرنده‌های دوپامین D2 در مغزت دارن از حالت کما خارج میشن؛ یعنی شادی‌های واقعی و پایدار دوباره به زندگیت برمی‌گردن.", source: "تصویربرداری عصبی" },
+                { id: 43, phase: 3, text: "وقتی به خودت قول میدی و سر قولت می‌مونی، مغزت بهت احترام می‌ذاره. این همون رازِ اعتمادبه‌نفس واقعیه.", source: "روان‌شناسی فردی" },
+                { id: 44, phase: 3, text: "خالی شدن جای عادت قدیمی، یک فضای طلایی در روزت ایجاد کرده. این خلأ رو با یک هدف جدید پر کن تا عادت قبلی نتونه برگرده.", source: "معماری عادت‌ها" },
+                { id: 45, phase: 3, text: "کیفیت خواب شبانه و چرخه REM در هفته سوم و چهارم به طرز چشمگیری عمیق‌تر میشه و صبح‌ها با انرژی بیشتری بیدار میشی.", source: "علوم خواب" },
+                { id: 46, phase: 3, text: "دیگه مجبور نیستی چیزی رو پنهان کنی یا از خودت خجالت بکشی. حسِ رهایی از زندگیِ دوگانه، سبک‌ترین حس دنیاست.", source: "سلامت روان" },
+                { id: 47, phase: 3, text: "انضباط شخصی یعنی بین چیزی که «همین الان» می‌خوای و چیزی که «بیشتر از همه» در زندگی می‌خوای، دومی رو انتخاب کنی.", source: "اصول رهبری فردی" },
+                { id: 48, phase: 3, text: "هر روز که از مرز ۲۱ روز رد میشی، غلاف میلین دورِ مسیرهای عصبیِ جدیدت ضخیم‌تر میشه و پاکی برات اتوماتیک‌تر میشه.", source: "زیست‌شناسی سلولی مغز" },
+                { id: 49, phase: 3, text: "تو نه تنها جلوی یک ضرر بزرگ رو گرفتی، بلکه به خودت ثابت کردی که روی سخت‌ترین غریزه‌هات هم تسلط داری.", source: "عادَتِش" },
+                { id: 50, phase: 3, text: "آدمی که امروز در آینه می‌بینی، خیلی قوی‌تر، هوشیارتر و قابل‌اعتمادتر از کسیه که چند هفته پیش این مسیر رو شروع کرد.", source: "عادَتِش" },
+
+                // Phase 4: Identity Consolidation & Mastery (Days 31+) - 15 Quotes
                 { id: 16, phase: 4, text: "بزرگ‌ترین آزادی انسان، توانایی کنترل غریزه‌های آنی به نفع ارزش‌های بلندمدته.", source: "ویکتور فرانکل" },
                 { id: 17, phase: 4, text: "مراقب اعتماد‌به‌نفس کاذب باش؛ همیشه نسبت به تله‌های پنهان هوشیار و متواضع بمون.", source: "پیشگیری از بازگشت" },
                 { id: 18, phase: 4, text: "تو ثابت کردی چرخه تکرار گذشته اجتناب‌ناپذیر نبود. تو فرماندار زندگی خودت هستی.", source: "عادَتِش" },
                 { id: 19, phase: 4, text: "آرامشی که بدون وابستگی تجربه می‌کنی با هیچ لذت مصنوعی و کوتاه‌مدتی قابل مقایسه نیست.", source: "فلسفه رهایی" },
-                { id: 20, phase: 4, text: "این دستاورد مال خودته؛ هیچ‌کس جز تو اون لحظات سخت تنهایی و مقاومت رو دوام نیاورد.", source: "عادَتِش" }
+                { id: 20, phase: 4, text: "این دستاورد مال خودته؛ هیچ‌کس جز تو اون لحظات سخت تنهایی و مقاومت رو دوام نیاورد.", source: "عادَتِش" },
+                { id: 51, phase: 4, text: "پاکی الان دیگه یک «تلاش روزانه» نیست، بلکه تبدیل به «سبک زندگی و هویت جدید» تو شده. از این آزادی لذت ببر.", source: "روان‌شناسی هویت" },
+                { id: 52, phase: 4, text: "قشر پیش‌پیشانی مغزت (مرکز تصمیم‌گیری و اراده) حالا دوباره سکان هدایت رو از سیستم لیمبیک پس گرفته است.", source: "عصب‌شناسی پیشرفته" },
+                { id: 53, phase: 4, text: "حتی بعد از ماه‌ها پاکی، ممکنه یک روز استرس شدید بگیری و سایه عادت قدیم از ذهنت رد بشه؛ لبخند بزن و بذار رد بشه.", source: "مدیریت پایداری" },
+                { id: 54, phase: 4, text: "کسی که تونسته روی سیستم دوپامین خودش مسلط بشه، در کار، ورزش و روابطش هم می‌تونه به قله‌های بزرگ برسه.", source: "انتقال عادت (Keystone Habit)" },
+                { id: 55, phase: 4, text: "حالا که ذهنت آروم و شفافه، وقتشه سراغ رویاهایی بری که سال‌ها به خاطر این عادت عقب انداخته بودی.", source: "کوچینگ عملکرد" },
+                { id: 56, phase: 4, text: "تفاوت برنده و بازنده در این نیست که برنده وسوسه نمیشه؛ برنده کسیه که ارزشِ آرامشِ الانش رو با هیچ چیز عوض نمی‌کنه.", source: "فلسفه رواقی" },
+                { id: 57, phase: 4, text: "تو از طوفان عبور کردی و حالا در ساحل امن هستی. هیچ بهانه‌ای ارزش برگشتن به اون دریای متلاطم رو نداره.", source: "عادَتِش" },
+                { id: 58, phase: 4, text: "به عقب نگاه کن و ببین چقدر تغییر کردی؛ روزهایی که فکر می‌کردی یک ساعت هم دوام نمیاری، حالا تبدیل به خاطره شدن.", source: "عادَتِش" },
+                { id: 59, phase: 4, text: "سپاسگزارِ خودِ گذشته‌ت باش؛ همون روزی که تصمیم گرفتی دکمه شروع رو بزنی و به خودت یک فرصت دوباره دادی.", source: "شفقت به خود" },
+                { id: 60, phase: 4, text: "آزادی واقعی یعنی صبح بیدار بشی و بدونی هیچ ماده، هیچ صفحه نمایش و هیچ عادتی اربابِ ذهن تو نیست.", source: "عادَتِش" }
             ];
 
             // 3.B: Micro-Learning Capsules Database
@@ -1136,10 +1166,6 @@
                     victoryDates: [],
                     celebratedMilestones: [],
                     journalEntries: [],
-                    healthySwaps: [
-                        { id: 1, when: "استرس و تنش کاری", then: "۱۰ نفس عمیق ۴-۷-۸ + یک لیوان آب سرد", count: 0 },
-                        { id: 2, when: "بی‌حوصلگی و تنهایی آخر شب", then: "گذاشتن گوشی بیرون از اتاق و مطالعه ۱۰ صفحه کتاب", count: 0 }
-                    ],
                     pledgeDates: [],
                     pinCode: ""
                 };
@@ -1147,6 +1173,7 @@
 
             let appState = loadState();
             let currentQuoteObj = QUOTES_DB[0];
+            let shownQuoteIds = [];
             let lastRenderedPhase = null;
             let liveTimerInterval = null;
             let toastTimeoutId = null;
@@ -1203,13 +1230,14 @@
             let resetConfirmationPending = false;
 
             // ==========================================
-            // DYNAMIC PNG ICON GENERATOR FOR HOME SCREEN (APPLE HIG & LIQUID GLASS COMPLIANT)
+            // DYNAMIC PNG ICON GENERATOR FOR HOME SCREEN (iOS 26/27 LIQUID GLASS & AUTO DARK/LIGHT/TINTED SUPPORT)
             // ==========================================
             function setupHomeScreenIcons() {
                 try {
-                    const isLight = appState && appState.theme === 'light';
+                    const isAppLight = appState && appState.theme === 'light';
 
-                    function renderLogoPng(size, roundedRadius) {
+                    // mode: 'light' (Pure White background), 'dark' (Pure Pitch Black background), 'monochrome' (Transparent background for Tinted/Clear modes)
+                    function renderLogoPng(size, roundedRadius, mode) {
                         const canvas = document.createElement('canvas');
                         canvas.width = size;
                         canvas.height = size;
@@ -1223,111 +1251,123 @@
                             ctx.clip();
                         }
 
-                        // 1. Full-Bleed Opaque Background (Apple HIG: 100% opaque, rich depth gradient)
-                        const bgGrad = ctx.createLinearGradient(0, 0, 0, size);
-                        if (isLight) {
-                            bgGrad.addColorStop(0, '#FFFFFF');
-                            bgGrad.addColorStop(0.55, '#F8FAFC');
-                            bgGrad.addColorStop(1, '#E2E8F0');
-                        } else {
-                            bgGrad.addColorStop(0, '#1E293B');
-                            bgGrad.addColorStop(0.45, '#0F172A');
-                            bgGrad.addColorStop(1, '#060911');
-                        }
-                        ctx.fillStyle = bgGrad;
-                        ctx.fillRect(0, 0, size, size);
+                        // 1. Background Layer
+                        // For iOS 26/27 Liquid Glass automatic Light/Dark/Clear/Tinted icon switching,
+                        // iOS SpringBoard requires a clean solid background (Pure White in light asset, Pure Black in dark asset)
+                        if (mode !== 'monochrome') {
+                            const bgGrad = ctx.createLinearGradient(0, 0, 0, size);
+                            if (mode === 'light') {
+                                bgGrad.addColorStop(0, '#FFFFFF');
+                                bgGrad.addColorStop(1, '#F8FAFC');
+                            } else {
+                                bgGrad.addColorStop(0, '#141A23');
+                                bgGrad.addColorStop(0.5, '#070A0F');
+                                bgGrad.addColorStop(1, '#000000');
+                            }
+                            ctx.fillStyle = bgGrad;
+                            ctx.fillRect(0, 0, size, size);
 
-                        // 2. Ambient Center Aura (Apple iOS 18/26 Dark & Light depth glow)
-                        const auraGrad = ctx.createRadialGradient(
-                            size * 0.5, size * 0.42, size * 0.04,
-                            size * 0.5, size * 0.5, size * 0.62
-                        );
-                        if (isLight) {
-                            auraGrad.addColorStop(0, 'rgba(0, 127, 104, 0.10)');
-                            auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
-                        } else {
-                            auraGrad.addColorStop(0, 'rgba(0, 168, 138, 0.22)');
-                            auraGrad.addColorStop(0.6, 'rgba(0, 127, 104, 0.06)');
-                            auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
+                            // Subtle ambient glow behind the embossed glyph
+                            const auraGrad = ctx.createRadialGradient(
+                                size * 0.5, size * 0.48, size * 0.05,
+                                size * 0.5, size * 0.5, size * 0.52
+                            );
+                            if (mode === 'light') {
+                                auraGrad.addColorStop(0, 'rgba(0, 127, 104, 0.08)');
+                                auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
+                            } else {
+                                auraGrad.addColorStop(0, 'rgba(0, 184, 150, 0.22)');
+                                auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
+                            }
+                            ctx.fillStyle = auraGrad;
+                            ctx.fillRect(0, 0, size, size);
                         }
-                        ctx.fillStyle = auraGrad;
-                        ctx.fillRect(0, 0, size, size);
-
-                        // 3. Top Liquid Glass Lighting Sheen
-                        const sheenGrad = ctx.createLinearGradient(0, 0, 0, size * 0.45);
-                        sheenGrad.addColorStop(0, isLight ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.08)');
-                        sheenGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                        ctx.fillStyle = sheenGrad;
-                        ctx.fillRect(0, 0, size, size * 0.45);
 
                         ctx.scale(scale, scale);
 
-                        // 4. Apple HIG Safe Zone & Optical Centering
-                        // Keep primary glyph inside the central circular safe zone (~78% scale) so iOS squircle mask never clips edges
+                        // 2. Large, Bold, Optically Centered Logo Glyph (Scale 1.08 for commanding presence)
                         ctx.save();
-                        ctx.translate(500, 505);
-                        ctx.scale(0.82, 0.82);
-                        ctx.translate(-505, -515);
+                        ctx.translate(500, 500);
+                        ctx.scale(1.08, 1.08);
+                        ctx.translate(-505, -518);
 
                         const mainPath = new Path2D('M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z');
                         const leafPath = new Path2D('M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z');
 
-                        // 5. Layered 3D Elevation Drop Shadow (iOS Layered Icon Spec)
+                        // 3. 3D Embossed Elevation Shadow & Rich Emerald Gradient Fill
                         ctx.save();
-                        ctx.shadowColor = isLight ? 'rgba(0, 85, 70, 0.26)' : 'rgba(0, 0, 0, 0.58)';
-                        ctx.shadowBlur = 36;
-                        ctx.shadowOffsetY = 22;
+                        if (mode !== 'monochrome') {
+                            ctx.shadowColor = mode === 'light' ? 'rgba(0, 75, 60, 0.28)' : 'rgba(0, 0, 0, 0.75)';
+                            ctx.shadowBlur = 32;
+                            ctx.shadowOffsetY = 20;
+                        }
 
-                        const glyphGrad = ctx.createLinearGradient(270, 180, 730, 840);
-                        glyphGrad.addColorStop(0, '#00A688');
-                        glyphGrad.addColorStop(0.5, '#007F68');
-                        glyphGrad.addColorStop(1, '#005E4D');
+                        const glyphGrad = ctx.createLinearGradient(260, 175, 740, 845);
+                        if (mode === 'monochrome') {
+                            glyphGrad.addColorStop(0, '#FFFFFF');
+                            glyphGrad.addColorStop(1, '#FFFFFF');
+                        } else if (mode === 'light') {
+                            glyphGrad.addColorStop(0, '#00A88A');
+                            glyphGrad.addColorStop(0.5, '#007F68');
+                            glyphGrad.addColorStop(1, '#005948');
+                        } else {
+                            glyphGrad.addColorStop(0, '#00C4A1');
+                            glyphGrad.addColorStop(0.5, '#008F75');
+                            glyphGrad.addColorStop(1, '#006653');
+                        }
                         ctx.fillStyle = glyphGrad;
 
                         ctx.beginPath();
-                        ctx.arc(505, 272, 83, 0, Math.PI * 2);
+                        ctx.arc(505, 272, 85, 0, Math.PI * 2);
                         ctx.fill();
                         ctx.fill(mainPath);
                         ctx.fill(leafPath);
                         ctx.restore();
 
-                        // 6. Crisp Specular Top-Edge Rim Highlight (Liquid Glass tactile depth)
-                        ctx.save();
-                        const rimGrad = ctx.createLinearGradient(0, 185, 0, 830);
-                        rimGrad.addColorStop(0, 'rgba(255, 255, 255, 0.45)');
-                        rimGrad.addColorStop(0.35, 'rgba(255, 255, 255, 0.12)');
-                        rimGrad.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
-                        ctx.strokeStyle = rimGrad;
-                        ctx.lineWidth = 5.5;
+                        // 4. Inner 3D Bevel / Specular Liquid Glass Rim Highlight
+                        if (mode !== 'monochrome') {
+                            ctx.save();
+                            const rimGrad = ctx.createLinearGradient(260, 180, 740, 840);
+                            rimGrad.addColorStop(0, 'rgba(255, 255, 255, 0.65)');
+                            rimGrad.addColorStop(0.4, 'rgba(255, 255, 255, 0.18)');
+                            rimGrad.addColorStop(1, 'rgba(0, 40, 32, 0.35)');
+                            ctx.strokeStyle = rimGrad;
+                            ctx.lineWidth = 7;
 
-                        ctx.beginPath();
-                        ctx.arc(505, 272, 81, 0, Math.PI * 2);
-                        ctx.stroke();
-                        ctx.stroke(mainPath);
-                        ctx.stroke(leafPath);
-                        ctx.restore();
+                            ctx.beginPath();
+                            ctx.arc(505, 272, 82, 0, Math.PI * 2);
+                            ctx.stroke();
+                            ctx.stroke(mainPath);
+                            ctx.stroke(leafPath);
+                            ctx.restore();
+                        }
 
                         ctx.restore();
                         ctx.restore();
                         return canvas.toDataURL('image/png');
                     }
 
-                    // Apple Touch Icon: Full-bleed square (0 radius) so iOS applies its exact system squircle mask cleanly
-                    const appleTouchPng = renderLogoPng(512, 0);
-                    const appleLink = document.getElementById('apple-touch-icon-link');
-                    if (appleLink) {
-                        appleLink.sizes = '512x512';
-                        appleLink.href = appleTouchPng;
-                    }
+                    // Generate Light (White BG), Dark (Black BG), and Monochrome (Transparent BG for Tinted/Liquid Glass) icons
+                    const iconLight512 = renderLogoPng(512, 0, 'light');
+                    const iconDark512 = renderLogoPng(512, 0, 'dark');
+                    const iconMonochrome512 = renderLogoPng(512, 0, 'monochrome');
 
-                    const icon192 = renderLogoPng(192, 220);
-                    const icon512 = renderLogoPng(512, 220);
-                    const icon512Maskable = renderLogoPng(512, 0);
+                    // Note on iOS 26/27 Liquid Glass & Automatic Dark Mode Icon Engine:
+                    // Apple's SpringBoard automatically transforms a clean white-background `apple-touch-icon` into
+                    // Dark (Black background), Clear, and Tinted variants when the user switches iOS Home Screen icon themes.
+                    // We also provide explicit media="(prefers-color-scheme: dark)" and light links for adaptive browsers.
+                    const defaultTouchIcon = document.getElementById('apple-touch-icon-default');
+                    const lightTouchIcon = document.getElementById('apple-touch-icon-light');
+                    const darkTouchIcon = document.getElementById('apple-touch-icon-dark');
+
+                    if (defaultTouchIcon) defaultTouchIcon.href = iconLight512;
+                    if (lightTouchIcon) lightTouchIcon.href = iconLight512;
+                    if (darkTouchIcon) darkTouchIcon.href = iconDark512;
+
+                    const activeMode = isAppLight ? 'light' : 'dark';
+                    const fav192 = renderLogoPng(192, 220, activeMode);
                     const favLink = document.getElementById('favicon-link');
-                    if (favLink) {
-                        favLink.type = 'image/png';
-                        favLink.href = icon192;
-                    }
+                    if (favLink) favLink.href = fav192;
 
                     const manifestObj = {
                         name: "عادَتِش | رهایی و ساخت عادت نو",
@@ -1335,13 +1375,14 @@
                         description: "مسیر علمی بازسازی مغز و رهایی از عادات مخرب",
                         start_url: location.href,
                         display: "standalone",
-                        background_color: isLight ? "#F1F5F9" : "#090D16",
-                        theme_color: isLight ? "#F1F5F9" : "#090D16",
+                        background_color: isAppLight ? "#FFFFFF" : "#000000",
+                        theme_color: isAppLight ? "#FFFFFF" : "#090D16",
                         orientation: "portrait",
                         icons: [
-                            { src: icon192, sizes: "192x192", type: "image/png", purpose: "any" },
-                            { src: icon512, sizes: "512x512", type: "image/png", purpose: "any" },
-                            { src: icon512Maskable, sizes: "512x512", type: "image/png", purpose: "maskable" }
+                            { src: renderLogoPng(192, 220, 'light'), sizes: "192x192", type: "image/png", purpose: "any" },
+                            { src: iconLight512, sizes: "512x512", type: "image/png", purpose: "any" },
+                            { src: iconDark512, sizes: "512x512", type: "image/png", purpose: "maskable" },
+                            { src: iconMonochrome512, sizes: "512x512", type: "image/png", purpose: "monochrome" }
                         ]
                     };
                     const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
@@ -1674,7 +1715,6 @@
                 renderHabitChain();
                 renderMilestonesAndRecovery(m.days, m.totalDaysFloat);
                 renderPledgeStatus();
-                renderSwapsList();
                 renderJournalList();
                 renderTriggerRadar();
                 updateBookmarkUI();
@@ -1878,10 +1918,29 @@
             // ==========================================
             // QUOTES & BOOKMARKS
             // ==========================================
+            function getNextNonRepeatingQuote(pool) {
+                const sourceList = (pool && pool.length > 0) ? pool : QUOTES_DB;
+                let unshown = sourceList.filter(function (q) {
+                    return !shownQuoteIds.includes(q.id) && (!currentQuoteObj || q.id !== currentQuoteObj.id);
+                });
+                if (unshown.length === 0) {
+                    // Reset history for this pool so cycle starts fresh without immediate repeat
+                    const poolIds = sourceList.map(function (q) { return q.id; });
+                    shownQuoteIds = shownQuoteIds.filter(function (id) { return !poolIds.includes(id); });
+                    unshown = sourceList.filter(function (q) {
+                        return !currentQuoteObj || q.id !== currentQuoteObj.id;
+                    });
+                }
+                const picked = unshown.length > 0
+                    ? unshown[Math.floor(Math.random() * unshown.length)]
+                    : sourceList[0];
+                shownQuoteIds.push(picked.id);
+                return picked;
+            }
+
             function pickQuoteForPhase(phaseId) {
                 const pool = QUOTES_DB.filter(function (q) { return q.phase === phaseId; });
-                const list = pool.length > 0 ? pool : QUOTES_DB;
-                currentQuoteObj = list[Math.floor(Math.random() * list.length)];
+                currentQuoteObj = getNextNonRepeatingQuote(pool);
                 renderCurrentQuote();
             }
 
@@ -1935,42 +1994,6 @@
                         saveState();
                         updateBookmarkUI();
                         renderBookmarksModalList();
-                    });
-                });
-            }
-
-            // ==========================================
-            // HEALTHY SWAPS
-            // ==========================================
-            function renderSwapsList() {
-                const container = document.getElementById('swaps-list-container');
-                if (!container) return;
-                const list = appState.healthySwaps || [];
-                if (list.length === 0) {
-                    container.innerHTML = '<p class="text-xs text-mutedGray">هنوز جایگزینی ثبت نشده است.</p>';
-                    return;
-                }
-                container.innerHTML = '';
-                list.forEach(function (item) {
-                    const row = document.createElement('div');
-                    row.className = 'p-3 rounded-xl bg-appBg/60 glass-border flex items-center justify-between gap-2 text-xs';
-                    row.innerHTML =
-                        '<div class="leading-6">' +
-                            '<span class="text-mutedGray">وقتی </span>' +
-                            '<strong class="text-snowWhite">' + item.when + '</strong>' +
-                            '<span class="text-emeraldAccent font-black mx-1">⬅️</span>' +
-                            '<strong class="text-emeraldAccent">' + item.then + '</strong>' +
-                        '</div>' +
-                        '<button type="button" data-del-swap="' + item.id + '" class="text-mutedGray hover:text-sosRed p-1 shrink-0" title="حذف">✕</button>';
-                    container.appendChild(row);
-                });
-
-                container.querySelectorAll('[data-del-swap]').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        const id = parseInt(btn.getAttribute('data-del-swap'), 10);
-                        appState.healthySwaps = (appState.healthySwaps || []).filter(function (s) { return s.id !== id; });
-                        saveState();
-                        renderSwapsList();
                     });
                 });
             }
@@ -2320,12 +2343,30 @@
             // ==========================================
             // SHAREABLE 9:16 VICTORY STORY CARD (CANVAS)
             // ==========================================
+            function wrapCanvasText(ctx, text, maxWidth) {
+                const words = text.split(' ');
+                const lines = [];
+                let currentLine = words[0] || '';
+                for (let i = 1; i < words.length; i++) {
+                    const word = words[i];
+                    const width = ctx.measureText(currentLine + ' ' + word).width;
+                    if (width < maxWidth) {
+                        currentLine += ' ' + word;
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            }
+
             function drawVictoryStoryCard() {
                 const canvas = document.getElementById('victory-card-canvas');
                 if (!canvas) return;
                 const ctx = canvas.getContext('2d');
-                const W = canvas.width;
-                const H = canvas.height;
+                const W = canvas.width;   // 1080
+                const H = canvas.height;  // 1920
 
                 const m = getElapsedMetrics();
                 const totalElapsedDays = Math.max(1, m.days + 1);
@@ -2334,38 +2375,121 @@
                 const savedHours = (m.totalDaysFloat * (appState.dailyHours || 0));
                 const formattedHours = savedHours < 10 ? savedHours.toFixed(1) : Math.floor(savedHours);
 
-                // Background Gradient
+                // Current unlocked badge
+                const unlockedList = MILESTONES_DB.filter(function (ms) { return m.days >= ms.days; });
+                const activeBadge = unlockedList.length > 0 ? unlockedList[unlockedList.length - 1] : { title: 'آغازگر مسیر رهایی', label: 'گام اول' };
+
+                // 1. Deep Luxury Obsidian Background
                 const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-                bgGrad.addColorStop(0, '#090D16');
-                bgGrad.addColorStop(0.5, '#0F172A');
-                bgGrad.addColorStop(1, '#05080F');
+                bgGrad.addColorStop(0, '#04070D');
+                bgGrad.addColorStop(0.45, '#08121E');
+                bgGrad.addColorStop(1, '#030509');
                 ctx.fillStyle = bgGrad;
                 ctx.fillRect(0, 0, W, H);
 
-                // Emerald Radial Glow
-                const radGrad = ctx.createRadialGradient(W * 0.5, H * 0.42, 40, W * 0.5, H * 0.42, 650);
-                radGrad.addColorStop(0, 'rgba(0, 127, 104, 0.28)');
-                radGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
-                ctx.fillStyle = radGrad;
+                // 2. Ambient Aurora Mesh Glows
+                const glowTop = ctx.createRadialGradient(W * 0.85, H * 0.15, 20, W * 0.85, H * 0.15, 700);
+                glowTop.addColorStop(0, 'rgba(0, 184, 150, 0.24)');
+                glowTop.addColorStop(0.5, 'rgba(0, 127, 104, 0.08)');
+                glowTop.addColorStop(1, 'rgba(0, 127, 104, 0)');
+                ctx.fillStyle = glowTop;
                 ctx.fillRect(0, 0, W, H);
 
-                // Top Brand Logo Box
+                const glowBottom = ctx.createRadialGradient(W * 0.15, H * 0.82, 20, W * 0.15, H * 0.82, 680);
+                glowBottom.addColorStop(0, 'rgba(132, 204, 22, 0.14)');
+                glowBottom.addColorStop(0.5, 'rgba(0, 127, 104, 0.06)');
+                glowBottom.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = glowBottom;
+                ctx.fillRect(0, 0, W, H);
+
+                // 3. Subtle Architectural Perspective Grid
                 ctx.save();
-                ctx.translate(W / 2 - 70, 130);
-                ctx.fillStyle = 'rgba(17, 24, 39, 0.85)';
-                ctx.strokeStyle = 'rgba(0, 127, 104, 0.5)';
-                ctx.lineWidth = 4;
-                if (ctx.roundRect) {
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.022)';
+                ctx.lineWidth = 1.5;
+                const gridStep = 90;
+                for (let x = 0; x <= W; x += gridStep) {
                     ctx.beginPath();
-                    ctx.roundRect(0, 0, 140, 140, 36);
-                    ctx.fill();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, H);
                     ctx.stroke();
                 }
-                const logoScale = 140 / 1000;
-                ctx.scale(logoScale, logoScale);
-                ctx.fillStyle = '#007F68';
+                for (let y = 0; y <= H; y += gridStep) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(W, y);
+                    ctx.stroke();
+                }
+                ctx.restore();
+
+                // 4. Main Floating Collectible Glass Card
+                const cardX = 76;
+                const cardY = 120;
+                const cardW = W - 152; // 928
+                const cardH = H - 240; // 1680
+
+                ctx.save();
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.75)';
+                ctx.shadowBlur = 65;
+                ctx.shadowOffsetY = 30;
+
+                const cardFill = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
+                cardFill.addColorStop(0, 'rgba(17, 25, 40, 0.86)');
+                cardFill.addColorStop(0.5, 'rgba(11, 17, 30, 0.92)');
+                cardFill.addColorStop(1, 'rgba(7, 11, 20, 0.95)');
+                ctx.fillStyle = cardFill;
+
                 ctx.beginPath();
-                ctx.arc(505, 272, 83, 0, Math.PI * 2);
+                ctx.roundRect(cardX, cardY, cardW, cardH, 64);
+                ctx.fill();
+                ctx.restore();
+
+                // Specular Rim Border on Main Card
+                ctx.save();
+                const borderGrad = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
+                borderGrad.addColorStop(0, 'rgba(0, 210, 170, 0.55)');
+                borderGrad.addColorStop(0.35, 'rgba(255, 255, 255, 0.12)');
+                borderGrad.addColorStop(0.7, 'rgba(255, 255, 255, 0.05)');
+                borderGrad.addColorStop(1, 'rgba(132, 204, 22, 0.35)');
+                ctx.strokeStyle = borderGrad;
+                ctx.lineWidth = 3.5;
+                ctx.beginPath();
+                ctx.roundRect(cardX, cardY, cardW, cardH, 64);
+                ctx.stroke();
+                ctx.restore();
+
+                // 5. Top Header inside Card (Brand Identity on Right, Status Pill on Left)
+                const headerY = cardY + 70;
+
+                // Right side: Brand Logo + Name
+                const logoBoxSize = 96;
+                const logoBoxX = cardX + cardW - 70 - logoBoxSize;
+                const logoBoxY = headerY;
+
+                ctx.save();
+                const logoBoxGrad = ctx.createLinearGradient(logoBoxX, logoBoxY, logoBoxX + logoBoxSize, logoBoxY + logoBoxSize);
+                logoBoxGrad.addColorStop(0, '#162032');
+                logoBoxGrad.addColorStop(1, '#090D16');
+                ctx.fillStyle = logoBoxGrad;
+                ctx.strokeStyle = 'rgba(0, 184, 150, 0.45)';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.roundRect(logoBoxX, logoBoxY, logoBoxSize, logoBoxSize, 28);
+                ctx.fill();
+                ctx.stroke();
+
+                // Draw Brand Glyph inside Logo Box
+                ctx.translate(logoBoxX + logoBoxSize / 2, logoBoxY + logoBoxSize / 2);
+                const glyphScale = (logoBoxSize / 1000) * 1.05;
+                ctx.scale(glyphScale, glyphScale);
+                ctx.translate(-505, -518);
+
+                const glyphGrad = ctx.createLinearGradient(250, 150, 750, 850);
+                glyphGrad.addColorStop(0, '#00D4AE');
+                glyphGrad.addColorStop(1, '#007F68');
+                ctx.fillStyle = glyphGrad;
+
+                ctx.beginPath();
+                ctx.arc(505, 272, 85, 0, Math.PI * 2);
                 ctx.fill();
                 const p1 = new Path2D('M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z');
                 const p2 = new Path2D('M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z');
@@ -2373,77 +2497,290 @@
                 ctx.fill(p2);
                 ctx.restore();
 
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#F9FAFB';
+                ctx.font = '900 44px Vazirmatn, sans-serif';
+                ctx.fillText('عادَتِش', logoBoxX - 22, headerY + 52);
+
+                ctx.fillStyle = '#94A3B8';
+                ctx.font = '600 22px Vazirmatn, sans-serif';
+                ctx.fillText('پروتکل علمی بازسازی مغز', logoBoxX - 22, headerY + 86);
+
+                // Left side: Unlocked Milestone Pill
+                const pillX = cardX + 65;
+                const pillY = headerY + 14;
+                const pillW = 310;
+                const pillH = 68;
+                ctx.save();
+                ctx.fillStyle = 'rgba(0, 127, 104, 0.16)';
+                ctx.strokeStyle = 'rgba(0, 184, 150, 0.4)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(pillX, pillY, pillW, pillH, 34);
+                ctx.fill();
+                ctx.stroke();
+
                 ctx.textAlign = 'center';
-                ctx.fillStyle = '#F9FAFB';
-                ctx.font = '900 54px Vazirmatn, sans-serif';
-                ctx.fillText('عادَتِش', W / 2, 345);
+                ctx.fillStyle = '#00D4AE';
+                ctx.font = '800 24px Vazirmatn, sans-serif';
+                ctx.fillText('🏆 ' + activeBadge.title, pillX + pillW / 2, pillY + 43);
+                ctx.restore();
 
-                ctx.fillStyle = '#9CA3AF';
-                ctx.font = '500 30px Vazirmatn, sans-serif';
-                ctx.fillText('سفر بازپس‌گیری اراده و سیم‌کشی مجدد مغز', W / 2, 400);
-
-                // Central Neon Ring
-                const cx = W / 2;
-                const cy = 790;
-                const radius = 250;
-
+                // Subtle Divider Line
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.07)';
+                ctx.lineWidth = 2;
                 ctx.beginPath();
-                ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-                ctx.lineWidth = 24;
+                ctx.moveTo(cardX + 65, headerY + 135);
+                ctx.lineTo(cardX + cardW - 65, headerY + 135);
                 ctx.stroke();
 
+                // 6. Centerpiece Hero Counter (Editorial Giant Typography + Halo)
+                const heroCenterY = 630;
+
+                // Soft glowing aura behind the giant number
+                const numHalo = ctx.createRadialGradient(W / 2, heroCenterY - 40, 10, W / 2, heroCenterY - 40, 290);
+                numHalo.addColorStop(0, 'rgba(0, 184, 150, 0.25)');
+                numHalo.addColorStop(1, 'rgba(0, 127, 104, 0)');
+                ctx.fillStyle = numHalo;
                 ctx.beginPath();
-                ctx.arc(cx, cy, radius, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * (cleanRate / 100)));
-                ctx.strokeStyle = '#007F68';
-                ctx.lineWidth = 24;
-                ctx.lineCap = 'round';
+                ctx.arc(W / 2, heroCenterY - 40, 290, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Giant Day Number
+                ctx.save();
+                ctx.textAlign = 'center';
+                const numGrad = ctx.createLinearGradient(W / 2, heroCenterY - 240, W / 2, heroCenterY + 40);
+                numGrad.addColorStop(0, '#FFFFFF');
+                numGrad.addColorStop(0.55, '#E2F8F3');
+                numGrad.addColorStop(1, '#00B896');
+                ctx.fillStyle = numGrad;
+                ctx.shadowColor = 'rgba(0, 184, 150, 0.35)';
+                ctx.shadowBlur = 40;
+                ctx.font = '900 250px Vazirmatn, sans-serif';
+                ctx.fillText(toPersianDigits(m.days), W / 2, heroCenterY);
+                ctx.restore();
+
+                // Subtitle under giant number
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#00D4AE';
+                ctx.font = '900 46px Vazirmatn, sans-serif';
+                ctx.fillText('روز آزادی، تمرکز و اراده آگاهانه', W / 2, heroCenterY + 85);
+
+                // Live Clock Pill (Hours : Minutes : Seconds)
+                const clockPillW = 460;
+                const clockPillH = 64;
+                const clockPillX = (W - clockPillW) / 2;
+                const clockPillY = heroCenterY + 120;
+
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(clockPillX, clockPillY, clockPillW, clockPillH, 32);
+                ctx.fill();
                 ctx.stroke();
 
-                ctx.fillStyle = '#007F68';
-                ctx.font = '900 165px Vazirmatn, sans-serif';
-                ctx.fillText(toPersianDigits(m.days), cx, cy + 35);
+                ctx.fillStyle = '#CBD5E1';
+                ctx.font = '700 25px Vazirmatn, sans-serif';
+                const extraTimeStr = 'و ' + toPersianDigits(m.hours) + ' ساعت و ' + toPersianDigits(m.minutes) + ' دقیقه استمرار';
+                ctx.fillText(extraTimeStr, W / 2, clockPillY + 41);
 
-                ctx.fillStyle = '#F9FAFB';
-                ctx.font = '800 44px Vazirmatn, sans-serif';
-                ctx.fillText('روز آزادی و استمرار', cx, cy + 125);
+                // 7. Bento Grid: 3-Column Metrics
+                const bentoY = 890;
+                const bentoGap = 24;
+                const bentoTotalW = cardW - 130; // 798
+                const bentoBoxW = (bentoTotalW - bentoGap * 2) / 3; // 250
+                const bentoBoxH = 225;
+                const startBentoX = cardX + 65;
 
-                // Stats Cards
-                const stats = [
-                    { label: 'نرخ پاکی مسیر', value: toPersianDigits(cleanRate) + '٪' },
-                    { label: 'غلبه بر وسوسه (SOS)', value: toPersianDigits(appState.sosVictories || 0) + ' بار' },
-                    { label: 'عمر مفید بازگشته', value: toPersianDigits(formattedHours) + ' ساعت' }
+                const bentoItems = [
+                    {
+                        title: 'عمر مفید بازگشته',
+                        val: toPersianDigits(formattedHours),
+                        unit: 'ساعت ذخیره',
+                        accent: '#84CC16'
+                    },
+                    {
+                        title: 'غلبه بر وسوسه',
+                        val: toPersianDigits(appState.sosVictories || 0),
+                        unit: 'موج مهارشده',
+                        accent: '#00D4AE'
+                    },
+                    {
+                        title: 'نرخ پاکی مسیر',
+                        val: toPersianDigits(cleanRate) + '٪',
+                        unit: 'پایداری ذهن',
+                        accent: '#38BDF8'
+                    }
                 ];
 
-                stats.forEach(function (st, idx) {
-                    const boxY = 1160 + idx * 165;
-                    ctx.fillStyle = 'rgba(17, 24, 39, 0.82)';
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                bentoItems.forEach(function (item, idx) {
+                    const bx = startBentoX + idx * (bentoBoxW + bentoGap);
+                    ctx.save();
+                    ctx.fillStyle = 'rgba(15, 23, 42, 0.78)';
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
                     ctx.lineWidth = 2;
-                    if (ctx.roundRect) {
-                        ctx.beginPath();
-                        ctx.roundRect(110, boxY, W - 220, 135, 32);
-                        ctx.fill();
-                        ctx.stroke();
-                    }
-                    ctx.textAlign = 'right';
-                    ctx.fillStyle = '#9CA3AF';
-                    ctx.font = '600 34px Vazirmatn, sans-serif';
-                    ctx.fillText(st.label, W - 165, boxY + 82);
+                    ctx.beginPath();
+                    ctx.roundRect(bx, bentoY, bentoBoxW, bentoBoxH, 36);
+                    ctx.fill();
+                    ctx.stroke();
 
-                    ctx.textAlign = 'left';
-                    ctx.fillStyle = '#007F68';
-                    ctx.font = '900 42px Vazirmatn, sans-serif';
-                    ctx.fillText(st.value, 165, boxY + 84);
+                    // Top glowing accent bar inside each bento card
+                    ctx.fillStyle = item.accent;
+                    ctx.beginPath();
+                    ctx.roundRect(bx + bentoBoxW / 2 - 36, bentoY + 18, 72, 6, 3);
+                    ctx.fill();
+
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = '#F9FAFB';
+                    ctx.font = '900 58px Vazirmatn, sans-serif';
+                    ctx.fillText(item.val, bx + bentoBoxW / 2, bentoY + 108);
+
+                    ctx.fillStyle = item.accent;
+                    ctx.font = '800 22px Vazirmatn, sans-serif';
+                    ctx.fillText(item.unit, bx + bentoBoxW / 2, bentoY + 150);
+
+                    ctx.fillStyle = '#94A3B8';
+                    ctx.font = '600 22px Vazirmatn, sans-serif';
+                    ctx.fillText(item.title, bx + bentoBoxW / 2, bentoY + 190);
+                    ctx.restore();
                 });
 
-                // Footer Date
+                // 8. 30-Day Habit Matrix Visualizer (GitHub-style Streak Grid)
+                const matrixBoxX = cardX + 65;
+                const matrixBoxY = 1150;
+                const matrixBoxW = cardW - 130; // 798
+                const matrixBoxH = 310;
+
+                ctx.save();
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.78)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(matrixBoxX, matrixBoxY, matrixBoxW, matrixBoxH, 38);
+                ctx.fill();
+                ctx.stroke();
+
+                // Matrix Title Row
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#F9FAFB';
+                ctx.font = '800 27px Vazirmatn, sans-serif';
+                ctx.fillText('شبکه استمرار ۳۰ روز اخیر', matrixBoxX + matrixBoxW - 38, matrixBoxY + 55);
+
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#00D4AE';
+                ctx.font = '700 22px Vazirmatn, sans-serif';
+                ctx.fillText('زنجیره تعهد من', matrixBoxX + 38, matrixBoxY + 55);
+
+                // 30 Cells (3 rows x 10 cols)
+                const cols = 10;
+                const cellGap = 14;
+                const gridPaddingX = 42;
+                const availableGridW = matrixBoxW - gridPaddingX * 2;
+                const cellSize = (availableGridW - (cols - 1) * cellGap) / cols; // ~58px
+                const cellH = 54;
+                const startGridX = matrixBoxX + gridPaddingX;
+                const startGridY = matrixBoxY + 86;
+
+                const startDayTime = new Date(appState.startDate);
+                startDayTime.setHours(0, 0, 0, 0);
+                const relapseDatesSet = new Set((appState.relapses || []).map(function (r) {
+                    return getDateKey(new Date(r));
+                }));
+                const victoryDatesSet = new Set(appState.victoryDates || []);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                for (let i = 0; i < 30; i++) {
+                    const dayOffset = 29 - i;
+                    const d = new Date(today);
+                    d.setDate(today.getDate() - dayOffset);
+                    const key = getDateKey(d);
+                    const j = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+
+                    const r = Math.floor(i / cols);
+                    const c = i % cols;
+                    const cxPos = startGridX + c * (cellSize + cellGap);
+                    const cyPos = startGridY + r * (cellH + cellGap);
+
+                    let fillCol = 'rgba(30, 41, 59, 0.55)';
+                    let strokeCol = 'rgba(255, 255, 255, 0.06)';
+                    let textCol = '#475569';
+
+                    if (d.getTime() >= startDayTime.getTime()) {
+                        if (relapseDatesSet.has(key)) {
+                            fillCol = 'rgba(244, 63, 94, 0.28)';
+                            strokeCol = '#F43F5E';
+                            textCol = '#FDA4AF';
+                        } else if (victoryDatesSet.has(key)) {
+                            fillCol = 'rgba(251, 191, 36, 0.28)';
+                            strokeCol = '#FBBF24';
+                            textCol = '#FDE68A';
+                        } else {
+                            fillCol = 'rgba(0, 184, 150, 0.28)';
+                            strokeCol = '#00B896';
+                            textCol = '#A7F3D0';
+                        }
+                    }
+
+                    ctx.fillStyle = fillCol;
+                    ctx.strokeStyle = strokeCol;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.roundRect(cxPos, cyPos, cellSize, cellH, 14);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = textCol;
+                    ctx.font = '800 22px Vazirmatn, sans-serif';
+                    ctx.fillText(toPersianDigits(j[2]), cxPos + cellSize / 2, cyPos + 35);
+                }
+                ctx.restore();
+
+                // 9. Neuroscience Quote Box
+                const quoteBoxX = cardX + 65;
+                const quoteBoxY = 1490;
+                const quoteBoxW = cardW - 130;
+                const quoteBoxH = 160;
+
+                ctx.save();
+                ctx.fillStyle = 'rgba(0, 127, 104, 0.1)';
+                ctx.strokeStyle = 'rgba(0, 184, 150, 0.28)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(quoteBoxX, quoteBoxY, quoteBoxW, quoteBoxH, 32);
+                ctx.fill();
+                ctx.stroke();
+
+                const storyQuote = currentQuoteObj && currentQuoteObj.text
+                    ? '«' + currentQuoteObj.text + '»'
+                    : '«بزرگ‌ترین آزادی انسان، توانایی کنترل غریزه‌های آنی به نفع ارزش‌های بلندمدت است.»';
+
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#E2E8F0';
+                ctx.font = '600 24px Vazirmatn, sans-serif';
+                const wrappedLines = wrapCanvasText(ctx, storyQuote, quoteBoxW - 80).slice(0, 2);
+                wrappedLines.forEach(function (line, idx) {
+                    const lineY = wrappedLines.length === 1 ? (quoteBoxY + 90) : (quoteBoxY + 68 + idx * 42);
+                    ctx.fillText(line, W / 2, lineY);
+                });
+                ctx.restore();
+
+                // 10. Bottom Signature & Persian Date Stamp
                 const now = new Date();
                 const jNow = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
-                ctx.textAlign = 'center';
+                const dateStamp = toPersianDigits(jNow[2]) + ' ' + JALALI_MONTHS[jNow[1] - 1] + ' ' + toPersianDigits(jNow[0]);
+
+                ctx.textAlign = 'right';
                 ctx.fillStyle = '#64748B';
-                ctx.font = '600 28px Vazirmatn, sans-serif';
-                ctx.fillText('ثبت‌شده در ' + toPersianDigits(jNow[2]) + ' ' + JALALI_MONTHS[jNow[1] - 1] + ' ' + toPersianDigits(jNow[0]) + ' • وب‌اپلیکیشن عادَتِش', W / 2, 1810);
+                ctx.font = '700 24px Vazirmatn, sans-serif';
+                ctx.fillText('📅 ثبت‌شده در ' + dateStamp, cardX + cardW - 75, cardY + cardH - 52);
+
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#00B896';
+                ctx.font = '800 24px Vazirmatn, sans-serif';
+                ctx.fillText('AADATESH • عادَتِش', cardX + 75, cardY + cardH - 52);
             }
 
             // ==========================================
@@ -2678,8 +3015,13 @@
 
                 if (btnNextQuote) {
                     btnNextQuote.addEventListener('click', function () {
-                        const nextIdx = (QUOTES_DB.indexOf(currentQuoteObj) + 1) % QUOTES_DB.length;
-                        currentQuoteObj = QUOTES_DB[nextIdx];
+                        const m = getElapsedMetrics();
+                        const phase = getCurrentPhase(m.days);
+                        // Mix phase-relevant quotes with the full database on manual shuffle so it feels endlessly fresh
+                        const pool = Math.random() < 0.65
+                            ? QUOTES_DB.filter(function (q) { return q.phase === phase.id; })
+                            : QUOTES_DB;
+                        currentQuoteObj = getNextNonRepeatingQuote(pool);
                         renderCurrentQuote();
                     });
                 }
@@ -2708,38 +3050,6 @@
                     btnCloseBm.addEventListener('click', function () {
                         modalBm.classList.add('hidden');
                         modalBm.classList.remove('flex');
-                    });
-                }
-
-                // Healthy Swaps Form
-                const btnToggleSwap = document.getElementById('btn-toggle-swap-form');
-                const btnCancelSwap = document.getElementById('btn-cancel-swap-form');
-                const formSwap = document.getElementById('form-swap');
-
-                if (btnToggleSwap && formSwap) {
-                    btnToggleSwap.addEventListener('click', function () {
-                        formSwap.classList.toggle('hidden');
-                    });
-                }
-                if (btnCancelSwap && formSwap) {
-                    btnCancelSwap.addEventListener('click', function () {
-                        formSwap.classList.add('hidden');
-                    });
-                }
-                if (formSwap) {
-                    formSwap.addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        const w = document.getElementById('input-swap-when').value.trim();
-                        const t = document.getElementById('input-swap-then').value.trim();
-                        if (!w || !t) return;
-                        if (!Array.isArray(appState.healthySwaps)) appState.healthySwaps = [];
-                        appState.healthySwaps.unshift({ id: Date.now(), when: w, then: t, count: 0 });
-                        saveState();
-                        renderSwapsList();
-                        document.getElementById('input-swap-when').value = '';
-                        document.getElementById('input-swap-then').value = '';
-                        formSwap.classList.add('hidden');
-                        showToast('عادت جایگزین جدید ثبت شد!');
                     });
                 }
 
@@ -3116,6 +3426,11 @@
                 try {
                     applyTheme();
                     setupHomeScreenIcons();
+                    if (window.matchMedia) {
+                        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+                            setupHomeScreenIcons();
+                        });
+                    }
                     populateJalaliPicker('ob');
                     populateJalaliPicker('st');
                     renderLearningCapsules();
