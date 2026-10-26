@@ -16,14 +16,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 
-    <!-- App Icons for Add to Home Screen (iOS 26/27 Liquid Glass & Dynamic Dark/Light/Tinted Support) -->
+    <!-- App Icons for Add to Home Screen (iOS Dynamic Dark/Light/Tinted Support) -->
     <link id="favicon-link" rel="icon" type="image/png" href="">
     <link id="apple-touch-icon-default" rel="apple-touch-icon" sizes="180x180" href="">
-    <link id="apple-touch-icon-light" rel="apple-touch-icon" sizes="180x180" media="(prefers-color-scheme: light)" href="">
-    <link id="apple-touch-icon-dark" rel="apple-touch-icon" sizes="180x180" media="(prefers-color-scheme: dark)" href="">
-
-    <!-- PWA Manifest -->
     <link id="pwa-manifest-link" rel="manifest" href="">
+
+    <!-- Early Synchronous Icon Generator for iOS Safari SpringBoard Auto-Theming -->
+    <script>
+        (function generateEarlyIOSIcon() {
+            try {
+                function createIOSCompatibleIcon(size) {
+                    var canvas = document.createElement('canvas');
+                    canvas.width = size;
+                    canvas.height = size;
+                    var ctx = canvas.getContext('2d');
+                    var scale = size / 1000;
+
+                    // 1. PURE SOLID FLAT WHITE (#FFFFFF) BACKGROUND
+                    // CRITICAL FOR iOS 18 / 26 / 27: iOS SpringBoard only auto-inverts the icon background
+                    // to pitch black in Dark Mode (and separates foreground in Tinted/Clear mode)
+                    // when the background is 100% uniform solid #FFFFFF with ZERO gradients or drop-shadows bleeding onto it.
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(0, 0, size, size);
+
+                    ctx.save();
+                    ctx.scale(scale, scale);
+
+                    // 2. Bold, Large, Optically Centered Glyph (Scale 1.12)
+                    ctx.translate(500, 500);
+                    ctx.scale(1.12, 1.12);
+                    ctx.translate(-505, -518);
+
+                    var mainPath = new Path2D('M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z');
+                    var leafPath = new Path2D('M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z');
+
+                    // Rich High-Contrast Emerald Fill (Self-contained within the glyph so background stays 100% pure #FFFFFF)
+                    var glyphGrad = ctx.createLinearGradient(250, 170, 750, 850);
+                    glyphGrad.addColorStop(0, '#00A88A');
+                    glyphGrad.addColorStop(0.5, '#007F68');
+                    glyphGrad.addColorStop(1, '#005948');
+                    ctx.fillStyle = glyphGrad;
+
+                    ctx.beginPath();
+                    ctx.arc(505, 272, 86, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fill(mainPath);
+                    ctx.fill(leafPath);
+
+                    // Subtle Inner 3D Bevel Highlight (Clipped strictly inside glyph bounds)
+                    ctx.save();
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+                    ctx.lineWidth = 6;
+                    ctx.beginPath();
+                    ctx.arc(505, 272, 80, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.stroke(mainPath);
+                    ctx.stroke(leafPath);
+                    ctx.restore();
+
+                    ctx.restore();
+                    return canvas.toDataURL('image/png');
+                }
+
+                var iosTouchIcon = createIOSCompatibleIcon(512);
+                var touchLink = document.getElementById('apple-touch-icon-default');
+                var favLink = document.getElementById('favicon-link');
+                if (touchLink) touchLink.href = iosTouchIcon;
+                if (favLink) favLink.href = iosTouchIcon;
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -316,7 +378,7 @@
                 <div class="lg:col-span-7 space-y-4">
 
                     <!-- HERO SECTION: STAR DAY COUNTER -->
-                    <section class="glass-card hero-radial-glow rounded-3xl p-5 emerald-glow relative overflow-hidden">
+                    <section id="section-hero" class="glass-card hero-radial-glow rounded-3xl p-5 emerald-glow relative overflow-hidden">
                         <div class="flex items-center justify-between gap-2 mb-3">
                             <span id="phase-badge" class="text-[11px] font-semibold text-oliveAccent bg-oliveAccent/10 px-2.5 py-1 rounded-lg border border-oliveAccent/20 whitespace-nowrap truncate">
                                 فاز ۱: سم‌زدایی
@@ -371,7 +433,7 @@
                     </section>
 
                     <!-- DAILY PLEDGE 2-SECOND HOLD BUTTON -->
-                    <section class="glass-card rounded-2xl p-4">
+                    <section id="section-pledge" class="glass-card rounded-2xl p-4">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-extrabold text-snowWhite">پیمان هوشیاری امروز</span>
@@ -509,71 +571,132 @@
                     </section>
 
                     <!-- DAILY MOOD & MICRO-JOURNAL -->
-                    <section class="glass-card rounded-2xl p-4">
+                    <section id="section-journal" class="glass-card rounded-2xl p-4">
                         <div class="flex items-center justify-between mb-2.5">
                             <h3 class="text-xs font-extrabold text-snowWhite">ثبت حال‌وهوا و تخلیه ذهنی</h3>
                             <span id="journal-count-badge" class="text-[11px] text-mutedGray">۰ یادداشت</span>
                         </div>
-
-                        <div class="grid grid-cols-5 gap-1.5 mb-2.5">
-                            <button type="button" data-mood="عالی و پرانرژی" data-emoji="🤩" class="mood-btn chip-selected-emerald py-1.5 rounded-xl bg-appBg glass-border text-center text-xs transition">🤩<div class="text-[9px] mt-0.5">عالی</div></button>
-                            <button type="button" data-mood="آرام و متمرکز" data-emoji="😌" class="mood-btn py-1.5 rounded-xl bg-appBg glass-border text-center text-xs transition">😌<div class="text-[9px] mt-0.5">آرام</div></button>
-                            <button type="button" data-mood="کلافه و مضطرب" data-emoji="😤" class="mood-btn py-1.5 rounded-xl bg-appBg glass-border text-center text-xs transition">😤<div class="text-[9px] mt-0.5">مضطرب</div></button>
-                            <button type="button" data-mood="خسته و بی‌رمق" data-emoji="😴" class="mood-btn py-1.5 rounded-xl bg-appBg glass-border text-center text-xs transition">😴<div class="text-[9px] mt-0.5">خسته</div></button>
-                            <button type="button" data-mood="غمگین و تنها" data-emoji="😔" class="mood-btn py-1.5 rounded-xl bg-appBg glass-border text-center text-xs transition">😔<div class="text-[9px] mt-0.5">تنها</div></button>
+                        <div class="grid grid-cols-4 gap-1.5 mb-2.5">
+                            <button type="button" data-mood="عالی و پرانرژی" data-emoji="🤩" class="mood-btn chip-selected-emerald py-2 rounded-xl bg-appBg glass-border text-center transition">
+                                <div class="text-base">🤩</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">پرانرژی</div>
+                            </button>
+                            <button type="button" data-mood="آرام و متمرکز" data-emoji="😌" class="mood-btn py-2 rounded-xl bg-appBg glass-border text-center transition">
+                                <div class="text-base">😌</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">آرام</div>
+                            </button>
+                            <button type="button" data-mood="کلافه و بی‌قرار" data-emoji="😤" class="mood-btn py-2 rounded-xl bg-appBg glass-border text-center transition">
+                                <div class="text-base">😤</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">کلافه</div>
+                            </button>
+                            <button type="button" data-mood="خسته و بی‌حوصله" data-emoji="😔" class="mood-btn py-2 rounded-xl bg-appBg glass-border text-center transition">
+                                <div class="text-base">😔</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">خسته</div>
+                            </button>
                         </div>
-
-                        <form id="form-journal" class="flex gap-1.5 mb-3">
-                            <input id="input-journal-note" type="text" placeholder="الان چه حسی داری؟ در یک خط بنویس..." class="flex-1 px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
-                            <button type="submit" class="px-3.5 py-2 rounded-xl bg-emeraldAccent text-white font-black text-xs shrink-0 active:scale-95 transition">ثبت</button>
+                        <form id="form-journal" class="flex gap-2 mb-3">
+                            <input id="input-journal-note" type="text" required placeholder="الان چه حسی داری؟ در یک جمله بنویس..." class="flex-1 px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
+                            <button type="submit" class="px-3.5 py-2 rounded-xl bg-emeraldAccent text-white font-extrabold text-xs shrink-0 active:scale-95 transition">ثبت</button>
                         </form>
-
-                        <div id="journal-list-container" class="space-y-1.5 max-h-40 overflow-y-auto"></div>
+                        <div id="journal-list-container" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
                     </section>
 
                     <!-- TRIGGER ANALYTICS (ACHILLES HEEL RADAR) -->
-                    <section class="glass-card rounded-2xl p-4">
+                    <section id="section-radar" class="glass-card rounded-2xl p-4">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xs font-extrabold text-snowWhite">رادار پاشنه آشیل (عوامل وسوسه من)</h3>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-sosRed"></span>
+                                <h3 class="text-xs font-extrabold text-snowWhite">رادار پاشنه آشیل (تحلیل محرک‌ها)</h3>
+                            </div>
                             <span id="trigger-total-count" class="text-[11px] text-mutedGray">۰ مورد ثبت‌شده</span>
                         </div>
-                        <p id="trigger-insight-text" class="text-[11px] text-mutedGray mb-3 leading-5"></p>
+                        <p id="trigger-insight-text" class="text-[11px] text-mutedGray leading-5 mb-3">
+                            هر بار که در بخش SOS یا لغزش، علت وسوسه را انتخاب کنی، الگوی پاشنه آشیل ذهنت اینجا ترسیم می‌شود.
+                        </p>
                         <div id="trigger-bars-list" class="space-y-2"></div>
                     </section>
 
                     <!-- MICRO-LEARNING CAPSULES -->
-                    <section>
-                        <div class="flex items-center justify-between mb-2.5 px-1">
-                            <h3 class="text-sm font-extrabold text-snowWhite">کپسول‌های آگاهی</h3>
-                            <span class="text-[11px] text-mutedGray">مطالعه: کمتر از ۱ دقیقه</span>
+                    <section id="section-learning" class="space-y-2.5">
+                        <div class="flex items-center justify-between px-1">
+                            <div class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-emeraldAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                                <h3 class="text-xs font-extrabold text-snowWhite">کپسول‌های آگاهی و نوروساینس</h3>
+                            </div>
+                            <button id="btn-refresh-learning" type="button" class="flex items-center gap-1 text-[11px] font-bold text-emeraldAccent hover:bg-emeraldAccent/10 px-2.5 py-1 rounded-xl glass-border transition active:scale-95">
+                                <svg id="icon-refresh-learning" class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                <span>مباحث جدید</span>
+                            </button>
                         </div>
-                        <div id="learning-accordion-container" class="space-y-2.5"></div>
+                        <div id="learning-accordion-container" class="space-y-2"></div>
                     </section>
 
-                    <!-- EMPATHIC RELAPSE BUTTON -->
+                    <!-- EMPATHIC RELAPSE TRIGGER -->
                     <section class="pt-2 pb-4 text-center">
-                        <button id="btn-open-relapse" type="button" class="text-xs text-mutedGray hover:text-sosRed underline underline-offset-8 transition py-2 px-4">
-                            ثبت لغزش / لغزیدم (بدون صفر شدن روزشمار)
+                        <button id="btn-open-relapse" type="button" class="text-xs text-mutedGray hover:text-sosRed underline underline-offset-4 transition">
+                            امروز لغزش داشتم (ثبت صادقانه بدون صفر شدن کل مسیر)
                         </button>
                     </section>
-                </div>
 
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- FLOATING SOS BUTTON -->
-        <div class="fixed inset-x-0 safe-bottom-bar z-30 flex justify-center pointer-events-none px-4">
-            <div class="w-full max-w-md flex justify-center">
-                <button id="btn-trigger-sos" type="button" class="pointer-events-auto w-full py-4 px-6 rounded-2xl bg-sosRed text-white font-black text-base tracking-wide sos-pulse flex items-center justify-center gap-3 active:scale-95 transition shadow-lg">
-                    <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+    <!-- ==========================================
+         FIXED FLOATING 5-ITEM BOTTOM NAVIGATION BAR (ALWAYS ON SCREEN)
+         ========================================== -->
+    <nav aria-label="منوی شناور پایین" class="fixed inset-x-0 safe-bottom-bar z-40 flex justify-center px-3 pointer-events-none">
+        <div class="pointer-events-auto w-full max-w-md glass-card rounded-3xl px-2 py-2 shadow-[0_18px_45px_rgba(0,0,0,0.7)] border border-white/15 grid grid-cols-5 items-center gap-1">
+            
+            <!-- 1. Counter (روزشمار) -->
+            <button type="button" data-nav-target="section-hero" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-emeraldAccent bg-emeraldAccent/10 active:scale-95 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-[10px] font-extrabold mt-1 whitespace-nowrap">روزشمار</span>
+            </button>
+
+            <!-- 2. Pledge & Mood (پیمان و حال) -->
+            <button type="button" data-nav-target="section-pledge" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">پیمان و حال</span>
+            </button>
+
+            <!-- 3. CENTERpiece: SOS Button (وسوسه شدم) -->
+            <div class="flex flex-col items-center justify-center">
+                <button id="btn-trigger-sos" type="button" class="w-full py-2.5 px-1.5 rounded-2xl bg-gradient-to-t from-rose-600 to-sosRed text-white font-black text-[11px] sos-pulse flex flex-col items-center justify-center gap-0.5 active:scale-95 transition shadow-lg shadow-sosRed/40 border border-white/25">
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
-                    <span>وسوسه شدم / حالم بده (SOS)</span>
+                    <span class="whitespace-nowrap leading-tight">وسوسه شدم</span>
                 </button>
             </div>
-        </div>
 
-    </div>
+            <!-- 4. Chain & Badges (زنجیره و نشان) -->
+            <button type="button" data-nav-target="habit-chain-grid" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">زنجیره و نشان</span>
+            </button>
+
+            <!-- 5. Awareness & Radar (آگاهی و رادار) -->
+            <button type="button" data-nav-target="section-learning" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">آگاهی</span>
+            </button>
+
+        </div>
+    </nav>
 
     <!-- ==========================================
          ONBOARDING MODAL
@@ -990,14 +1113,17 @@
                 <button id="btn-close-share-card" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن</button>
             </div>
             <p class="text-[11px] text-mutedGray mb-3">طراحی اختصاصی در ابعاد استوری (بدون درج نام عادت برای حفظ کامل حریم خصوصی)</p>
-            <div class="rounded-2xl overflow-hidden glass-border mb-4 bg-appBg mx-auto shadow-[0_0_40px_-10px_rgba(0,127,104,0.35)]" style="max-width: 245px; aspect-ratio: 9 / 16;">
+            <div class="rounded-2xl overflow-hidden glass-border mb-2.5 bg-appBg mx-auto shadow-[0_0_40px_-10px_rgba(0,127,104,0.35)] relative" style="max-width: 245px; aspect-ratio: 9 / 16;">
                 <canvas id="victory-card-canvas" width="1080" height="1920" class="w-full h-full object-contain block"></canvas>
+                <!-- تصویر واقعی هم‌پوشان برای اینکه در آیفون با نگه داشتن انگشت (Long Press) هم مستقیماً در Photos ذخیره شود -->
+                <img id="victory-card-preview-img" alt="استوری افتخار عادتش" class="absolute inset-0 w-full h-full object-contain opacity-0 cursor-pointer" style="-webkit-touch-callout: default !important; user-select: auto !important;" title="برای ذخیره مستقیم در گالری نگه دارید" />
             </div>
+            <p class="text-[10px] text-mutedGray mb-3">💡 در آیفون می‌توانید روی عکس بالا انگشت خود را نگه دارید و <strong class="text-snowWhite">Save to Photos</strong> را بزنید یا از دکمه زیر استفاده کنید:</p>
             <button id="btn-download-victory-card" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition flex items-center justify-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
                 </svg>
-                <span>دانلود استوری با کیفیت اصلی (PNG)</span>
+                <span>ذخیره و اشتراک‌گذاری استوری (PNG)</span>
             </button>
         </div>
     </div>
@@ -1109,31 +1235,103 @@
                 { id: 60, phase: 4, text: "آزادی واقعی یعنی صبح بیدار بشی و بدونی هیچ ماده، هیچ صفحه نمایش و هیچ عادتی اربابِ ذهن تو نیست.", source: "عادَتِش" }
             ];
 
-            // 3.B: Micro-Learning Capsules Database
+            // 3.B: Micro-Learning Capsules Database (16 Comprehensive Neuroscience & Behavioral Capsules)
             const LEARNING_DB = [
                 {
                     id: 1,
-                    title: "۱. تله تعادل دوپامین",
+                    title: "تله تعادل دوپامین (الاکلنگ لذت و درد)",
                     readTime: "۴۰ ثانیه",
-                    content: "مغز انسان برای لذت و درد مثل یک الاکلنگ عمل می‌کند. وقتی با مصرف سیگار، پورن یا گشت‌وگذار مفرط حجم عظیمی از دوپامین مصنوعی وارد مغز می‌کنی، الاکلنگ به سمت لذت خم می‌شود. اما مغز برای برقراری تعادل بلافاصله وزنه‌ای سنگین‌تر در سمت 'درد و کلافگی' می‌گذارد. به همین دلیل بعد از هر لذت ارزان، حس پوچی و عذاب وجدان می‌آید. راه حل چیست؟ تحمل همان درد کوتاه‌مدت اولیه تا الاکلنگ دوباره در حالت خنثی قرار بگیرد."
+                    content: "مغز انسان برای لذت و درد مثل یک الاکلنگ عمل می‌کند. وقتی با مصرف سیگار، پورن یا گشت‌وگذار مفرط حجم عظیمی از دوپامین مصنوعی وارد مغز می‌کنی، الاکلنگ به سمت لذت خم می‌شود. اما مغز برای برقراری تعادل بلافاصله وزنه‌ای سنگین‌تر در سمت 'درد و کلافگی' می‌گذارد. به همین دلیل بعد از هر لذت ارزان، حس پوچی و عذاب وجدان می‌آید. راه حل چیست؟ تحمل همان درد کوتاه‌مدت اولیه تا الاکلنگ دوباره در حالت خنثی و طبیعی قرار بگیرد."
                 },
                 {
                     id: 2,
-                    title: "۲. استراتژی HALT (چهار مقطع بحرانی لغزش)",
+                    title: "استراتژی HALT (چهار مقطع بحرانی لغزش)",
                     readTime: "۴۵ ثانیه",
-                    content: "بیش از ۸۰ درصد لغزش‌ها در یکی از این ۴ حالت رخ می‌دهد: گرسنگی (Hungry)، عصبانیت (Angry)، تنهایی (Lonely) و خستگی مفرط (Tired). هر زمان احساس کردی وسوسه مهارناپذیر شده، دست نگه‌دار و از خودت بپرس: الان کدوم یکی از این ۴ تا هستم؟ اگر خسته‌ای بخواب، اگر گرسنه‌ای غذا بخور، اگر تنهایی به یک دوست پیام بده. وسوسه را با خودارضایی یا مصرف درمان نکن."
+                    content: "بیش از ۸۰ درصد لغزش‌ها در یکی از این ۴ حالت رخ می‌دهد: گرسنگی (Hungry)، عصبانیت (Angry)، تنهایی (Lonely) و خستگی مفرط (Tired). هر زمان احساس کردی وسوسه مهارناپذیر شده، دست نگه‌دار و از خودت بپرس: الان کدوم یکی از این ۴ تا هستم؟ اگر خسته‌ای بخواب، اگر گرسنه‌ای غذا بخور، اگر تنهایی از اتاق بیرون برو یا به یک دوست پیام بده."
                 },
                 {
                     id: 3,
-                    title: "۳. قانون موج‌سواری بر وسوسه (Urge Surfing)",
+                    title: "قانون موج‌سواری بر وسوسه (Urge Surfing)",
                     readTime: "۳۰ ثانیه",
                     content: "تصور کن هوس و ولع مثل یک موج دریاست. موج شروع می‌شود، بالا می‌آید، به اوج (قله) می‌رسد و سپس می‌شکند و محو می‌شود. میانگین اوج این موج فقط ۳ الی ۵ دقیقه است. نیاز نیست با موج بجنگی، کافیست چند دقیقه روی آن موج‌سواری کنی؛ بنشین، نفس عمیق بکش و به ضربان قلبت توجه کن تا کف موج فرو بنشیند."
                 },
                 {
                     id: 4,
-                    title: "۴. چرا صفر کردن روزشمار اثر مخرب دارد؟",
+                    title: "چرا صفر کردن روزشمار اثر مخرب دارد؟",
                     readTime: "۵۰ ثانیه",
-                    content: "بزرگ‌ترین دشمن ترک، اثر 'بی‌خیالی' (What-the-hell Effect) است. اگر بعد از ۳۰ روز پاکی، یک بار بلغزی و روزشمار را صفر کنی، ذهن می‌گوید: 'من که باختم، پس بگذار امشب تا آخر خط بروم'. اما علم می‌گوید مسیرهای عصبی ساخته‌شده در آن ۳۰ روز پاکی هرگز از بین نمی‌روند. یک لغزش فقط یک لغزش است، نه شروع مجدد اعتیاد. سرت را بالا بگیر و ادامه بده."
+                    content: "بزرگ‌ترین دشمن ترک، اثر 'بی‌خیالی' (What-the-hell Effect) است. اگر بعد از ۳۰ روز پاکی، یک بار بلغزی و روزشمار را صفر کنی، ذهن می‌گوید: 'من که باختم، پس بگذار امشب تا آخر خط بروم'. اما علم می‌گوید مسیرهای عصبی ساخته‌شده در آن ۳۰ روز پاکی هرگز از بین نمی‌روند. یک لغزش فقط یک دست‌انداز است، نه برگشتن به نقطه صفر."
+                },
+                {
+                    id: 5,
+                    title: "پدیده انقراض (Extinction Burst)؛ آخرین حمله عادت",
+                    readTime: "۴۵ ثانیه",
+                    content: "در روان‌شناسی رفتاری، وقتی به یک عادت قدیمی دیگر پاداش نمی‌دهی، مغز درست قبل از اینکه آن عادت را برای همیشه خاموش کند، یک حمله ناگهانی و شدید از وسوسه ایجاد می‌کند (مثل کودکی که قبل از آرام شدن، بلندتر گریه می‌کند). اگر در روزهای چهارم تا دهم وسوسه شدیدی حس کردی، بدان این نشانه مرگِ نزدیکِ عادت است!"
+                },
+                {
+                    id: 6,
+                    title: "تکنیک «فیلم رو تا آخرش پخش کن» (Play the Tape)",
+                    readTime: "۴۰ ثانیه",
+                    content: "در لحظه وسوسه، مغز دچار «نزدیک‌بینی زمانی» می‌شود و فقط ۵ ثانیه اول لذت را به تو نشان می‌دهد و بقیه ماجرا را سانسور می‌کند. قبل از هر اقدامی چشمانت را ببند و فیلم را تا ۲ ساعت بعد جلو ببر: حس سنگینی، افت انرژی، شرمساری و ناامیدی بعد از مصرف را با جزئیات کامل تصور کن تا جادوی وسوسه باطل شود."
+                },
+                {
+                    id: 7,
+                    title: "اثر چایسر (Chaser Effect)؛ چرا بعد از لغزش وسوسه ۱۰ برابر می‌شود؟",
+                    readTime: "۴۵ ثانیه",
+                    content: "بسیاری فکر می‌کنند با یک بار لغزش، هوسشان می‌خوابد؛ اما برعکس! به محض اولین مصرف، گیرنده‌های خفته مغز بیدار شده و ولع بسیار شدیدتری برای دفعات بعدی در ۲۴ تا ۴۸ ساعت آینده ایجاد می‌کنند که به آن Chaser Effect می‌گویند. اگر لغزیدی، مراقب ساعت‌های بعدش باش تا وارد چرخه سقوط نشوی."
+                },
+                {
+                    id: 8,
+                    title: "قانون طلایی ۱۵ دقیقه تأخیر آگاهانه",
+                    readTime: "۳۵ ثانیه",
+                    content: "وقتی وسوسه شدیدی سراغت آمد، به مغزت نگو «هرگز انجامش نمی‌دهم» چون مغز مضطرب و حریص‌تر می‌شود. به جایش بگو: «من آزادم انجامش دهم، اما فقط ۱۵ دقیقه صبر می‌کنم و یک لیوان آب می‌خورم». در ۹۰٪ مواقع، پس از گذشت ۱۵ دقیقه قشر پیش‌پیشانی مغز دوباره فعال شده و هورمون ولع فروکش می‌کند."
+                },
+                {
+                    id: 9,
+                    title: "مهندسی محیط؛ چطور بدون مصرف اراده پاک بمانیم؟",
+                    readTime: "۴۵ ثانیه",
+                    content: "اراده مثل باتری گوشی است و آخر شب‌ها تمام می‌شود. انسان‌های موفق به جای تکیه بر اراده، «اصطکاک» بین خود و عادت بد را زیاد می‌کنند: گوشی را شب‌ها بیرون از اتاق خواب شارژ کن، محرک‌ها را آنفالو کن و دسترسی به عامل عادت را حداقل ۲۰ ثانیه سخت‌تر کن."
+                },
+                {
+                    id: 10,
+                    title: "پروتکل شوک دمای سرد (فعال‌سازی عصب واگ)",
+                    readTime: "۳۵ ثانیه",
+                    content: "پاشیدن آب سرد به صورت یا گرفتن دوش آب خنک به مدت ۳۰ ثانیه، «رفلکس غواصی» را در بدن فعال می‌کند. این کار بلافاصله عصب واگ را تحریک کرده، ضربان قلب را پایین می‌آورد و سطح دوپامین سالم و نورآدرنالین را بدون هیچ عارضه‌ای تا ساعت‌ها بالا می‌برد."
+                },
+                {
+                    id: 11,
+                    title: "دوره خط صاف (Flatline) و بی‌حوصلگی موقت",
+                    readTime: "۵۰ ثانیه",
+                    content: "در هفته‌های دوم و سوم ترک، ممکنه احساس بی‌انگیزگی، کرختی یا افت انرژی کنی که به آن Flatline می‌گویند. نترس! این افسردگی نیست؛ مغزت در حال استراحت و بازسازی گیرنده‌های D2 است که قبلاً زیر بمباران دوپامین مصنوعی سوخته بودند. این دوره موقت است و بعد از آن، انرژی طبیعی فوران می‌کند."
+                },
+                {
+                    id: 12,
+                    title: "تفاوت هویت: «دارم ترک می‌کنم» یا «من آن آدم نیستم»؟",
+                    readTime: "۴۰ ثانیه",
+                    content: "جیمز کلیر در کتاب عادت‌های اتمی می‌گوید: اگر کسی تعارف کرد و گفتی «ممنون، دارم ترک می‌کنم»، هنوز خودت را یک مصرف‌کننده می‌دانی که دارد خودش را محروم می‌کند. اما اگر بگویی «ممنون، من اهلش نیستم»، هویت عصبی خودت را تغییر داده‌ای. به خودت برچسب انسان آزاد بزن."
+                },
+                {
+                    id: 13,
+                    title: "ترمیم قشر پیش‌پیشانی (Prefrontal Cortex)؛ بازگشت فرمانده",
+                    readTime: "۴۵ ثانیه",
+                    content: "عادت‌های اعتیادآور باعث کوچک شدن ماده خاکستری در لب پیشانی مغز (مسئول تمرکز، تصمیم‌گیری و کنترل تکانه) می‌شوند که به آن Hypofrontality می‌گویند. خبر فوق‌العاده اینجاست که تنها پس از چند هفته پاکی، اسکن‌های مغزی افزایش مجدد تراکم سیناپس‌ها و بازگشت قدرت اراده را نشان می‌دهند."
+                },
+                {
+                    id: 14,
+                    title: "تله «پاداش معکوس» در روزهای خوب",
+                    readTime: "۴۰ ثانیه",
+                    content: "جالب است بدانی بخشی از لغزش‌ها نه در زمان غم، بلکه در زمان شادی یا بعد از چند هفته موفقیت رخ می‌دهد! مغز زیرکانه می‌گوید: «حالا که ۲ هفته پاک بودی و کلی کار کردی، بیا امشب به خودت یک جایزه بده!». حواست باشد به خاطر پاکی، با سم به خودت جایزه ندهی!"
+                },
+                {
+                    id: 15,
+                    title: "نقش خواب عمیق (REM) در پاکسازی سموم مغز",
+                    readTime: "۴۰ ثانیه",
+                    content: "سیستم گلیمفاتیک مغز فقط در زمان خواب عمیق شبانه فعال می‌شود و پروتئین‌های زائد و التهاب عصبی ناشی از استرس را می‌شوید. شب‌بیداری و نور آبی صفحه گوشی بعد از ساعت ۱۱ شب، قدرت مقاومت مغز در برابر وسوسه را تا ۶۰ درصد کاهش می‌دهد."
+                },
+                {
+                    id: 16,
+                    title: "تکنیک برچسب‌گذاری ذهنی (Affect Labeling)",
+                    readTime: "۳۵ ثانیه",
+                    content: "تحقیقات دانشگاه UCLA نشان داده وقتی احساس کلافگی یا وسوسه داری، به محض اینکه آن حس را با کلمات نام‌گذاری کنی (مثلاً بلند بگویی: «الان مغزم به خاطر خستگی دارد سیگنال وسوسه می‌فرستد»)، فعالیت آمیگدال (مرکز ترس و هیجان) فوراً کاهش یافته و بخش منطقی مغز روشن می‌شود."
                 }
             ];
 
@@ -1174,6 +1372,7 @@
             let appState = loadState();
             let currentQuoteObj = QUOTES_DB[0];
             let shownQuoteIds = [];
+            let learningBatchOffset = 0;
             let lastRenderedPhase = null;
             let liveTimerInterval = null;
             let toastTimeoutId = null;
@@ -1236,138 +1435,72 @@
                 try {
                     const isAppLight = appState && appState.theme === 'light';
 
-                    // mode: 'light' (Pure White background), 'dark' (Pure Pitch Black background), 'monochrome' (Transparent background for Tinted/Clear modes)
-                    function renderLogoPng(size, roundedRadius, mode) {
+                    // For iOS SpringBoard automatic Dark/Light/Tinted icon switching to work reliably:
+                    // 1. The apple-touch-icon MUST have a 100% solid, flat #FFFFFF background with ZERO external drop-shadow or radial glow bleeding onto the white background.
+                    // 2. When iOS detects a pure solid #FFFFFF background and a well-defined central glyph, it automatically replaces #FFFFFF with pitch black (#000000) in Dark Mode, or extracts the glyph in Tinted/Clear Mode.
+                    function renderLogoPng(size, mode) {
                         const canvas = document.createElement('canvas');
                         canvas.width = size;
                         canvas.height = size;
                         const ctx = canvas.getContext('2d');
                         const scale = size / 1000;
 
-                        ctx.save();
-                        if (roundedRadius > 0 && ctx.roundRect) {
-                            ctx.beginPath();
-                            ctx.roundRect(0, 0, size, size, roundedRadius * scale);
-                            ctx.clip();
-                        }
-
-                        // 1. Background Layer
-                        // For iOS 26/27 Liquid Glass automatic Light/Dark/Clear/Tinted icon switching,
-                        // iOS SpringBoard requires a clean solid background (Pure White in light asset, Pure Black in dark asset)
                         if (mode !== 'monochrome') {
-                            const bgGrad = ctx.createLinearGradient(0, 0, 0, size);
-                            if (mode === 'light') {
-                                bgGrad.addColorStop(0, '#FFFFFF');
-                                bgGrad.addColorStop(1, '#F8FAFC');
-                            } else {
-                                bgGrad.addColorStop(0, '#141A23');
-                                bgGrad.addColorStop(0.5, '#070A0F');
-                                bgGrad.addColorStop(1, '#000000');
-                            }
-                            ctx.fillStyle = bgGrad;
-                            ctx.fillRect(0, 0, size, size);
-
-                            // Subtle ambient glow behind the embossed glyph
-                            const auraGrad = ctx.createRadialGradient(
-                                size * 0.5, size * 0.48, size * 0.05,
-                                size * 0.5, size * 0.5, size * 0.52
-                            );
-                            if (mode === 'light') {
-                                auraGrad.addColorStop(0, 'rgba(0, 127, 104, 0.08)');
-                                auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
-                            } else {
-                                auraGrad.addColorStop(0, 'rgba(0, 184, 150, 0.22)');
-                                auraGrad.addColorStop(1, 'rgba(0, 127, 104, 0)');
-                            }
-                            ctx.fillStyle = auraGrad;
+                            ctx.fillStyle = mode === 'dark' ? '#000000' : '#FFFFFF';
                             ctx.fillRect(0, 0, size, size);
                         }
 
+                        ctx.save();
                         ctx.scale(scale, scale);
 
-                        // 2. Large, Bold, Optically Centered Logo Glyph (Scale 1.08 for commanding presence)
-                        ctx.save();
+                        // Large, Bold, Optically Centered Logo Glyph (Scale 1.12)
                         ctx.translate(500, 500);
-                        ctx.scale(1.08, 1.08);
+                        ctx.scale(1.12, 1.12);
                         ctx.translate(-505, -518);
 
                         const mainPath = new Path2D('M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z');
                         const leafPath = new Path2D('M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z');
 
-                        // 3. 3D Embossed Elevation Shadow & Rich Emerald Gradient Fill
-                        ctx.save();
-                        if (mode !== 'monochrome') {
-                            ctx.shadowColor = mode === 'light' ? 'rgba(0, 75, 60, 0.28)' : 'rgba(0, 0, 0, 0.75)';
-                            ctx.shadowBlur = 32;
-                            ctx.shadowOffsetY = 20;
-                        }
-
-                        const glyphGrad = ctx.createLinearGradient(260, 175, 740, 845);
+                        const glyphGrad = ctx.createLinearGradient(250, 170, 750, 850);
                         if (mode === 'monochrome') {
                             glyphGrad.addColorStop(0, '#FFFFFF');
                             glyphGrad.addColorStop(1, '#FFFFFF');
-                        } else if (mode === 'light') {
+                        } else {
                             glyphGrad.addColorStop(0, '#00A88A');
                             glyphGrad.addColorStop(0.5, '#007F68');
                             glyphGrad.addColorStop(1, '#005948');
-                        } else {
-                            glyphGrad.addColorStop(0, '#00C4A1');
-                            glyphGrad.addColorStop(0.5, '#008F75');
-                            glyphGrad.addColorStop(1, '#006653');
                         }
                         ctx.fillStyle = glyphGrad;
 
                         ctx.beginPath();
-                        ctx.arc(505, 272, 85, 0, Math.PI * 2);
+                        ctx.arc(505, 272, 86, 0, Math.PI * 2);
                         ctx.fill();
                         ctx.fill(mainPath);
                         ctx.fill(leafPath);
-                        ctx.restore();
 
-                        // 4. Inner 3D Bevel / Specular Liquid Glass Rim Highlight
                         if (mode !== 'monochrome') {
-                            ctx.save();
-                            const rimGrad = ctx.createLinearGradient(260, 180, 740, 840);
-                            rimGrad.addColorStop(0, 'rgba(255, 255, 255, 0.65)');
-                            rimGrad.addColorStop(0.4, 'rgba(255, 255, 255, 0.18)');
-                            rimGrad.addColorStop(1, 'rgba(0, 40, 32, 0.35)');
-                            ctx.strokeStyle = rimGrad;
-                            ctx.lineWidth = 7;
-
+                            ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+                            ctx.lineWidth = 6;
                             ctx.beginPath();
-                            ctx.arc(505, 272, 82, 0, Math.PI * 2);
+                            ctx.arc(505, 272, 80, 0, Math.PI * 2);
                             ctx.stroke();
                             ctx.stroke(mainPath);
                             ctx.stroke(leafPath);
-                            ctx.restore();
                         }
 
-                        ctx.restore();
                         ctx.restore();
                         return canvas.toDataURL('image/png');
                     }
 
-                    // Generate Light (White BG), Dark (Black BG), and Monochrome (Transparent BG for Tinted/Liquid Glass) icons
-                    const iconLight512 = renderLogoPng(512, 0, 'light');
-                    const iconDark512 = renderLogoPng(512, 0, 'dark');
-                    const iconMonochrome512 = renderLogoPng(512, 0, 'monochrome');
+                    const iconPureWhite512 = renderLogoPng(512, 'light');
+                    const iconMonochrome512 = renderLogoPng(512, 'monochrome');
 
-                    // Note on iOS 26/27 Liquid Glass & Automatic Dark Mode Icon Engine:
-                    // Apple's SpringBoard automatically transforms a clean white-background `apple-touch-icon` into
-                    // Dark (Black background), Clear, and Tinted variants when the user switches iOS Home Screen icon themes.
-                    // We also provide explicit media="(prefers-color-scheme: dark)" and light links for adaptive browsers.
+                    // Keep single unambiguous apple-touch-icon with 100% pure white background so iOS SpringBoard handles Dark/Light/Tinted switching natively
                     const defaultTouchIcon = document.getElementById('apple-touch-icon-default');
-                    const lightTouchIcon = document.getElementById('apple-touch-icon-light');
-                    const darkTouchIcon = document.getElementById('apple-touch-icon-dark');
+                    if (defaultTouchIcon) defaultTouchIcon.href = iconPureWhite512;
 
-                    if (defaultTouchIcon) defaultTouchIcon.href = iconLight512;
-                    if (lightTouchIcon) lightTouchIcon.href = iconLight512;
-                    if (darkTouchIcon) darkTouchIcon.href = iconDark512;
-
-                    const activeMode = isAppLight ? 'light' : 'dark';
-                    const fav192 = renderLogoPng(192, 220, activeMode);
                     const favLink = document.getElementById('favicon-link');
-                    if (favLink) favLink.href = fav192;
+                    if (favLink) favLink.href = renderLogoPng(192, isAppLight ? 'light' : 'dark');
 
                     const manifestObj = {
                         name: "عادَتِش | رهایی و ساخت عادت نو",
@@ -1375,13 +1508,12 @@
                         description: "مسیر علمی بازسازی مغز و رهایی از عادات مخرب",
                         start_url: location.href,
                         display: "standalone",
-                        background_color: isAppLight ? "#FFFFFF" : "#000000",
+                        background_color: isAppLight ? "#FFFFFF" : "#090D16",
                         theme_color: isAppLight ? "#FFFFFF" : "#090D16",
                         orientation: "portrait",
                         icons: [
-                            { src: renderLogoPng(192, 220, 'light'), sizes: "192x192", type: "image/png", purpose: "any" },
-                            { src: iconLight512, sizes: "512x512", type: "image/png", purpose: "any" },
-                            { src: iconDark512, sizes: "512x512", type: "image/png", purpose: "maskable" },
+                            { src: iconPureWhite512, sizes: "192x192", type: "image/png", purpose: "any" },
+                            { src: iconPureWhite512, sizes: "512x512", type: "image/png", purpose: "any" },
                             { src: iconMonochrome512, sizes: "512x512", type: "image/png", purpose: "monochrome" }
                         ]
                     };
@@ -2092,17 +2224,31 @@
             // ==========================================
             // MICRO-LEARNING CAPSULES
             // ==========================================
-            function renderLearningCapsules() {
+            function renderLearningCapsules(animateRefresh) {
                 const container = document.getElementById('learning-accordion-container');
                 if (!container) return;
                 container.innerHTML = '';
-                LEARNING_DB.forEach(function (cap) {
+
+                const batchSize = 4;
+                const total = LEARNING_DB.length;
+                const currentSlice = [];
+
+                for (let i = 0; i < batchSize; i++) {
+                    const idx = (learningBatchOffset + i) % total;
+                    currentSlice.push({
+                        item: LEARNING_DB[idx],
+                        displayIndex: idx + 1
+                    });
+                }
+
+                currentSlice.forEach(function (entry) {
+                    const cap = entry.item;
                     const item = document.createElement('div');
-                    item.className = 'glass-card rounded-2xl overflow-hidden';
+                    item.className = 'glass-card rounded-2xl overflow-hidden transition-all duration-300';
                     item.innerHTML =
-                        '<button type="button" class="w-full p-4 flex items-center justify-between text-right">' +
-                            '<span class="text-xs font-extrabold text-snowWhite">' + cap.title + '</span>' +
-                            '<span class="text-[10px] text-emeraldAccent bg-emeraldAccent/10 px-2 py-0.5 rounded-lg">' + cap.readTime + '</span>' +
+                        '<button type="button" class="w-full p-4 flex items-center justify-between gap-2 text-right">' +
+                            '<span class="text-xs font-extrabold text-snowWhite leading-5">' + toPersianDigits(entry.displayIndex) + '. ' + cap.title + '</span>' +
+                            '<span class="text-[10px] text-emeraldAccent bg-emeraldAccent/10 px-2 py-0.5 rounded-lg shrink-0 whitespace-nowrap">' + cap.readTime + '</span>' +
                         '</button>' +
                         '<div class="hidden px-4 pb-4 text-xs text-mutedGray leading-6 border-t border-white/5 pt-2.5">' +
                             cap.content +
@@ -2114,6 +2260,16 @@
                     });
                     container.appendChild(item);
                 });
+
+                if (animateRefresh) {
+                    const icon = document.getElementById('icon-refresh-learning');
+                    if (icon) {
+                        icon.style.transform = 'rotate(360deg)';
+                        setTimeout(function () {
+                            icon.style.transform = 'rotate(0deg)';
+                        }, 320);
+                    }
+                }
             }
 
             // ==========================================
@@ -2781,6 +2937,16 @@
                 ctx.fillStyle = '#00B896';
                 ctx.font = '800 24px Vazirmatn, sans-serif';
                 ctx.fillText('AADATESH • عادَتِش', cardX + 75, cardY + cardH - 52);
+
+                // همگام‌سازی بوم با تگ <img> برای پشتیبانی از Long-Press Save در iOS و دانلود سریع
+                try {
+                    const previewImg = document.getElementById('victory-card-preview-img');
+                    if (previewImg) {
+                        previewImg.src = canvas.toDataURL('image/png');
+                    }
+                } catch (err) {
+                    console.error('Preview image sync error:', err);
+                }
             }
 
             // ==========================================
@@ -2908,11 +3074,73 @@
                     btnDownloadCard.addEventListener('click', function () {
                         const canvas = document.getElementById('victory-card-canvas');
                         if (!canvas) return;
-                        const link = document.createElement('a');
-                        link.download = 'aadatesh-story.png';
-                        link.href = canvas.toDataURL('image/png');
-                        link.click();
-                        showToast('استوری افتخار با کیفیت اصلی دانلود شد!');
+
+                        function triggerBlobDownload(blob) {
+                            const fileName = 'aadatesh-story-' + Date.now() + '.png';
+                            const file = new File([blob], fileName, { type: 'image/png' });
+
+                            // ۱. در موبایل و آیفون (iOS PWA / Safari): استفاده از منوی اشتراک‌گذاری بومی که گزینه Save Image دارد
+                            const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                            if (isMobileDevice && navigator.canShare && navigator.canShare({ files: [file] })) {
+                                navigator.share({
+                                    files: [file],
+                                    title: 'استوری افتخار عادَتِش'
+                                }).then(function () {
+                                    showToast('استوری با موفقیت آماده ذخیره و اشتراک‌گذاری شد!');
+                                }).catch(function (err) {
+                                    if (err && err.name !== 'AbortError') {
+                                        fallbackAnchorDownload(blob, fileName);
+                                    }
+                                });
+                                return;
+                            }
+
+                            // ۲. دانلود استاندارد با Blob URL برای دسکتاپ و مرورگرهای معمولی
+                            fallbackAnchorDownload(blob, fileName);
+                        }
+
+                        function fallbackAnchorDownload(blob, fileName) {
+                            try {
+                                const blobUrl = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.style.display = 'none';
+                                link.href = blobUrl;
+                                link.download = fileName;
+                                document.body.appendChild(link);
+                                link.click();
+                                setTimeout(function () {
+                                    if (link.parentNode) document.body.removeChild(link);
+                                    URL.revokeObjectURL(blobUrl);
+                                }, 3000);
+                                showToast('استوری افتخار با کیفیت اصلی دانلود شد!');
+                            } catch (e) {
+                                // ۳. در صورت مسدود بودن دانلود در محیط‌های محدود، باز کردن تصویر در تب جدید
+                                const dataUrl = canvas.toDataURL('image/png');
+                                const win = window.open();
+                                if (win) {
+                                    win.document.write('<body style="margin:0;background:#090D16;display:flex;justify-content:center;align-items:center;min-height:100vh;"><img src="' + dataUrl + '" style="max-width:100%;max-height:100vh;object-fit:contain;"/></body>');
+                                    showToast('تصویر باز شد؛ روی آن نگه دارید و ذخیره کنید.');
+                                }
+                            }
+                        }
+
+                        if (canvas.toBlob) {
+                            canvas.toBlob(function (blob) {
+                                if (blob) {
+                                    triggerBlobDownload(blob);
+                                }
+                            }, 'image/png');
+                        } else {
+                            const dataUrl = canvas.toDataURL('image/png');
+                            const byteString = atob(dataUrl.split(',')[1]);
+                            const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+                            const ab = new ArrayBuffer(byteString.length);
+                            const ia = new Uint8Array(ab);
+                            for (let i = 0; i < byteString.length; i++) {
+                                ia[i] = byteString.charCodeAt(i);
+                            }
+                            triggerBlobDownload(new Blob([ab], { type: mimeString }));
+                        }
                     });
                 }
 
@@ -3052,6 +3280,33 @@
                         modalBm.classList.remove('flex');
                     });
                 }
+
+                // Refresh Micro-Learning Capsules Button
+                const btnRefreshLearning = document.getElementById('btn-refresh-learning');
+                if (btnRefreshLearning) {
+                    btnRefreshLearning.addEventListener('click', function () {
+                        learningBatchOffset = (learningBatchOffset + 4) % LEARNING_DB.length;
+                        renderLearningCapsules(true);
+                        showToast('۴ کپسول آگاهی جدید بارگذاری شد.');
+                    });
+                }
+
+                // Bottom Navigation Bar Actions
+                document.querySelectorAll('.bottom-nav-btn').forEach(function (navBtn) {
+                    navBtn.addEventListener('click', function () {
+                        const targetId = navBtn.getAttribute('data-nav-target');
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        document.querySelectorAll('.bottom-nav-btn').forEach(function (b) {
+                            b.classList.remove('text-emeraldAccent', 'bg-emeraldAccent/10');
+                            b.classList.add('text-mutedGray');
+                        });
+                        navBtn.classList.remove('text-mutedGray');
+                        navBtn.classList.add('text-emeraldAccent', 'bg-emeraldAccent/10');
+                    });
+                });
 
                 // Mood & Journal Form
                 document.querySelectorAll('.mood-btn').forEach(function (btn) {
