@@ -185,6 +185,14 @@
             border: 1.5px solid #E11D48 !important;
             color: #BE123C !important;
         }
+        .nav-item-active {
+            color: #007F68 !important;
+            background-color: rgba(0, 127, 104, 0.14) !important;
+        }
+        html.light .nav-item-active {
+            color: #007F68 !important;
+            background-color: rgba(0, 127, 104, 0.16) !important;
+        }
         .safe-main-container {
             padding-top: max(2.75rem, calc(env(safe-area-inset-top, 20px) + 1.5rem));
             padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
@@ -255,13 +263,31 @@
             color: #1E293B !important;
             border-color: rgba(15, 23, 42, 0.15) !important;
         }
-        .sos-pulse {
-            box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6);
-            animation: pulse-crimson 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        .sos-orb-glow {
+            box-shadow: 0 6px 20px -3px rgba(244, 63, 94, 0.55), inset 0 2px 4px rgba(255, 255, 255, 0.35);
+            animation: orb-breathe 2.6s infinite ease-in-out;
         }
-        @keyframes pulse-crimson {
-            to {
-                box-shadow: 0 0 0 18px rgba(244, 63, 94, 0);
+        @keyframes orb-breathe {
+            0%, 100% {
+                box-shadow: 0 6px 18px -3px rgba(244, 63, 94, 0.5), 0 0 0 0 rgba(244, 63, 94, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 24px -2px rgba(244, 63, 94, 0.7), 0 0 0 6px rgba(244, 63, 94, 0), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+            }
+        }
+        .sos-box-pulse {
+            animation: sos-box-heartbeat 2.2s infinite ease-in-out;
+        }
+        @keyframes sos-box-heartbeat {
+            0%, 100% {
+                background-color: rgba(244, 63, 94, 0.12);
+                border-color: rgba(244, 63, 94, 0.3);
+                box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.35);
+            }
+            50% {
+                background-color: rgba(244, 63, 94, 0.24);
+                border-color: rgba(244, 63, 94, 0.65);
+                box-shadow: 0 0 14px 3px rgba(244, 63, 94, 0.28);
             }
         }
         .emerald-glow {
@@ -293,6 +319,18 @@
         }
         input, textarea {
             user-select: text;
+        }
+        /* Interactive Tour Spotlight Styles */
+        .tour-spotlight-hole {
+            box-shadow: 0 0 0 9999px rgba(9, 13, 22, 0.84), 0 0 30px 4px rgba(0, 127, 104, 0.65);
+            border: 2px solid #00B896;
+            transition: all 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        html.light .tour-spotlight-hole {
+            box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.72), 0 0 30px 4px rgba(0, 127, 104, 0.65);
+        }
+        .tour-tooltip-card {
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
     </style>
 </head>
@@ -648,269 +686,295 @@
     </div>
 
     <!-- ==========================================
-         FIXED FLOATING 5-ITEM BOTTOM NAVIGATION BAR (ALWAYS ON SCREEN)
+         ONBOARDING WIZARD MODAL (FIRST-TIME SETUP)
          ========================================== -->
-    <nav aria-label="منوی شناور پایین" class="fixed inset-x-0 safe-bottom-bar z-40 flex justify-center px-3 pointer-events-none">
-        <div class="pointer-events-auto w-full max-w-md glass-card rounded-3xl px-2 py-2 shadow-[0_18px_45px_rgba(0,0,0,0.7)] border border-white/15 grid grid-cols-5 items-center gap-1">
-            
-            <!-- 1. Counter (روزشمار) -->
-            <button type="button" data-nav-target="section-hero" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-emeraldAccent bg-emeraldAccent/10 active:scale-95 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="text-[10px] font-extrabold mt-1 whitespace-nowrap">روزشمار</span>
-            </button>
-
-            <!-- 2. Pledge & Mood (پیمان و حال) -->
-            <button type="button" data-nav-target="section-pledge" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">پیمان و حال</span>
-            </button>
-
-            <!-- 3. CENTERpiece: SOS Button (وسوسه شدم) -->
-            <div class="flex flex-col items-center justify-center">
-                <button id="btn-trigger-sos" type="button" class="w-full py-2.5 px-1.5 rounded-2xl bg-gradient-to-t from-rose-600 to-sosRed text-white font-black text-[11px] sos-pulse flex flex-col items-center justify-center gap-0.5 active:scale-95 transition shadow-lg shadow-sosRed/40 border border-white/25">
-                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                    </svg>
-                    <span class="whitespace-nowrap leading-tight">وسوسه شدم</span>
-                </button>
-            </div>
-
-            <!-- 4. Chain & Badges (زنجیره و نشان) -->
-            <button type="button" data-nav-target="habit-chain-grid" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                </svg>
-                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">زنجیره و نشان</span>
-            </button>
-
-            <!-- 5. Awareness & Radar (آگاهی و رادار) -->
-            <button type="button" data-nav-target="section-learning" class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                </svg>
-                <span class="text-[10px] font-bold mt-1 whitespace-nowrap">آگاهی</span>
-            </button>
-
-        </div>
-    </nav>
-
-    <!-- ==========================================
-         ONBOARDING MODAL
-         ========================================== -->
-    <div id="modal-onboarding" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
-        <div class="w-full max-w-md glass-card rounded-3xl p-6 my-auto shadow-2xl border border-white/10">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-2xl border border-emeraldAccent/35 flex items-center justify-center shrink-0 overflow-hidden shadow-lg">
+    <div id="modal-onboarding" class="fixed inset-0 z-[70] bg-appBg/95 backdrop-blur-2xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6 my-auto border border-emeraldAccent/30 shadow-2xl space-y-5">
+            <div class="text-center space-y-1.5">
+                <div class="w-14 h-14 rounded-2xl border border-emeraldAccent/40 flex items-center justify-center mx-auto shadow-lg overflow-hidden mb-2">
                     <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none">
                         <rect width="1000" height="1000" fill="url(#header-logo-grad)" />
-                        <g transform="translate(500, 500) scale(1.12) translate(-505, -518)" filter="url(#header-emboss)">
-                            <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
-                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
-                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                        <g transform="translate(500, 500) scale(1.12) translate(-505, -518)">
+                            <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" />
+                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" />
+                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" />
                         </g>
                     </svg>
                 </div>
-                <div>
-                    <h2 class="text-lg font-black text-snowWhite leading-snug">به عادَتِش خوش اومدی؛ وقت پس گرفتن کنترله</h2>
-                    <p class="text-xs text-mutedGray mt-0.5">اطلاعاتت فقط روی گوشی خودت ذخیره میشه.</p>
-                </div>
+                <h2 class="text-xl font-black text-snowWhite">به «عادَتِش» خوش آمدی</h2>
+                <p class="text-xs text-mutedGray leading-5">پروتکل علمی بازسازی دوپامین و رهایی پایدار (اطلاعات ۱۰۰٪ خصوصی روی گوشی خودت ذخیره می‌شود)</p>
             </div>
 
-            <form id="form-onboarding" class="space-y-4">
+            <form id="form-onboarding" class="space-y-3.5">
                 <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-2">کدوم عادت رو می‌خوای کنار بذاری؟</label>
-                    <div class="flex flex-wrap gap-1.5 mb-2.5">
-                        <button type="button" data-habit="سیگار و نیکوتین" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">سیگار</button>
-                        <button type="button" data-habit="پورنوگرافی / خودارضایی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">پورنوگرافی/خودارضایی</button>
-                        <button type="button" data-habit="اسکرول بی‌هدف در گوشی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">اسکرول بی‌هدف در گوشی</button>
-                        <button type="button" data-habit="قند و پرخوری عصبی" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">قند و پرخوری عصبی</button>
-                        <button type="button" data-habit="به‌تعویق‌اندازی کاری" class="habit-chip text-xs px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite transition">به‌تعویق‌اندازی کاری</button>
+                    <label class="block text-xs font-bold text-snowWhite mb-1.5">کدام عادت را می‌خواهی کنار بگذاری؟</label>
+                    <div class="flex flex-wrap gap-1.5 mb-2">
+                        <button type="button" data-habit="سیگار و ویپ" class="habit-chip chip-selected-emerald text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">سیگار و ویپ</button>
+                        <button type="button" data-habit="پورن و خودارضایی" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">پورن و خودارضایی</button>
+                        <button type="button" data-habit="اسکرول و سوشال‌مدیا" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">اسکرول و سوشال‌مدیا</button>
+                        <button type="button" data-habit="قند مصنوعی و فست‌فود" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">قند و فست‌فود</button>
                     </div>
-                    <input id="input-habit-name" type="text" required placeholder="یا نام عادت رو اینجا بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent">
+                    <input id="input-habit-name" type="text" required value="سیگار و ویپ" placeholder="یا نام عادت را بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1.5">تاریخ و ساعت شروع پاکی (شمسی)</label>
-                    <div class="grid grid-cols-3 gap-2 mb-2">
-                        <div>
-                            <span class="block text-[10px] text-mutedGray mb-1">روز</span>
-                            <select id="ob-j-day" class="w-full px-2.5 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
-                        </div>
-                        <div>
-                            <span class="block text-[10px] text-mutedGray mb-1">ماه</span>
-                            <select id="ob-j-month" class="w-full px-2.5 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
-                        </div>
-                        <div>
-                            <span class="block text-[10px] text-mutedGray mb-1">سال</span>
-                            <select id="ob-j-year" class="w-full px-2.5 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
-                        </div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1.5">زمان آخرین مصرف (شروع پاکی)</label>
+                    <div class="grid grid-cols-3 gap-1.5 mb-1.5">
+                        <select id="ob-j-day" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                        <select id="ob-j-month" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                        <select id="ob-j-year" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <div>
-                            <span class="block text-[10px] text-mutedGray mb-1">دقیقه</span>
-                            <select id="ob-j-minute" class="w-full px-2.5 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
-                        </div>
-                        <div>
-                            <span class="block text-[10px] text-mutedGray mb-1">ساعت</span>
-                            <select id="ob-j-hour" class="w-full px-2.5 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
-                        </div>
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <select id="ob-j-minute" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
+                        <select id="ob-j-hour" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-2 gap-2.5">
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1.5">هزینه روزانه (تومان)</label>
-                        <input id="input-daily-cost" type="text" inputmode="numeric" placeholder="مثلاً: 50,000" dir="ltr" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/40 focus:outline-none focus:border-emeraldAccent text-left">
+                        <label class="block text-xs font-bold text-snowWhite mb-1">هزینه روزانه (تومان)</label>
+                        <input id="input-daily-cost" type="text" inputmode="numeric" value="50,000" placeholder="مثلاً: 50,000" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1.5">اتلاف وقت روزانه (ساعت)</label>
-                        <input id="input-daily-hours" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" placeholder="مثلاً: 2" dir="ltr" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/40 focus:outline-none focus:border-emeraldAccent text-left">
+                        <label class="block text-xs font-bold text-snowWhite mb-1">زمان تلف‌شده در روز (ساعت)</label>
+                        <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" placeholder="مثلاً: 1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1.5">چرا می‌خوای ترکش کنی؟ (بزرگ‌ترین انگیزه‌ت چیه؟)</label>
-                    <textarea id="input-core-reason" rows="2" required placeholder="مثلاً: می‌خوام تمرکزم برگرده و به خودم افتخار کنم..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite placeholder-mutedGray/50 focus:outline-none focus:border-emeraldAccent"></textarea>
+                    <label class="block text-xs font-bold text-snowWhite mb-1">مهم‌ترین دلیل و تعهد تو برای این تصمیم چیست؟</label>
+                    <textarea id="input-core-reason" rows="2" placeholder="مثلاً: می‌خوام تمرکزم برگرده و به خودم افتخار کنم..." class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
                 </div>
 
-                <button type="submit" class="w-full py-3.5 rounded-2xl bg-emeraldAccent hover:bg-emeraldAccent/90 text-white font-black text-sm tracking-wide transition active:scale-95 shadow-lg shadow-emeraldAccent/20">
-                    شروع سفر آزادی
+                <button type="submit" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
+                    شروع مسیر رهایی من
                 </button>
             </form>
         </div>
     </div>
 
     <!-- ==========================================
-         SOS FULLSCREEN OVERLAY
+         FIXED FLOATING 5-ITEM BOTTOM NAVIGATION BAR (ALWAYS ON SCREEN)
+         ========================================== -->
+    <nav aria-label="منوی شناور پایین" class="fixed inset-x-0 safe-bottom-bar z-40 flex justify-center px-3 pointer-events-none">
+        <div class="pointer-events-auto w-full max-w-md glass-card rounded-3xl px-2 py-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.7)] border border-white/15 grid grid-cols-5 items-center gap-1">
+            
+            <!-- 1. Counter (روزشمار) -->
+            <button type="button" data-nav-target="section-hero" class="bottom-nav-btn nav-item-active flex flex-col items-center justify-center h-12 rounded-2xl active:scale-95 transition">
+                <div class="h-5 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-extrabold mt-1 leading-none whitespace-nowrap">روزشمار</span>
+            </button>
+
+            <!-- 2. Pledge & Mood (پیمان و حال) -->
+            <button type="button" data-nav-target="section-pledge" class="bottom-nav-btn flex flex-col items-center justify-center h-12 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <div class="h-5 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold mt-1 leading-none whitespace-nowrap">پیمان و حال</span>
+            </button>
+
+            <!-- 3. CENTERPIECE: Exact Same Row Alignment SOS + Label (وسوسه شدم) -->
+            <button id="btn-trigger-sos" type="button" class="sos-box-pulse flex flex-col items-center justify-center h-12 rounded-2xl border border-sosRed/35 active:scale-95 transition">
+                <div class="h-5 flex items-center justify-center">
+                    <span class="text-[14px] font-black tracking-widest text-sosRed leading-none translate-y-[1px] drop-shadow-[0_0_8px_rgba(244,63,94,0.6)]" dir="ltr">SOS</span>
+                </div>
+                <span class="text-[9px] font-extrabold text-sosRed tracking-tight mt-1 leading-none whitespace-nowrap">وسوسه شدم</span>
+            </button>
+
+            <!-- 4. Chain & Badges (زنجیره و نشان) -->
+            <button type="button" data-nav-target="habit-chain-grid" class="bottom-nav-btn flex flex-col items-center justify-center h-12 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <div class="h-5 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold mt-1 leading-none whitespace-nowrap">زنجیره و نشان</span>
+            </button>
+
+            <!-- 5. Awareness & Radar (آگاهی و رادار) -->
+            <button type="button" data-nav-target="section-learning" class="bottom-nav-btn flex flex-col items-center justify-center h-12 rounded-2xl text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                <div class="h-5 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold mt-1 leading-none whitespace-nowrap">آگاهی</span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         SOS FULLSCREEN OVERLAY (REDESIGNED: CLEAN, MINIMAL & POWERFUL)
          ========================================== -->
     <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between safe-modal-overlay overflow-y-auto">
-        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full py-2">
-            <!-- Top Bar -->
-            <div class="flex items-center justify-between">
+        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full gap-3 py-1">
+            
+            <!-- 1. Unified Minimal Header + Integrated Countdown Pill -->
+            <div class="flex items-center justify-between gap-2 pb-2 border-b border-white/10">
                 <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-sosRed animate-ping"></span>
-                    <span class="text-xs font-extrabold text-sosRed">سپر اضطراری ضد وسوسه</span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-sosRed animate-ping shrink-0"></span>
+                    <div>
+                        <h2 class="text-xs font-black text-snowWhite">اتاق آرامش و موج‌شکن</h2>
+                        <p class="text-[10px] text-mutedGray">موج وسوسه تا ۵ دقیقه دیگر فروکش می‌کند</p>
+                    </div>
                 </div>
-                <div class="flex items-center gap-2">
-                    <button id="btn-toggle-ambient-audio" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-3 py-1.5 rounded-xl glass-card flex items-center gap-1.5">
+
+                <div class="flex items-center gap-1.5">
+                    <!-- Compact Countdown Pill -->
+                    <div class="flex items-center gap-1 bg-appBg glass-border px-2.5 py-1 rounded-xl">
+                        <span id="sos-countdown-display" class="text-xs font-black text-emeraldAccent tracking-wider" dir="ltr">۰۵:۰۰</span>
+                        <button id="btn-toggle-sos-timer" type="button" class="text-[10px] text-mutedGray hover:text-snowWhite px-1 border-r border-white/10 pr-1.5">توقف</button>
+                        <button id="btn-reset-sos-timer" type="button" title="شروع مجدد تایمر" class="text-[10px] text-mutedGray hover:text-snowWhite">↺</button>
+                    </div>
+
+                    <!-- Ambient Sound Toggle Button -->
+                    <button id="btn-toggle-ambient-audio" type="button" title="پلیر صدای آرامش" class="h-8 px-2.5 rounded-xl glass-card flex items-center gap-1.5 text-[11px] text-mutedGray hover:text-snowWhite transition">
                         <span id="ambient-audio-dot" class="w-2 h-2 rounded-full bg-mutedGray"></span>
-                        <span id="ambient-audio-label">پلیر صدای آرامش</span>
+                        <span id="ambient-audio-label" class="font-bold">صدا</span>
                     </button>
-                    <button id="btn-close-sos" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-3 py-1.5 rounded-xl glass-card">
+
+                    <!-- Close SOS Button -->
+                    <button id="btn-close-sos" type="button" class="h-8 px-2.5 rounded-xl glass-card text-[11px] font-bold text-mutedGray hover:text-snowWhite">
                         بستن
                     </button>
                 </div>
             </div>
 
-            <!-- Ambient Sound Swipeable Drawer -->
-            <div id="ambient-player-drawer" class="hidden mt-3 glass-card rounded-2xl p-3 border border-emeraldAccent/30 select-none">
+            <!-- Ambient Sound Swipeable Drawer (Collapsible) -->
+            <div id="ambient-player-drawer" class="hidden glass-card rounded-2xl p-3 border border-emeraldAccent/30 select-none">
                 <div class="flex items-center justify-between text-[10px] text-mutedGray mb-1.5">
-                    <span>برای تعویض صدا به چپ یا راست بکشید (Swipe)</span>
+                    <span>برای تعویض صدای محیط به چپ یا راست بکشید</span>
                     <button id="btn-mute-ambient" type="button" class="text-sosRed font-bold hover:underline">خاموش کردن صدا</button>
                 </div>
-                <div id="ambient-swipe-area" class="flex items-center justify-between gap-2 bg-appBg/70 glass-border rounded-xl p-2.5 cursor-grab active:cursor-grabbing">
-                    <button id="btn-ambient-prev" type="button" class="w-8 h-8 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <div id="ambient-swipe-area" class="flex items-center justify-between gap-2 bg-appBg/70 glass-border rounded-xl p-2 cursor-grab active:cursor-grabbing">
+                    <button id="btn-ambient-prev" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </button>
-                    <div id="ambient-track-info" class="text-center flex-1 transition-transform duration-150">
+                    <div id="ambient-track-info" class="text-center flex-1">
                         <div id="ambient-track-title" class="text-xs font-black text-emeraldAccent">۱. امواج آرام اقیانوس</div>
                         <div id="ambient-track-desc" class="text-[10px] text-mutedGray mt-0.5">موج‌های عمیق برای کاهش ضربان قلب</div>
                     </div>
-                    <button id="btn-ambient-next" type="button" class="w-8 h-8 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    <button id="btn-ambient-next" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                     </button>
                 </div>
                 <div id="ambient-dots" class="flex justify-center gap-1.5 mt-2"></div>
             </div>
 
-            <!-- Mode Switcher: Breathing vs Focus Game -->
-            <div class="grid grid-cols-2 gap-2 my-3 p-1 rounded-2xl bg-appBg glass-border">
-                <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-white transition">
-                    تنفس ۴-۷-۸
-                </button>
-                <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition">
-                    بازی تمرکز ۶۰ ثانیه‌ای
+            <!-- 2. Reality Flashcard (تلنگر واقعیت + انگیزه شخصی) -->
+            <div class="glass-card rounded-2xl p-3.5 border-r-4 border-r-emeraldAccent flex items-start justify-between gap-2">
+                <div class="space-y-1 flex-1">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[10px] font-black text-emeraldAccent bg-emeraldAccent/10 px-2 py-0.5 rounded-md">تلنگر لحظه</span>
+                        <span class="text-[10px] text-mutedGray">تعهد تو: <strong id="sos-core-reason" class="text-snowWhite"></strong></span>
+                    </div>
+                    <p id="sos-reality-flash" class="text-xs text-snowWhite font-bold leading-5 pt-0.5">
+                        «لذتِ تسلیم شدن فقط چند ثانیه است، اما حسِ غرورِ مقاومت کردن تا فردا صبح با تو می‌ماند.»
+                    </p>
+                </div>
+                <button id="btn-next-sos-flash" type="button" title="تلنگر بعدی" class="p-2 rounded-xl bg-appBg/70 glass-border text-mutedGray hover:text-emeraldAccent active:scale-95 transition shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
                 </button>
             </div>
 
-            <!-- TAB 1: Breathing Circle Section -->
-            <div id="sos-panel-breath" class="flex flex-col items-center justify-center my-4">
-                <div class="relative w-52 h-52 flex items-center justify-center">
-                    <div id="breathing-circle" class="breath-circle absolute w-28 h-28 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_50px_rgba(0,127,104,0.4)]"></div>
-                    <div class="relative z-10 text-center pointer-events-none">
-                        <div id="breathing-instruction" class="text-base font-black text-snowWhite">آماده تنفس...</div>
-                        <div id="breathing-sub" class="text-[11px] text-emeraldAccent mt-1">چرخه آرام‌سازی ۴-۷-۸</div>
+            <!-- 3. Clean 3-Tab Calming Workspace (تنفس | بازی تمرکز | اتصال به زمین) -->
+            <div class="glass-card rounded-3xl p-4 flex-1 flex flex-col justify-between">
+                <div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-appBg glass-border mb-3">
+                    <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
+                        تنفس ۴-۷-۸
+                    </button>
+                    <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                        بازی تمرکز
+                    </button>
+                    <button id="tab-sos-grounding" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                        حواس ۵-۴-۳-۲-۱
+                    </button>
+                </div>
+
+                <!-- TAB 1: Breathing Circle Section -->
+                <div id="sos-panel-breath" class="flex flex-col items-center justify-center my-auto py-4">
+                    <div class="relative w-44 h-44 flex items-center justify-center">
+                        <div id="breathing-circle" class="breath-circle absolute w-24 h-24 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_45px_rgba(0,127,104,0.45)]"></div>
+                        <div class="relative z-10 text-center pointer-events-none">
+                            <div id="breathing-instruction" class="text-sm font-black text-snowWhite">آماده تنفس...</div>
+                            <div id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1">چرخه آرام‌سازی عصب واگ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
+                <div id="sos-panel-game" class="hidden flex-col items-center justify-center my-auto py-1">
+                    <div class="flex items-center justify-between w-full mb-2 px-1">
+                        <span class="text-[11px] text-mutedGray">اعداد ۱ تا ۱۶ را به ترتیب بزن:</span>
+                        <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
+                    </div>
+                    <div id="sos-number-grid" class="grid grid-cols-4 gap-2 w-full" dir="ltr"></div>
+                </div>
+
+                <!-- TAB 3: NEW 5-4-3-2-1 Sensory Grounding Technique -->
+                <div id="sos-panel-grounding" class="hidden flex-col justify-between my-auto py-2 text-center space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 text-emeraldAccent flex items-center justify-center mx-auto text-xl font-black" id="grounding-step-badge">
+                        ۵
+                    </div>
+                    <div class="space-y-1 px-2">
+                        <h4 id="grounding-step-title" class="text-sm font-black text-snowWhite">۵ چیز که الان می‌بینی</h4>
+                        <p id="grounding-step-desc" class="text-xs text-mutedGray leading-5">به اطرافت نگاه کن و ۵ شیء مختلف را در دلت نام ببر تا ذهنت از تصویرسازی وسوسه خارج شود.</p>
+                    </div>
+                    <button id="btn-grounding-next" type="button" class="mx-auto px-5 py-2.5 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent text-emeraldAccent text-xs font-extrabold active:scale-95 transition">
+                        انجام دادم؛ مرحله بعد ←
+                    </button>
+                </div>
+
+                <!-- Quick Physical Reset Pills (Compact inside workspace footer) -->
+                <div class="pt-3 mt-2 border-t border-white/5">
+                    <div class="text-[10px] text-mutedGray mb-1.5 font-bold">اقدام فیزیکی فوری (برای شکستن قفل بدن تیک بزن):</div>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>نوشیدن آب خنک</span>
+                        </label>
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>تغییر مکان</span>
+                        </label>
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>۱۰ نفس یا شنا</span>
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
-            <div id="sos-panel-game" class="hidden flex-col items-center justify-center my-3">
-                <div class="flex items-center justify-between w-full mb-2 px-1">
-                    <span class="text-xs text-mutedGray">اعداد ۱ تا ۱۶ را به ترتیب پیدا کن:</span>
-                    <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
-                </div>
-                <div id="sos-number-grid" class="grid grid-cols-4 gap-2 w-full" dir="ltr"></div>
-            </div>
-
-            <!-- 5-Minute Urge Surfing Countdown & Trigger Tags -->
-            <div class="space-y-3">
-                <!-- Trigger Selection -->
-                <div class="glass-card rounded-2xl p-3.5">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="text-[11px] font-bold text-snowWhite">الان چه حسی باعث این وسوسه شده؟</div>
-                        <span id="sos-trigger-status" class="text-[10px] text-emeraldAccent font-bold">برای ثبت در رادار انتخاب کن</span>
+            <!-- 4. Compact Trigger Selector + Victory Action -->
+            <div class="space-y-2.5">
+                <div class="glass-card rounded-2xl p-3">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[11px] font-bold text-snowWhite">ریشه این وسوسه چیه؟</span>
+                        <span id="sos-trigger-status" class="text-[10px] text-emeraldAccent font-bold">ثبت در رادار</span>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
-                        <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
-                        <button type="button" data-trigger="بی‌حوصلگی" class="sos-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
-                        <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
-                        <button type="button" data-trigger="دیدن محرک" class="sos-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
+                        <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
+                        <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
+                        <button type="button" data-trigger="بی‌حوصلگی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
+                        <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
+                        <button type="button" data-trigger="دیدن محرک" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
                     </div>
                 </div>
 
-                <!-- Immediate Physical Action Checklist -->
-                <div class="glass-card rounded-2xl p-3.5">
-                    <div class="text-[11px] font-bold text-snowWhite mb-2">قرارداد اضطراری (حداقل یکی رو الان انجام بده):</div>
-                    <div class="space-y-1.5 text-xs text-mutedGray">
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
-                            <span>نوشیدن یک لیوان آب خنک</span>
-                        </label>
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
-                            <span>تغییر مکان فیزیکی (بلند شدن از تخت یا صندلی)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl p-3.5 flex items-center justify-between">
-                    <div>
-                        <div class="text-[11px] text-mutedGray">تایمر موج‌سواری بر وسوسه</div>
-                        <div id="sos-countdown-display" class="text-2xl font-black text-snowWhite tracking-wider" dir="ltr">۰۵:۰۰</div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="btn-toggle-sos-timer" type="button" class="px-3 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite">توقف</button>
-                        <button id="btn-reset-sos-timer" type="button" class="px-3 py-1.5 rounded-xl bg-appBg glass-border text-xs text-mutedGray">از نو</button>
-                    </div>
-                </div>
-
-                <!-- Wake-up Call -->
-                <div class="glass-card rounded-2xl p-3.5 text-right border-r-4 border-r-sosRed">
-                    <div class="text-[11px] text-sosRed font-bold mb-0.5">یادت نره چرا شروع کردی:</div>
-                    <p id="sos-core-reason" class="text-xs text-snowWhite font-semibold leading-5"></p>
-                </div>
-
-                <!-- Victory Button -->
                 <button id="btn-sos-victory" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm tracking-wide shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
                     موج رد شد؛ تونستم! (+۱ پیروزی)
                 </button>
             </div>
+
         </div>
     </div>
 
@@ -1030,17 +1094,26 @@
                     <textarea id="settings-core-reason" rows="2" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
                 </div>
                 <div>
-                    <label class="block text-xs text-mutedGray mb-1">قفل رمز عبور ۴ رقمی (خالی = بدون قفل)</label>
-                    <input id="settings-pin-code" type="password" inputmode="numeric" maxlength="4" placeholder="مثلاً: 1234" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
+                    <label class="block text-xs text-mutedGray mb-1">قفل رمز ۴ رقمی برنامه (اختیاری - برای حذف خالی بگذارید)</label>
+                    <input id="settings-pin-code" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="مثلاً: 1234" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center tracking-widest">
                 </div>
-                <button type="submit" class="w-full py-2.5 rounded-xl bg-emeraldAccent text-white font-extrabold text-xs">
+                <button type="submit" class="w-full py-3 rounded-xl bg-emeraldAccent text-white font-black text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
                     ذخیره تغییرات
                 </button>
             </form>
 
             <!-- Backup & Restore -->
             <div class="pt-3 border-t border-white/10 space-y-2.5">
-                <div class="text-xs font-bold text-snowWhite">ظاهر برنامه و فایل پشتیبان</div>
+                <div class="text-xs font-bold text-snowWhite">راهنما، ظاهر برنامه و فایل پشتیبان</div>
+                <button id="btn-start-tour" type="button" class="w-full py-2.5 px-3 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/35 text-xs text-snowWhite hover:bg-emeraldAccent/25 flex items-center justify-between transition active:scale-[0.99]">
+                    <span class="flex items-center gap-2 font-extrabold text-emeraldAccent">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/>
+                        </svg>
+                        <span>شروع تور آموزشی و راهنمای برنامه</span>
+                    </span>
+                    <span class="text-[10px] bg-emeraldAccent text-white px-2 py-0.5 rounded-lg font-bold">گام‌به‌گام</span>
+                </button>
                 <button id="btn-settings-theme" type="button" class="w-full py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition">
                     <span>تغییر حالت نمایش (تاریک / روشن)</span>
                     <span id="settings-theme-label" class="text-emeraldAccent font-bold">تم تاریک</span>
@@ -1152,6 +1225,37 @@
         <div id="toast-box" class="glass-card border border-emeraldAccent/40 bg-cardBg/95 text-snowWhite text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-emeraldAccent shrink-0"></span>
             <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         INTERACTIVE APP TOUR OVERLAY (SPOTLIGHT)
+         ========================================== -->
+    <div id="tour-overlay" class="fixed inset-0 z-[85] hidden pointer-events-auto overflow-hidden">
+        <!-- Spotlight Highlight Cutout Box -->
+        <div id="tour-spotlight" class="fixed rounded-3xl tour-spotlight-hole pointer-events-none z-[86]" style="top: 50%; left: 50%; width: 0; height: 0;"></div>
+
+        <!-- Floating Tooltip Card -->
+        <div id="tour-tooltip" class="fixed z-[87] w-[calc(100%-2rem)] max-w-sm glass-card rounded-3xl p-5 border border-emeraldAccent/50 shadow-[0_20px_60px_rgba(0,0,0,0.85)] tour-tooltip-card" style="left: 50%; transform: translateX(-50%); bottom: 1.5rem;">
+            <div class="flex items-center justify-between mb-2">
+                <span id="tour-step-badge" class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emeraldAccent/20 text-emeraldAccent border border-emeraldAccent/30">
+                    گام ۱ از ۷
+                </span>
+                <button id="btn-tour-skip" type="button" class="text-[11px] font-bold text-mutedGray hover:text-sosRed transition px-2 py-0.5 rounded-lg">
+                    رد کردن تور ✕
+                </button>
+            </div>
+            <h4 id="tour-step-title" class="text-sm font-black text-snowWhite mb-1.5">عنوان راهنما</h4>
+            <p id="tour-step-desc" class="text-xs text-mutedGray leading-6 mb-4">توضیحات این بخش...</p>
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
+                <button id="btn-tour-prev" type="button" class="px-3.5 py-2 rounded-xl bg-appBg glass-border text-xs font-bold text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                    قبلی
+                </button>
+                <div id="tour-dots" class="flex items-center gap-1"></div>
+                <button id="btn-tour-next" type="button" class="px-4 py-2 rounded-xl bg-emeraldAccent text-white text-xs font-black shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
+                    بعدی ←
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1427,6 +1531,64 @@
             let gameCurrentTarget = 1;
             let enteredPin = "";
             let resetConfirmationPending = false;
+            let currentSosFlashIndex = 0;
+            let currentGroundingStepIndex = 0;
+            let currentTourStepIndex = 0;
+            let isTourActive = false;
+
+            const TOUR_STEPS = [
+                {
+                    targetId: 'section-hero',
+                    title: '۱. روزشمار زنده و نرخ پاکی بدون شکست',
+                    desc: 'اینجا لحظه‌به‌لحظه زمان رهایی تو محاسبه می‌شود. حتی اگر لغزش کنی، کل زحماتت صفر نمی‌شود و «نرخ پاکی» واقعی تو حفظ می‌گردد.'
+                },
+                {
+                    targetId: 'section-pledge',
+                    title: '۲. پیمان هوشیاری روزانه (قانون ۲ ثانیه)',
+                    desc: 'هر صبح این دکمه را ۲ ثانیه نگه دار تا با خودت پیمان ببندی که «فقط برای امروز» پاک می‌مانی و مسیر عصبی جدیدت را تقویت می‌کنی.'
+                },
+                {
+                    targetId: 'btn-trigger-sos',
+                    title: '۳. دکمه اضطراری SOS (وسوسه شدم)',
+                    desc: 'مهم‌ترین ابزار برنامه! هر زمان موج وسوسه سراغت آمد، فوراً روی SOS در وسط منوبار بزن تا وارد اتاق موج‌شکن، تنفس ۴-۷-۸، صدای آرامش و بازی تمرکز شوی.'
+                },
+                {
+                    targetId: 'habit-chain-grid',
+                    title: '۴. زنجیره ۳۰ روز اخیر و نشان‌های افتخار',
+                    desc: 'روزهای پاک با رنگ سبز، روزهای مهار وسوسه با رنگ طلایی و لغزش‌ها با قرمز ثبت می‌شوند. هدفت این است که این زنجیره را نشکنی!'
+                },
+                {
+                    targetId: 'section-journal',
+                    title: '۵. ثبت حال‌وهوا و تخلیه ذهنی',
+                    desc: 'نوشتن احساسات در یک جمله و ثبت حال روزانه، قدرت هیجانات منفی و وسوسه‌های پنهان را در آمیگدال مغز به نصف کاهش می‌دهد.'
+                },
+                {
+                    targetId: 'section-radar',
+                    title: '۶. رادار پاشنه آشیل و کپسول آگاهی',
+                    desc: 'برنامه به طور هوشمند تحلیل می‌کند بیشترین وسوسه‌های تو در چه حالتی (تنهایی، خستگی، استرس و...) رخ می‌دهد تا غافلگیر نشوی.'
+                },
+                {
+                    targetId: 'btn-open-share-card',
+                    title: '۷. استوری افتخار (۹:۱۶) و تنظیمات',
+                    desc: 'از نوار بالا می‌توانی استوری اختصاصی پیشرفتت را (بدون درج نام عادت برای حفظ حریم خصوصی) دانلود کنی یا از بخش تنظیمات بکاپ بگیری.'
+                }
+            ];
+
+            const SOS_REALITY_FLASHES = [
+                "«لذتِ تسلیم شدن فقط چند ثانیه است، اما حسِ غرورِ مقاومت کردن تا فردا صبح با تو می‌ماند.»",
+                "«مغزت الان فقط ۵ ثانیه اول را نشان می‌دهد؛ فیلم را تا ۲ ساعت بعد و حس پشیمانیِ بعدش جلو ببر!»",
+                "«این حس بی‌قراری یک دستور نیست؛ فقط یک موج شیمیایی موقت است که تا چند دقیقه دیگر فروکش می‌کند.»",
+                "«تو تا همین‌جا کلی زحمت کشیدی؛ زنجیره روزهای پاکی‌ات را با یک فریبِ چند ثانیه‌ای نفروش.»",
+                "«هر بار که در برابر این موج می‌ایستی، مسیر عصبیِ عادتِ قدیمی در مغزت ضعیف‌تر و کم‌رنگ‌تر می‌شود.»"
+            ];
+
+            const GROUNDING_STEPS = [
+                { num: "۵", title: "۵ چیز که الان می‌بینی", desc: "به اطرافت نگاه کن و ۵ شیء مختلف (مثل ساعت، دیوار، لیوان) را در دلت نام ببر." },
+                { num: "۴", title: "۴ چیز که می‌توانی لمس کنی", desc: "بافت لباس، خنکی میز یا کف پاهایت روی زمین را با دقت لمس و حس کن." },
+                { num: "۳", title: "۳ صدا که الان می‌شنوی", desc: "گوش بسپار؛ صدای نفس‌هایت، محیط اطراف یا صدای آرامش‌بخش برنامه را بشنو." },
+                { num: "۲", title: "۲ بو یا جریان هوا", desc: "یک نفس عمیق بکش و دمای هوای داخل ریه و بوی محیط اطرافت را حس کن." },
+                { num: "۱", title: "۱ حقیقت محکم درباره خودت", desc: "با خودت تکرار کن: «من ارباب ذهنم هستم و این موجِ گذرا هیچ قدرتی روی من ندارد.»" }
+            ];
 
             // ==========================================
             // DYNAMIC PNG ICON GENERATOR FOR HOME SCREEN (iOS 26/27 LIQUID GLASS & AUTO DARK/LIGHT/TINTED SUPPORT)
@@ -2360,11 +2522,11 @@
                 nums.forEach(function (n) {
                     const btn = document.createElement('button');
                     btn.type = 'button';
-                    btn.className = 'h-12 rounded-xl bg-appBg glass-border text-sm font-black text-snowWhite hover:border-emeraldAccent active:scale-95 transition';
+                    btn.className = 'h-11 rounded-xl bg-appBg glass-border text-sm font-black text-snowWhite hover:border-emeraldAccent active:scale-95 transition';
                     btn.textContent = toPersianDigits(n);
                     btn.addEventListener('click', function () {
                         if (n === gameCurrentTarget) {
-                            btn.className = 'h-12 rounded-xl bg-emeraldAccent/25 border border-emeraldAccent text-emeraldAccent text-sm font-black opacity-50 pointer-events-none';
+                            btn.className = 'h-11 rounded-xl bg-emeraldAccent/25 border border-emeraldAccent text-emeraldAccent text-sm font-black opacity-50 pointer-events-none';
                             gameCurrentTarget++;
                             if (gameCurrentTarget > 16) {
                                 if (targetEl) targetEl.textContent = 'آفرین! حافظه کاری مغزت از وسوسه خارج شد 🎯';
@@ -2376,6 +2538,22 @@
                     });
                     grid.appendChild(btn);
                 });
+            }
+
+            function renderGroundingStep() {
+                const step = GROUNDING_STEPS[currentGroundingStepIndex];
+                const badge = document.getElementById('grounding-step-badge');
+                const title = document.getElementById('grounding-step-title');
+                const desc = document.getElementById('grounding-step-desc');
+                const btn = document.getElementById('btn-grounding-next');
+                if (!step || !badge || !title || !desc || !btn) return;
+
+                badge.textContent = step.num;
+                title.textContent = step.title;
+                desc.textContent = step.desc;
+                btn.textContent = currentGroundingStepIndex < GROUNDING_STEPS.length - 1
+                    ? 'انجام دادم؛ مرحله بعد ←'
+                    : 'تکمیل چرخه آرامش ✓ (شروع مجدد)';
             }
 
             // Synthesized Web Audio API Ambient Player
@@ -2992,6 +3170,105 @@
             }
 
             // ==========================================
+            // INTERACTIVE APP TOUR ENGINE
+            // ==========================================
+            function startAppTour() {
+                const overlay = document.getElementById('tour-overlay');
+                if (!overlay) return;
+                isTourActive = true;
+                currentTourStepIndex = 0;
+                overlay.classList.remove('hidden');
+                renderTourStep();
+            }
+
+            function stopAppTour() {
+                const overlay = document.getElementById('tour-overlay');
+                if (overlay) overlay.classList.add('hidden');
+                isTourActive = false;
+                appState.hasSeenTour = true;
+                saveState();
+            }
+
+            function positionTourElements() {
+                if (!isTourActive) return;
+                const step = TOUR_STEPS[currentTourStepIndex];
+                if (!step) return;
+                const targetEl = document.getElementById(step.targetId);
+                const spotlight = document.getElementById('tour-spotlight');
+                const tooltip = document.getElementById('tour-tooltip');
+                if (!targetEl || !spotlight || !tooltip) return;
+
+                const rect = targetEl.getBoundingClientRect();
+                const pad = 8;
+                const top = Math.max(8, rect.top - pad);
+                const left = Math.max(8, rect.left - pad);
+                const width = Math.min(window.innerWidth - 16, rect.width + pad * 2);
+                const height = rect.height + pad * 2;
+
+                spotlight.style.top = top + 'px';
+                spotlight.style.left = left + 'px';
+                spotlight.style.width = width + 'px';
+                spotlight.style.height = height + 'px';
+
+                // Place tooltip either below or above the spotlight depending on available screen space
+                const tooltipHeight = tooltip.offsetHeight || 190;
+                const spaceBelow = window.innerHeight - (top + height);
+                if (spaceBelow > tooltipHeight + 24) {
+                    tooltip.style.top = Math.min(window.innerHeight - tooltipHeight - 16, top + height + 14) + 'px';
+                    tooltip.style.bottom = 'auto';
+                } else {
+                    const placedTop = Math.max(16, top - tooltipHeight - 14);
+                    tooltip.style.top = placedTop + 'px';
+                    tooltip.style.bottom = 'auto';
+                }
+            }
+
+            function renderTourStep() {
+                const step = TOUR_STEPS[currentTourStepIndex];
+                if (!step) return;
+
+                const badgeEl = document.getElementById('tour-step-badge');
+                const titleEl = document.getElementById('tour-step-title');
+                const descEl = document.getElementById('tour-step-desc');
+                const prevBtn = document.getElementById('btn-tour-prev');
+                const nextBtn = document.getElementById('btn-tour-next');
+                const dotsEl = document.getElementById('tour-dots');
+
+                if (badgeEl) badgeEl.textContent = 'گام ' + toPersianDigits(currentTourStepIndex + 1) + ' از ' + toPersianDigits(TOUR_STEPS.length);
+                if (titleEl) titleEl.textContent = step.title;
+                if (descEl) descEl.textContent = step.desc;
+                if (prevBtn) {
+                    prevBtn.disabled = currentTourStepIndex === 0;
+                    prevBtn.classList.toggle('opacity-40', currentTourStepIndex === 0);
+                    prevBtn.classList.toggle('pointer-events-none', currentTourStepIndex === 0);
+                }
+                if (nextBtn) {
+                    nextBtn.textContent = currentTourStepIndex === TOUR_STEPS.length - 1 ? 'پایان و شروع کار ✓' : 'بعدی ←';
+                }
+                if (dotsEl) {
+                    dotsEl.innerHTML = '';
+                    TOUR_STEPS.forEach(function (_, idx) {
+                        const dot = document.createElement('span');
+                        dot.className = 'h-1.5 rounded-full transition-all duration-300 ' +
+                            (idx === currentTourStepIndex ? 'w-4 bg-emeraldAccent' : 'w-1.5 bg-mutedGray/40');
+                        dotsEl.appendChild(dot);
+                    });
+                }
+
+                const targetEl = document.getElementById(step.targetId);
+                if (targetEl) {
+                    const isFixedNav = step.targetId === 'btn-trigger-sos' || step.targetId === 'btn-open-share-card';
+                    if (step.targetId === 'btn-open-share-card') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (!isFixedNav) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    setTimeout(positionTourElements, 120);
+                    setTimeout(positionTourElements, 380);
+                }
+            }
+
+            // ==========================================
             // EVENT LISTENERS INITIALIZATION
             // ==========================================
             function initEvents() {
@@ -3042,6 +3319,9 @@
                         }
                         renderDashboardAll();
                         showToast('سفر آزادی تو با موفقیت آغاز شد!');
+                        if (!appState.hasSeenTour) {
+                            setTimeout(startAppTour, 600);
+                        }
                     });
                 }
 
@@ -3300,11 +3580,11 @@
                             targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                         document.querySelectorAll('.bottom-nav-btn').forEach(function (b) {
-                            b.classList.remove('text-emeraldAccent', 'bg-emeraldAccent/10');
-                            b.classList.add('text-mutedGray');
+                            b.classList.remove('nav-item-active', 'text-emeraldAccent', 'bg-emeraldAccent/10');
+                            b.classList.add('text-mutedGray', 'hover:text-snowWhite');
                         });
-                        navBtn.classList.remove('text-mutedGray');
-                        navBtn.classList.add('text-emeraldAccent', 'bg-emeraldAccent/10');
+                        navBtn.classList.remove('text-mutedGray', 'hover:text-snowWhite');
+                        navBtn.classList.add('nav-item-active');
                     });
                 });
 
@@ -3350,8 +3630,33 @@
                 const modalSos = document.getElementById('modal-sos');
                 const tabBreath = document.getElementById('tab-sos-breath');
                 const tabGame = document.getElementById('tab-sos-game');
+                const tabGrounding = document.getElementById('tab-sos-grounding');
                 const panelBreath = document.getElementById('sos-panel-breath');
                 const panelGame = document.getElementById('sos-panel-game');
+                const panelGrounding = document.getElementById('sos-panel-grounding');
+                const btnNextSosFlash = document.getElementById('btn-next-sos-flash');
+                const btnGroundingNext = document.getElementById('btn-grounding-next');
+
+                function switchSosTab(activeTab) {
+                    const activeClass = 'py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition';
+                    const inactiveClass = 'py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition';
+                    if (tabBreath) tabBreath.className = activeTab === 'breath' ? activeClass : inactiveClass;
+                    if (tabGame) tabGame.className = activeTab === 'game' ? activeClass : inactiveClass;
+                    if (tabGrounding) tabGrounding.className = activeTab === 'grounding' ? activeClass : inactiveClass;
+
+                    if (panelBreath) {
+                        panelBreath.classList.toggle('hidden', activeTab !== 'breath');
+                        panelBreath.classList.toggle('flex', activeTab === 'breath');
+                    }
+                    if (panelGame) {
+                        panelGame.classList.toggle('hidden', activeTab !== 'game');
+                        panelGame.classList.toggle('flex', activeTab === 'game');
+                    }
+                    if (panelGrounding) {
+                        panelGrounding.classList.toggle('hidden', activeTab !== 'grounding');
+                        panelGrounding.classList.toggle('flex', activeTab === 'grounding');
+                    }
+                }
 
                 if (btnTriggerSos && modalSos) {
                     btnTriggerSos.addEventListener('click', function () {
@@ -3359,6 +3664,16 @@
                         document.querySelectorAll('.sos-trigger-chip').forEach(function (c) {
                             c.classList.remove('chip-selected-emerald');
                         });
+                        document.querySelectorAll('.sos-check').forEach(function (chk) {
+                            chk.checked = false;
+                        });
+                        const statusEl = document.getElementById('sos-trigger-status');
+                        if (statusEl) statusEl.textContent = 'ثبت در رادار';
+
+                        currentGroundingStepIndex = 0;
+                        renderGroundingStep();
+                        switchSosTab('breath');
+
                         sosTimerSeconds = 300;
                         updateSosCountdownUI();
                         startSosCountdown();
@@ -3367,6 +3682,27 @@
                         renderAmbientPlayerUI();
                         modalSos.classList.remove('hidden');
                         modalSos.classList.add('flex');
+                    });
+                }
+
+                if (btnNextSosFlash) {
+                    btnNextSosFlash.addEventListener('click', function () {
+                        currentSosFlashIndex = (currentSosFlashIndex + 1) % SOS_REALITY_FLASHES.length;
+                        const flashEl = document.getElementById('sos-reality-flash');
+                        if (flashEl) flashEl.textContent = SOS_REALITY_FLASHES[currentSosFlashIndex];
+                    });
+                }
+
+                if (btnGroundingNext) {
+                    btnGroundingNext.addEventListener('click', function () {
+                        if (currentGroundingStepIndex < GROUNDING_STEPS.length - 1) {
+                            currentGroundingStepIndex++;
+                            renderGroundingStep();
+                        } else {
+                            currentGroundingStepIndex = 0;
+                            renderGroundingStep();
+                            showToast('آفرین! ذهنت دوباره به لحظه حال و آرامش برگشت.');
+                        }
                     });
                 }
 
@@ -3386,23 +3722,21 @@
 
                 if (btnCloseSos) btnCloseSos.addEventListener('click', closeSosModal);
 
-                if (tabBreath && tabGame && panelBreath && panelGame) {
+                if (tabBreath) {
                     tabBreath.addEventListener('click', function () {
-                        tabBreath.className = 'py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-white transition';
-                        tabGame.className = 'py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition';
-                        panelBreath.classList.remove('hidden');
-                        panelBreath.classList.add('flex');
-                        panelGame.classList.add('hidden');
-                        panelGame.classList.remove('flex');
+                        switchSosTab('breath');
                     });
+                }
+                if (tabGame) {
                     tabGame.addEventListener('click', function () {
-                        tabGame.className = 'py-2 rounded-xl text-xs font-extrabold bg-emeraldAccent text-white transition';
-                        tabBreath.className = 'py-2 rounded-xl text-xs font-extrabold text-mutedGray hover:text-snowWhite transition';
-                        panelGame.classList.remove('hidden');
-                        panelGame.classList.add('flex');
-                        panelBreath.classList.add('hidden');
-                        panelBreath.classList.remove('flex');
+                        switchSosTab('game');
                         initFocusGame();
+                    });
+                }
+                if (tabGrounding) {
+                    tabGrounding.addEventListener('click', function () {
+                        switchSosTab('grounding');
+                        renderGroundingStep();
                     });
                 }
 
@@ -3552,12 +3886,19 @@
 
                 if (btnOpenSettings && modalSettings) {
                     btnOpenSettings.addEventListener('click', function () {
-                        document.getElementById('settings-habit-name').value = appState.habitName || '';
+                        const habitEl = document.getElementById('settings-habit-name');
+                        const costEl = document.getElementById('settings-daily-cost');
+                        const hoursEl = document.getElementById('settings-daily-hours');
+                        const reasonEl = document.getElementById('settings-core-reason');
+                        const pinEl = document.getElementById('settings-pin-code');
+
+                        if (habitEl) habitEl.value = appState.habitName || '';
                         setJalaliPickerFromISO('st', appState.startDate);
-                        document.getElementById('settings-daily-cost').value = appState.dailyCost ? formatMoneyInput(appState.dailyCost) : '';
-                        document.getElementById('settings-daily-hours').value = appState.dailyHours || '';
-                        document.getElementById('settings-core-reason').value = appState.coreReason || '';
-                        document.getElementById('settings-pin-code').value = appState.pinCode || '';
+                        if (costEl) costEl.value = appState.dailyCost ? formatMoneyInput(appState.dailyCost) : '';
+                        if (hoursEl) hoursEl.value = appState.dailyHours || '';
+                        if (reasonEl) reasonEl.value = appState.coreReason || '';
+                        if (pinEl) pinEl.value = appState.pinCode || '';
+
                         modalSettings.classList.remove('hidden');
                         modalSettings.classList.add('flex');
                     });
@@ -3584,6 +3925,50 @@
                         showToast('تنظیمات با موفقیت ذخیره شد.');
                     });
                 }
+
+                // Interactive App Tour Controls
+                const btnStartTour = document.getElementById('btn-start-tour');
+                const btnTourPrev = document.getElementById('btn-tour-prev');
+                const btnTourNext = document.getElementById('btn-tour-next');
+                const btnTourSkip = document.getElementById('btn-tour-skip');
+
+                if (btnStartTour) {
+                    btnStartTour.addEventListener('click', function () {
+                        if (modalSettings) {
+                            modalSettings.classList.add('hidden');
+                            modalSettings.classList.remove('flex');
+                        }
+                        setTimeout(startAppTour, 180);
+                    });
+                }
+                if (btnTourPrev) {
+                    btnTourPrev.addEventListener('click', function () {
+                        if (currentTourStepIndex > 0) {
+                            currentTourStepIndex--;
+                            renderTourStep();
+                        }
+                    });
+                }
+                if (btnTourNext) {
+                    btnTourNext.addEventListener('click', function () {
+                        if (currentTourStepIndex < TOUR_STEPS.length - 1) {
+                            currentTourStepIndex++;
+                            renderTourStep();
+                        } else {
+                            stopAppTour();
+                            showToast('تور آموزشی به پایان رسید. موفق باشی قهرمان!');
+                        }
+                    });
+                }
+                if (btnTourSkip) {
+                    btnTourSkip.addEventListener('click', stopAppTour);
+                }
+                window.addEventListener('resize', function () {
+                    if (isTourActive) positionTourElements();
+                });
+                window.addEventListener('scroll', function () {
+                    if (isTourActive) positionTourElements();
+                }, { passive: true });
 
                 // Export / Import / Reset
                 const btnExport = document.getElementById('btn-export-json');
