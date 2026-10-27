@@ -415,6 +415,18 @@
                 <!-- RIGHT COLUMN (7 Cols on Desktop) -->
                 <div class="lg:col-span-7 space-y-4">
 
+                    <!-- SMART DEFENSE DANGER ZONE ALERT BANNER (NEW) -->
+                    <div id="smart-defense-alert" class="hidden glass-card rounded-2xl p-3.5 border-r-4 border-r-sosRed bg-sosRed/10 items-center justify-between gap-3 animate-pulse">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-3 h-3 rounded-full bg-sosRed shrink-0 shadow-[0_0_10px_#F43F5E]"></span>
+                            <div>
+                                <h4 class="text-xs font-black text-snowWhite">سپر دفاعی هوشمند فعال شد</h4>
+                                <p id="smart-defense-text" class="text-[11px] text-mutedGray mt-0.5 leading-5"></p>
+                            </div>
+                        </div>
+                        <button id="btn-defense-dismiss" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2 py-1 rounded-lg bg-appBg/60 shrink-0">متوجهم</button>
+                    </div>
+
                     <!-- HERO SECTION: STAR DAY COUNTER -->
                     <section id="section-hero" class="glass-card hero-radial-glow rounded-3xl p-5 emerald-glow relative overflow-hidden">
                         <div class="flex items-center justify-between gap-2 mb-3">
@@ -484,6 +496,27 @@
                                 <span>برای امضای پیمان امروز، ۲ ثانیه نگه دارید</span>
                             </div>
                         </button>
+                    </section>
+
+                    <!-- POSITIVE HABIT TRACKER (HABIT STACKING - NEW) -->
+                    <section id="section-positive-habit" class="glass-card rounded-2xl p-4 border border-oliveAccent/30">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-oliveAccent"></span>
+                                <h3 class="text-xs font-extrabold text-snowWhite">عادت سازنده مکمل (رویش نو)</h3>
+                            </div>
+                            <span id="positive-habit-streak" class="text-[11px] font-bold text-oliveAccent">۰ روز استمرار</span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3 bg-appBg/60 p-2.5 rounded-xl glass-border">
+                            <div class="min-w-0 flex-1">
+                                <div id="positive-habit-title" class="text-xs font-bold text-snowWhite truncate">در حال بارگذاری...</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">پر کردن جای خالی دوپامین با یک رفتار سازنده</div>
+                            </div>
+                            <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray">
+                                <span id="positive-habit-check-icon">○</span>
+                                <span id="positive-habit-btn-label">انجام دادم</span>
+                            </button>
+                        </div>
                     </section>
 
                     <!-- SAVED METRICS (2-COLUMN) -->
@@ -651,7 +684,23 @@
                         <p id="trigger-insight-text" class="text-[11px] text-mutedGray leading-5 mb-3">
                             هر بار که در بخش SOS یا لغزش، علت وسوسه را انتخاب کنی، الگوی پاشنه آشیل ذهنت اینجا ترسیم می‌شود.
                         </p>
-                        <div id="trigger-bars-list" class="space-y-2"></div>
+                        <div id="trigger-bars-list" class="space-y-2 mb-4"></div>
+
+                        <!-- 24-HOUR DANGER ZONE HEATMAP (NEW) -->
+                        <div class="pt-3 border-t border-white/5 space-y-2">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="font-bold text-snowWhite">نقشه حرارتی ساعت‌های خطر (۲۴ ساعته)</span>
+                                <span id="heatmap-peak-badge" class="text-sosRed font-bold text-[10px]">در حال تحلیل...</span>
+                            </div>
+                            <div id="danger-heatmap-bars" class="grid grid-cols-12 gap-1 items-end h-14 bg-appBg/60 p-2 rounded-xl glass-border" dir="ltr"></div>
+                            <div class="flex justify-between text-[9px] text-mutedGray px-1" dir="ltr">
+                                <span>00:00</span>
+                                <span>06:00</span>
+                                <span>12:00</span>
+                                <span>18:00</span>
+                                <span>23:00</span>
+                            </div>
+                        </div>
                     </section>
 
                     <!-- MICRO-LEARNING CAPSULES -->
@@ -739,6 +788,16 @@
                         <label class="block text-xs font-bold text-snowWhite mb-1">زمان تلف‌شده در روز (ساعت)</label>
                         <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" placeholder="مثلاً: 1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
                     </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1">عادت فیزیکی جایگزین (وقتی وسوسه شدی به جایش چه می‌کنی؟)</label>
+                    <input id="input-replacement-habit" type="text" value="نوشیدن چای سبز با زنجبیل و ۱۰ حرکت کششی" placeholder="مثلاً: جویدن آدامس اکالیپتوس یا شنا" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1">عادت مثبت مکمل (برای بازسازی هویت و ساختن مسیر نو)</label>
+                    <input id="input-positive-habit" type="text" value="۲۰ دقیقه مطالعه یا پیاده‌روی" placeholder="مثلاً: ۲۰ دقیقه مطالعه یا پیاده‌روی" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                 </div>
 
                 <div>
@@ -868,6 +927,17 @@
                 <div id="ambient-dots" class="flex justify-center gap-1.5 mt-2"></div>
             </div>
 
+            <!-- REPLACEMENT HABIT BANNER (IMPLEMENTATION INTENTIONS - NEW) -->
+            <div class="glass-card rounded-2xl p-3 border-r-4 border-r-oliveAccent bg-oliveAccent/10 flex items-center justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <div class="text-[10px] font-extrabold text-oliveAccent">⚡ برنامه جایگزین فوری تو در این لحظه:</div>
+                    <div id="sos-replacement-habit-text" class="text-xs font-black text-snowWhite mt-0.5 truncate">بلند شو و چای سبز با زنجبیل بنوش</div>
+                </div>
+                <button id="btn-open-rescue-letter" type="button" class="px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-emeraldAccent font-bold text-[11px] shrink-0 active:scale-95 transition flex items-center gap-1">
+                    <span>📩 نامه خودت</span>
+                </button>
+            </div>
+
             <!-- 2. Reality Flashcard (تلنگر واقعیت + انگیزه شخصی) -->
             <div class="glass-card rounded-2xl p-3.5 border-r-4 border-r-emeraldAccent flex items-start justify-between gap-2">
                 <div class="space-y-1 flex-1">
@@ -901,14 +971,19 @@
                 </div>
 
                 <!-- TAB 1: Breathing Circle Section -->
-                <div id="sos-panel-breath" class="flex flex-col items-center justify-center my-auto py-4">
-                    <div class="relative w-44 h-44 flex items-center justify-center">
+                <div id="sos-panel-breath" class="flex flex-col items-center justify-center my-auto py-3">
+                    <div class="relative w-44 h-44 flex items-center justify-center mb-2">
                         <div id="breathing-circle" class="breath-circle absolute w-24 h-24 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_45px_rgba(0,127,104,0.45)]"></div>
                         <div class="relative z-10 text-center pointer-events-none">
                             <div id="breathing-instruction" class="text-sm font-black text-snowWhite">آماده تنفس...</div>
                             <div id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1">چرخه آرام‌سازی عصب واگ</div>
                         </div>
                     </div>
+                    <!-- SENSORY FEEDBACK TOGGLE: CHIME & HAPTIC VIBRATION (NEW) -->
+                    <button id="btn-toggle-sound-haptic" type="button" class="flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-xl bg-appBg glass-border text-emeraldAccent active:scale-95 transition">
+                        <span id="sound-haptic-status-dot" class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                        <span id="sound-haptic-label">راهنمای چشم‌بسته (زنگ تبتی و لرزش فعال 🔔📳)</span>
+                    </button>
                 </div>
 
                 <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
@@ -1090,6 +1165,18 @@
                     </div>
                 </div>
                 <div>
+                    <label class="block text-xs text-mutedGray mb-1">عادت فیزیکی جایگزین (لحظه وسوسه)</label>
+                    <input id="settings-replacement-habit" type="text" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1">عادت مثبت مکمل (ساخت هویت نو)</label>
+                    <input id="settings-positive-habit" type="text" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+                <div>
+                    <label class="block text-xs text-mutedGray mb-1">کپسول نجات اضطراری (نامه‌ای از خودِ هوشیار به لحظه وسوسه)</label>
+                    <textarea id="settings-rescue-letter" rows="3" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent leading-5"></textarea>
+                </div>
+                <div>
                     <label class="block text-xs text-mutedGray mb-1">انگیزه اصلی من</label>
                     <textarea id="settings-core-reason" rows="2" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
                 </div>
@@ -1102,9 +1189,21 @@
                 </button>
             </form>
 
-            <!-- Backup & Restore -->
+            <!-- Backup & Restore & Calendar Reminder -->
             <div class="pt-3 border-t border-white/10 space-y-2.5">
-                <div class="text-xs font-bold text-snowWhite">راهنما، ظاهر برنامه و فایل پشتیبان</div>
+                <div class="text-xs font-bold text-snowWhite">راهنما، یادآور تقویم و فایل پشتیبان</div>
+                
+                <!-- CALENDAR REMINDER EXPORT (.ICS) BUTTON (NEW) -->
+                <button id="btn-export-ics" type="button" class="w-full py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition active:scale-[0.99]">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-emeraldAccent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5"/>
+                        </svg>
+                        <span>افزودن یادآور روزانه به تقویم گوشی</span>
+                    </span>
+                    <span class="text-[10px] bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 px-2 py-0.5 rounded-lg font-bold">بدون نیاز به سرور (.ics)</span>
+                </button>
+
                 <button id="btn-start-tour" type="button" class="w-full py-2.5 px-3 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/35 text-xs text-snowWhite hover:bg-emeraldAccent/25 flex items-center justify-between transition active:scale-[0.99]">
                     <span class="flex items-center gap-2 font-extrabold text-emeraldAccent">
                         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1198,6 +1297,32 @@
                 </svg>
                 <span>ذخیره و اشتراک‌گذاری استوری (PNG)</span>
             </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         RESCUE LETTER MODAL (NEW: COGNITIVE REALITY SHOCK)
+         ========================================== -->
+    <div id="modal-rescue-letter" class="fixed inset-0 z-[76] bg-appBg/90 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-sm glass-card rounded-3xl p-6 border border-emeraldAccent/40 shadow-2xl space-y-4 my-auto relative">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">📩</span>
+                    <div>
+                        <h3 class="text-sm font-black text-snowWhite">نامه از خودِ گذشته به لحظه وسوسه</h3>
+                        <p class="text-[10px] text-mutedGray">صدای عقل تو در حالت هوشیاری کامل</p>
+                    </div>
+                </div>
+                <button id="btn-close-rescue-letter" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن</button>
+            </div>
+            <div class="bg-appBg/80 p-4 rounded-2xl glass-border border-r-4 border-r-emeraldAccent">
+                <p id="rescue-letter-content" class="text-xs text-snowWhite leading-6 font-medium whitespace-pre-wrap"></p>
+            </div>
+            <div class="flex gap-2">
+                <button id="btn-rescue-understood" type="button" class="flex-1 py-3 rounded-xl bg-emeraldAccent text-white font-extrabold text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
+                    شنیدم؛ با قدرت مقاومت می‌کنم
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1458,6 +1583,11 @@
                     dailyCost: 0,
                     dailyHours: 0,
                     coreReason: "",
+                    replacementHabit: "نوشیدن چای سبز با زنجبیل و ۱۰ حرکت کششی",
+                    positiveHabitName: "۲۰ دقیقه مطالعه یا پیاده‌روی",
+                    positiveHabitDates: [],
+                    rescueLetter: "اگر الان داری این نامه رو می‌خونی یعنی مغزت باز داره فریبت میده! یادت نره اون روز چقدر حس پوچی و پشیمونی داشتی. این چند دقیقه وسوسه رو دووم بیار و به آینده‌ت خیانت نکن. تو قوی‌تر از یک ترشح موقت دوپامینی!",
+                    soundHapticEnabled: true,
                     relapses: [],
                     bookmarkedQuotes: [],
                     sosVictories: 0,
@@ -2004,14 +2134,226 @@
                 if (coreEl) coreEl.textContent = '«' + reasonText + '»';
                 if (sosCoreEl) sosCoreEl.textContent = '«' + reasonText + '»';
 
+                const repText = document.getElementById('sos-replacement-habit-text');
+                if (repText) repText.textContent = appState.replacementHabit || 'یک لیوان آب خنک بنوش و مکانت را عوض کن';
+
+                const rescueContent = document.getElementById('rescue-letter-content');
+                if (rescueContent) rescueContent.textContent = appState.rescueLetter || '';
+
                 updateLiveMetrics();
                 const m = getElapsedMetrics();
                 renderHabitChain();
                 renderMilestonesAndRecovery(m.days, m.totalDaysFloat);
                 renderPledgeStatus();
+                renderPositiveHabit();
                 renderJournalList();
                 renderTriggerRadar();
+                renderDangerZoneHeatmap();
+                checkDangerZoneAlert();
                 updateBookmarkUI();
+            }
+
+            // ==========================================
+            // POSITIVE HABIT TRACKER (HABIT STACKING)
+            // ==========================================
+            function renderPositiveHabit() {
+                const titleEl = document.getElementById('positive-habit-title');
+                const streakEl = document.getElementById('positive-habit-streak');
+                const btn = document.getElementById('btn-toggle-positive-habit');
+                const checkIcon = document.getElementById('positive-habit-check-icon');
+                const btnLabel = document.getElementById('positive-habit-btn-label');
+                if (!titleEl || !btn) return;
+
+                titleEl.textContent = appState.positiveHabitName || 'عادت مثبت مکمل';
+                const list = appState.positiveHabitDates || [];
+                if (streakEl) streakEl.textContent = toPersianDigits(list.length) + ' روز استمرار';
+
+                const todayKey = getDateKey(new Date());
+                const isDoneToday = list.includes(todayKey);
+
+                if (isDoneToday) {
+                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-oliveAccent/20 border border-oliveAccent text-oliveAccent';
+                    if (checkIcon) checkIcon.textContent = '✓';
+                    if (btnLabel) btnLabel.textContent = 'تکمیل شد';
+                } else {
+                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray hover:text-snowWhite';
+                    if (checkIcon) checkIcon.textContent = '○';
+                    if (btnLabel) btnLabel.textContent = 'انجام دادم';
+                }
+            }
+
+            // ==========================================
+            // DANGER ZONE HEATMAP & SMART DEFENSE ALERT
+            // ==========================================
+            function renderDangerZoneHeatmap() {
+                const container = document.getElementById('danger-heatmap-bars');
+                const peakBadge = document.getElementById('heatmap-peak-badge');
+                if (!container) return;
+
+                const logs = appState.triggersLog || [];
+                const hourCounts = new Array(24).fill(0);
+                logs.forEach(function (log) {
+                    const h = new Date(log.date).getHours();
+                    if (h >= 0 && h < 24) hourCounts[h]++;
+                });
+
+                const maxCount = Math.max(1, Math.max.apply(null, hourCounts));
+                let peakHour = -1;
+                let maxVal = 0;
+                hourCounts.forEach(function (cnt, h) {
+                    if (cnt > maxVal) { maxVal = cnt; peakHour = h; }
+                });
+
+                if (peakBadge) {
+                    if (maxVal > 0) {
+                        const nextH = (peakHour + 1) % 24;
+                        peakBadge.textContent = 'بیشترین خطر: ' + toPersianDigits(String(peakHour).padStart(2, '0')) + ':00 تا ' + toPersianDigits(String(nextH).padStart(2, '0')) + ':00';
+                    } else {
+                        peakBadge.textContent = 'داده کافی نیست';
+                    }
+                }
+
+                container.innerHTML = '';
+                // 12 columns representing 2-hour blocks
+                for (let b = 0; b < 12; b++) {
+                    const h1 = b * 2;
+                    const h2 = b * 2 + 1;
+                    const blockCount = hourCounts[h1] + hourCounts[h2];
+                    const pct = Math.min(100, Math.round((blockCount / (maxCount * 1.5)) * 100));
+                    const isPeak = maxVal > 0 && (peakHour === h1 || peakHour === h2);
+
+                    const barWrapper = document.createElement('div');
+                    barWrapper.className = 'h-full flex flex-col justify-end items-center';
+                    barWrapper.title = 'ساعت ' + toPersianDigits(h1) + ' تا ' + toPersianDigits(h2) + ' (' + toPersianDigits(blockCount) + ' بار)';
+
+                    const bar = document.createElement('div');
+                    bar.style.height = Math.max(12, pct) + '%';
+                    bar.className = 'w-full rounded-sm transition-all duration-300 ' +
+                        (isPeak ? 'bg-sosRed shadow-[0_0_8px_#F43F5E]' : (blockCount > 0 ? 'bg-amber-400/80' : 'bg-white/10'));
+
+                    barWrapper.appendChild(bar);
+                    container.appendChild(barWrapper);
+                }
+            }
+
+            function checkDangerZoneAlert() {
+                const alertBox = document.getElementById('smart-defense-alert');
+                const alertText = document.getElementById('smart-defense-text');
+                if (!alertBox || !alertText) return;
+
+                const logs = appState.triggersLog || [];
+                if (logs.length < 2) {
+                    alertBox.classList.add('hidden');
+                    alertBox.classList.remove('flex');
+                    return;
+                }
+
+                const hourCounts = new Array(24).fill(0);
+                logs.forEach(function (log) {
+                    const h = new Date(log.date).getHours();
+                    if (h >= 0 && h < 24) hourCounts[h]++;
+                });
+
+                let peakHour = -1;
+                let maxVal = 0;
+                hourCounts.forEach(function (cnt, h) {
+                    if (cnt > maxVal) { maxVal = cnt; peakHour = h; }
+                });
+
+                const currentHour = new Date().getHours();
+                // Alert if current hour is equal or 1 hour before the peak danger hour
+                const isDangerNow = (currentHour === peakHour || currentHour === (peakHour - 1 + 24) % 24);
+
+                if (isDangerNow && maxVal >= 2) {
+                    alertText.innerHTML = 'طبق سابقه تو، ساعت <strong class="text-snowWhite">' + toPersianDigits(peakHour) + ':00</strong> نقطه اوج وسوسه است. گوشی را دور بگذار و برنامه جایگزینت را انجام بده.';
+                    alertBox.classList.remove('hidden');
+                    alertBox.classList.add('flex');
+                } else {
+                    alertBox.classList.add('hidden');
+                    alertBox.classList.remove('flex');
+                }
+            }
+
+            // ==========================================
+            // TIBETAN BOWL AUDIO CHIME & HAPTIC VIBRATION
+            // ==========================================
+            function playTibetanChime(freq, decaySec) {
+                if (!appState.soundHapticEnabled) return;
+                try {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioContextClass) return;
+                    if (!audioCtx) audioCtx = new AudioContextClass();
+                    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const oscHarmonic = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, now);
+
+                    oscHarmonic.type = 'sine';
+                    oscHarmonic.frequency.setValueAtTime(freq * 2.76, now); // Metallic bowl harmonic
+
+                    gain.gain.setValueAtTime(0.22, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + (decaySec || 3));
+
+                    osc.connect(gain);
+                    oscHarmonic.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(now);
+                    oscHarmonic.start(now);
+                    osc.stop(now + (decaySec || 3));
+                    oscHarmonic.stop(now + (decaySec || 3));
+                } catch (e) {}
+            }
+
+            function triggerHaptic(pattern) {
+                if (!appState.soundHapticEnabled) return;
+                try {
+                    if (navigator.vibrate) {
+                        navigator.vibrate(pattern);
+                    }
+                } catch (e) {}
+            }
+
+            // ==========================================
+            // CALENDAR EXPORT (.ICS) WITHOUT SERVER
+            // ==========================================
+            function exportIcsReminder() {
+                const habit = appState.habitName || 'رهایی و پاکی';
+                const icsContent = [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'PRODID:-//Aadatesh//Habit Tracker//FA',
+                    'CALSCALE:GREGORIAN',
+                    'METHOD:PUBLISH',
+                    'BEGIN:VEVENT',
+                    'UID:aadatesh-pledge-' + Date.now() + '@aadatesh.app',
+                    'DTSTAMP:20261027T080000Z',
+                    'DTSTART:20261028T050000Z',
+                    'RRULE:FREQ=DAILY',
+                    'SUMMARY:امضای پیمان هوشیاری عادَتِش (' + habit + ')',
+                    'DESCRIPTION:فقط برای امروز! برنامه عادَتِش را باز کن و پیمان هوشیاری امروزت را امضا کن تا زنجیره اراده‌ات محکم بماند.',
+                    'BEGIN:VALARM',
+                    'ACTION:DISPLAY',
+                    'DESCRIPTION:پیمان هوشیاری امروز عادَتِش',
+                    'TRIGGER:-PT0M',
+                    'END:VALARM',
+                    'END:VEVENT',
+                    'END:VCALENDAR'
+                ].join('\r\n');
+
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'aadatesh-reminder.ics';
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast('فایل یادآور تقویم دانلود شد؛ آن را باز کنید تا در تقویم گوشی ثبت شود.');
             }
 
             // ==========================================
@@ -2445,14 +2787,16 @@
                 if (!circle || !instruction) return;
 
                 function runCycle() {
-                    // 4s Inhale
+                    // 4s Inhale - Tibetan Singing Bowl chime (528 Hz) & smooth breath vibration
                     instruction.textContent = 'دم عمیق با بینی (۴ ثانیه)';
                     if (sub) sub.textContent = 'ریه‌ها را آرام پر از اکسیژن کن';
                     circle.style.transitionDuration = '4000ms';
                     circle.style.transform = 'scale(1.65)';
+                    playTibetanChime(528, 3.5);
+                    triggerHaptic([120, 80, 120]);
 
                     const t1 = setTimeout(function () {
-                        // 7s Hold
+                        // 7s Hold - Pause vibration & quiet contemplation
                         instruction.textContent = 'نگه داشتن نفس (۷ ثانیه)';
                         if (sub) sub.textContent = 'ضربان قلب در حال آرام شدن است';
                         circle.style.transitionDuration = '7000ms';
@@ -2460,11 +2804,13 @@
                     }, 4000);
 
                     const t2 = setTimeout(function () {
-                        // 8s Exhale
+                        // 8s Exhale - Soft low chime (396 Hz) & rhythmic release vibration
                         instruction.textContent = 'بازدم آرام با دهان (۸ ثانیه)';
                         if (sub) sub.textContent = 'تمام تنش و وسوسه را بیرون بده';
                         circle.style.transitionDuration = '8000ms';
                         circle.style.transform = 'scale(1)';
+                        playTibetanChime(396, 4.0);
+                        triggerHaptic([60, 100, 60, 100]);
                     }, 11000);
 
                     breathingTimeoutIds.push(t1, t2);
@@ -3303,12 +3649,16 @@
                         const cost = parseFormattedNumber(document.getElementById('input-daily-cost').value);
                         const hours = parseFormattedNumber(document.getElementById('input-daily-hours').value);
                         const reason = document.getElementById('input-core-reason').value.trim();
+                        const rep = document.getElementById('input-replacement-habit').value.trim();
+                        const pos = document.getElementById('input-positive-habit').value.trim();
 
                         appState.habitName = name || 'عادت من';
                         appState.startDate = getISOFromJalaliPicker('ob');
                         appState.dailyCost = cost;
                         appState.dailyHours = hours;
                         appState.coreReason = reason;
+                        if (rep) appState.replacementHabit = rep;
+                        if (pos) appState.positiveHabitName = pos;
                         appState.isSetupDone = true;
                         saveState();
 
@@ -3324,6 +3674,91 @@
                         }
                     });
                 }
+
+                // Smart Defense Banner Dismiss
+                const btnDismissDefense = document.getElementById('btn-defense-dismiss');
+                if (btnDismissDefense) {
+                    btnDismissDefense.addEventListener('click', function () {
+                        const alertBox = document.getElementById('smart-defense-alert');
+                        if (alertBox) {
+                            alertBox.classList.add('hidden');
+                            alertBox.classList.remove('flex');
+                        }
+                    });
+                }
+
+                // Positive Habit Tracker Toggle
+                const btnPosHabit = document.getElementById('btn-toggle-positive-habit');
+                if (btnPosHabit) {
+                    btnPosHabit.addEventListener('click', function () {
+                        if (!Array.isArray(appState.positiveHabitDates)) appState.positiveHabitDates = [];
+                        const todayKey = getDateKey(new Date());
+                        const idx = appState.positiveHabitDates.indexOf(todayKey);
+                        if (idx === -1) {
+                            appState.positiveHabitDates.push(todayKey);
+                            showToast('عادت مثبت امروز ثبت شد! آفرین به رویش تو 🌱');
+                        } else {
+                            appState.positiveHabitDates.splice(idx, 1);
+                        }
+                        saveState();
+                        renderPositiveHabit();
+                    });
+                }
+
+                // Rescue Letter Modal
+                const btnOpenRescue = document.getElementById('btn-open-rescue-letter');
+                const btnCloseRescue = document.getElementById('btn-close-rescue-letter');
+                const btnRescueUnderstood = document.getElementById('btn-rescue-understood');
+                const modalRescue = document.getElementById('modal-rescue-letter');
+
+                if (btnOpenRescue && modalRescue) {
+                    btnOpenRescue.addEventListener('click', function () {
+                        const content = document.getElementById('rescue-letter-content');
+                        if (content) content.textContent = appState.rescueLetter || '';
+                        modalRescue.classList.remove('hidden');
+                        modalRescue.classList.add('flex');
+                    });
+                }
+                function closeRescueModal() {
+                    if (modalRescue) {
+                        modalRescue.classList.add('hidden');
+                        modalRescue.classList.remove('flex');
+                    }
+                }
+                if (btnCloseRescue) btnCloseRescue.addEventListener('click', closeRescueModal);
+                if (btnRescueUnderstood) {
+                    btnRescueUnderstood.addEventListener('click', function () {
+                        closeRescueModal();
+                        showToast('پای حرف خودت بمون؛ تو از این وسوسه قوی‌تری!');
+                    });
+                }
+
+                // Sound & Haptic Feedback Toggle in SOS
+                const btnToggleSoundHaptic = document.getElementById('btn-toggle-sound-haptic');
+                const dotSoundHaptic = document.getElementById('sound-haptic-status-dot');
+                const labelSoundHaptic = document.getElementById('sound-haptic-label');
+
+                if (btnToggleSoundHaptic) {
+                    btnToggleSoundHaptic.addEventListener('click', function () {
+                        appState.soundHapticEnabled = !appState.soundHapticEnabled;
+                        saveState();
+                        if (dotSoundHaptic && labelSoundHaptic) {
+                            if (appState.soundHapticEnabled) {
+                                dotSoundHaptic.className = 'w-2 h-2 rounded-full bg-emeraldAccent';
+                                labelSoundHaptic.textContent = 'راهنمای چشم‌بسته (زنگ تبتی و لرزش فعال 🔔📳)';
+                                playTibetanChime(528, 1.5);
+                                triggerHaptic([80]);
+                            } else {
+                                dotSoundHaptic.className = 'w-2 h-2 rounded-full bg-mutedGray';
+                                labelSoundHaptic.textContent = 'راهنمای حسی خاموش است';
+                            }
+                        }
+                    });
+                }
+
+                // Calendar (.ics) Export
+                const btnExportIcs = document.getElementById('btn-export-ics');
+                if (btnExportIcs) btnExportIcs.addEventListener('click', exportIcsReminder);
 
                 // Theme toggle buttons
                 const btnToggleTheme = document.getElementById('btn-toggle-theme');
@@ -3891,6 +4326,9 @@
                         const hoursEl = document.getElementById('settings-daily-hours');
                         const reasonEl = document.getElementById('settings-core-reason');
                         const pinEl = document.getElementById('settings-pin-code');
+                        const repEl = document.getElementById('settings-replacement-habit');
+                        const posEl = document.getElementById('settings-positive-habit');
+                        const rescueEl = document.getElementById('settings-rescue-letter');
 
                         if (habitEl) habitEl.value = appState.habitName || '';
                         setJalaliPickerFromISO('st', appState.startDate);
@@ -3898,6 +4336,9 @@
                         if (hoursEl) hoursEl.value = appState.dailyHours || '';
                         if (reasonEl) reasonEl.value = appState.coreReason || '';
                         if (pinEl) pinEl.value = appState.pinCode || '';
+                        if (repEl) repEl.value = appState.replacementHabit || '';
+                        if (posEl) posEl.value = appState.positiveHabitName || '';
+                        if (rescueEl) rescueEl.value = appState.rescueLetter || '';
 
                         modalSettings.classList.remove('hidden');
                         modalSettings.classList.add('flex');
@@ -3918,6 +4359,14 @@
                         appState.dailyHours = parseFormattedNumber(document.getElementById('settings-daily-hours').value);
                         appState.coreReason = document.getElementById('settings-core-reason').value.trim();
                         appState.pinCode = toEnglishDigits(document.getElementById('settings-pin-code').value.trim());
+
+                        const repVal = document.getElementById('settings-replacement-habit').value.trim();
+                        const posVal = document.getElementById('settings-positive-habit').value.trim();
+                        const rescueVal = document.getElementById('settings-rescue-letter').value.trim();
+                        if (repVal) appState.replacementHabit = repVal;
+                        if (posVal) appState.positiveHabitName = posVal;
+                        if (rescueVal) appState.rescueLetter = rescueVal;
+
                         saveState();
                         modalSettings.classList.add('hidden');
                         modalSettings.classList.remove('flex');
