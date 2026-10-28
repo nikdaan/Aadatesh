@@ -193,6 +193,12 @@
             color: #007F68 !important;
             background-color: rgba(0, 127, 104, 0.16) !important;
         }
+        .floating-menubar-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.55), 0 4px 10px -4px rgba(0, 0, 0, 0.35) !important;
+        }
+        html.light .floating-menubar-shadow {
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.14), 0 4px 10px -4px rgba(15, 23, 42, 0.08) !important;
+        }
         .safe-main-container {
             padding-top: max(2.75rem, calc(env(safe-area-inset-top, 20px) + 1.5rem));
             padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
@@ -486,40 +492,64 @@
                         </button>
                     </section>
 
-                    <!-- UNIFIED HABIT STACKING & REPLACEMENT PLAN CARD (SIMPLIFIED) -->
-                    <section id="section-positive-habit" class="glass-card rounded-2xl p-4 border border-oliveAccent/30 space-y-3">
-                        <div class="flex items-center justify-between">
+                    <!-- UNIFIED HABIT STACKING & REPLACEMENT PLAN CARD (REDESIGNED) -->
+                    <section id="section-positive-habit" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 relative overflow-hidden space-y-3.5">
+                        <!-- Subtle Top Glow -->
+                        <div class="flex items-center justify-between gap-2">
                             <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-oliveAccent"></span>
-                                <h3 class="text-xs font-extrabold text-snowWhite">عادت سازنده روزانه و برنامه جایگزین</h3>
+                                <div class="w-8 h-8 rounded-xl bg-oliveAccent/15 border border-oliveAccent/30 flex items-center justify-center text-oliveAccent shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xs font-black text-snowWhite">عادت سازنده و برنامه جایگزین</h3>
+                                    <p class="text-[10px] text-mutedGray">سیم‌کشی مسیر عصبی جدید و ضدوسوسه</p>
+                                </div>
                             </div>
-                            <span id="positive-habit-streak" class="text-[11px] font-bold text-oliveAccent">۰ روز استمرار</span>
+                            <span id="positive-habit-streak" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-oliveAccent/15 text-oliveAccent border border-oliveAccent/30 whitespace-nowrap">
+                                ۰ روز استمرار
+                            </span>
                         </div>
 
-                        <!-- Daily Positive Habit Check -->
-                        <div class="flex items-center justify-between gap-3 bg-appBg/60 p-2.5 rounded-xl glass-border">
-                            <div class="min-w-0 flex-1">
-                                <div id="positive-habit-title" class="text-xs font-bold text-snowWhite truncate">۲۰ دقیقه مطالعه یا پیاده‌روی</div>
-                                <div class="text-[10px] text-mutedGray mt-0.5">ساخت مسیر عصبی جدید با یک کار مثبت روزانه</div>
+                        <!-- 1. Daily Positive Habit Interactive Box -->
+                        <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-3 transition hover:border-oliveAccent/40">
+                            <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                                <span class="text-base shrink-0">🌱</span>
+                                <div class="min-w-0 flex-1">
+                                    <div class="text-[10px] font-bold text-oliveAccent mb-0.5">عادت مثبت روزانه من:</div>
+                                    <div id="positive-habit-title" class="text-xs font-extrabold text-snowWhite truncate">۲۰ دقیقه مطالعه یا پیاده‌روی</div>
+                                </div>
                             </div>
-                            <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray">
+                            <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2.5 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray">
                                 <span id="positive-habit-check-icon">○</span>
                                 <span id="positive-habit-btn-label">انجام دادم</span>
                             </button>
                         </div>
 
-                        <!-- If-Then Replacement Plan Row -->
-                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/5 text-[11px]">
-                            <div class="min-w-0 flex-1 text-mutedGray truncate">
-                                <span class="font-bold text-emeraldAccent">اگر وسوسه شدم ⬅</span>
-                                <span id="dashboard-replacement-habit" class="text-snowWhite font-semibold mr-1">نوشیدن آب خنک و تغییر مکان</span>
+                        <!-- 2. If-Then Replacement Plan Box -->
+                        <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2.5">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start gap-2 min-w-0 flex-1">
+                                    <span class="text-sm shrink-0 mt-0.5">⚡</span>
+                                    <div class="min-w-0 flex-1">
+                                        <div class="text-[10px] font-extrabold text-emeraldAccent">قانون جایگزین (اگر وسوسه شدم ⬅ آنگاه):</div>
+                                        <div id="dashboard-replacement-habit" class="text-xs font-bold text-snowWhite mt-0.5 leading-5 break-words">
+                                            نوشیدن آب خنک و تغییر مکان
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-1 shrink-0">
-                                <button id="btn-quick-rescue-letter" type="button" class="text-[10px] font-bold text-snowWhite hover:border-emeraldAccent px-2 py-1 rounded-lg bg-appBg glass-border transition">
-                                    📩 نامه من
+
+                            <!-- Action Pills Row -->
+                            <div class="flex items-center justify-end gap-1.5 pt-2 border-t border-white/5">
+                                <button id="btn-quick-rescue-letter" type="button" class="flex-1 py-1.5 px-2.5 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-snowWhite hover:border-emeraldAccent active:scale-95 transition flex items-center justify-center gap-1.5">
+                                    <span>📩</span>
+                                    <span>نامه نجات من</span>
                                 </button>
-                                <button id="btn-edit-habits-quick" type="button" class="text-[10px] font-bold text-emeraldAccent hover:underline px-2 py-1 rounded-lg bg-emeraldAccent/10">
-                                    ویرایش ✎
+                                <button id="btn-edit-habits-quick" type="button" class="py-1.5 px-3 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent/40 text-[11px] font-extrabold text-emeraldAccent hover:bg-emeraldAccent hover:text-white active:scale-95 transition flex items-center justify-center gap-1">
+                                    <span>ویرایش برنامه</span>
+                                    <span>✎</span>
                                 </button>
                             </div>
                         </div>
@@ -840,7 +870,7 @@
          FIXED FLOATING 5-ITEM BOTTOM NAVIGATION BAR (ALWAYS ON SCREEN)
          ========================================== -->
     <nav aria-label="منوی شناور پایین" class="fixed inset-x-0 safe-bottom-bar z-40 flex justify-center px-3 pointer-events-none">
-        <div class="pointer-events-auto w-full max-w-md glass-card rounded-3xl px-2 py-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.7)] border border-white/15 grid grid-cols-5 items-center gap-1">
+        <div class="pointer-events-auto w-full max-w-md glass-card floating-menubar-shadow rounded-3xl px-2 py-1.5 border border-white/15 grid grid-cols-5 items-center gap-1">
             
             <!-- 1. Counter (روزشمار) -->
             <button type="button" data-nav-target="section-hero" class="bottom-nav-btn nav-item-active flex flex-col items-center justify-center h-12 rounded-2xl active:scale-95 transition">
@@ -2248,11 +2278,11 @@
                 const isDoneToday = list.includes(todayKey);
 
                 if (isDoneToday) {
-                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-oliveAccent/20 border border-oliveAccent text-oliveAccent';
+                    btn.className = 'px-3.5 py-2.5 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-oliveAccent/20 border border-oliveAccent text-oliveAccent shadow-sm';
                     if (checkIcon) checkIcon.textContent = '✓';
                     if (btnLabel) btnLabel.textContent = 'تکمیل شد';
                 } else {
-                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray hover:text-snowWhite';
+                    btn.className = 'px-3.5 py-2.5 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray hover:text-snowWhite';
                     if (checkIcon) checkIcon.textContent = '○';
                     if (btnLabel) btnLabel.textContent = 'انجام دادم';
                 }
