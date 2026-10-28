@@ -399,33 +399,21 @@
                         </svg>
                     </button>
 
-                    <!-- SMART DEFENSE & QUICK COACH TOOLS BAR -->
-                    <section id="smart-defense-alert" class="glass-card rounded-2xl p-3.5 border-r-4 border-r-emeraldAccent flex flex-col gap-2.5">
-                        <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2 min-w-0">
-                                <span id="defense-status-dot" class="w-2.5 h-2.5 rounded-full bg-emeraldAccent shrink-0 shadow-[0_0_8px_#007F68]"></span>
-                                <h4 id="defense-status-title" class="text-xs font-black text-snowWhite truncate">سپر دفاعی و ابزارهای سریع مربی</h4>
-                            </div>
-                            <span id="defense-status-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-emeraldAccent/15 text-emeraldAccent shrink-0">آماده به کار</span>
-                        </div>
-                        <p id="smart-defense-text" class="text-[11px] text-mutedGray leading-5">
-                            ابزارهای کمکی برای لحظات حساس؛ نامه نجات و یادآور تقویم همیشه در دسترس تو هستند.
-                        </p>
-                        <div class="grid grid-cols-3 gap-1.5 pt-1">
-                            <button id="btn-dashboard-rescue-letter" type="button" class="py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-snowWhite hover:border-emeraldAccent active:scale-95 transition flex items-center justify-center gap-1">
-                                <span>📩</span>
-                                <span>نامه نجات من</span>
-                            </button>
-                            <button id="btn-dashboard-ics" type="button" class="py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-snowWhite hover:border-emeraldAccent active:scale-95 transition flex items-center justify-center gap-1">
-                                <span>📅</span>
-                                <span>یادآور تقویم</span>
-                            </button>
-                            <button id="btn-dashboard-test-chime" type="button" class="py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-emeraldAccent hover:border-emeraldAccent active:scale-95 transition flex items-center justify-center gap-1">
-                                <span>🔔</span>
-                                <span>زنگ آرامش</span>
-                            </button>
-                        </div>
-                    </section>
+                    <!-- Settings Button -->
+                    <button id="btn-open-settings" type="button" title="تنظیمات" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite active:scale-95 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- DESKTOP 2-COLUMN RESPONSIVE GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+                <!-- RIGHT COLUMN (7 Cols on Desktop) -->
+                <div class="lg:col-span-7 space-y-4">
 
                     <!-- HERO SECTION: STAR DAY COUNTER -->
                     <section id="section-hero" class="glass-card hero-radial-glow rounded-3xl p-5 emerald-glow relative overflow-hidden">
@@ -488,34 +476,52 @@
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-extrabold text-snowWhite">پیمان هوشیاری امروز</span>
                             </div>
-                    <!-- POSITIVE HABIT TRACKER & REPLACEMENT LOOP -->
-                    <section id="section-positive-habit" class="glass-card rounded-2xl p-4 border border-oliveAccent/30 space-y-2.5">
+                            <span id="pledge-streak-badge" class="text-[11px] text-emeraldAccent font-bold">۰ روز پیمان</span>
+                        </div>
+                        <button id="btn-hold-pledge" type="button" class="w-full py-3.5 px-4 rounded-xl bg-appBg glass-border relative overflow-hidden flex items-center justify-center gap-2 text-xs font-extrabold text-snowWhite select-none active:scale-[0.99] transition">
+                            <div id="pledge-fill-bar" class="absolute inset-y-0 right-0 bg-emeraldAccent/25 transition-all duration-75" style="width: 0%"></div>
+                            <div id="pledge-btn-text" class="relative z-10 flex items-center gap-2">
+                                <span>برای امضای پیمان امروز، ۲ ثانیه نگه دارید</span>
+                            </div>
+                        </button>
+                    </section>
+
+                    <!-- UNIFIED HABIT STACKING & REPLACEMENT PLAN CARD (SIMPLIFIED) -->
+                    <section id="section-positive-habit" class="glass-card rounded-2xl p-4 border border-oliveAccent/30 space-y-3">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-oliveAccent"></span>
-                                <h3 class="text-xs font-extrabold text-snowWhite">عادت سازنده روزانه و جایگزین فوری</h3>
+                                <h3 class="text-xs font-extrabold text-snowWhite">عادت سازنده روزانه و برنامه جایگزین</h3>
                             </div>
                             <span id="positive-habit-streak" class="text-[11px] font-bold text-oliveAccent">۰ روز استمرار</span>
                         </div>
+
+                        <!-- Daily Positive Habit Check -->
                         <div class="flex items-center justify-between gap-3 bg-appBg/60 p-2.5 rounded-xl glass-border">
                             <div class="min-w-0 flex-1">
                                 <div id="positive-habit-title" class="text-xs font-bold text-snowWhite truncate">۲۰ دقیقه مطالعه یا پیاده‌روی</div>
-                                <div class="text-[10px] text-mutedGray mt-0.5">کار مثبتی که امروز برای ساختن خودت انجام میدی</div>
+                                <div class="text-[10px] text-mutedGray mt-0.5">ساخت مسیر عصبی جدید با یک کار مثبت روزانه</div>
                             </div>
                             <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray">
                                 <span id="positive-habit-check-icon">○</span>
                                 <span id="positive-habit-btn-label">انجام دادم</span>
                             </button>
                         </div>
-                        <!-- Quick Replacement Habit Display -->
-                        <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-emeraldAccent/10 border border-emeraldAccent/25 text-[11px]">
-                            <div class="min-w-0 flex-1 truncate">
-                                <span class="text-mutedGray">اگر وسوسه شدم ⬅ </span>
-                                <strong id="dashboard-replacement-text" class="text-emeraldAccent font-extrabold">نوشیدن آب خنک و تغییر مکان</strong>
+
+                        <!-- If-Then Replacement Plan Row -->
+                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/5 text-[11px]">
+                            <div class="min-w-0 flex-1 text-mutedGray truncate">
+                                <span class="font-bold text-emeraldAccent">اگر وسوسه شدم ⬅</span>
+                                <span id="dashboard-replacement-habit" class="text-snowWhite font-semibold mr-1">نوشیدن آب خنک و تغییر مکان</span>
                             </div>
-                            <button id="btn-quick-edit-habits" type="button" class="text-[10px] font-bold text-snowWhite bg-appBg/80 px-2 py-1 rounded-lg glass-border shrink-0 hover:border-emeraldAccent">
-                                ویرایش
-                            </button>
+                            <div class="flex items-center gap-1 shrink-0">
+                                <button id="btn-quick-rescue-letter" type="button" class="text-[10px] font-bold text-snowWhite hover:border-emeraldAccent px-2 py-1 rounded-lg bg-appBg glass-border transition">
+                                    📩 نامه من
+                                </button>
+                                <button id="btn-edit-habits-quick" type="button" class="text-[10px] font-bold text-emeraldAccent hover:underline px-2 py-1 rounded-lg bg-emeraldAccent/10">
+                                    ویرایش ✎
+                                </button>
+                            </div>
                         </div>
                     </section>
 
@@ -568,7 +574,7 @@
                         <div id="goal-box-content"></div>
                     </section>
 
-                    <!-- 30-DAY VISUAL HABIT CHAIN -->
+                    <!-- 30-DAY VISUAL HABIT CHAIN (FULL CARD ID FOR SPOTLIGHT TOUR) -->
                     <section id="section-habit-chain" class="glass-card rounded-2xl p-4">
                         <div class="flex items-center justify-between mb-3">
                             <div class="flex items-center gap-2">
@@ -739,91 +745,92 @@
          ========================================== -->
     <div id="modal-onboarding" class="fixed inset-0 z-[70] bg-appBg/95 backdrop-blur-2xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
         <div class="w-full max-w-md glass-card rounded-3xl p-6 my-auto border border-emeraldAccent/30 shadow-2xl space-y-5">
+            <!-- Brand Logo & Minimal Welcome Header -->
             <div class="text-center space-y-1.5">
-                <div class="w-14 h-14 rounded-2xl border border-emeraldAccent/40 flex items-center justify-center mx-auto shadow-lg overflow-hidden mb-2">
+                <div class="w-16 h-16 rounded-2xl border border-emeraldAccent/40 flex items-center justify-center mx-auto shadow-lg overflow-hidden mb-2">
                     <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none">
                         <rect width="1000" height="1000" fill="url(#header-logo-grad)" />
-                        <g transform="translate(500, 500) scale(1.12) translate(-505, -518)">
-                            <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" />
-                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" />
-                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" />
+                        <g transform="translate(500, 500) scale(1.12) translate(-505, -518)" filter="url(#header-emboss)">
+                            <circle cx="505" cy="272" r="85" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                            <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
+                            <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="url(#header-glyph-grad)" stroke="rgba(255,255,255,0.35)" stroke-width="5" />
                         </g>
                     </svg>
                 </div>
                 <h2 class="text-xl font-black text-snowWhite">به «عادَتِش» خوش آمدی</h2>
-                <p class="text-xs text-mutedGray leading-5">پروتکل علمی بازسازی دوپامین و رهایی پایدار (اطلاعات ۱۰۰٪ خصوصی روی گوشی خودت ذخیره می‌شود)</p>
+                <p class="text-[11px] text-mutedGray">شروع مسیر رهایی در کمتر از ۱۰ ثانیه (۱۰۰٪ خصوصی روی گوشی شما)</p>
             </div>
 
-            <form id="form-onboarding" class="space-y-3.5">
+            <form id="form-onboarding" class="space-y-4">
+                <!-- Step 1: Habit Selection (Clean 2x2 Grid + Input) -->
                 <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1.5">کدام عادت را می‌خواهی کنار بگذاری؟</label>
-                    <div class="flex flex-wrap gap-1.5 mb-2">
-                        <button type="button" data-habit="سیگار و ویپ" class="habit-chip chip-selected-emerald text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">سیگار و ویپ</button>
-                        <button type="button" data-habit="پورن و خودارضایی" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">پورن و خودارضایی</button>
-                        <button type="button" data-habit="اسکرول و سوشال‌مدیا" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">اسکرول و سوشال‌مدیا</button>
-                        <button type="button" data-habit="قند مصنوعی و فست‌فود" class="habit-chip text-[11px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition">قند و فست‌فود</button>
+                    <label class="block text-xs font-extrabold text-snowWhite mb-2">۱. کدام عادت را کنار می‌گذاری؟</label>
+                    <div class="grid grid-cols-2 gap-1.5 mb-2">
+                        <button type="button" data-habit="سیگار و ویپ" class="habit-chip chip-selected-emerald text-xs py-2.5 px-3 rounded-xl bg-appBg glass-border text-mutedGray transition text-center">💨 سیگار و ویپ</button>
+                        <button type="button" data-habit="پورن و خودارضایی" class="habit-chip text-xs py-2.5 px-3 rounded-xl bg-appBg glass-border text-mutedGray transition text-center">🔒 پورن و خودارضایی</button>
+                        <button type="button" data-habit="اسکرول و سوشال‌مدیا" class="habit-chip text-xs py-2.5 px-3 rounded-xl bg-appBg glass-border text-mutedGray transition text-center">📱 سوشال‌مدیا و وب</button>
+                        <button type="button" data-habit="قند مصنوعی و فست‌فود" class="habit-chip text-xs py-2.5 px-3 rounded-xl bg-appBg glass-border text-mutedGray transition text-center">🍬 قند و فست‌فود</button>
                     </div>
-                    <input id="input-habit-name" type="text" required value="سیگار و ویپ" placeholder="یا نام عادت را بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                    <input id="input-habit-name" type="text" required value="سیگار و ویپ" placeholder="یا نام عادت دلخواهت را اینجا بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                 </div>
 
+                <!-- Step 2: 1-Click Quick Start Time -->
                 <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1.5">زمان آخرین مصرف (شروع پاکی)</label>
-                    <div class="grid grid-cols-3 gap-1.5 mb-1.5">
-                        <select id="ob-j-day" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
-                        <select id="ob-j-month" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
-                        <select id="ob-j-year" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                    <label class="block text-xs font-extrabold text-snowWhite mb-2">۲. از چه زمانی شروع می‌کنی؟</label>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <button type="button" data-start-preset="now" class="ob-time-chip chip-selected-emerald py-2.5 px-2 rounded-xl bg-appBg glass-border text-[11px] font-bold text-mutedGray transition">
+                            ⚡ همین الان
+                        </button>
+                        <button type="button" data-start-preset="morning" class="ob-time-chip py-2.5 px-2 rounded-xl bg-appBg glass-border text-[11px] font-bold text-mutedGray transition">
+                            🌅 از امروز صبح
+                        </button>
+                        <button type="button" data-start-preset="custom" class="ob-time-chip py-2.5 px-2 rounded-xl bg-appBg glass-border text-[11px] font-bold text-mutedGray transition">
+                            📅 تاریخ دیگر...
+                        </button>
                     </div>
-                    <div class="grid grid-cols-2 gap-1.5">
-                        <select id="ob-j-minute" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
-                        <select id="ob-j-hour" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
+
+                    <!-- Hidden Custom Jalali Date Picker (Only opens if user clicks "تاریخ دیگر...") -->
+                    <div id="ob-custom-date-box" class="hidden mt-2.5 p-2.5 rounded-2xl bg-appBg/60 glass-border space-y-1.5">
+                        <div class="grid grid-cols-3 gap-1.5">
+                            <select id="ob-j-day" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                            <select id="ob-j-month" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                            <select id="ob-j-year" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <select id="ob-j-minute" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
+                            <select id="ob-j-hour" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center" dir="ltr"></select>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2.5">
-                    <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">هزینه روزانه (تومان)</label>
-                        <input id="input-daily-cost" type="text" inputmode="numeric" value="50,000" placeholder="مثلاً: 50,000" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">زمان تلف‌شده در روز (ساعت)</label>
-                        <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" placeholder="مثلاً: 1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1">عادت فیزیکی جایگزین (وقتی وسوسه شدی به جایش چه می‌کنی؟)</label>
-                    <input id="input-replacement-habit" type="text" value="نوشیدن چای سبز با زنجبیل و ۱۰ حرکت کششی" placeholder="مثلاً: جویدن آدامس اکالیپتوس یا شنا" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1">عادت مثبت مکمل (برای بازسازی هویت و ساختن مسیر نو)</label>
-                    <input id="input-positive-habit" type="text" value="۲۰ دقیقه مطالعه یا پیاده‌روی" placeholder="مثلاً: ۲۰ دقیقه مطالعه یا پیاده‌روی" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-snowWhite mb-1">مهم‌ترین دلیل و تعهد تو برای این تصمیم چیست؟</label>
-                    <textarea id="input-core-reason" rows="2" placeholder="مثلاً: می‌خوام تمرکزم برگرده و به خودم افتخار کنم..." class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
-                </div>
-
-                <!-- Optional Expandable Advanced Habits in Onboarding -->
-                <details class="bg-appBg/50 rounded-xl glass-border p-2.5">
-                    <summary class="text-[11px] font-bold text-emeraldAccent cursor-pointer select-none">
-                        + تنظیم عادت جایگزین و مکمل (اختیاری - قابل تغییر در تنظیمات)
+                <!-- Optional Details Accordion (Keeps main screen ultra-clean) -->
+                <details class="group rounded-2xl bg-appBg/40 glass-border overflow-hidden">
+                    <summary class="px-3.5 py-2.5 text-[11px] font-bold text-mutedGray hover:text-snowWhite cursor-pointer flex items-center justify-between list-none select-none">
+                        <span>⚙️ تنظیم هزینه، زمان و انگیزه شخصی (اختیاری)</span>
+                        <span class="text-emeraldAccent transition-transform group-open:rotate-180">▼</span>
                     </summary>
-                    <div class="space-y-2.5 pt-2.5 mt-2 border-t border-white/5">
-                        <div>
-                            <label class="block text-[11px] font-bold text-snowWhite mb-1">وقتی وسوسه شدی به جایش چه کار فوری می‌کنی؟</label>
-                            <input id="input-replacement-habit" type="text" value="نوشیدن آب خنک و ۱۰ نفس عمیق" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                    <div class="p-3.5 pt-2 border-t border-white/5 space-y-3">
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-[11px] font-bold text-snowWhite mb-1">هزینه روزانه (تومان)</label>
+                                <input id="input-daily-cost" type="text" inputmode="numeric" value="50,000" placeholder="مثلاً: 50,000" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-snowWhite mb-1">زمان تلف‌شده (ساعت)</label>
+                                <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" placeholder="مثلاً: 1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
+                            </div>
                         </div>
                         <div>
-                            <label class="block text-[11px] font-bold text-snowWhite mb-1">عادت مثبت روزانه (ساخت مسیر نو)</label>
-                            <input id="input-positive-habit" type="text" value="۲۰ دقیقه مطالعه یا پیاده‌روی" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                            <label class="block text-[11px] font-bold text-snowWhite mb-1">مهم‌ترین انگیزه تو برای این تصمیم</label>
+                            <input id="input-core-reason" type="text" value="بازپس‌گیری تمرکز، آرامش و احترام به خودم" placeholder="مثلاً: می‌خوام تمرکزم برگرده..." class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                         </div>
+                        <input id="input-replacement-habit" type="hidden" value="نوشیدن یک لیوان آب خنک و تغییر مکان">
+                        <input id="input-positive-habit" type="hidden" value="۲۰ دقیقه مطالعه یا پیاده‌روی">
                     </div>
                 </details>
 
                 <button type="submit" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
-                    شروع مسیر رهایی من
+                    شروع مسیر رهایی من ←
                 </button>
             </form>
         </div>
@@ -887,38 +894,320 @@
     </nav>
 
     <!-- ==========================================
-         SETTINGS DRAWER / MODAL (CLEAN 3-TAB DESIGN)
+         SOS FULLSCREEN OVERLAY (REDESIGNED: CLEAN, MINIMAL & POWERFUL)
+         ========================================== -->
+    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full gap-3 py-1">
+            
+            <!-- 1. Unified Minimal Header + Integrated Countdown Pill -->
+            <div class="flex items-center justify-between gap-2 pb-2 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sosRed animate-ping shrink-0"></span>
+                    <div>
+                        <h2 class="text-xs font-black text-snowWhite">اتاق آرامش و موج‌شکن</h2>
+                        <p class="text-[10px] text-mutedGray">موج وسوسه تا ۵ دقیقه دیگر فروکش می‌کند</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <!-- Compact Countdown Pill -->
+                    <div class="flex items-center gap-1 bg-appBg glass-border px-2.5 py-1 rounded-xl">
+                        <span id="sos-countdown-display" class="text-xs font-black text-emeraldAccent tracking-wider" dir="ltr">۰۵:۰۰</span>
+                        <button id="btn-toggle-sos-timer" type="button" class="text-[10px] text-mutedGray hover:text-snowWhite px-1 border-r border-white/10 pr-1.5">توقف</button>
+                        <button id="btn-reset-sos-timer" type="button" title="شروع مجدد تایمر" class="text-[10px] text-mutedGray hover:text-snowWhite">↺</button>
+                    </div>
+
+                    <!-- Ambient Sound Toggle Button -->
+                    <button id="btn-toggle-ambient-audio" type="button" title="پلیر صدای آرامش" class="h-8 px-2.5 rounded-xl glass-card flex items-center gap-1.5 text-[11px] text-mutedGray hover:text-snowWhite transition">
+                        <span id="ambient-audio-dot" class="w-2 h-2 rounded-full bg-mutedGray"></span>
+                        <span id="ambient-audio-label" class="font-bold">صدا</span>
+                    </button>
+
+                    <!-- Close SOS Button -->
+                    <button id="btn-close-sos" type="button" class="h-8 px-2.5 rounded-xl glass-card text-[11px] font-bold text-mutedGray hover:text-snowWhite">
+                        بستن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ambient Sound Swipeable Drawer (Collapsible) -->
+            <div id="ambient-player-drawer" class="hidden glass-card rounded-2xl p-3 border border-emeraldAccent/30 select-none">
+                <div class="flex items-center justify-between text-[10px] text-mutedGray mb-1.5">
+                    <span>برای تعویض صدای محیط به چپ یا راست بکشید</span>
+                    <button id="btn-mute-ambient" type="button" class="text-sosRed font-bold hover:underline">خاموش کردن صدا</button>
+                </div>
+                <div id="ambient-swipe-area" class="flex items-center justify-between gap-2 bg-appBg/70 glass-border rounded-xl p-2 cursor-grab active:cursor-grabbing">
+                    <button id="btn-ambient-prev" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                    <div id="ambient-track-info" class="text-center flex-1">
+                        <div id="ambient-track-title" class="text-xs font-black text-emeraldAccent">۱. امواج آرام اقیانوس</div>
+                        <div id="ambient-track-desc" class="text-[10px] text-mutedGray mt-0.5">موج‌های عمیق برای کاهش ضربان قلب</div>
+                    </div>
+                    <button id="btn-ambient-next" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                </div>
+                <div id="ambient-dots" class="flex justify-center gap-1.5 mt-2"></div>
+            </div>
+
+            <!-- REPLACEMENT HABIT BANNER (IMPLEMENTATION INTENTIONS - NEW) -->
+            <div class="glass-card rounded-2xl p-3 border-r-4 border-r-oliveAccent bg-oliveAccent/10 flex items-center justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <div class="text-[10px] font-extrabold text-oliveAccent">⚡ برنامه جایگزین فوری تو در این لحظه:</div>
+                    <div id="sos-replacement-habit-text" class="text-xs font-black text-snowWhite mt-0.5 truncate">بلند شو و چای سبز با زنجبیل بنوش</div>
+                </div>
+                <button id="btn-open-rescue-letter" type="button" class="px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-emeraldAccent font-bold text-[11px] shrink-0 active:scale-95 transition flex items-center gap-1">
+                    <span>📩 نامه خودت</span>
+                </button>
+            </div>
+
+            <!-- 2. Reality Flashcard (تلنگر واقعیت + انگیزه شخصی) -->
+            <div class="glass-card rounded-2xl p-3.5 border-r-4 border-r-emeraldAccent flex items-start justify-between gap-2">
+                <div class="space-y-1 flex-1">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[10px] font-black text-emeraldAccent bg-emeraldAccent/10 px-2 py-0.5 rounded-md">تلنگر لحظه</span>
+                        <span class="text-[10px] text-mutedGray">تعهد تو: <strong id="sos-core-reason" class="text-snowWhite"></strong></span>
+                    </div>
+                    <p id="sos-reality-flash" class="text-xs text-snowWhite font-bold leading-5 pt-0.5">
+                        «لذتِ تسلیم شدن فقط چند ثانیه است، اما حسِ غرورِ مقاومت کردن تا فردا صبح با تو می‌ماند.»
+                    </p>
+                </div>
+                <button id="btn-next-sos-flash" type="button" title="تلنگر بعدی" class="p-2 rounded-xl bg-appBg/70 glass-border text-mutedGray hover:text-emeraldAccent active:scale-95 transition shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 3. Clean 3-Tab Calming Workspace (تنفس | بازی تمرکز | اتصال به زمین) -->
+            <div class="glass-card rounded-3xl p-4 flex-1 flex flex-col justify-between">
+                <div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-appBg glass-border mb-3">
+                    <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
+                        تنفس ۴-۷-۸
+                    </button>
+                    <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                        بازی تمرکز
+                    </button>
+                    <button id="tab-sos-grounding" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                        حواس ۵-۴-۳-۲-۱
+                    </button>
+                </div>
+
+                <!-- TAB 1: Breathing Circle Section -->
+                <div id="sos-panel-breath" class="flex flex-col items-center justify-center my-auto py-3">
+                    <div class="relative w-44 h-44 flex items-center justify-center mb-2">
+                        <div id="breathing-circle" class="breath-circle absolute w-24 h-24 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_45px_rgba(0,127,104,0.45)]"></div>
+                        <div class="relative z-10 text-center pointer-events-none">
+                            <div id="breathing-instruction" class="text-sm font-black text-snowWhite">آماده تنفس...</div>
+                            <div id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1">چرخه آرام‌سازی عصب واگ</div>
+                        </div>
+                    </div>
+                    <!-- SENSORY FEEDBACK TOGGLE: CHIME & HAPTIC VIBRATION (NEW) -->
+                    <button id="btn-toggle-sound-haptic" type="button" class="flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-xl bg-appBg glass-border text-emeraldAccent active:scale-95 transition">
+                        <span id="sound-haptic-status-dot" class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                        <span id="sound-haptic-label">راهنمای چشم‌بسته (زنگ تبتی و لرزش فعال 🔔📳)</span>
+                    </button>
+                </div>
+
+                <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
+                <div id="sos-panel-game" class="hidden flex-col items-center justify-center my-auto py-1">
+                    <div class="flex items-center justify-between w-full mb-2 px-1">
+                        <span class="text-[11px] text-mutedGray">اعداد ۱ تا ۱۶ را به ترتیب بزن:</span>
+                        <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
+                    </div>
+                    <div id="sos-number-grid" class="grid grid-cols-4 gap-2 w-full" dir="ltr"></div>
+                </div>
+
+                <!-- TAB 3: NEW 5-4-3-2-1 Sensory Grounding Technique -->
+                <div id="sos-panel-grounding" class="hidden flex-col justify-between my-auto py-2 text-center space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 text-emeraldAccent flex items-center justify-center mx-auto text-xl font-black" id="grounding-step-badge">
+                        ۵
+                    </div>
+                    <div class="space-y-1 px-2">
+                        <h4 id="grounding-step-title" class="text-sm font-black text-snowWhite">۵ چیز که الان می‌بینی</h4>
+                        <p id="grounding-step-desc" class="text-xs text-mutedGray leading-5">به اطرافت نگاه کن و ۵ شیء مختلف را در دلت نام ببر تا ذهنت از تصویرسازی وسوسه خارج شود.</p>
+                    </div>
+                    <button id="btn-grounding-next" type="button" class="mx-auto px-5 py-2.5 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent text-emeraldAccent text-xs font-extrabold active:scale-95 transition">
+                        انجام دادم؛ مرحله بعد ←
+                    </button>
+                </div>
+
+                <!-- Quick Physical Reset Pills (Compact inside workspace footer) -->
+                <div class="pt-3 mt-2 border-t border-white/5">
+                    <div class="text-[10px] text-mutedGray mb-1.5 font-bold">اقدام فیزیکی فوری (برای شکستن قفل بدن تیک بزن):</div>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>نوشیدن آب خنک</span>
+                        </label>
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>تغییر مکان</span>
+                        </label>
+                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/70 glass-border text-[10px] text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                            <span>۱۰ نفس یا شنا</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Compact Trigger Selector + Victory Action -->
+            <div class="space-y-2.5">
+                <div class="glass-card rounded-2xl p-3">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[11px] font-bold text-snowWhite">ریشه این وسوسه چیه؟</span>
+                        <span id="sos-trigger-status" class="text-[10px] text-emeraldAccent font-bold">ثبت در رادار</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
+                        <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
+                        <button type="button" data-trigger="بی‌حوصلگی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
+                        <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
+                        <button type="button" data-trigger="دیدن محرک" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
+                    </div>
+                </div>
+
+                <button id="btn-sos-victory" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm tracking-wide shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
+                    موج رد شد؛ تونستم! (+۱ پیروزی)
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         GOAL / WISHLIST MODAL
+         ========================================== -->
+    <div id="modal-goal" class="fixed inset-0 z-50 bg-appBg/85 backdrop-blur-lg hidden items-center justify-center safe-modal-overlay">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6 border border-white/10">
+            <h3 class="text-base font-black text-snowWhite mb-2">تعیین هدف مالی (پاداش پاکی)</h3>
+            <p class="text-xs text-mutedGray mb-4">مشخص کن با پولی که از ترک این عادت ذخیره می‌کنی، می‌خوای چه هدیه‌ای برای خودت بخری؟</p>
+            <form id="form-goal" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1">عنوان هدف یا خرید</label>
+                    <input id="input-goal-title" type="text" required placeholder="مثلاً: خرید هدفون بی‌سیم یا سفر" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-snowWhite mb-1">مبلغ هدف (تومان)</label>
+                    <input id="input-goal-price" type="text" inputmode="numeric" required placeholder="مثلاً: 3,500,000" dir="ltr" class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-sm text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
+                </div>
+                <div class="flex gap-2.5 pt-2">
+                    <button type="submit" class="flex-1 py-3 rounded-xl bg-emeraldAccent text-white font-black text-xs">ذخیره هدف</button>
+                    <button id="btn-close-goal" type="button" class="flex-1 py-3 rounded-xl bg-appBg glass-border text-mutedGray font-bold text-xs">انصراف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EMPATHIC RELAPSE MODAL
+         ========================================== -->
+    <div id="modal-relapse" class="fixed inset-0 z-50 bg-appBg/85 backdrop-blur-lg hidden items-center justify-center safe-modal-overlay">
+        <div class="w-full max-w-md glass-card rounded-3xl p-6 border border-white/10">
+            <div class="w-12 h-12 rounded-2xl bg-sosRed/15 text-sosRed flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+            </div>
+            <h3 class="text-lg font-black text-snowWhite mb-2">سرِت رو بالا بگیر رفیق...</h3>
+            <p class="text-xs text-mutedGray leading-6 mb-4">
+                لغزش بخشی از منحنی یادگیری سیم‌کشی مجدد مغز است. همه چیز صفر نشد؛ تو تمام آن روزهای گذشته را واقعاً پاک ماندی.
+            </p>
+
+            <div class="mb-5">
+                <label class="block text-xs font-bold text-snowWhite mb-2">عامل اصلی این لغزش چی بود؟</label>
+                <div class="flex flex-wrap gap-1.5">
+                    <button type="button" data-trigger="استرس و فشار" class="relapse-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
+                    <button type="button" data-trigger="تنهایی" class="relapse-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
+                    <button type="button" data-trigger="بی‌حوصلگی" class="relapse-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
+                    <button type="button" data-trigger="خستگی آخر شب" class="relapse-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
+                    <button type="button" data-trigger="دیدن محرک" class="relapse-trigger-chip text-[11px] px-3 py-1.5 rounded-xl bg-appBg glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button id="btn-confirm-relapse" type="button" class="flex-1 py-3 rounded-xl bg-sosRed text-white font-bold text-xs active:scale-95 transition">
+                    ثبت لغزش و ادامه قدرتمند
+                </button>
+                <button id="btn-cancel-relapse" type="button" class="flex-1 py-3 rounded-xl bg-appBg glass-border text-snowWhite font-bold text-xs active:scale-95 transition">
+                    انصراف
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BOOKMARKED QUOTES MODAL
+         ========================================== -->
+    <div id="modal-bookmarks" class="fixed inset-0 z-50 bg-appBg/85 backdrop-blur-lg hidden items-center justify-center safe-modal-overlay">
+        <div class="w-full max-w-md glass-card rounded-3xl p-5 border border-white/10 max-h-[80vh] flex flex-col">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <h3 class="text-sm font-black text-snowWhite">جملات نشان‌شده من</h3>
+                <button id="btn-close-bookmarks" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg">بستن</button>
+            </div>
+            <div id="bookmarks-list-container" class="overflow-y-auto space-y-2.5 my-3 pr-1"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SHAREABLE 9:16 VICTORY STORY CARD MODAL
+         ========================================== -->
+    <div id="modal-share-card" class="fixed inset-0 z-[72] bg-appBg/90 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-sm glass-card rounded-3xl p-4 my-auto border border-emeraldAccent/30 space-y-3">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+                <div>
+                    <h3 class="text-sm font-black text-snowWhite">استوری افتخار و استمرار (۹:۱۶)</h3>
+                    <p class="text-[10px] text-mutedGray">بدون درج نام عادت (حفظ کامل حریم خصوصی)</p>
+                </div>
+                <button id="btn-close-share-card" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن ✕</button>
+            </div>
+
+            <div class="relative w-full aspect-[9/16] max-h-[62vh] mx-auto rounded-2xl overflow-hidden bg-appBg glass-border flex items-center justify-center shadow-2xl">
+                <canvas id="victory-card-canvas" width="1080" height="1920" class="hidden"></canvas>
+                <img id="victory-card-preview-img" alt="استوری افتخار عادتش" class="w-full h-full object-contain select-auto" />
+            </div>
+
+            <button id="btn-download-victory-card" type="button" class="w-full py-3 rounded-2xl bg-emeraldAccent text-white font-black text-xs shadow-lg shadow-emeraldAccent/25 active:scale-95 transition flex items-center justify-center gap-2">
+                <span>📥 دانلود یا اشتراک‌گذاری استوری</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SETTINGS MODAL (REDESIGNED: CLEAN 3-TAB LAYOUT)
          ========================================== -->
     <div id="modal-settings" class="fixed inset-0 z-50 bg-appBg/85 backdrop-blur-lg hidden items-center justify-center safe-modal-overlay overflow-y-auto">
         <div class="w-full max-w-md glass-card rounded-3xl p-5 my-auto border border-white/10 space-y-4">
-            <!-- Header -->
+            <!-- Modal Header -->
             <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emeraldAccent"></span>
-                    <h3 class="text-sm font-black text-snowWhite">تنظیمات برنامه</h3>
+                <div>
+                    <h3 class="text-sm font-black text-snowWhite">تنظیمات و شخصی‌سازی</h3>
+                    <p class="text-[10px] text-mutedGray mt-0.5">مدیریت ساده در ۳ بخش تفکیک‌شده</p>
                 </div>
                 <button id="btn-close-settings" type="button" class="text-xs font-bold text-mutedGray hover:text-snowWhite px-3 py-1.5 rounded-xl bg-appBg glass-border">بستن ✕</button>
             </div>
 
-            <!-- 3 Clean Tabs Selector -->
-            <div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-appBg glass-border">
-                <button type="button" data-settings-tab="basic" class="settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
+            <!-- 3 Clean Tabs -->
+            <div class="grid grid-cols-3 gap-1 p-1 rounded-2xl bg-appBg glass-border">
+                <button type="button" data-settings-tab="profile" class="settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
                     ۱. مسیر من
                 </button>
                 <button type="button" data-settings-tab="habits" class="settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
                     ۲. برنامه و نامه
                 </button>
-                <button type="button" data-settings-tab="system" class="settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                <button type="button" data-settings-tab="tools" class="settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
                     ۳. ابزار و بکاپ
                 </button>
             </div>
 
-            <form id="form-settings">
-                <!-- TAB 1: BASIC PATH INFO -->
-                <div id="settings-panel-basic" class="space-y-3.5">
+            <form id="form-settings" class="space-y-4">
+                <!-- TAB 1: Basic Profile & Start Date -->
+                <div id="settings-panel-profile" class="space-y-3">
                     <div>
                         <label class="block text-xs font-bold text-snowWhite mb-1">نام عادتی که ترک می‌کنی</label>
-                        <input id="settings-habit-name" type="text" required class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                        <input id="settings-habit-name" type="text" required class="w-full px-3 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-snowWhite mb-1">تاریخ و ساعت شروع پاکی (شمسی)</label>
@@ -938,71 +1227,84 @@
                             <input id="settings-daily-cost" type="text" inputmode="numeric" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-snowWhite mb-1">زمان روزانه (ساعت)</label>
+                            <label class="block text-xs font-bold text-snowWhite mb-1">ساعت تلف‌شده در روز</label>
                             <input id="settings-daily-hours" type="text" inputmode="decimal" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-left">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">انگیزه و تعهد اصلی من</label>
+                        <label class="block text-xs font-bold text-snowWhite mb-1">تعهد و انگیزه اصلی من</label>
                         <textarea id="settings-core-reason" rows="2" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent"></textarea>
                     </div>
                 </div>
 
-                <!-- TAB 2: HABIT REPLACEMENT & RESCUE LETTER -->
+                <!-- TAB 2: Replacement Habit, Positive Habit & Rescue Letter (With 1-Tap Presets) -->
                 <div id="settings-panel-habits" class="hidden space-y-3.5">
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">عادت جایگزین فوری (وقتی وسوسه شدم چه کنم؟)</label>
+                        <label class="block text-xs font-bold text-snowWhite mb-1">⚡ اگر وسوسه شدم، به جایش چه کار کنم؟</label>
                         <div class="flex flex-wrap gap-1 mb-1.5">
-                            <button type="button" data-rep-preset="نوشیدن یک لیوان آب خنک و تغییر مکان" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">آب خنک + تغییر مکان</button>
-                            <button type="button" data-rep-preset="۱۰ حرکت شنا یا کششی و نفس عمیق" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">۱۰ شنا / حرکت کششی</button>
-                            <button type="button" data-rep-preset="دم کردن چای سبز یا جویدن آدامس" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">چای سبز / آدامس</button>
+                            <button type="button" data-rep-preset="نوشیدن یک لیوان آب خنک و خروج از اتاق" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-emeraldAccent">آب خنک + تغییر مکان</button>
+                            <button type="button" data-rep-preset="چای سبز با زنجبیل و ۱۰ نفس عمیق" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-emeraldAccent">چای سبز و تنفس</button>
+                            <button type="button" data-rep-preset="۱۵ حرکت شنا یا دوش آب خنک" class="rep-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-emeraldAccent">شنا یا دوش خنک</button>
                         </div>
                         <input id="settings-replacement-habit" type="text" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">عادت مثبت روزانه (ساخت هویت نو)</label>
+                        <label class="block text-xs font-bold text-snowWhite mb-1">🌱 عادت مثبت روزانه (ساخت هویت نو)</label>
                         <div class="flex flex-wrap gap-1 mb-1.5">
-                            <button type="button" data-pos-preset="۲۰ دقیقه مطالعه کتاب" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">۲۰ دقیقه مطالعه</button>
-                            <button type="button" data-pos-preset="۳۰ دقیقه پیاده‌روی یا ورزش" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">۳۰ دقیقه ورزش</button>
-                            <button type="button" data-pos-preset="خوابیدن قبل از ساعت ۱۲ شب" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-snowWhite">خواب منظم شبانه</button>
+                            <button type="button" data-pos-preset="۲۰ دقیقه مطالعه کتاب" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-oliveAccent">۲۰ دقیقه مطالعه</button>
+                            <button type="button" data-pos-preset="۳۰ دقیقه پیاده‌روی یا ورزش" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-oliveAccent">پیاده‌روی و ورزش</button>
+                            <button type="button" data-pos-preset="خوابیدن قبل از ساعت ۱۱ شب" class="pos-preset-chip text-[10px] px-2 py-1 rounded-lg bg-appBg glass-border text-mutedGray hover:text-oliveAccent">خواب منظم شبانه</button>
                         </div>
                         <input id="settings-positive-habit" type="text" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-snowWhite mb-1">📩 نامه نجات (پیام خودت به لحظه وسوسه)</label>
-                        <textarea id="settings-rescue-letter" rows="3" placeholder="حرفی که در لحظه وسوسه به خودت می‌زنی..." class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent leading-5"></textarea>
+                        <label class="block text-xs font-bold text-snowWhite mb-1">📩 نامه نجات اضطراری (از خودِ هوشیار به لحظه وسوسه)</label>
+                        <textarea id="settings-rescue-letter" rows="3" class="w-full px-3 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent leading-5"></textarea>
                     </div>
                 </div>
 
-                <!-- Save Button (Visible on Tab 1 & Tab 2) -->
-                <button id="btn-save-settings-form" type="submit" class="w-full mt-4 py-3 rounded-xl bg-emeraldAccent text-white font-black text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
-                    ذخیره تغییرات
+                <!-- Save Button (Visible on Tabs 1 & 2) -->
+                <button id="btn-save-settings-form" type="submit" class="w-full py-3 rounded-xl bg-emeraldAccent text-white font-black text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
+                    ذخیره تغییرات ✓
                 </button>
             </form>
 
-            <!-- TAB 3: TOOLS, PRIVACY & BACKUP -->
-            <div id="settings-panel-system" class="hidden space-y-2.5">
-                <div class="grid grid-cols-2 gap-2">
-                    <button id="btn-start-tour" type="button" class="p-3 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/35 text-xs font-extrabold text-emeraldAccent hover:bg-emeraldAccent/25 flex flex-col items-center justify-center gap-1.5 transition active:scale-95">
-                        <span class="text-base">🧭</span>
-                        <span>تور راهنمای برنامه</span>
-                    </button>
-                    <button id="btn-export-ics" type="button" class="p-3 rounded-2xl bg-appBg glass-border text-xs font-bold text-snowWhite hover:border-emeraldAccent flex flex-col items-center justify-center gap-1.5 transition active:scale-95">
-                        <span class="text-base">📅</span>
-                        <span>یادآور تقویم گوشی</span>
-                    </button>
-                </div>
-
-                <button id="btn-settings-theme" type="button" class="w-full py-2.5 px-3.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition">
-                    <span>حالت نمایش برنامه</span>
-                    <span id="settings-theme-label" class="text-emeraldAccent font-bold">تم تاریک</span>
+            <!-- TAB 3: Tools, Tour, PIN, Calendar & Backup -->
+            <div id="settings-panel-tools" class="hidden space-y-2.5">
+                <button id="btn-start-tour" type="button" class="w-full py-3 px-3.5 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/35 text-xs text-snowWhite hover:bg-emeraldAccent/25 flex items-center justify-between transition active:scale-[0.99]">
+                    <span class="flex items-center gap-2 font-extrabold text-emeraldAccent">
+                        <span>🎯</span>
+                        <span>شروع تور آموزشی و راهنمای برنامه</span>
+                    </span>
+                    <span class="text-[10px] bg-emeraldAccent text-white px-2 py-0.5 rounded-lg font-bold">گام‌به‌گام</span>
                 </button>
 
-                <div class="p-3 rounded-xl bg-appBg/60 glass-border flex items-center justify-between gap-2">
+                <button id="btn-export-ics" type="button" class="w-full py-3 px-3.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition active:scale-[0.99]">
+                    <span class="flex items-center gap-2 font-bold">
+                        <span>📅</span>
+                        <span>افزودن یادآور روزانه به تقویم گوشی</span>
+                    </span>
+                    <span class="text-[10px] text-emeraldAccent font-bold">فایل تقویم</span>
+                </button>
+
+                <button id="btn-quick-chime-test" type="button" class="w-full py-3 px-3.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition active:scale-[0.99]">
+                    <span class="flex items-center gap-2 font-bold">
+                        <span>🔔</span>
+                        <span>تست زنگ آرامش تبتی (۵۲۸ هرتز)</span>
+                    </span>
+                    <span class="text-[10px] text-emeraldAccent font-bold">پخش صدا</span>
+                </button>
+
+                <button id="btn-settings-theme" type="button" class="w-full py-3 px-3.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite hover:border-emeraldAccent flex items-center justify-between transition">
+                    <span class="font-bold">🎨 حالت نمایش برنامه</span>
+                    <span id="settings-theme-label" class="text-emeraldAccent font-extrabold">تم تاریک</span>
+                </button>
+
+                <div class="p-3 rounded-xl bg-appBg glass-border flex items-center justify-between gap-2">
                     <label for="settings-pin-code" class="text-xs font-bold text-snowWhite">🔒 رمز ۴ رقمی ورود (اختیاری)</label>
-                    <input id="settings-pin-code" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="بدون رمز" dir="ltr" class="w-24 px-2.5 py-1.5 rounded-lg bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center tracking-widest">
+                    <input id="settings-pin-code" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="خالی = بدون قفل" dir="ltr" class="w-28 px-2.5 py-1.5 rounded-lg bg-cardBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent text-center tracking-widest">
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 pt-1">
@@ -1060,27 +1362,38 @@
     </div>
 
     <!-- ==========================================
-         RESCUE LETTER MODAL (READ & DIRECT EDIT)
+         RESCUE LETTER MODAL (WITH DIRECT EDITING SUPPORT)
          ========================================== -->
     <div id="modal-rescue-letter" class="fixed inset-0 z-[76] bg-appBg/90 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
         <div class="w-full max-w-sm glass-card rounded-3xl p-5 border border-emeraldAccent/40 shadow-2xl space-y-3.5 my-auto relative">
-            <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
                 <div class="flex items-center gap-2">
                     <span class="text-lg">📩</span>
                     <div>
-                        <h3 class="text-sm font-black text-snowWhite">نامه نجات به لحظه وسوسه</h3>
-                        <p class="text-[10px] text-mutedGray">صدای عقل تو در حالت هوشیاری کامل</p>
+                        <h3 class="text-sm font-black text-snowWhite">نامه نجات اضطراری من</h3>
+                        <p class="text-[10px] text-mutedGray">پیام خودِ هوشیارت برای لحظات وسوسه</p>
                     </div>
                 </div>
                 <button id="btn-close-rescue-letter" type="button" class="text-xs text-mutedGray hover:text-snowWhite px-2.5 py-1 rounded-lg bg-appBg glass-border">بستن</button>
             </div>
-            <div class="bg-appBg/80 p-3.5 rounded-2xl glass-border border-r-4 border-r-emeraldAccent">
-                <textarea id="rescue-letter-content" rows="4" class="w-full bg-transparent text-xs text-snowWhite leading-6 font-medium focus:outline-none resize-none" placeholder="پیام خودت برای لحظه وسوسه را اینجا بنویس..."></textarea>
+
+            <!-- Read Mode -->
+            <div id="rescue-read-box" class="bg-appBg/80 p-4 rounded-2xl glass-border border-r-4 border-r-emeraldAccent">
+                <p id="rescue-letter-content" class="text-xs text-snowWhite leading-6 font-medium whitespace-pre-wrap"></p>
             </div>
-            <p class="text-[10px] text-mutedGray">💡 هر متنی که اینجا بنویسی، در لحظه وسوسه داخل اتاق SOS بهت نمایش داده میشه.</p>
+
+            <!-- Quick Edit Mode (Toggled with 1 click) -->
+            <div id="rescue-edit-box" class="hidden space-y-2">
+                <textarea id="input-quick-rescue-letter" rows="4" class="w-full p-3 rounded-2xl bg-appBg glass-border text-xs text-snowWhite leading-6 focus:outline-none focus:border-emeraldAccent" placeholder="متن نامه خودت را بنویس..."></textarea>
+                <button id="btn-save-quick-rescue" type="button" class="w-full py-2.5 rounded-xl bg-emeraldAccent text-white font-black text-xs">ذخیره متن نامه ✓</button>
+            </div>
+
             <div class="flex gap-2">
+                <button id="btn-toggle-edit-rescue" type="button" class="px-3.5 py-3 rounded-xl bg-appBg glass-border text-mutedGray hover:text-snowWhite font-bold text-xs transition">
+                    ویرایش متن ✎
+                </button>
                 <button id="btn-rescue-understood" type="button" class="flex-1 py-3 rounded-xl bg-emeraldAccent text-white font-extrabold text-xs shadow-lg shadow-emeraldAccent/20 active:scale-95 transition">
-                    ذخیره و بستن ✓
+                    شنیدم؛ با قدرت مقاومت می‌کنم
                 </button>
             </div>
         </div>
@@ -1444,8 +1757,8 @@
                 },
                 {
                     targetId: 'section-habit-chain',
-                    title: '۴. زنجیره ۳۰ روز اخیر (زنجیره رو نشکن)',
-                    desc: 'روزهای پاک با رنگ سبز، روزهای مهار وسوسه با رنگ طلایی و لغزش‌ها با قرمز ثبت می‌شوند. هدفت این است که این زنجیره ۳۰ روزه را نشکنی!'
+                    title: '۴. زنجیره ۳۰ روز اخیر و نشان‌های افتخار',
+                    desc: 'روزهای پاک با رنگ سبز، روزهای مهار وسوسه با رنگ طلایی و لغزش‌ها با قرمز ثبت می‌شوند. هدفت این است که این زنجیره را نشکنی!'
                 },
                 {
                     targetId: 'section-journal',
@@ -1454,13 +1767,13 @@
                 },
                 {
                     targetId: 'section-radar',
-                    title: '۶. رادار پاشنه آشیل و نقشه ساعت‌های خطر',
-                    desc: 'برنامه به طور هوشمند تحلیل می‌کند بیشترین وسوسه‌های تو در چه حالتی و چه ساعتی از شبانه‌روز رخ می‌دهد تا غافلگیر نشوی.'
+                    title: '۶. رادار پاشنه آشیل و کپسول آگاهی',
+                    desc: 'برنامه به طور هوشمند تحلیل می‌کند بیشترین وسوسه‌های تو در چه حالتی و چه ساعتی رخ می‌دهد تا غافلگیر نشوی.'
                 },
                 {
                     targetId: 'btn-open-share-card',
                     title: '۷. استوری افتخار (۹:۱۶) و تنظیمات',
-                    desc: 'از نوار بالا می‌توانی استوری اختصاصی پیشرفتت را (بدون درج نام عادت برای حفظ حریم خصوصی) دانلود کنی یا از بخش تنظیمات برنامه را شخصی‌سازی کنی.'
+                    desc: 'از نوار بالا می‌توانی استوری اختصاصی پیشرفتت را (بدون درج نام عادت برای حفظ حریم خصوصی) دانلود کنی یا از بخش تنظیمات بکاپ بگیری.'
                 }
             ];
 
@@ -1895,13 +2208,13 @@
                 if (sosCoreEl) sosCoreEl.textContent = '«' + reasonText + '»';
 
                 const repText = document.getElementById('sos-replacement-habit-text');
-                if (repText) repText.textContent = appState.replacementHabit || 'یک لیوان آب خنک بنوش و مکانت را عوض کن';
-
-                const dashRepText = document.getElementById('dashboard-replacement-text');
-                if (dashRepText) dashRepText.textContent = appState.replacementHabit || 'نوشیدن آب خنک و تغییر مکان';
+                const dashRepText = document.getElementById('dashboard-replacement-habit');
+                const repVal = appState.replacementHabit || 'یک لیوان آب خنک بنوش و مکانت را عوض کن';
+                if (repText) repText.textContent = repVal;
+                if (dashRepText) dashRepText.textContent = repVal;
 
                 const rescueContent = document.getElementById('rescue-letter-content');
-                if (rescueContent) rescueContent.value = appState.rescueLetter || '';
+                if (rescueContent) rescueContent.textContent = appState.rescueLetter || '';
 
                 updateLiveMetrics();
                 const m = getElapsedMetrics();
@@ -2000,17 +2313,10 @@
             }
 
             function checkDangerZoneAlert() {
-                const alertText = document.getElementById('smart-defense-text');
-                const statusDot = document.getElementById('defense-status-dot');
-                const statusBadge = document.getElementById('defense-status-badge');
-                if (!alertText) return;
+                const peakBadge = document.getElementById('heatmap-peak-badge');
+                if (!peakBadge) return;
 
                 const logs = appState.triggersLog || [];
-                if (logs.length < 2) {
-                    alertText.textContent = 'ابزارهای کمکی برای لحظات حساس؛ نامه نجات و یادآور تقویم همیشه در دسترس تو هستند.';
-                    return;
-                }
-
                 const hourCounts = new Array(24).fill(0);
                 logs.forEach(function (log) {
                     const h = new Date(log.date).getHours();
@@ -2024,22 +2330,10 @@
                 });
 
                 const currentHour = new Date().getHours();
-                const isDangerNow = (currentHour === peakHour || currentHour === (peakHour - 1 + 24) % 24);
+                const isDangerNow = (maxVal >= 2) && (currentHour === peakHour || currentHour === (peakHour - 1 + 24) % 24);
 
-                if (isDangerNow && maxVal >= 2) {
-                    alertText.innerHTML = '⚠️ طبق سابقه تو، ساعت <strong class="text-sosRed">' + toPersianDigits(peakHour) + ':00</strong> نقطه اوج وسوسه است. گوشی را دور بگذار و برنامه جایگزینت را انجام بده.';
-                    if (statusDot) statusDot.className = 'w-2.5 h-2.5 rounded-full bg-sosRed shrink-0 animate-ping';
-                    if (statusBadge) {
-                        statusBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-lg bg-sosRed/20 text-sosRed shrink-0';
-                        statusBadge.textContent = 'ساعت بحرانی!';
-                    }
-                } else {
-                    alertText.innerHTML = 'ساعت پرخطر شناسایی‌شده تو حدود <strong class="text-snowWhite">' + toPersianDigits(peakHour) + ':00</strong> است. در آن ساعت سپر دفاعی بهت هشدار می‌دهد.';
-                    if (statusDot) statusDot.className = 'w-2.5 h-2.5 rounded-full bg-emeraldAccent shrink-0 shadow-[0_0_8px_#007F68]';
-                    if (statusBadge) {
-                        statusBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-lg bg-emeraldAccent/15 text-emeraldAccent shrink-0';
-                        statusBadge.textContent = 'حالت محافظت';
-                    }
+                if (isDangerNow) {
+                    peakBadge.textContent = '⚠️ ساعت پرخطر فعال (' + toPersianDigits(String(peakHour).padStart(2, '0')) + ':00)';
                 }
             }
 
@@ -3399,6 +3693,33 @@
                     });
                 });
 
+                // 1-Click Start Time Presets in Onboarding
+                document.querySelectorAll('.ob-time-chip').forEach(function (chip) {
+                    chip.addEventListener('click', function () {
+                        document.querySelectorAll('.ob-time-chip').forEach(function (c) {
+                            c.classList.remove('chip-selected-emerald');
+                        });
+                        chip.classList.add('chip-selected-emerald');
+                        const preset = chip.getAttribute('data-start-preset');
+                        const customBox = document.getElementById('ob-custom-date-box');
+
+                        if (preset === 'now') {
+                            if (customBox) customBox.classList.add('hidden');
+                            setJalaliPickerFromISO('ob', new Date().toISOString());
+                        } else if (preset === 'morning') {
+                            if (customBox) customBox.classList.add('hidden');
+                            const morning = new Date();
+                            morning.setHours(8, 0, 0, 0);
+                            if (morning.getTime() > Date.now()) {
+                                morning.setHours(0, 0, 0, 0);
+                            }
+                            setJalaliPickerFromISO('ob', morning.toISOString());
+                        } else if (preset === 'custom') {
+                            if (customBox) customBox.classList.remove('hidden');
+                        }
+                    });
+                });
+
                 // Live comma formatting for cost inputs
                 ['input-daily-cost', 'settings-daily-cost', 'input-goal-price'].forEach(function (id) {
                     const el = document.getElementById(id);
@@ -3444,32 +3765,19 @@
                     });
                 }
 
-                // Dashboard Quick Coach Buttons (Rescue Letter, Calendar .ics, Test Chime)
-                const btnDashRescue = document.getElementById('btn-dashboard-rescue-letter');
-                const btnDashIcs = document.getElementById('btn-dashboard-ics');
-                const btnDashChime = document.getElementById('btn-dashboard-test-chime');
-                const btnQuickEditHabits = document.getElementById('btn-quick-edit-habits');
+                // Quick Coach Bar Buttons on Dashboard
+                const btnQuickRescue = document.getElementById('btn-quick-rescue-letter');
+                const btnQuickIcs = document.getElementById('btn-quick-ics');
+                const btnQuickChime = document.getElementById('btn-quick-chime-test');
+                const btnEditHabitsQuick = document.getElementById('btn-edit-habits-quick');
 
-                if (btnDashRescue) {
-                    btnDashRescue.addEventListener('click', function () {
-                        const modalRescue = document.getElementById('modal-rescue-letter');
-                        const content = document.getElementById('rescue-letter-content');
-                        if (content) content.value = appState.rescueLetter || '';
-                        if (modalRescue) {
-                            modalRescue.classList.remove('hidden');
-                            modalRescue.classList.add('flex');
-                        }
-                    });
-                }
-                if (btnDashIcs) {
-                    btnDashIcs.addEventListener('click', exportIcsReminder);
-                }
-                if (btnDashChime) {
-                    btnDashChime.addEventListener('click', function () {
+                if (btnQuickIcs) btnQuickIcs.addEventListener('click', exportIcsReminder);
+                if (btnQuickChime) {
+                    btnQuickChime.addEventListener('click', function () {
                         appState.soundHapticEnabled = true;
-                        playTibetanChime(528, 3.0);
+                        playTibetanChime(528, 3.2);
                         triggerHaptic([100, 60, 100]);
-                        showToast('زنگ تبتی آرام‌سازی عصب واگ (۵۲۸ هرتز) پخش شد 🔔');
+                        showToast('🔔 زنگ کاسه تبتی (۵۲۸ هرتز) برای آرام‌سازی عصب واگ نواخته شد.');
                     });
                 }
 
@@ -3491,20 +3799,67 @@
                     });
                 }
 
-                // Rescue Letter Modal (Read & Save directly)
+                // Rescue Letter Modal (Open from SOS or Dashboard + Direct Edit)
                 const btnOpenRescue = document.getElementById('btn-open-rescue-letter');
                 const btnCloseRescue = document.getElementById('btn-close-rescue-letter');
                 const btnRescueUnderstood = document.getElementById('btn-rescue-understood');
+                const btnToggleEditRescue = document.getElementById('btn-toggle-edit-rescue');
+                const btnSaveQuickRescue = document.getElementById('btn-save-quick-rescue');
                 const modalRescue = document.getElementById('modal-rescue-letter');
 
-                if (btnOpenRescue && modalRescue) {
-                    btnOpenRescue.addEventListener('click', function () {
-                        const content = document.getElementById('rescue-letter-content');
-                        if (content) content.value = appState.rescueLetter || '';
-                        modalRescue.classList.remove('hidden');
-                        modalRescue.classList.add('flex');
+                function openRescueModal() {
+                    if (!modalRescue) return;
+                    const content = document.getElementById('rescue-letter-content');
+                    const inputEdit = document.getElementById('input-quick-rescue-letter');
+                    const readBox = document.getElementById('rescue-read-box');
+                    const editBox = document.getElementById('rescue-edit-box');
+                    if (content) content.textContent = appState.rescueLetter || '';
+                    if (inputEdit) inputEdit.value = appState.rescueLetter || '';
+                    if (readBox) readBox.classList.remove('hidden');
+                    if (editBox) editBox.classList.add('hidden');
+                    modalRescue.classList.remove('hidden');
+                    modalRescue.classList.add('flex');
+                }
+
+                if (btnOpenRescue) btnOpenRescue.addEventListener('click', openRescueModal);
+                if (btnQuickRescue) btnQuickRescue.addEventListener('click', openRescueModal);
+
+                if (btnToggleEditRescue) {
+                    btnToggleEditRescue.addEventListener('click', function () {
+                        const readBox = document.getElementById('rescue-read-box');
+                        const editBox = document.getElementById('rescue-edit-box');
+                        const inputEdit = document.getElementById('input-quick-rescue-letter');
+                        if (!readBox || !editBox) return;
+                        const isEditing = !editBox.classList.contains('hidden');
+                        if (isEditing) {
+                            editBox.classList.add('hidden');
+                            readBox.classList.remove('hidden');
+                        } else {
+                            if (inputEdit) inputEdit.value = appState.rescueLetter || '';
+                            readBox.classList.add('hidden');
+                            editBox.classList.remove('hidden');
+                            if (inputEdit) inputEdit.focus();
+                        }
                     });
                 }
+
+                if (btnSaveQuickRescue) {
+                    btnSaveQuickRescue.addEventListener('click', function () {
+                        const inputEdit = document.getElementById('input-quick-rescue-letter');
+                        const content = document.getElementById('rescue-letter-content');
+                        const readBox = document.getElementById('rescue-read-box');
+                        const editBox = document.getElementById('rescue-edit-box');
+                        if (inputEdit && inputEdit.value.trim()) {
+                            appState.rescueLetter = inputEdit.value.trim();
+                            saveState();
+                            if (content) content.textContent = appState.rescueLetter;
+                            showToast('متن نامه نجات شما ذخیره شد.');
+                        }
+                        if (editBox) editBox.classList.add('hidden');
+                        if (readBox) readBox.classList.remove('hidden');
+                    });
+                }
+
                 function closeRescueModal() {
                     if (modalRescue) {
                         modalRescue.classList.add('hidden');
@@ -3514,13 +3869,8 @@
                 if (btnCloseRescue) btnCloseRescue.addEventListener('click', closeRescueModal);
                 if (btnRescueUnderstood) {
                     btnRescueUnderstood.addEventListener('click', function () {
-                        const content = document.getElementById('rescue-letter-content');
-                        if (content && content.value.trim()) {
-                            appState.rescueLetter = content.value.trim();
-                            saveState();
-                        }
                         closeRescueModal();
-                        showToast('نامه نجات ذخیره شد؛ پای قولت بمون قهرمان!');
+                        showToast('پای حرف خودت بمون؛ تو از این وسوسه قوی‌تری!');
                     });
                 }
 
@@ -4104,46 +4454,48 @@
                     });
                 }
 
-                // Settings Modal (Clean 3-Tab Logic)
+                // Settings Modal (Clean 3-Tab Switcher & Presets)
                 const btnOpenSettings = document.getElementById('btn-open-settings');
                 const btnCloseSettings = document.getElementById('btn-close-settings');
                 const modalSettings = document.getElementById('modal-settings');
                 const formSettings = document.getElementById('form-settings');
-                const panelBasic = document.getElementById('settings-panel-basic');
-                const panelHabits = document.getElementById('settings-panel-habits');
-                const panelSystem = document.getElementById('settings-panel-system');
-                const btnSaveSettingsForm = document.getElementById('btn-save-settings-form');
 
                 function switchSettingsTab(tabName) {
+                    const pProfile = document.getElementById('settings-panel-profile');
+                    const pHabits = document.getElementById('settings-panel-habits');
+                    const pTools = document.getElementById('settings-panel-tools');
+                    const btnSave = document.getElementById('btn-save-settings-form');
+
+                    if (pProfile) pProfile.classList.toggle('hidden', tabName !== 'profile');
+                    if (pHabits) pHabits.classList.toggle('hidden', tabName !== 'habits');
+                    if (pTools) pTools.classList.toggle('hidden', tabName !== 'tools');
+                    if (btnSave) btnSave.classList.toggle('hidden', tabName === 'tools');
+
                     document.querySelectorAll('.settings-tab-btn').forEach(function (btn) {
                         const isTarget = btn.getAttribute('data-settings-tab') === tabName;
                         btn.className = isTarget
                             ? 'settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition'
                             : 'settings-tab-btn py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition';
                     });
-                    if (panelBasic) panelBasic.classList.toggle('hidden', tabName !== 'basic');
-                    if (panelHabits) panelHabits.classList.toggle('hidden', tabName !== 'habits');
-                    if (panelSystem) panelSystem.classList.toggle('hidden', tabName !== 'system');
-                    if (btnSaveSettingsForm) btnSaveSettingsForm.classList.toggle('hidden', tabName === 'system');
                 }
 
                 document.querySelectorAll('.settings-tab-btn').forEach(function (btn) {
                     btn.addEventListener('click', function () {
-                        switchSettingsTab(btn.getAttribute('data-settings-tab'));
+                        switchSettingsTab(btn.getAttribute('data-settings-tab') || 'profile');
                     });
                 });
 
-                // Preset chips inside Settings Tab 2
+                // 1-Tap Preset Chips inside Settings Tab 2
                 document.querySelectorAll('.rep-preset-chip').forEach(function (chip) {
                     chip.addEventListener('click', function () {
-                        const input = document.getElementById('settings-replacement-habit');
-                        if (input) input.value = chip.getAttribute('data-rep-preset') || '';
+                        const repEl = document.getElementById('settings-replacement-habit');
+                        if (repEl) repEl.value = chip.getAttribute('data-rep-preset') || '';
                     });
                 });
                 document.querySelectorAll('.pos-preset-chip').forEach(function (chip) {
                     chip.addEventListener('click', function () {
-                        const input = document.getElementById('settings-positive-habit');
-                        if (input) input.value = chip.getAttribute('data-pos-preset') || '';
+                        const posEl = document.getElementById('settings-positive-habit');
+                        if (posEl) posEl.value = chip.getAttribute('data-pos-preset') || '';
                     });
                 });
 
@@ -4168,18 +4520,18 @@
                     if (posEl) posEl.value = appState.positiveHabitName || '';
                     if (rescueEl) rescueEl.value = appState.rescueLetter || '';
 
-                    switchSettingsTab(initialTab || 'basic');
+                    switchSettingsTab(initialTab || 'profile');
                     modalSettings.classList.remove('hidden');
                     modalSettings.classList.add('flex');
                 }
 
                 if (btnOpenSettings) {
                     btnOpenSettings.addEventListener('click', function () {
-                        populateAndOpenSettings('basic');
+                        populateAndOpenSettings('profile');
                     });
                 }
-                if (btnQuickEditHabits) {
-                    btnQuickEditHabits.addEventListener('click', function () {
+                if (btnEditHabitsQuick) {
+                    btnEditHabitsQuick.addEventListener('click', function () {
                         populateAndOpenSettings('habits');
                     });
                 }
@@ -4202,7 +4554,8 @@
                         appState.dailyCost = parseFormattedNumber(document.getElementById('settings-daily-cost').value);
                         appState.dailyHours = parseFormattedNumber(document.getElementById('settings-daily-hours').value);
                         appState.coreReason = document.getElementById('settings-core-reason').value.trim();
-                        appState.pinCode = toEnglishDigits(document.getElementById('settings-pin-code').value.trim());
+                        const pinEl = document.getElementById('settings-pin-code');
+                        if (pinEl) appState.pinCode = toEnglishDigits(pinEl.value.trim());
 
                         const repVal = document.getElementById('settings-replacement-habit').value.trim();
                         const posVal = document.getElementById('settings-positive-habit').value.trim();
