@@ -353,45 +353,51 @@
         .tour-tooltip-card {
             transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
+        @media (min-width: 1024px) {
+            .safe-main-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-appBg text-snowWhite flex justify-center selection:bg-emeraldAccent selection:text-appBg">
 
     <!-- ==========================================
-         MAIN DASHBOARD CONTAINER
+         MAIN DASHBOARD CONTAINER (RESPONSIVE MOBILE + DESKTOP BENTO GRID)
          ========================================== -->
-    <main class="w-full max-w-md safe-main-container space-y-4">
+    <main class="w-full max-w-md md:max-w-3xl lg:max-w-6xl safe-main-container space-y-4 lg:space-y-6">
 
         <!-- TOP HEADER BAR -->
-        <header class="flex items-center justify-between gap-2 pb-1">
-            <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-10 h-10 rounded-2xl glass-card flex items-center justify-center shrink-0 shadow-md border border-emeraldAccent/30">
-                    <svg class="w-7 h-7" viewBox="0 0 1000 1000" fill="none">
+        <header class="flex items-center justify-between gap-2 pb-1 lg:pb-2 lg:border-b lg:border-white/10">
+            <div class="flex items-center gap-2.5 lg:gap-3.5 min-w-0">
+                <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 shadow-md border border-emeraldAccent/30">
+                    <svg class="w-7 h-7 lg:w-8 lg:h-8" viewBox="0 0 1000 1000" fill="none">
                         <circle cx="505" cy="272" r="86" fill="#00A88A"/>
                         <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="#007F68"/>
                         <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="#00A88A"/>
                     </svg>
                 </div>
                 <div class="min-w-0">
-                    <div class="flex items-center gap-1.5">
-                        <h1 class="text-base font-black tracking-tight text-snowWhite truncate">عادَتِش</h1>
-                        <span id="header-habit-badge" class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 truncate max-w-[110px]">عادت من</span>
+                    <div class="flex items-center gap-1.5 lg:gap-2">
+                        <h1 class="text-base lg:text-xl font-black tracking-tight text-snowWhite truncate">عادَتِش</h1>
+                        <span id="header-habit-badge" class="text-[10px] lg:text-xs font-extrabold px-2 lg:px-2.5 py-0.5 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 truncate max-w-[110px] sm:max-w-[200px]">عادت من</span>
                     </div>
-                    <p class="text-[10px] text-mutedGray truncate">پروتکل علمی رهایی و ساخت عادت نو</p>
+                    <p class="text-[10px] lg:text-xs text-mutedGray truncate">پروتکل علمی رهایی و ساخت عادت نو</p>
                 </div>
             </div>
 
-            <div class="flex items-center gap-1.5 shrink-0">
+            <div class="flex items-center gap-1.5 lg:gap-2.5 shrink-0">
                 <!-- Share Story 9:16 Button -->
-                <button id="btn-open-share-card" type="button" title="استوری افتخار ۹:۱۶" class="h-9 px-2.5 rounded-xl glass-card flex items-center gap-1 text-[11px] font-extrabold text-emeraldAccent hover:border-emeraldAccent transition active:scale-95">
+                <button id="btn-open-share-card" type="button" title="استوری افتخار ۹:۱۶" class="h-9 lg:h-10 px-2.5 lg:px-3.5 rounded-xl glass-card flex items-center gap-1.5 text-[11px] lg:text-xs font-extrabold text-emeraldAccent hover:border-emeraldAccent transition active:scale-95">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
                     </svg>
-                    <span>استوری</span>
+                    <span>استوری افتخار</span>
                 </button>
 
                 <!-- Theme Toggle Button -->
-                <button id="btn-toggle-theme" type="button" title="تغییر تم" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite transition active:scale-95">
+                <button id="btn-toggle-theme" type="button" title="تغییر تم" class="w-9 h-9 lg:w-10 lg:h-10 rounded-xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite transition active:scale-95">
                     <svg id="icon-theme-sun" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
@@ -401,7 +407,7 @@
                 </button>
 
                 <!-- Settings Button -->
-                <button id="btn-open-settings" type="button" title="تنظیمات" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite transition active:scale-95">
+                <button id="btn-open-settings" type="button" title="تنظیمات" class="w-9 h-9 lg:w-10 lg:h-10 rounded-xl glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite transition active:scale-95">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -410,389 +416,404 @@
             </div>
         </header>
 
-        <!-- SECTION 1: HERO LIVE COUNTER CARD -->
-        <section id="section-hero" class="glass-card rounded-3xl p-4 emerald-glow hero-radial-glow border border-emeraldAccent/25 relative overflow-hidden space-y-3.5">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2.5 min-w-0">
-                    <div class="w-10 h-10 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <div class="min-w-0">
-                        <h2 id="hero-day-title" class="text-2xl sm:text-3xl font-black text-snowWhite tracking-tight truncate">روز ۰ آزادی</h2>
-                        <p id="phase-badge" class="text-[11px] text-emeraldAccent font-extrabold truncate mt-0.5">فاز ۱: سم‌زدایی و عبور از شوک اولیه</p>
-                    </div>
-                </div>
-                <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-oliveAccent/15 text-oliveAccent border border-oliveAccent/30 shrink-0">
-                    ⚡ <span id="sos-victory-count">۰</span> موج مهارشده
-                </span>
-            </div>
+        <!-- RESPONSIVE DASHBOARD GRID (1 COL ON MOBILE, 12-COL BENTO ON DESKTOP) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 items-start">
 
-            <!-- Live 4-Unit Counter Box -->
-            <div class="p-3.5 rounded-2xl bg-appBg/75 glass-border">
-                <div class="grid grid-cols-4 gap-2 text-center" dir="ltr">
-                    <div class="p-2.5 rounded-xl bg-cardBg/80 glass-border">
-                        <div id="timer-days" class="text-2xl sm:text-3xl font-black text-emeraldAccent">۰</div>
-                        <div class="text-[10px] text-mutedGray font-bold mt-0.5">روز</div>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-cardBg/80 glass-border">
-                        <div id="timer-hours" class="text-2xl sm:text-3xl font-black text-snowWhite">۰۰</div>
-                        <div class="text-[10px] text-mutedGray font-bold mt-0.5">ساعت</div>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-cardBg/80 glass-border">
-                        <div id="timer-minutes" class="text-2xl sm:text-3xl font-black text-snowWhite">۰۰</div>
-                        <div class="text-[10px] text-mutedGray font-bold mt-0.5">دقیقه</div>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-cardBg/80 glass-border">
-                        <div id="timer-seconds" class="text-2xl sm:text-3xl font-black text-oliveAccent">۰۰</div>
-                        <div class="text-[10px] text-mutedGray font-bold mt-0.5">ثانیه</div>
-                    </div>
-                </div>
-            </div>
+            <!-- RIGHT/PRIMARY COLUMN ON DESKTOP (7 COLS) -->
+            <div class="lg:col-span-7 space-y-4 lg:space-y-5">
 
-            <!-- Clean Rate Bar Box -->
-            <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-1.5">
-                <div class="flex items-center justify-between text-[10px]">
-                    <span id="clean-rate-label" class="font-extrabold text-emeraldAccent">نرخ پاکی: ۱۰۰٪ (بدون ناامیدی با لغزش)</span>
-                    <span id="relapse-count-badge" class="text-mutedGray font-bold">۰ لغزش ثبت‌شده</span>
-                </div>
-                <div class="w-full h-2 bg-appBg rounded-full overflow-hidden glass-border">
-                    <div id="clean-rate-bar" class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: 100%"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: DAILY PLEDGE (2-SECOND HOLD) -->
-        <section id="section-pledge" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
+                <!-- SECTION 1: HERO LIVE COUNTER CARD -->
+                <section id="section-hero" class="glass-card rounded-3xl p-4 lg:p-6 emerald-glow hero-radial-glow border border-emeraldAccent/25 relative overflow-hidden space-y-3.5 lg:space-y-4">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2.5 lg:gap-3.5 min-w-0">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h2 id="hero-day-title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-snowWhite tracking-tight truncate">روز ۰ آزادی</h2>
+                                <p id="phase-badge" class="text-[11px] lg:text-xs text-emeraldAccent font-extrabold truncate mt-0.5">فاز ۱: سم‌زدایی و عبور از شوک اولیه</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] lg:text-xs font-extrabold px-2.5 lg:px-3 py-1 rounded-full bg-oliveAccent/15 text-oliveAccent border border-oliveAccent/30 shrink-0">
+                            ⚡ <span id="sos-victory-count">۰</span> موج مهارشده
+                        </span>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">پیمان هوشیاری امروز</h3>
-                        <p class="text-[10px] text-mutedGray">تعهد روزانه قشر پیش‌پیشانی مغز را بیدار نگه می‌دارد</p>
+
+                    <!-- Live 4-Unit Counter Box -->
+                    <div class="p-3.5 lg:p-4 rounded-2xl bg-appBg/75 glass-border">
+                        <div class="grid grid-cols-4 gap-2 lg:gap-3 text-center" dir="ltr">
+                            <div class="p-2.5 lg:p-3.5 rounded-xl bg-cardBg/80 glass-border">
+                                <div id="timer-days" class="text-2xl sm:text-3xl lg:text-4xl font-black text-emeraldAccent">۰</div>
+                                <div class="text-[10px] lg:text-xs text-mutedGray font-bold mt-0.5">روز</div>
+                            </div>
+                            <div class="p-2.5 lg:p-3.5 rounded-xl bg-cardBg/80 glass-border">
+                                <div id="timer-hours" class="text-2xl sm:text-3xl lg:text-4xl font-black text-snowWhite">۰۰</div>
+                                <div class="text-[10px] lg:text-xs text-mutedGray font-bold mt-0.5">ساعت</div>
+                            </div>
+                            <div class="p-2.5 lg:p-3.5 rounded-xl bg-cardBg/80 glass-border">
+                                <div id="timer-minutes" class="text-2xl sm:text-3xl lg:text-4xl font-black text-snowWhite">۰۰</div>
+                                <div class="text-[10px] lg:text-xs text-mutedGray font-bold mt-0.5">دقیقه</div>
+                            </div>
+                            <div class="p-2.5 lg:p-3.5 rounded-xl bg-cardBg/80 glass-border">
+                                <div id="timer-seconds" class="text-2xl sm:text-3xl lg:text-4xl font-black text-oliveAccent">۰۰</div>
+                                <div class="text-[10px] lg:text-xs text-mutedGray font-bold mt-0.5">ثانیه</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <span id="pledge-streak-badge" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ روز پیمان</span>
-            </div>
 
-            <button id="btn-hold-pledge" type="button" class="relative w-full py-3.5 px-4 rounded-2xl bg-appBg/75 glass-border overflow-hidden text-xs font-extrabold text-snowWhite select-none active:scale-[0.99] transition">
-                <div id="pledge-fill-bar" class="absolute inset-y-0 right-0 bg-emeraldAccent/25 transition-all duration-75" style="width: 0%"></div>
-                <div id="pledge-btn-text" class="relative z-10 flex items-center justify-center gap-1.5">
-                    <span>برای امضای پیمان امروز، ۲ ثانیه نگه دارید</span>
-                </div>
-            </button>
-        </section>
-
-        <!-- SECTION 3: CONSTRUCTIVE HABIT & REPLACEMENT PLAN -->
-        <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-oliveAccent/15 border border-oliveAccent/30 flex items-center justify-center text-oliveAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                    <!-- Clean Rate Bar Box -->
+                    <div class="p-3 lg:p-3.5 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-1.5">
+                        <div class="flex items-center justify-between text-[10px] lg:text-xs">
+                            <span id="clean-rate-label" class="font-extrabold text-emeraldAccent">نرخ پاکی: ۱۰۰٪ (بدون ناامیدی با لغزش)</span>
+                            <span id="relapse-count-badge" class="text-mutedGray font-bold">۰ لغزش ثبت‌شده</span>
+                        </div>
+                        <div class="w-full h-2 lg:h-2.5 bg-appBg rounded-full overflow-hidden glass-border">
+                            <div id="clean-rate-bar" class="h-full bg-gradient-to-l from-emeraldAccent to-oliveAccent rounded-full transition-all duration-500" style="width: 100%"></div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">عادت سازنده و برنامه جایگزین</h3>
-                        <p class="text-[10px] text-mutedGray">جایگزینی مسیر دوپامین با رفتار مثبت</p>
+                </section>
+
+                <!-- SECTION 2: DAILY PLEDGE (2-SECOND HOLD) -->
+                <section id="section-pledge" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">پیمان هوشیاری امروز</h3>
+                                <p class="text-[10px] text-mutedGray">تعهد روزانه قشر پیش‌پیشانی مغز را بیدار نگه می‌دارد</p>
+                            </div>
+                        </div>
+                        <span id="pledge-streak-badge" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ روز پیمان</span>
                     </div>
-                </div>
-                <span id="positive-habit-streak" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-oliveAccent/15 text-oliveAccent border border-oliveAccent/30 shrink-0">۰ روز استمرار</span>
-            </div>
 
-            <!-- Positive Habit Box -->
-            <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-2">
-                <div class="min-w-0">
-                    <div class="text-[10px] font-bold text-oliveAccent">🌱 عادت مثبت روزانه من:</div>
-                    <div id="positive-habit-title" class="text-xs font-black text-snowWhite truncate mt-0.5">۲۰ دقیقه مطالعه یا پیاده‌روی</div>
-                </div>
-                <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2.5 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray hover:text-snowWhite">
-                    <span id="positive-habit-check-icon">○</span>
-                    <span id="positive-habit-btn-label">انجام دادم</span>
-                </button>
-            </div>
-
-            <!-- Replacement Plan Box -->
-            <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2.5">
-                <div>
-                    <div class="text-[10px] font-extrabold text-emeraldAccent">⚡ قانون جایگزین (اگر وسوسه شدم ⬅ آنگاه):</div>
-                    <div id="dashboard-replacement-habit" class="text-xs font-bold text-snowWhite mt-0.5 leading-5">نوشیدن چای سبز با زنجبیل و ۱۰ حرکت کششی</div>
-                </div>
-                <div class="grid grid-cols-2 gap-2 pt-1 border-t border-white/10">
-                    <button id="btn-quick-rescue-letter" type="button" class="py-2 px-2.5 rounded-xl bg-appBg/80 glass-border text-[11px] font-extrabold text-emeraldAccent hover:border-emeraldAccent transition flex items-center justify-center gap-1">
-                        <span>📩</span>
-                        <span>نامه نجات من</span>
+                    <button id="btn-hold-pledge" type="button" class="relative w-full py-3.5 px-4 rounded-2xl bg-appBg/75 glass-border overflow-hidden text-xs font-extrabold text-snowWhite select-none active:scale-[0.99] hover:border-emeraldAccent/50 transition cursor-pointer">
+                        <div id="pledge-fill-bar" class="absolute inset-y-0 right-0 bg-emeraldAccent/25 transition-all duration-75" style="width: 0%"></div>
+                        <div id="pledge-btn-text" class="relative z-10 flex items-center justify-center gap-1.5">
+                            <span>برای امضای پیمان امروز، ۲ ثانیه نگه دارید</span>
+                        </div>
                     </button>
-                    <button id="btn-edit-habits-quick" type="button" class="py-2 px-2.5 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-mutedGray hover:text-snowWhite transition flex items-center justify-center gap-1">
-                        <span>✎</span>
-                        <span>ویرایش برنامه</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- SECTION 4: SAVED MONEY, TIME & WISHLIST GOAL -->
-        <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                <!-- SECTION 3: CONSTRUCTIVE HABIT & REPLACEMENT PLAN -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-oliveAccent/15 border border-oliveAccent/30 flex items-center justify-center text-oliveAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">عادت سازنده و برنامه جایگزین</h3>
+                                <p class="text-[10px] text-mutedGray">جایگزینی مسیر دوپامین با رفتار مثبت</p>
+                            </div>
+                        </div>
+                        <span id="positive-habit-streak" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-oliveAccent/15 text-oliveAccent border border-oliveAccent/30 shrink-0">۰ روز استمرار</span>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">دارایی و زمان نجات‌یافته</h3>
-                        <p class="text-[10px] text-mutedGray">پس‌انداز واقعی از لحظه شروع پاکی</p>
+
+                    <!-- Positive Habit Box -->
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-2">
+                        <div class="min-w-0">
+                            <div class="text-[10px] font-bold text-oliveAccent">🌱 عادت مثبت روزانه من:</div>
+                            <div id="positive-habit-title" class="text-xs font-black text-snowWhite truncate mt-0.5">۲۰ دقیقه مطالعه یا پیاده‌روی</div>
+                        </div>
+                        <button id="btn-toggle-positive-habit" type="button" class="px-3.5 py-2.5 rounded-xl text-xs font-black transition active:scale-95 shrink-0 flex items-center gap-1.5 bg-appBg glass-border text-mutedGray hover:text-snowWhite">
+                            <span id="positive-habit-check-icon">○</span>
+                            <span id="positive-habit-btn-label">انجام دادم</span>
+                        </button>
                     </div>
-                </div>
-                <button id="btn-open-goal-modal" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 hover:bg-emeraldAccent hover:text-white transition">
-                    🎯 تعیین هدف خرید
-                </button>
-            </div>
 
-            <div class="grid grid-cols-2 gap-2.5">
-                <div class="p-3 rounded-2xl bg-appBg/75 glass-border">
-                    <div class="text-[10px] text-mutedGray font-bold">💰 پس‌انداز مالی</div>
-                    <div class="text-sm font-black text-emeraldAccent mt-1"><span id="metric-saved-money">۰</span> <span class="text-[10px] font-normal">تومان</span></div>
-                </div>
-                <div class="p-3 rounded-2xl bg-appBg/75 glass-border">
-                    <div class="text-[10px] text-mutedGray font-bold">⏳ عمر بازگشته</div>
-                    <div id="metric-saved-time" class="text-sm font-black text-oliveAccent mt-1">۰ ساعت</div>
-                </div>
-            </div>
-
-            <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-1.5">
-                <div class="text-[10px] font-extrabold text-emeraldAccent">🎁 صندوق پاداش من:</div>
-                <div id="goal-box-content"></div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: 30-DAY VISUAL HABIT CHAIN -->
-        <section id="section-habit-chain" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
+                    <!-- Replacement Plan Box -->
+                    <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2.5">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-emeraldAccent">⚡ قانون جایگزین (اگر وسوسه شدم ⬅ آنگاه):</div>
+                            <div id="dashboard-replacement-habit" class="text-xs font-bold text-snowWhite mt-0.5 leading-5">نوشیدن چای سبز با زنجبیل و ۱۰ حرکت کششی</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-1 border-t border-white/10">
+                            <button id="btn-quick-rescue-letter" type="button" class="py-2 px-2.5 rounded-xl bg-appBg/80 glass-border text-[11px] font-extrabold text-emeraldAccent hover:border-emeraldAccent transition flex items-center justify-center gap-1">
+                                <span>📩</span>
+                                <span>نامه نجات من</span>
+                            </button>
+                            <button id="btn-edit-habits-quick" type="button" class="py-2 px-2.5 rounded-xl bg-appBg/80 glass-border text-[11px] font-bold text-mutedGray hover:text-snowWhite transition flex items-center justify-center gap-1">
+                                <span>✎</span>
+                                <span>ویرایش برنامه</span>
+                            </button>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">زنجیره ۳۰ روز اخیر (زنجیره رو نشکن)</h3>
-                        <p class="text-[10px] text-mutedGray">نمایش بصری استمرار و روزهای مهار وسوسه</p>
+                </section>
+
+                <!-- SECTION 5: 30-DAY VISUAL HABIT CHAIN -->
+                <section id="section-habit-chain" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">زنجیره ۳۰ روز اخیر (زنجیره رو نشکن)</h3>
+                                <p class="text-[10px] text-mutedGray">نمایش بصری استمرار و روزهای مهار وسوسه</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
-                <div class="flex items-center justify-between text-[10px] text-mutedGray">
-                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emeraldAccent"></span> روز پاک</span>
-                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> مهار وسوسه</span>
-                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-sosRed"></span> لغزش</span>
-                </div>
-                <div id="habit-chain-grid" class="grid grid-cols-10 gap-1.5" dir="ltr"></div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: MILESTONES & BRAIN RECOVERY TIMELINE -->
-        <section id="section-milestones" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
+                        <div class="flex items-center justify-between text-[10px] text-mutedGray">
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emeraldAccent"></span> روز پاک</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> مهار وسوسه</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-sosRed"></span> لغزش</span>
+                        </div>
+                        <div id="habit-chain-grid" class="grid grid-cols-10 gap-1.5 lg:gap-2" dir="ltr"></div>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">نشان‌های افتخار و ترمیم مغز</h3>
-                        <p class="text-[10px] text-mutedGray">مراحل بازسازی بیولوژیکی سیستم عصبی</p>
+                </section>
+
+                <!-- SECTION 6: MILESTONES & BRAIN RECOVERY TIMELINE -->
+                <section id="section-milestones" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">نشان‌های افتخار و ترمیم مغز</h3>
+                                <p class="text-[10px] text-mutedGray">مراحل بازسازی بیولوژیکی سیستم عصبی</p>
+                            </div>
+                        </div>
+                        <span id="badges-unlocked-summary" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ از ۷ باز شده</span>
                     </div>
-                </div>
-                <span id="badges-unlocked-summary" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ از ۷ باز شده</span>
-            </div>
 
-            <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
-                <div id="milestones-grid" class="grid grid-cols-4 sm:grid-cols-7 gap-1.5"></div>
-                <div id="milestone-detail-box" class="p-2.5 rounded-xl bg-cardBg/80 glass-border text-[11px] text-mutedGray flex items-center justify-between gap-2">
-                    <span>روی هر نشان بزنید تا توضیح علمی آن مرحله را ببینید.</span>
-                </div>
-            </div>
-
-            <div id="recovery-bars-container" class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2.5"></div>
-        </section>
-
-        <!-- SECTION 7: BRAIN QUOTE & PERSONAL COMPASS -->
-        <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
+                        <div id="milestones-grid" class="grid grid-cols-4 sm:grid-cols-7 gap-1.5 lg:gap-2"></div>
+                        <div id="milestone-detail-box" class="p-2.5 rounded-xl bg-cardBg/80 glass-border text-[11px] text-mutedGray flex items-center justify-between gap-2">
+                            <span>روی هر نشان بزنید تا توضیح علمی آن مرحله را ببینید.</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">پیام امروز مغز و قطب‌نمای تعهد</h3>
-                        <p class="text-[10px] text-mutedGray">یادآوری چرایی مسیر و دانش نوروساینس</p>
+
+                    <div id="recovery-bars-container" class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2.5"></div>
+                </section>
+
+            </div>
+
+            <!-- LEFT/SECONDARY COLUMN ON DESKTOP (5 COLS) -->
+            <div class="lg:col-span-5 space-y-4 lg:space-y-5">
+
+                <!-- SECTION 4: SAVED MONEY, TIME & WISHLIST GOAL -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">دارایی و زمان نجات‌یافته</h3>
+                                <p class="text-[10px] text-mutedGray">پس‌انداز واقعی از لحظه شروع پاکی</p>
+                            </div>
+                        </div>
+                        <button id="btn-open-goal-modal" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 hover:bg-emeraldAccent hover:text-white transition">
+                            🎯 تعیین هدف خرید
+                        </button>
                     </div>
-                </div>
-                <div class="flex items-center gap-1">
-                    <button id="btn-toggle-bookmark" type="button" title="نشان کردن جمله" class="p-1.5 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-emeraldAccent transition">
-                        <svg id="icon-bookmark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-                        </svg>
-                    </button>
-                    <button id="btn-show-bookmarks" type="button" class="text-[10px] font-bold px-2 py-1 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-snowWhite">
-                        نشان‌شده‌ها <span id="bookmark-count-badge">(۰)</span>
-                    </button>
-                    <button id="btn-next-quote" type="button" title="جمله بعدی" class="p-1.5 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-emeraldAccent transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
 
-            <div class="p-3.5 rounded-2xl bg-appBg/75 glass-border space-y-2">
-                <p id="quote-text" class="text-xs font-bold text-snowWhite leading-6"></p>
-                <div id="quote-source" class="text-[10px] text-emeraldAccent font-extrabold text-left"></div>
-            </div>
-
-            <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25">
-                <div class="text-[10px] font-extrabold text-emeraldAccent">🧭 تعهد و انگیزه شخصی تو:</div>
-                <div id="dashboard-core-reason" class="text-xs font-bold text-snowWhite mt-0.5 leading-5"></div>
-            </div>
-        </section>
-
-        <!-- SECTION 8: DAILY MOOD & MICRO-JOURNAL -->
-        <section id="section-journal" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                        </svg>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div class="p-3 rounded-2xl bg-appBg/75 glass-border">
+                            <div class="text-[10px] text-mutedGray font-bold">💰 پس‌انداز مالی</div>
+                            <div class="text-sm lg:text-base font-black text-emeraldAccent mt-1"><span id="metric-saved-money">۰</span> <span class="text-[10px] font-normal">تومان</span></div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-appBg/75 glass-border">
+                            <div class="text-[10px] text-mutedGray font-bold">⏳ عمر بازگشته</div>
+                            <div id="metric-saved-time" class="text-sm lg:text-base font-black text-oliveAccent mt-1">۰ ساعت</div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">ثبت حال‌وهوا و تخلیه ذهنی</h3>
-                        <p class="text-[10px] text-mutedGray">نام‌گذاری احساسات، فعالیت آمیگدال را آرام می‌کند</p>
+
+                    <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-1.5">
+                        <div class="text-[10px] font-extrabold text-emeraldAccent">🎁 صندوق پاداش من:</div>
+                        <div id="goal-box-content"></div>
                     </div>
-                </div>
-                <span id="journal-count-badge" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ یادداشت</span>
+                </section>
+
+                <!-- SECTION 7: BRAIN QUOTE & PERSONAL COMPASS -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">پیام امروز مغز و قطب‌نمای تعهد</h3>
+                                <p class="text-[10px] text-mutedGray">یادآوری چرایی مسیر و دانش نوروساینس</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <button id="btn-toggle-bookmark" type="button" title="نشان کردن جمله" class="p-1.5 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-emeraldAccent transition">
+                                <svg id="icon-bookmark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                </svg>
+                            </button>
+                            <button id="btn-show-bookmarks" type="button" class="text-[10px] font-bold px-2 py-1 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-snowWhite">
+                                نشان‌شده‌ها <span id="bookmark-count-badge">(۰)</span>
+                            </button>
+                            <button id="btn-next-quote" type="button" title="جمله بعدی" class="p-1.5 rounded-xl bg-appBg/80 glass-border text-mutedGray hover:text-emeraldAccent transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-appBg/75 glass-border space-y-2">
+                        <p id="quote-text" class="text-xs font-bold text-snowWhite leading-6"></p>
+                        <div id="quote-source" class="text-[10px] text-emeraldAccent font-extrabold text-left"></div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25">
+                        <div class="text-[10px] font-extrabold text-emeraldAccent">🧭 تعهد و انگیزه شخصی تو:</div>
+                        <div id="dashboard-core-reason" class="text-xs font-bold text-snowWhite mt-0.5 leading-5"></div>
+                    </div>
+                </section>
+
+                <!-- SECTION 8: DAILY MOOD & MICRO-JOURNAL -->
+                <section id="section-journal" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">ثبت حال‌وهوا و تخلیه ذهنی</h3>
+                                <p class="text-[10px] text-mutedGray">نام‌گذاری احساسات، فعالیت آمیگدال را آرام می‌کند</p>
+                            </div>
+                        </div>
+                        <span id="journal-count-badge" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 shrink-0">۰ یادداشت</span>
+                    </div>
+
+                    <form id="form-journal" class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
+                        <div class="grid grid-cols-5 gap-1.5">
+                            <button type="button" data-mood="عالی" data-emoji="🤩" class="mood-btn chip-selected-emerald py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
+                                <span class="text-sm">🤩</span><span>عالی</span>
+                            </button>
+                            <button type="button" data-mood="آرام" data-emoji="😌" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
+                                <span class="text-sm">😌</span><span>آرام</span>
+                            </button>
+                            <button type="button" data-mood="خسته" data-emoji="🥱" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
+                                <span class="text-sm">🥱</span><span>خسته</span>
+                            </button>
+                            <button type="button" data-mood="مضطرب" data-emoji="😰" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
+                                <span class="text-sm">😰</span><span>مضطرب</span>
+                            </button>
+                            <button type="button" data-mood="کلافه" data-emoji="😤" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
+                                <span class="text-sm">😤</span><span>کلافه</span>
+                            </button>
+                        </div>
+                        <div class="flex gap-2">
+                            <input id="input-journal-note" type="text" placeholder="حست رو در یک جمله کوتاه بنویس..." class="flex-1 px-3 py-2 rounded-xl bg-cardBg/80 glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                            <button type="submit" class="px-4 py-2 rounded-xl bg-emeraldAccent text-white text-xs font-black shrink-0 active:scale-95 transition">ثبت</button>
+                        </div>
+                    </form>
+
+                    <div id="journal-list-container" class="space-y-1.5 max-h-40 overflow-y-auto"></div>
+                </section>
+
+                <!-- SECTION 9: ACHILLES HEEL RADAR & 24-HOUR DANGER HEATMAP -->
+                <section id="section-radar" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">رادار پاشنه آشیل و ساعات خطر</h3>
+                                <p class="text-[10px] text-mutedGray">شناسایی محرک‌ها و زمان‌های اوج وسوسه</p>
+                            </div>
+                        </div>
+                        <span id="trigger-total-count" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-sosRed/15 text-sosRed border border-sosRed/30 shrink-0">۰ مورد ثبت‌شده</span>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
+                        <p id="trigger-insight-text" class="text-xs text-mutedGray leading-5"></p>
+                        <div id="trigger-bars-list" class="space-y-2"></div>
+                    </div>
+
+                    <!-- 24-Hour Heatmap Box -->
+                    <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2">
+                        <div class="flex items-center justify-between text-[10px]">
+                            <span class="font-extrabold text-emeraldAccent">🕒 نقشه حرارتی ۲۴ ساعته وسوسه:</span>
+                            <span id="heatmap-peak-badge" class="font-bold text-mutedGray">داده کافی نیست</span>
+                        </div>
+                        <div id="danger-heatmap-bars" class="h-12 grid grid-cols-12 gap-1 items-end pt-2" dir="ltr"></div>
+                        <div class="flex justify-between text-[9px] text-mutedGray" dir="ltr">
+                            <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 10: MICRO-LEARNING CAPSULES -->
+                <section id="section-learning" class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">کپسول‌های آگاهی و نوروساینس</h3>
+                                <p class="text-[10px] text-mutedGray">شناخت سازوکار دوپامین، نیمی از درمان است</p>
+                            </div>
+                        </div>
+                        <button id="btn-refresh-learning" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 flex items-center gap-1 active:scale-95 transition">
+                            <svg id="icon-refresh-learning" class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            <span>۴ کپسول بعدی</span>
+                        </button>
+                    </div>
+
+                    <div id="learning-accordion-container" class="space-y-2"></div>
+                </section>
+
+                <!-- SECTION 11: EMPATHIC RELAPSE CARD -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-sosRed/25 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">ثبت صادقانه لغزش (بدون صفر شدن روزشمار)</h3>
+                                <p class="text-[10px] text-mutedGray">جلوگیری از اثر مخرب ناامیدی و شکست</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-3">
+                        <p class="text-[11px] text-mutedGray leading-5">اگر لغزشی رخ داد، بدون ترس از نابود شدن زنجیره ثبتش کن تا علتش تحلیل شود.</p>
+                        <button id="btn-open-relapse" type="button" class="px-3.5 py-2.5 rounded-xl bg-sosRed/15 border border-sosRed/35 text-sosRed text-xs font-extrabold shrink-0 hover:bg-sosRed hover:text-white transition active:scale-95">
+                            ثبت لغزش
+                        </button>
+                    </div>
+                </section>
+
             </div>
 
-            <form id="form-journal" class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
-                <div class="grid grid-cols-5 gap-1.5">
-                    <button type="button" data-mood="عالی" data-emoji="🤩" class="mood-btn chip-selected-emerald py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
-                        <span class="text-sm">🤩</span><span>عالی</span>
-                    </button>
-                    <button type="button" data-mood="آرام" data-emoji="😌" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
-                        <span class="text-sm">😌</span><span>آرام</span>
-                    </button>
-                    <button type="button" data-mood="خسته" data-emoji="🥱" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
-                        <span class="text-sm">🥱</span><span>خسته</span>
-                    </button>
-                    <button type="button" data-mood="مضطرب" data-emoji="😰" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
-                        <span class="text-sm">😰</span><span>مضطرب</span>
-                    </button>
-                    <button type="button" data-mood="کلافه" data-emoji="😤" class="mood-btn py-1.5 rounded-xl bg-cardBg/80 glass-border text-[10px] font-bold text-snowWhite flex flex-col items-center gap-0.5 transition">
-                        <span class="text-sm">😤</span><span>کلافه</span>
-                    </button>
-                </div>
-                <div class="flex gap-2">
-                    <input id="input-journal-note" type="text" placeholder="حست رو در یک جمله کوتاه بنویس..." class="flex-1 px-3 py-2 rounded-xl bg-cardBg/80 glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-emeraldAccent text-white text-xs font-black shrink-0 active:scale-95 transition">ثبت</button>
-                </div>
-            </form>
-
-            <div id="journal-list-container" class="space-y-1.5 max-h-40 overflow-y-auto"></div>
-        </section>
-
-        <!-- SECTION 9: ACHILLES HEEL RADAR & 24-HOUR DANGER HEATMAP -->
-        <section id="section-radar" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">رادار پاشنه آشیل و ساعات خطر</h3>
-                        <p class="text-[10px] text-mutedGray">شناسایی محرک‌ها و زمان‌های اوج وسوسه</p>
-                    </div>
-                </div>
-                <span id="trigger-total-count" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-sosRed/15 text-sosRed border border-sosRed/30 shrink-0">۰ مورد ثبت‌شده</span>
-            </div>
-
-            <div class="p-3 rounded-2xl bg-appBg/75 glass-border space-y-2.5">
-                <p id="trigger-insight-text" class="text-xs text-mutedGray leading-5"></p>
-                <div id="trigger-bars-list" class="space-y-2"></div>
-            </div>
-
-            <!-- 24-Hour Heatmap Box -->
-            <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2">
-                <div class="flex items-center justify-between text-[10px]">
-                    <span class="font-extrabold text-emeraldAccent">🕒 نقشه حرارتی ۲۴ ساعته وسوسه:</span>
-                    <span id="heatmap-peak-badge" class="font-bold text-mutedGray">داده کافی نیست</span>
-                </div>
-                <div id="danger-heatmap-bars" class="h-12 grid grid-cols-12 gap-1 items-end pt-2" dir="ltr"></div>
-                <div class="flex justify-between text-[9px] text-mutedGray" dir="ltr">
-                    <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 10: MICRO-LEARNING CAPSULES -->
-        <section id="section-learning" class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">کپسول‌های آگاهی و نوروساینس</h3>
-                        <p class="text-[10px] text-mutedGray">شناخت سازوکار دوپامین، نیمی از درمان است</p>
-                    </div>
-                </div>
-                <button id="btn-refresh-learning" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 flex items-center gap-1 active:scale-95 transition">
-                    <svg id="icon-refresh-learning" class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                    </svg>
-                    <span>۴ کپسول بعدی</span>
-                </button>
-            </div>
-
-            <div id="learning-accordion-container" class="space-y-2"></div>
-        </section>
-
-        <!-- SECTION 11: EMPATHIC RELAPSE CARD -->
-        <section class="glass-card rounded-3xl p-4 border border-sosRed/25 space-y-3">
-            <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xs font-black text-snowWhite">ثبت صادقانه لغزش (بدون صفر شدن روزشمار)</h3>
-                        <p class="text-[10px] text-mutedGray">جلوگیری از اثر مخرب ناامیدی و شکست</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-3">
-                <p class="text-[11px] text-mutedGray leading-5">اگر لغزشی رخ داد، بدون ترس از نابود شدن زنجیره ثبتش کن تا علتش تحلیل شود.</p>
-                <button id="btn-open-relapse" type="button" class="px-3.5 py-2.5 rounded-xl bg-sosRed/15 border border-sosRed/35 text-sosRed text-xs font-extrabold shrink-0 hover:bg-sosRed hover:text-white transition active:scale-95">
-                    ثبت لغزش
-                </button>
-            </div>
-        </section>
+        </div>
 
     </main>
 
@@ -800,7 +821,7 @@
          FLOATING BOTTOM NAVIGATION BAR (WITH CENTER SOS)
          ========================================== -->
     <nav class="fixed safe-bottom-bar inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
-        <div class="w-full max-w-md glass-card floating-menubar-shadow rounded-3xl p-1.5 pointer-events-auto grid grid-cols-5 items-center gap-1">
+        <div class="w-full max-w-md lg:max-w-xl glass-card floating-menubar-shadow rounded-3xl p-1.5 pointer-events-auto grid grid-cols-5 items-center gap-1">
             <button type="button" data-nav-target="section-hero" class="bottom-nav-btn nav-item-active h-12 rounded-2xl flex flex-col items-center justify-center gap-1 transition">
                 <div class="h-5 flex items-center justify-center">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -848,324 +869,242 @@
     </nav>
 
     <!-- ==========================================
-         ONBOARDING WELCOME MODAL (SIMPLIFIED WITH LOGO)
+         SOS FULLSCREEN OVERLAY (REDESIGNED TO MATCH LAYERED CARD SYSTEM + DESKTOP 2-COL)
          ========================================== -->
-    <div id="modal-onboarding" class="fixed inset-0 z-[70] bg-appBg/95 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
-        <div class="w-full max-w-md glass-card rounded-3xl p-5 my-auto border border-emeraldAccent/30 space-y-4">
-            <div class="text-center space-y-2">
-                <div class="w-16 h-16 rounded-3xl bg-appBg glass-border flex items-center justify-center mx-auto shadow-lg border border-emeraldAccent/40">
-                    <svg class="w-11 h-11" viewBox="0 0 1000 1000" fill="none">
-                        <circle cx="505" cy="272" r="86" fill="#00A88A"/>
-                        <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="#007F68"/>
-                        <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="#00A88A"/>
-                    </svg>
-                </div>
-                <h2 class="text-lg font-black text-snowWhite">به «عادَتِش» خوش آمدی</h2>
-                <p class="text-xs text-mutedGray">شروع سریع مسیر بازسازی مغز در چند ثانیه</p>
+    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-md lg:max-w-5xl mx-auto my-auto grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-5 pb-6 items-start">
+            
+            <!-- RIGHT COLUMN ON DESKTOP SOS: Timer & Cognitive Shield -->
+            <div class="lg:col-span-5 flex flex-col gap-3.5 lg:gap-5">
+                <!-- CARD 1: Header & Urge Surfing Timer Box -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-sosRed/30 shrink-0 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
+                                <span class="w-2.5 h-2.5 rounded-full bg-sosRed animate-ping"></span>
+                            </div>
+                            <div class="min-w-0">
+                                <h2 class="text-xs lg:text-sm font-black text-snowWhite truncate">اتاق آرامش و موج‌شکن</h2>
+                                <p class="text-[10px] text-mutedGray truncate">موج وسوسه تا ۵ دقیقه دیگر فروکش می‌کند</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <!-- Ambient Sound Toggle Button -->
+                            <button id="btn-toggle-ambient-audio" type="button" title="پلیر صدای آرامش" class="px-2.5 py-1.5 rounded-full bg-appBg/80 glass-border flex items-center gap-1.5 text-[10px] text-mutedGray hover:text-snowWhite transition">
+                                <span id="ambient-audio-dot" class="w-2 h-2 rounded-full bg-mutedGray"></span>
+                                <span id="ambient-audio-label" class="font-extrabold">🎧 صدای محیط</span>
+                            </button>
+
+                            <!-- Close SOS Button -->
+                            <button id="btn-close-sos" type="button" class="px-2.5 py-1.5 rounded-full bg-appBg/80 glass-border text-[10px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                                بستن ✕
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Inner Countdown Box -->
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">🌊</span>
+                            <div>
+                                <div class="text-[10px] font-extrabold text-emeraldAccent">تایمر موج‌سواری بر وسوسه:</div>
+                                <div class="text-[10px] text-mutedGray">فقط تا پایان این تایمر صبر کن</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-cardBg/80 glass-border px-3 py-1.5 rounded-xl">
+                            <span id="sos-countdown-display" class="text-sm font-black text-emeraldAccent tracking-wider" dir="ltr">۰۵:۰۰</span>
+                            <button id="btn-toggle-sos-timer" type="button" class="text-[10px] font-bold text-mutedGray hover:text-snowWhite border-r border-white/10 pr-2">توقف</button>
+                            <button id="btn-reset-sos-timer" type="button" title="شروع مجدد تایمر" class="text-xs text-mutedGray hover:text-snowWhite pr-1">↺</button>
+                        </div>
+                    </div>
+
+                    <!-- Ambient Sound Swipeable Drawer (Collapsible inside Header Card) -->
+                    <div id="ambient-player-drawer" class="hidden p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 select-none space-y-2">
+                        <div class="flex items-center justify-between text-[10px] text-mutedGray">
+                            <span>برای تعویض صدای محیط به چپ یا راست بکشید</span>
+                            <button id="btn-mute-ambient" type="button" class="text-sosRed font-extrabold hover:underline">خاموش کردن صدا</button>
+                        </div>
+                        <div id="ambient-swipe-area" class="flex items-center justify-between gap-2 bg-appBg/80 glass-border rounded-xl p-2 cursor-grab active:cursor-grabbing">
+                            <button id="btn-ambient-prev" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <div id="ambient-track-info" class="text-center flex-1">
+                                <div id="ambient-track-title" class="text-xs font-black text-emeraldAccent">۱. امواج آرام اقیانوس</div>
+                                <div id="ambient-track-desc" class="text-[10px] text-mutedGray mt-0.5">موج‌های عمیق برای کاهش ضربان قلب</div>
+                            </div>
+                            <button id="btn-ambient-next" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                        </div>
+                        <div id="ambient-dots" class="flex justify-center gap-1.5"></div>
+                    </div>
+                </section>
+
+                <!-- CARD 2: Replacement Plan, Rescue Letter & Reality Flashcard -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 shrink-0 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-oliveAccent/15 border border-oliveAccent/30 flex items-center justify-center text-oliveAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">سپر شناختی و جایگزین فوری</h3>
+                                <p class="text-[10px] text-mutedGray">شکستن نزدیک‌بینی زمانی مغز در لحظه بحران</p>
+                            </div>
+                        </div>
+                        <button id="btn-open-rescue-letter" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 hover:bg-emeraldAccent hover:text-white active:scale-95 transition whitespace-nowrap flex items-center gap-1">
+                            <span>📩</span>
+                            <span>نامه نجات من</span>
+                        </button>
+                    </div>
+
+                    <!-- Replacement Habit Inner Box -->
+                    <div class="p-3 rounded-2xl bg-oliveAccent/10 border border-oliveAccent/25 flex items-start gap-2.5">
+                        <span class="text-base shrink-0 mt-0.5">⚡</span>
+                        <div class="min-w-0 flex-1">
+                            <div class="text-[10px] font-extrabold text-oliveAccent">برنامه جایگزین فوری تو در این لحظه:</div>
+                            <div id="sos-replacement-habit-text" class="text-xs font-black text-snowWhite mt-0.5 leading-5 break-words">بلند شو و چای سبز با زنجبیل بنوش</div>
+                        </div>
+                    </div>
+
+                    <!-- Reality Flashcard Inner Box -->
+                    <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-start justify-between gap-2">
+                        <div class="space-y-1 flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-[10px] font-black text-emeraldAccent bg-emeraldAccent/15 px-2 py-0.5 rounded-md">تلنگر لحظه</span>
+                                <span class="text-[10px] text-mutedGray truncate">تعهد تو: <strong id="sos-core-reason" class="text-snowWhite"></strong></span>
+                            </div>
+                            <p id="sos-reality-flash" class="text-xs text-snowWhite font-bold leading-6 pt-0.5">
+                                «لذتِ تسلیم شدن فقط چند ثانیه است، اما حسِ غرورِ مقاومت کردن تا فردا صبح با تو می‌ماند.»
+                            </p>
+                        </div>
+                        <button id="btn-next-sos-flash" type="button" title="تلنگر بعدی" class="p-2 rounded-xl bg-cardBg/80 glass-border text-mutedGray hover:text-emeraldAccent active:scale-95 transition shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
             </div>
 
-            <form id="form-onboarding" class="space-y-4">
-                <!-- Step 1: Habit Selection -->
-                <div>
-                    <label class="block text-xs font-extrabold text-snowWhite mb-2">۱. کدام عادت را کنار می‌گذاری؟</label>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <button type="button" data-habit="سیگار و ویپ" class="habit-chip chip-selected-emerald py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">🚬 سیگار و ویپ</button>
-                        <button type="button" data-habit="پورن و خودارضایی" class="habit-chip py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">🧠 پورن و محرک‌ها</button>
-                        <button type="button" data-habit="اسکرول و فضای مجازی" class="habit-chip py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">📱 اسکرول بی‌هدف</button>
-                        <button type="button" data-habit="قند مصنوعی و فست‌فود" class="habit-chip py-2.5 px-3 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">🍬 قند و فست‌فود</button>
-                    </div>
-                    <input id="input-habit-name" type="text" required value="سیگار و ویپ" placeholder="یا نام عادت دلخواهت را بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
-                </div>
-
-                <!-- Step 2: Quick Start Time -->
-                <div>
-                    <label class="block text-xs font-extrabold text-snowWhite mb-2">۲. از چه زمانی شروع می‌کنی؟</label>
-                    <div class="grid grid-cols-3 gap-1.5">
-                        <button type="button" data-start-preset="now" class="ob-time-chip chip-selected-emerald py-2.5 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">⚡ همین الان</button>
-                        <button type="button" data-start-preset="morning" class="ob-time-chip py-2.5 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">🌅 از امروز صبح</button>
-                        <button type="button" data-start-preset="custom" class="ob-time-chip py-2.5 rounded-xl bg-appBg glass-border text-xs font-bold text-snowWhite transition">📅 تاریخ دیگر...</button>
+            <!-- LEFT COLUMN ON DESKTOP SOS: Calming Exercises & Trigger Victory -->
+            <div class="lg:col-span-7 flex flex-col gap-3.5 lg:gap-5">
+                <!-- CARD 3: 3-Tab Calming Workspace (تنفس | بازی تمرکز | اتصال به زمین) -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 shrink-0 flex flex-col space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xs lg:text-sm font-black text-snowWhite">تمرین‌های آرام‌سازی سیستم عصبی</h3>
+                                <p class="text-[10px] text-mutedGray">فعال‌سازی عصب واگ و خروج حافظه کاری از وسوسه</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="ob-custom-date-box" class="hidden mt-2.5 p-3 rounded-2xl bg-appBg/70 glass-border space-y-2">
+                    <!-- 3-Tab Switcher -->
+                    <div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-appBg/80 glass-border">
+                        <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
+                            تنفس ۴-۷-۸
+                        </button>
+                        <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                            بازی تمرکز
+                        </button>
+                        <button id="tab-sos-grounding" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
+                            حواس ۵-۴-۳-۲-۱
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: Breathing Circle Section -->
+                    <div id="sos-panel-breath" class="p-3.5 rounded-2xl bg-appBg/75 glass-border flex flex-col items-center justify-center">
+                        <div class="relative w-40 h-40 flex items-center justify-center mb-2">
+                            <div id="breathing-circle" class="breath-circle absolute w-24 h-24 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_45px_rgba(0,127,104,0.45)]"></div>
+                            <div class="relative z-10 text-center pointer-events-none">
+                                <div id="breathing-instruction" class="text-sm font-black text-snowWhite">آماده تنفس...</div>
+                                <div id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1">چرخه آرام‌سازی عصب واگ</div>
+                            </div>
+                        </div>
+                        <!-- SENSORY FEEDBACK TOGGLE: CHIME & HAPTIC VIBRATION -->
+                        <button id="btn-toggle-sound-haptic" type="button" class="flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-xl bg-cardBg/80 glass-border text-emeraldAccent active:scale-95 transition">
+                            <span id="sound-haptic-status-dot" class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
+                            <span id="sound-haptic-label">راهنمای چشم‌بسته (زنگ تبتی و لرزش فعال 🔔📳)</span>
+                        </button>
+                    </div>
+
+                    <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
+                    <div id="sos-panel-game" class="hidden p-3.5 rounded-2xl bg-appBg/75 glass-border flex-col items-center justify-center">
+                        <div class="flex items-center justify-between w-full mb-2.5 px-1">
+                            <span class="text-[11px] text-mutedGray">اعداد ۱ تا ۱۶ را به ترتیب بزن:</span>
+                            <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
+                        </div>
+                        <div id="sos-number-grid" class="grid grid-cols-4 gap-2 w-full" dir="ltr"></div>
+                    </div>
+
+                    <!-- TAB 3: 5-4-3-2-1 Sensory Grounding Technique -->
+                    <div id="sos-panel-grounding" class="hidden p-4 rounded-2xl bg-appBg/75 glass-border flex-col justify-between text-center space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 text-emeraldAccent flex items-center justify-center mx-auto text-xl font-black" id="grounding-step-badge">
+                            ۵
+                        </div>
+                        <div class="space-y-1 px-2">
+                            <h4 id="grounding-step-title" class="text-sm font-black text-snowWhite">۵ چیز که الان می‌بینی</h4>
+                            <p id="grounding-step-desc" class="text-xs text-mutedGray leading-5">به اطرافت نگاه کن و ۵ شیء مختلف را در دلت نام ببر تا ذهنت از تصویرسازی وسوسه خارج شود.</p>
+                        </div>
+                        <button id="btn-grounding-next" type="button" class="mx-auto px-5 py-2.5 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent text-emeraldAccent text-xs font-extrabold active:scale-95 transition">
+                            انجام دادم؛ مرحله بعد ←
+                        </button>
+                    </div>
+
+                    <!-- Quick Physical Reset Pills (Inner Accent Box) -->
+                    <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2">
+                        <div class="text-[10px] text-emeraldAccent font-extrabold">⚡ چک‌لیست شکستن قفل فیزیکی بدن:</div>
                         <div class="grid grid-cols-3 gap-1.5">
-                            <select id="ob-j-day" class="w-full px-2 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite"></select>
-                            <select id="ob-j-month" class="w-full px-2 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite"></select>
-                            <select id="ob-j-year" class="w-full px-2 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite"></select>
-                        </div>
-                        <div class="grid grid-cols-2 gap-1.5">
-                            <select id="ob-j-minute" class="w-full px-2 py-1.5 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-center" dir="ltr"></select>
-                            <select id="ob-j-hour" class="w-full px-2 py-1.5 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-center" dir="ltr"></select>
+                            <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                                <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                                <span>آب خنک</span>
+                            </label>
+                            <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                                <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                                <span>تغییر مکان</span>
+                            </label>
+                            <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
+                                <input type="checkbox" class="sos-check accent-emerald-500 rounded">
+                                <span>۱۰ نفس/شنا</span>
+                            </label>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Optional Details Accordion -->
-                <details class="rounded-2xl bg-appBg/70 glass-border p-3">
-                    <summary class="text-xs font-bold text-emeraldAccent cursor-pointer select-none">⚙️ تنظیم هزینه، زمان و انگیزه شخصی (اختیاری)</summary>
-                    <div class="space-y-3 pt-3 mt-2 border-t border-white/10">
-                        <div class="grid grid-cols-2 gap-2">
-                            <div>
-                                <label class="block text-[11px] font-bold text-snowWhite mb-1">هزینه روزانه (تومان)</label>
-                                <input id="input-daily-cost" type="text" inputmode="numeric" value="50,000" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-left">
+                <!-- CARD 4: Trigger Selector + Victory Action -->
+                <section class="glass-card rounded-3xl p-4 lg:p-5 border border-emeraldAccent/25 shrink-0 space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0 text-xs">
+                                🎯
                             </div>
-                            <div>
-                                <label class="block text-[11px] font-bold text-snowWhite mb-1">ساعت تلف‌شده در روز</label>
-                                <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-left">
-                            </div>
+                            <span class="text-xs lg:text-sm font-black text-snowWhite">ریشه این وسوسه چه بود؟</span>
                         </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-snowWhite mb-1">انگیزه اصلی من</label>
-                            <input id="input-core-reason" type="text" value="بازپس‌گیری تمرکز، آرامش و احترام به خودم" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-snowWhite mb-1">رفتار جایگزین در لحظه وسوسه</label>
-                            <input id="input-replacement-habit" type="text" value="نوشیدن یک لیوان آب خنک و ۱۰ نفس عمیق" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-snowWhite mb-1">عادت مثبت روزانه</label>
-                            <input id="input-positive-habit" type="text" value="۲۰ دقیقه مطالعه یا پیاده‌روی" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
-                        </div>
-                    </div>
-                </details>
-
-                <button type="submit" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
-                    شروع مسیر رهایی من 🚀
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- ==========================================
-         SOS FULLSCREEN OVERLAY (REDESIGNED TO MATCH LAYERED CARD SYSTEM)
-         ========================================== -->
-    <div id="modal-sos" class="fixed inset-0 z-50 bg-appBg/95 backdrop-blur-2xl hidden flex-col justify-between safe-modal-overlay overflow-y-auto">
-        <div class="w-full max-w-md mx-auto flex flex-col justify-between min-h-full gap-3.5 py-1">
-            
-            <!-- CARD 1: Header & Urge Surfing Timer Box -->
-            <section class="glass-card rounded-3xl p-4 border border-sosRed/30 relative overflow-hidden space-y-3">
-                <div class="flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2 min-w-0">
-                        <div class="w-8 h-8 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0">
-                            <span class="w-2.5 h-2.5 rounded-full bg-sosRed animate-ping"></span>
-                        </div>
-                        <div class="min-w-0">
-                            <h2 class="text-xs font-black text-snowWhite truncate">اتاق آرامش و موج‌شکن</h2>
-                            <p class="text-[10px] text-mutedGray truncate">موج وسوسه تا ۵ دقیقه دیگر فروکش می‌کند</p>
-                        </div>
+                        <span id="sos-trigger-status" class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30">ثبت در رادار</span>
                     </div>
 
-                    <div class="flex items-center gap-1.5 shrink-0">
-                        <!-- Ambient Sound Toggle Button -->
-                        <button id="btn-toggle-ambient-audio" type="button" title="پلیر صدای آرامش" class="px-2.5 py-1.5 rounded-full bg-appBg/80 glass-border flex items-center gap-1.5 text-[10px] text-mutedGray hover:text-snowWhite transition">
-                            <span id="ambient-audio-dot" class="w-2 h-2 rounded-full bg-mutedGray"></span>
-                            <span id="ambient-audio-label" class="font-extrabold">🎧 صدای محیط</span>
-                        </button>
+                    <div class="p-2.5 rounded-2xl bg-appBg/75 glass-border flex flex-wrap gap-1.5">
+                        <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
+                        <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
+                        <button type="button" data-trigger="بی‌حوصلگی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
+                        <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
+                        <button type="button" data-trigger="دیدن محرک" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
+                    </div>
 
-                        <!-- Close SOS Button -->
-                        <button id="btn-close-sos" type="button" class="px-2.5 py-1.5 rounded-full bg-appBg/80 glass-border text-[10px] font-extrabold text-mutedGray hover:text-snowWhite transition">
-                            بستن ✕
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Inner Countdown Box -->
-                <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <span class="text-sm">🌊</span>
-                        <div>
-                            <div class="text-[10px] font-extrabold text-emeraldAccent">تایمر موج‌سواری بر وسوسه:</div>
-                            <div class="text-[10px] text-mutedGray">فقط تا پایان این تایمر صبر کن</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1.5 bg-cardBg/80 glass-border px-3 py-1.5 rounded-xl">
-                        <span id="sos-countdown-display" class="text-sm font-black text-emeraldAccent tracking-wider" dir="ltr">۰۵:۰۰</span>
-                        <button id="btn-toggle-sos-timer" type="button" class="text-[10px] font-bold text-mutedGray hover:text-snowWhite border-r border-white/10 pr-2">توقف</button>
-                        <button id="btn-reset-sos-timer" type="button" title="شروع مجدد تایمر" class="text-xs text-mutedGray hover:text-snowWhite pr-1">↺</button>
-                    </div>
-                </div>
-
-                <!-- Ambient Sound Swipeable Drawer (Collapsible inside Header Card) -->
-                <div id="ambient-player-drawer" class="hidden p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 select-none space-y-2">
-                    <div class="flex items-center justify-between text-[10px] text-mutedGray">
-                        <span>برای تعویض صدای محیط به چپ یا راست بکشید</span>
-                        <button id="btn-mute-ambient" type="button" class="text-sosRed font-extrabold hover:underline">خاموش کردن صدا</button>
-                    </div>
-                    <div id="ambient-swipe-area" class="flex items-center justify-between gap-2 bg-appBg/80 glass-border rounded-xl p-2 cursor-grab active:cursor-grabbing">
-                        <button id="btn-ambient-prev" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                        </button>
-                        <div id="ambient-track-info" class="text-center flex-1">
-                            <div id="ambient-track-title" class="text-xs font-black text-emeraldAccent">۱. امواج آرام اقیانوس</div>
-                            <div id="ambient-track-desc" class="text-[10px] text-mutedGray mt-0.5">موج‌های عمیق برای کاهش ضربان قلب</div>
-                        </div>
-                        <button id="btn-ambient-next" type="button" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center text-mutedGray hover:text-snowWhite shrink-0">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                    </div>
-                    <div id="ambient-dots" class="flex justify-center gap-1.5"></div>
-                </div>
-            </section>
-
-            <!-- CARD 2: Replacement Plan, Rescue Letter & Reality Flashcard -->
-            <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 relative overflow-hidden space-y-3">
-                <div class="flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-xl bg-oliveAccent/15 border border-oliveAccent/30 flex items-center justify-center text-oliveAccent shrink-0">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-black text-snowWhite">سپر شناختی و جایگزین فوری</h3>
-                            <p class="text-[10px] text-mutedGray">شکستن نزدیک‌بینی زمانی مغز در لحظه بحران</p>
-                        </div>
-                    </div>
-                    <button id="btn-open-rescue-letter" type="button" class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30 hover:bg-emeraldAccent hover:text-white active:scale-95 transition whitespace-nowrap flex items-center gap-1">
-                        <span>📩</span>
-                        <span>نامه نجات من</span>
+                    <button id="btn-sos-victory" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm tracking-wide shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
+                        موج رد شد؛ تونستم! (+۱ پیروزی)
                     </button>
-                </div>
-
-                <!-- Replacement Habit Inner Box -->
-                <div class="p-3 rounded-2xl bg-oliveAccent/10 border border-oliveAccent/25 flex items-start gap-2.5">
-                    <span class="text-base shrink-0 mt-0.5">⚡</span>
-                    <div class="min-w-0 flex-1">
-                        <div class="text-[10px] font-extrabold text-oliveAccent">برنامه جایگزین فوری تو در این لحظه:</div>
-                        <div id="sos-replacement-habit-text" class="text-xs font-black text-snowWhite mt-0.5 leading-5 break-words">بلند شو و چای سبز با زنجبیل بنوش</div>
-                    </div>
-                </div>
-
-                <!-- Reality Flashcard Inner Box -->
-                <div class="p-3 rounded-2xl bg-appBg/75 glass-border flex items-start justify-between gap-2">
-                    <div class="space-y-1 flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5 flex-wrap">
-                            <span class="text-[10px] font-black text-emeraldAccent bg-emeraldAccent/15 px-2 py-0.5 rounded-md">تلنگر لحظه</span>
-                            <span class="text-[10px] text-mutedGray truncate">تعهد تو: <strong id="sos-core-reason" class="text-snowWhite"></strong></span>
-                        </div>
-                        <p id="sos-reality-flash" class="text-xs text-snowWhite font-bold leading-6 pt-0.5">
-                            «لذتِ تسلیم شدن فقط چند ثانیه است، اما حسِ غرورِ مقاومت کردن تا فردا صبح با تو می‌ماند.»
-                        </p>
-                    </div>
-                    <button id="btn-next-sos-flash" type="button" title="تلنگر بعدی" class="p-2 rounded-xl bg-cardBg/80 glass-border text-mutedGray hover:text-emeraldAccent active:scale-95 transition shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </button>
-                </div>
-            </section>
-
-            <!-- CARD 3: 3-Tab Calming Workspace (تنفس | بازی تمرکز | اتصال به زمین) -->
-            <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 flex-1 flex flex-col justify-between space-y-3">
-                <div class="flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-xl bg-emeraldAccent/15 border border-emeraldAccent/30 flex items-center justify-center text-emeraldAccent shrink-0">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-black text-snowWhite">تمرین‌های آرام‌سازی سیستم عصبی</h3>
-                            <p class="text-[10px] text-mutedGray">فعال‌سازی عصب واگ و خروج حافظه کاری از وسوسه</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3-Tab Switcher -->
-                <div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-appBg/80 glass-border">
-                    <button id="tab-sos-breath" type="button" class="py-2 rounded-xl text-[11px] font-extrabold bg-emeraldAccent text-white transition">
-                        تنفس ۴-۷-۸
-                    </button>
-                    <button id="tab-sos-game" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
-                        بازی تمرکز
-                    </button>
-                    <button id="tab-sos-grounding" type="button" class="py-2 rounded-xl text-[11px] font-extrabold text-mutedGray hover:text-snowWhite transition">
-                        حواس ۵-۴-۳-۲-۱
-                    </button>
-                </div>
-
-                <!-- TAB 1: Breathing Circle Section -->
-                <div id="sos-panel-breath" class="p-3.5 rounded-2xl bg-appBg/75 glass-border flex flex-col items-center justify-center my-auto">
-                    <div class="relative w-40 h-40 flex items-center justify-center mb-2">
-                        <div id="breathing-circle" class="breath-circle absolute w-24 h-24 rounded-full bg-emeraldAccent/20 border-2 border-emeraldAccent shadow-[0_0_45px_rgba(0,127,104,0.45)]"></div>
-                        <div class="relative z-10 text-center pointer-events-none">
-                            <div id="breathing-instruction" class="text-sm font-black text-snowWhite">آماده تنفس...</div>
-                            <div id="breathing-sub" class="text-[10px] text-emeraldAccent mt-1">چرخه آرام‌سازی عصب واگ</div>
-                        </div>
-                    </div>
-                    <!-- SENSORY FEEDBACK TOGGLE: CHIME & HAPTIC VIBRATION -->
-                    <button id="btn-toggle-sound-haptic" type="button" class="flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-xl bg-cardBg/80 glass-border text-emeraldAccent active:scale-95 transition">
-                        <span id="sound-haptic-status-dot" class="w-2 h-2 rounded-full bg-emeraldAccent"></span>
-                        <span id="sound-haptic-label">راهنمای چشم‌بسته (زنگ تبتی و لرزش فعال 🔔📳)</span>
-                    </button>
-                </div>
-
-                <!-- TAB 2: Cognitive Distraction Number Game (1 to 16) -->
-                <div id="sos-panel-game" class="hidden p-3.5 rounded-2xl bg-appBg/75 glass-border flex-col items-center justify-center my-auto">
-                    <div class="flex items-center justify-between w-full mb-2.5 px-1">
-                        <span class="text-[11px] text-mutedGray">اعداد ۱ تا ۱۶ را به ترتیب بزن:</span>
-                        <span id="game-next-target" class="text-xs font-black text-emeraldAccent">عدد بعدی: ۱</span>
-                    </div>
-                    <div id="sos-number-grid" class="grid grid-cols-4 gap-2 w-full" dir="ltr"></div>
-                </div>
-
-                <!-- TAB 3: 5-4-3-2-1 Sensory Grounding Technique -->
-                <div id="sos-panel-grounding" class="hidden p-4 rounded-2xl bg-appBg/75 glass-border flex-col justify-between my-auto text-center space-y-3">
-                    <div class="w-12 h-12 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/30 text-emeraldAccent flex items-center justify-center mx-auto text-xl font-black" id="grounding-step-badge">
-                        ۵
-                    </div>
-                    <div class="space-y-1 px-2">
-                        <h4 id="grounding-step-title" class="text-sm font-black text-snowWhite">۵ چیز که الان می‌بینی</h4>
-                        <p id="grounding-step-desc" class="text-xs text-mutedGray leading-5">به اطرافت نگاه کن و ۵ شیء مختلف را در دلت نام ببر تا ذهنت از تصویرسازی وسوسه خارج شود.</p>
-                    </div>
-                    <button id="btn-grounding-next" type="button" class="mx-auto px-5 py-2.5 rounded-xl bg-emeraldAccent/20 border border-emeraldAccent text-emeraldAccent text-xs font-extrabold active:scale-95 transition">
-                        انجام دادم؛ مرحله بعد ←
-                    </button>
-                </div>
-
-                <!-- Quick Physical Reset Pills (Inner Accent Box) -->
-                <div class="p-3 rounded-2xl bg-emeraldAccent/10 border border-emeraldAccent/25 space-y-2">
-                    <div class="text-[10px] text-emeraldAccent font-extrabold">⚡ چک‌لیست شکستن قفل فیزیکی بدن:</div>
-                    <div class="grid grid-cols-3 gap-1.5">
-                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
-                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
-                            <span>آب خنک</span>
-                        </label>
-                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
-                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
-                            <span>تغییر مکان</span>
-                        </label>
-                        <label class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-appBg/80 glass-border text-[10px] font-bold text-snowWhite cursor-pointer hover:border-emeraldAccent transition text-center">
-                            <input type="checkbox" class="sos-check accent-emerald-500 rounded">
-                            <span>۱۰ نفس/شنا</span>
-                        </label>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CARD 4: Trigger Selector + Victory Action -->
-            <section class="glass-card rounded-3xl p-4 border border-emeraldAccent/25 space-y-3">
-                <div class="flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-xl bg-sosRed/15 border border-sosRed/30 flex items-center justify-center text-sosRed shrink-0 text-xs">
-                            🎯
-                        </div>
-                        <span class="text-xs font-black text-snowWhite">ریشه این وسوسه چه بود؟</span>
-                    </div>
-                    <span id="sos-trigger-status" class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-emeraldAccent/15 text-emeraldAccent border border-emeraldAccent/30">ثبت در رادار</span>
-                </div>
-
-                <div class="p-2.5 rounded-2xl bg-appBg/75 glass-border flex flex-wrap gap-1.5">
-                    <button type="button" data-trigger="استرس و فشار" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">استرس و فشار</button>
-                    <button type="button" data-trigger="تنهایی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">تنهایی</button>
-                    <button type="button" data-trigger="بی‌حوصلگی" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">بی‌حوصلگی</button>
-                    <button type="button" data-trigger="خستگی آخر شب" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">خستگی آخر شب</button>
-                    <button type="button" data-trigger="دیدن محرک" class="sos-trigger-chip text-[10px] px-2.5 py-1.5 rounded-xl bg-cardBg/80 glass-border text-mutedGray transition cursor-pointer active:scale-95">دیدن محرک</button>
-                </div>
-
-                <button id="btn-sos-victory" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm tracking-wide shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
-                    موج رد شد؛ تونستم! (+۱ پیروزی)
-                </button>
-            </section>
+                </section>
+            </div>
 
         </div>
     </div>
