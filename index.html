@@ -388,12 +388,11 @@
             </div>
 
             <div class="flex items-center gap-1.5 lg:gap-2.5 shrink-0">
-                <!-- Share Story 9:16 Button -->
-                <button id="btn-open-share-card" type="button" title="استوری افتخار ۹:۱۶" class="h-9 lg:h-10 px-2.5 lg:px-3.5 rounded-xl glass-card flex items-center gap-1.5 text-[11px] lg:text-xs font-extrabold text-emeraldAccent hover:border-emeraldAccent transition active:scale-95">
+                <!-- Share Story 9:16 Button (Icon Only) -->
+                <button id="btn-open-share-card" type="button" title="استوری افتخار ۹:۱۶" class="w-9 h-9 lg:w-10 lg:h-10 rounded-xl glass-card flex items-center justify-center text-emeraldAccent hover:border-emeraldAccent transition active:scale-95">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
                     </svg>
-                    <span>استوری افتخار</span>
                 </button>
 
                 <!-- Theme Toggle Button -->
@@ -1432,60 +1431,88 @@
     </div>
 
     <!-- ==========================================
-         MILESTONE UNLOCK CELEBRATION MODAL (FIRST-TIME ONLY)
+         ONBOARDING WELCOME MODAL
          ========================================== -->
-    <div id="modal-milestone-celebration" class="fixed inset-0 z-[75] bg-appBg/90 backdrop-blur-xl hidden items-center justify-center safe-modal-overlay">
-        <div class="w-full max-w-sm glass-card rounded-3xl p-6 text-center border border-emeraldAccent/40 shadow-[0_0_60px_-10px_rgba(0,127,104,0.4)] relative overflow-hidden">
-            <div class="w-16 h-16 rounded-2xl bg-emeraldAccent/15 border border-emeraldAccent/40 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner animate-bounce">
-                🏆
+    <div id="modal-onboarding" class="fixed inset-0 z-[82] bg-appBg/95 backdrop-blur-2xl hidden items-center justify-center safe-modal-overlay overflow-y-auto">
+        <div class="w-full max-w-md glass-card rounded-3xl p-5 sm:p-6 my-auto border border-emeraldAccent/35 shadow-2xl space-y-4">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 shadow-md border border-emeraldAccent/40">
+                    <svg class="w-8 h-8" viewBox="0 0 1000 1000" fill="none">
+                        <circle cx="505" cy="272" r="86" fill="#00A88A"/>
+                        <path d="M 356 286 C 370 284, 374 297, 372 318 C 370 350, 391 392, 437 432 C 495 483, 597 568, 597 698 C 597 808, 498 860, 419 820 C 400 810, 404 804, 417 801 C 480 785, 501 735, 501 668 C 501 585, 424 558, 354 535 C 275 509, 269 448, 270 388 C 271 320, 314 292, 356 286 Z" fill="#007F68"/>
+                        <path d="M 716 322 C 742 396, 744 475, 721 544 C 699 608, 655 658, 619 700 C 614 705, 612 701, 614 691 C 623 638, 608 582, 581 541 C 546 487, 566 423, 617 380 C 655 348, 678 331, 716 322 Z" fill="#00A88A"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-base sm:text-lg font-black text-snowWhite">به «عادَتِش» خوش آمدی</h2>
+                    <p class="text-[11px] text-mutedGray mt-0.5">شروع سریع در ۲ گام ساده (۱۰۰٪ خصوصی در گوشی شما)</p>
+                </div>
             </div>
-            <span id="celebration-badge-label" class="inline-block text-[11px] font-extrabold px-3 py-1 rounded-full bg-emeraldAccent/20 text-emeraldAccent border border-emeraldAccent/30 mb-2">
-                نشان افتخار جدید باز شد!
-            </span>
-            <h3 id="celebration-title" class="text-xl font-black text-snowWhite mb-2">تبریک قهرمان!</h3>
-            <p id="celebration-desc" class="text-xs text-mutedGray leading-6 mb-5"></p>
-            <button id="btn-close-celebration" type="button" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
-                ایول! با قدرت ادامه میدم
-            </button>
-        </div>
-    </div>
 
-    <!-- CUSTOM TOAST NOTIFICATION -->
-    <div id="toast-container" class="fixed safe-toast-bar inset-x-0 z-[90] flex justify-center px-4 pointer-events-none hidden">
-        <div id="toast-box" class="glass-card border border-emeraldAccent/40 bg-cardBg/95 text-snowWhite text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emeraldAccent shrink-0"></span>
-            <span id="toast-message"></span>
-        </div>
-    </div>
+            <form id="form-onboarding" class="space-y-4">
+                <div class="space-y-2">
+                    <label class="block text-xs font-extrabold text-snowWhite">۱. کدام عادت را می‌خواهی کنار بگذاری؟</label>
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <button type="button" data-habit="سیگار و نیکوتین" class="habit-chip chip-selected-emerald py-2 px-2.5 rounded-xl bg-appBg/75 glass-border text-xs font-bold text-snowWhite text-right truncate transition">🚬 سیگار و نیکوتین</button>
+                        <button type="button" data-habit="پورنوگرافی و خودارضایی" class="habit-chip py-2 px-2.5 rounded-xl bg-appBg/75 glass-border text-xs font-bold text-snowWhite text-right truncate transition">🔞 پورن و خودارضایی</button>
+                        <button type="button" data-habit="اسکرول بی‌هدف و فضای مجازی" class="habit-chip py-2 px-2.5 rounded-xl bg-appBg/75 glass-border text-xs font-bold text-snowWhite text-right truncate transition">📱 اسکرول و گوشی</button>
+                        <button type="button" data-habit="قند مصنوعی و فست‌فود" class="habit-chip py-2 px-2.5 rounded-xl bg-appBg/75 glass-border text-xs font-bold text-snowWhite text-right truncate transition">🍩 قند و فست‌فود</button>
+                    </div>
+                    <input id="input-habit-name" type="text" required value="سیگار و نیکوتین" placeholder="یا نام عادت دلخواهت را بنویس..." class="w-full px-3.5 py-2.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite focus:outline-none focus:border-emeraldAccent">
+                </div>
 
-    <!-- ==========================================
-         INTERACTIVE APP TOUR OVERLAY (SPOTLIGHT)
-         ========================================== -->
-    <div id="tour-overlay" class="fixed inset-0 z-[85] hidden pointer-events-auto overflow-hidden">
-        <!-- Spotlight Highlight Cutout Box -->
-        <div id="tour-spotlight" class="fixed rounded-3xl tour-spotlight-hole pointer-events-none z-[86]" style="top: 50%; left: 50%; width: 0; height: 0;"></div>
+                <div class="space-y-2">
+                    <label class="block text-xs font-extrabold text-snowWhite">۲. از چه زمانی پاکی را شروع کردی؟</label>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <button type="button" data-start-preset="now" class="ob-time-chip chip-selected-emerald py-2 px-2 rounded-xl bg-appBg/75 glass-border text-[11px] font-bold text-snowWhite transition">⚡ همین الان</button>
+                        <button type="button" data-start-preset="morning" class="ob-time-chip py-2 px-2 rounded-xl bg-appBg/75 glass-border text-[11px] font-bold text-snowWhite transition">🌅 از امروز صبح</button>
+                        <button type="button" data-start-preset="custom" class="ob-time-chip py-2 px-2 rounded-xl bg-appBg/75 glass-border text-[11px] font-bold text-snowWhite transition">📅 تاریخ دیگر...</button>
+                    </div>
+                    <div id="ob-custom-date-box" class="hidden pt-1 space-y-1.5">
+                        <div class="grid grid-cols-3 gap-1.5">
+                            <select id="ob-j-day" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite"></select>
+                            <select id="ob-j-month" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite"></select>
+                            <select id="ob-j-year" class="w-full px-2 py-2 rounded-xl bg-appBg glass-border text-xs text-snowWhite"></select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <select id="ob-j-minute" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite text-center" dir="ltr"></select>
+                            <select id="ob-j-hour" class="w-full px-2 py-1.5 rounded-xl bg-appBg glass-border text-xs text-snowWhite text-center" dir="ltr"></select>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Floating Tooltip Card -->
-        <div id="tour-tooltip" class="fixed z-[87] w-[calc(100%-2rem)] max-w-sm glass-card rounded-3xl p-5 border border-emeraldAccent/50 shadow-[0_20px_60px_rgba(0,0,0,0.85)] tour-tooltip-card" style="left: 50%; transform: translateX(-50%); bottom: 1.5rem;">
-            <div class="flex items-center justify-between mb-2">
-                <span id="tour-step-badge" class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emeraldAccent/20 text-emeraldAccent border border-emeraldAccent/30">
-                    گام ۱ از ۷
-                </span>
-                <button id="btn-tour-skip" type="button" class="text-[11px] font-bold text-mutedGray hover:text-sosRed transition px-2 py-0.5 rounded-lg">
-                    رد کردن تور ✕
+                <details class="rounded-2xl bg-appBg/75 glass-border p-3">
+                    <summary class="text-xs font-bold text-emeraldAccent cursor-pointer select-none">⚙️ تنظیم هزینه، زمان و انگیزه شخصی (اختیاری)</summary>
+                    <div class="space-y-3 pt-3 mt-2 border-t border-white/10">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[11px] font-bold text-snowWhite mb-1">هزینه روزانه (تومان)</label>
+                                <input id="input-daily-cost" type="text" inputmode="numeric" value="50,000" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-left">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-snowWhite mb-1">ساعت تلف‌شده در روز</label>
+                                <input id="input-daily-hours" type="text" inputmode="decimal" value="1.5" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite text-left">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-snowWhite mb-1">انگیزه اصلی تو برای رهایی چیست؟</label>
+                            <input id="input-core-reason" type="text" value="بازپس‌گیری تمرکز، آرامش و احترام به خودم" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-snowWhite mb-1">اگر وسوسه شدی به جایش چه کار می‌کنی؟</label>
+                            <input id="input-replacement-habit" type="text" value="نوشیدن یک لیوان آب خنک و ۱۰ نفس عمیق" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-snowWhite mb-1">عادت مثبت روزانه مکمل:</label>
+                            <input id="input-positive-habit" type="text" value="۲۰ دقیقه مطالعه یا پیاده‌روی" class="w-full px-3 py-2 rounded-xl bg-cardBg glass-border text-xs text-snowWhite">
+                        </div>
+                    </div>
+                </details>
+
+                <button type="submit" class="w-full py-3.5 rounded-2xl bg-emeraldAccent text-white font-black text-sm shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
+                    شروع مسیر رهایی من 🚀
                 </button>
-            </div>
-            <h4 id="tour-step-title" class="text-sm font-black text-snowWhite mb-1.5">عنوان راهنما</h4>
-            <p id="tour-step-desc" class="text-xs text-mutedGray leading-6 mb-4">توضیحات این بخش...</p>
-            <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
-                <button id="btn-tour-prev" type="button" class="px-3.5 py-2 rounded-xl bg-appBg glass-border text-xs font-bold text-mutedGray hover:text-snowWhite active:scale-95 transition">
-                    قبلی
-                </button>
-                <div id="tour-dots" class="flex items-center gap-1"></div>
-                <button id="btn-tour-next" type="button" class="px-4 py-2 rounded-xl bg-emeraldAccent text-white text-xs font-black shadow-lg shadow-emeraldAccent/25 active:scale-95 transition">
-                    بعدی ←
-                </button>
-            </div>
+            </form>
         </div>
     </div>
 
