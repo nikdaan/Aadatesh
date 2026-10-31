@@ -197,10 +197,18 @@
             background-color: rgba(0, 127, 104, 0.16) !important;
         }
         .floating-menubar-shadow {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.55), 0 4px 10px -4px rgba(0, 0, 0, 0.35) !important;
+            background-color: rgba(17, 24, 39, 0.42) !important;
+            backdrop-filter: blur(22px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.55), 0 4px 10px -4px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.12) !important;
         }
         html.light .floating-menubar-shadow {
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.14), 0 4px 10px -4px rgba(15, 23, 42, 0.08) !important;
+            background-color: rgba(255, 255, 255, 0.52) !important;
+            backdrop-filter: blur(22px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+            border: 1px solid rgba(15, 23, 42, 0.12) !important;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.14), 0 4px 10px -4px rgba(15, 23, 42, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
         }
         .safe-main-container {
             padding-top: max(2.75rem, calc(env(safe-area-inset-top, 20px) + 1.5rem));
